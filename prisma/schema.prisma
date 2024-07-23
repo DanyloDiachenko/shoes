@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("POSTGRES_PRISMA_URL")
+  directUrl         = env("POSTGRES_URL_NON_POOLING")
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model User {
+  id       String  @id @default(cuid())
+  name     String?
+  email    String  @unique
+  password String
+  image    String?
+
+  favorites Favorites[]
+  orders    Order[]
+  cart      Cart[]
+
+  @@map("users")
+}
+
+model Favorites {
+  id       String          @id @default(cuid())
+  title    String
+  image    String
+  category ProductCategory @default(sports)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum ProductCategory {
+  sports
+  fashion
+  gym
+  running
+  training
+}
+
+model Order {
+  id            String       @id @default(cuid())
+  subtotal      Int
+  totalDiscount Int
+  cartDiscount  CartDiscount
+  deliveryFees  Int
+  totalDue      Int
+  date          String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("orders")
+}
+
+enum CartDiscount {
+  full_disc
+  half_disc
+}
+
+model Cart {
+  id String @id @default(cuid())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  cartItem CartItem[]
+
+  @@map("cart")
+}
+
+model CartItem {
+  id                 String @id @default(cuid())
+  qty                Int
+  title              String
+  price              Int
+  image              Json
+  size               String
+  color              String
+  availableQty       Int
+  discountPercentage Int
+
+  cartId String
+  cart   Cart   @relation(fields: [cartId], references: [id])
+
+  @@map("cartItem")
+}
