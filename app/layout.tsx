@@ -9,6 +9,7 @@ import "../public/css/demos/demo-10.css";
 import { Header } from "@/components/common/Header";
 import { Metadata } from "next";
 import Script from "next/script";
+import { Footer } from "@/components/common/Footer";
 
 export const metadata: Metadata = {
     title: "Molla - Bootstrap eCommerce Template",
@@ -63,8 +64,9 @@ const RootLayout = ({
                     <div className="page-wrapper">
                         <main>{children}</main>
                     </div>
+                    <Footer />
                 </div>
-                
+
                 {/*  */}
                 <Script src="/js/jquery.min.js" strategy="beforeInteractive" />
                 <Script
