@@ -1,11 +1,11 @@
 export const Header = () => {
     return (
-        <header className="header">
+        <header className="header header-8">
             <div className="header-top">
                 <div className="container">
                     <div className="header-left">
                         <div className="header-dropdown">
-                            <a href="#">Usd</a>
+                            <a href="#">USD</a>
                             <div className="header-menu">
                                 <ul>
                                     <li>
@@ -35,6 +35,7 @@ export const Header = () => {
                             </div>
                         </div>
                     </div>
+
                     <div className="header-right">
                         <ul className="top-menu">
                             <li>
@@ -48,7 +49,7 @@ export const Header = () => {
                                     </li>
                                     <li>
                                         <a href="wishlist.html">
-                                            <i className="icon-heart-o"></i>
+                                            <i className="icon-heart-o"></i>My
                                             Wishlist <span>(3)</span>
                                         </a>
                                     </li>
@@ -72,6 +73,7 @@ export const Header = () => {
                     </div>
                 </div>
             </div>
+
             <div className="header-middle sticky-header">
                 <div className="container">
                     <div className="header-left">
@@ -82,13 +84,15 @@ export const Header = () => {
 
                         <a href="index.html" className="logo">
                             <img
-                                src="/images/logo.png"
+                                src="/images/demos/demo-10/logo.png"
                                 alt="Molla Logo"
                                 width="105"
                                 height="25"
                             />
                         </a>
+                    </div>
 
+                    <div className="header-right">
                         <nav className="main-nav">
                             <ul className="menu sf-arrows">
                                 <li className="megamenu-container active">
@@ -645,8 +649,7 @@ export const Header = () => {
 
                                                         <div className="banner-content banner-content-top">
                                                             <div className="banner-title text-white">
-                                                                Last
-                                                                <br />
+                                                                Last <br />
                                                                 Chance
                                                                 <br />
                                                                 <span>
@@ -827,7 +830,7 @@ export const Header = () => {
 
                                     <ul>
                                         <li>
-                                            <a href="blog.html">classNameic</a>
+                                            <a href="blog.html">Classic</a>
                                         </li>
                                         <li>
                                             <a href="blog-listing.html">
@@ -1004,16 +1007,9 @@ export const Header = () => {
                                 </li>
                             </ul>
                         </nav>
-                    </div>
 
-                    <div className="header-right">
                         <div className="header-search">
-                            <a
-                                href="#"
-                                className="search-toggle"
-                                role="button"
-                                title="Search"
-                            >
+                            <a href="#" className="search-toggle" role="button">
                                 <i className="icon-search"></i>
                             </a>
                             <form action="#" method="get">
@@ -1031,67 +1027,6 @@ export const Header = () => {
                                     />
                                 </div>
                             </form>
-                        </div>
-                        <div className="dropdown compare-dropdown">
-                            <a
-                                href="#"
-                                className="dropdown-toggle"
-                                role="button"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                data-display="static"
-                                title="Compare Products"
-                                aria-label="Compare Products"
-                            >
-                                <i className="icon-random"></i>
-                            </a>
-
-                            <div className="dropdown-menu dropdown-menu-right">
-                                <ul className="compare-products">
-                                    <li className="compare-product">
-                                        <a
-                                            href="#"
-                                            className="btn-remove"
-                                            title="Remove Product"
-                                        >
-                                            <i className="icon-close"></i>
-                                        </a>
-                                        <h4 className="compare-product-title">
-                                            <a href="product.html">
-                                                Blue Night Dress
-                                            </a>
-                                        </h4>
-                                    </li>
-                                    <li className="compare-product">
-                                        <a
-                                            href="#"
-                                            className="btn-remove"
-                                            title="Remove Product"
-                                        >
-                                            <i className="icon-close"></i>
-                                        </a>
-                                        <h4 className="compare-product-title">
-                                            <a href="product.html">
-                                                White Long Skirt
-                                            </a>
-                                        </h4>
-                                    </li>
-                                </ul>
-
-                                <div className="compare-actions">
-                                    <a href="#" className="action-link">
-                                        Clear All
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="btn btn-outline-primary-2"
-                                    >
-                                        <span>Compare</span>
-                                        <i className="icon-long-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
 
                         <div className="dropdown cart-dropdown">
