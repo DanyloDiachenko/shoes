@@ -1,4 +1,4 @@
-import "../public/css/bootstrap.min.css";
+/* import "../public/css/bootstrap.min.css"; */
 import "../public/css/plugins/owl-carousel/owl.carousel.css";
 import "../public/css/plugins/magnific-popup/magnific-popup.css";
 import "../public/css/plugins/jquery.countdown.css";
@@ -60,9 +60,12 @@ const RootLayout = ({
             <body>
                 <div className="page-wrapper">
                     <Header />
-                    <main>{children}</main>
+                    <div className="page-wrapper">
+                        <main>{children}</main>
+                    </div>
                 </div>
 
+                {/*  */}
                 <Script src="/js/jquery.min.js" strategy="beforeInteractive" />
                 <Script
                     src="/js/jquery.hoverIntent.min.js"

@@ -1,9 +1,9 @@
-import { Metadata } from "next";
-import Script from "next/script";
+import { Slider } from "@/components/pageComponents/home/Slider";
 
 const Home = () => {
     return (
         <>
+            <Slider />
         </>
     );
 };
