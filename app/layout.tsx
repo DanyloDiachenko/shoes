@@ -3,7 +3,6 @@ import "../public/css/plugins/owl-carousel/owl.carousel.css";
 import "../public/css/plugins/magnific-popup/magnific-popup.css";
 import "../public/css/plugins/jquery.countdown.css";
 import "../public/css/style.css";
-import "../public/css/plugins/nouislider/nouislider.css";
 import "../public/css/skins/skin-demo-10.css";
 import "../public/css/demos/demo-10.css";
 

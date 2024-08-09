@@ -4,7 +4,6 @@ import Script from "next/script";
 const Home = () => {
     return (
         <>
-            <h1>test</h1>
         </>
     );
 };
