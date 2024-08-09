@@ -1,4 +1,5 @@
 import { BannerGroup } from "@/components/pageComponents/home/BannerGroup";
+import { Services } from "@/components/pageComponents/home/Services";
 import { Slider } from "@/components/pageComponents/home/Slider";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <>
             <Slider />
             <BannerGroup />
+            <Services />
         </>
     );
 };
