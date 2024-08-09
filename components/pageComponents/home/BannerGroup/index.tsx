@@ -9,7 +9,7 @@ export const BannerGroup = () => {
                                 <div className="banner banner-overlay">
                                     <a href="#">
                                         <img
-                                            src="assets/images/demos/demo-10/banners/banner-1.jpg"
+                                            src="/images/demos/demo-10/banners/banner-1.jpg"
                                             alt="Banner"
                                         />
                                     </a>
@@ -38,7 +38,7 @@ export const BannerGroup = () => {
                                 <div className="banner banner-overlay banner-overlay-light">
                                     <a href="#">
                                         <img
-                                            src="assets/images/demos/demo-10/banners/banner-2.jpg"
+                                            src="/images/demos/demo-10/banners/banner-2.jpg"
                                             alt="Banner"
                                         />
                                     </a>
@@ -65,7 +65,7 @@ export const BannerGroup = () => {
                         <div className="banner banner-large banner-overlay d-none d-sm-block">
                             <a href="#">
                                 <img
-                                    src="assets/images/demos/demo-10/banners/banner-3.jpg"
+                                    src="/images/demos/demo-10/banners/banner-3.jpg"
                                     alt="Banner"
                                 />
                             </a>
@@ -93,7 +93,7 @@ export const BannerGroup = () => {
                         <div className="banner banner-middle banner-overlay">
                             <a href="#">
                                 <img
-                                    src="assets/images/demos/demo-10/banners/banner-4.jpg"
+                                    src="/images/demos/demo-10/banners/banner-4.jpg"
                                     alt="Banner"
                                 />
                             </a>
