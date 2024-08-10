@@ -19,16 +19,16 @@ const Products = () => {
             {/* Popups */}
             <AuthorizationPopup />
             {/* Scripts */}
-            <Script src="../../public/js/jquery.min.js" />
-            <Script src="../../public/js/bootstrap.bundle.min.js" />
-            <Script src="../../public/js/jquery.hoverIntent.min.js" />
-            <Script src="../../public/js/jquery.waypoints.min.js" />
-            <Script src="../../public/js/owl.carousel.min.js" />
-            <Script src="../../public/js/wNumb.js" />
-            <Script src="../../public/js/bootstrap-input-spinner.js" />
-            <Script src="../../public/js/jquery.magnific-popup.min.js" />
-            <Script src="../../public/js/nouislider.min.js" />
-            <Script src="../../public/js/main.js" />
+            <Script src="/js/jquery.min.js" />
+            <Script src="/js/bootstrap.bundle.min.js" />
+            <Script src="/js/jquery.hoverIntent.min.js" />
+            <Script src="/js/jquery.waypoints.min.js" />
+            <Script src="/js/owl.carousel.min.js" />
+            <Script src="/js/wNumb.js" />
+            <Script src="/js/bootstrap-input-spinner.js" />
+            <Script src="/js/jquery.magnific-popup.min.js" />
+            <Script src="/js/nouislider.min.js" />
+            <Script src="/js/main.js" />
         </>
     );
 };
