@@ -11,7 +11,6 @@ import { Metadata } from "next";
 import Script from "next/script";
 import { Footer } from "@/components/common/Footer";
 import { MobileMenu } from "@/components/common/MobileMenu";
-import { Newsletter } from "@/components/popups/Newsletter";
 
 export const metadata: Metadata = {
     title: "Molla - Bootstrap eCommerce Template",
@@ -71,22 +70,20 @@ const RootLayout = ({
                     <i className="icon-arrow-up"></i>
                 </button>
                 <div className="mobile-menu-overlay"></div>
-                <Newsletter />
-
                 {/*  */}
-                <script src="assets/js/demos/demo-10.js"></script>
-                <Script src="assets/js/jquery.min.js" />
-                <Script src="assets/js/bootstrap.bundle.min.js" />
-                <Script src="assets/js/jquery.hoverIntent.min.js" />
-                <Script src="assets/js/jquery.waypoints.min.js" />
-                <Script src="assets/js/superfish.min.js" />
-                <Script src="assets/js/owl.carousel.min.js" />
-                <Script src="assets/js/bootstrap-input-spinner.js" />
-                <Script src="assets/js/jquery.plugin.min.js" />
-                <Script src="ssets/js/jquery.magnific-popup.min.js" />
-                <Script src="assets/js/jquery.countdown.min.js" />
-                <Script src="assets/js/main.js" />
-                <Script src="assets/js/demos/demo-10.js" />
+                <script src="/js/demos/demo-10.js"></script>
+                <Script src="/js/jquery.min.js" />
+                <Script src="/js/bootstrap.bundle.min.js" />
+                <Script src="/js/jquery.hoverIntent.min.js" />
+                <Script src="/js/jquery.waypoints.min.js" />
+                <Script src="/js/superfish.min.js" />
+                <Script src="/js/owl.carousel.min.js" />
+                <Script src="/js/bootstrap-input-spinner.js" />
+                <Script src="/js/jquery.plugin.min.js" />
+                <Script src="/js/jquery.magnific-popup.min.js" />
+                <Script src="/js/jquery.countdown.min.js" />
+                <Script src="/js/main.js" />
+                <Script src="/js/demos/demo-10.js" />
             </body>
         </html>
     );
