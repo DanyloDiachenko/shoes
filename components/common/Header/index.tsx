@@ -84,7 +84,7 @@ export const Header = () => {
 
                         <a href="index.html" className="logo">
                             <img
-                                src="/images/demos/demo-10/logo.png"
+                                src="/images/logo.png"
                                 alt="Molla Logo"
                                 width="105"
                                 height="25"

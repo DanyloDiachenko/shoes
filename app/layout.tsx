@@ -1,3 +1,4 @@
+/* Home */
 import "../public/css/bootstrap.min.css";
 import "../public/css/plugins/owl-carousel/owl.carousel.css";
 import "../public/css/plugins/magnific-popup/magnific-popup.css";
@@ -5,6 +6,8 @@ import "../public/css/plugins/jquery.countdown.css";
 import "../public/css/style.css";
 import "../public/css/skins/skin-demo-10.css";
 import "../public/css/demos/demo-10.css";
+/* Products */
+import "../public/css/plugins/nouislider/nouislider.css";
 
 import { Header } from "@/components/common/Header";
 import { Metadata } from "next";
@@ -70,7 +73,7 @@ const RootLayout = ({
                     <i className="icon-arrow-up"></i>
                 </button>
                 <div className="mobile-menu-overlay"></div>
-                {/*  */}
+                {/* Home */}
                 <script src="/js/demos/demo-10.js"></script>
                 <Script src="/js/jquery.min.js" />
                 <Script src="/js/bootstrap.bundle.min.js" />
@@ -84,6 +87,9 @@ const RootLayout = ({
                 <Script src="/js/jquery.countdown.min.js" />
                 <Script src="/js/main.js" />
                 <Script src="/js/demos/demo-10.js" />
+                {/* Products */}
+                <script src="assets/js/wNumb.js"></script>
+                <script src="assets/js/nouislider.min.js"></script>
             </body>
         </html>
     );
