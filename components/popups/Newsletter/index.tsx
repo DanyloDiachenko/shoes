@@ -1,4 +1,4 @@
-export const Newsletter = () => {
+export const NewsletterPopup = () => {
     return (
         <div
             className="container newsletter-popup-container mfp-hide"

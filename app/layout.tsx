@@ -65,7 +65,7 @@ const RootLayout = ({
             <body>
                 <div className="page-wrapper">
                     <Header />
-                    <main>{children}</main>
+                    <main className="main">{children}</main>
                     <Footer />
                 </div>
                 <MobileMenu />
@@ -88,8 +88,8 @@ const RootLayout = ({
                 <Script src="/js/main.js" />
                 <Script src="/js/demos/demo-10.js" />
                 {/* Products */}
-                <script src="assets/js/wNumb.js"></script>
-                <script src="assets/js/nouislider.min.js"></script>
+                <Script src="/js/wNumb.js" />
+                <Script src="/js/nouislider.min.js" />
             </body>
         </html>
     );

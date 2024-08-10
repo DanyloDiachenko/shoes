@@ -6,7 +6,7 @@ import { NewDeals } from "@/components/pageComponents/home/NewDeals";
 import { Services } from "@/components/pageComponents/home/Services";
 import { Slider } from "@/components/pageComponents/home/Slider";
 import { TopSellingProducts } from "@/components/pageComponents/home/TopSellingProducts";
-import { Newsletter } from "@/components/popups/Newsletter";
+import { NewsletterPopup } from "@/components/popups/Newsletter";
 
 const Home = () => {
     return (
@@ -21,8 +21,8 @@ const Home = () => {
             <div className="mb-5"></div>
             <NewDeals />
             <BlogPosts />
-            {/*  */}
-            <Newsletter />
+            {/* Popups */}
+            <NewsletterPopup />
         </>
     );
 };
