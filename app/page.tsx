@@ -15,6 +15,7 @@ import { Services } from "@/components/pageComponents/home/Services";
 import { Slider } from "@/components/pageComponents/home/Slider";
 import { TopSellingProducts } from "@/components/pageComponents/home/TopSellingProducts";
 import { NewsletterPopup } from "@/components/popups/Newsletter";
+import Script from "next/script";
 
 const Home = () => {
     return (
@@ -31,6 +32,19 @@ const Home = () => {
             <BlogPosts />
             {/* Popups */}
             <NewsletterPopup />
+            {/* Scripts */}
+            <Script src="/js/demos/demo-10.js" />
+            <Script src="/js/jquery.min.js" />
+            <Script src="/js/bootstrap.bundle.min.js" />
+            <Script src="/js/jquery.hoverIntent.min.js" />
+            <Script src="/js/jquery.waypoints.min.js" />
+            <Script src="/js/superfish.min.js" />
+            <Script src="/js/owl.carousel.min.js" />
+            <Script src="/js/bootstrap-input-spinner.js" />
+            <Script src="/js/jquery.plugin.min.js" />
+            <Script src="/js/jquery.magnific-popup.min.js" />
+            <Script src="/js/jquery.countdown.min.js" />
+            <Script src="/js/main.js" />
         </>
     );
 };
