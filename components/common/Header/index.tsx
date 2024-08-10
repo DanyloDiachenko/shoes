@@ -1,6 +1,6 @@
 export const Header = () => {
     return (
-        <header className="header header-8">
+        <header className="header header-8"> {/* header - main page, header-8 - another pages */}
             <div className="header-top">
                 <div className="container">
                     <div className="header-left">
