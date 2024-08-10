@@ -1,13 +1,19 @@
 /* Home */
-import "../public/css/bootstrap.min.css";
+/* import "../public/css/bootstrap.min.css";
 import "../public/css/plugins/owl-carousel/owl.carousel.css";
 import "../public/css/plugins/magnific-popup/magnific-popup.css";
 import "../public/css/plugins/jquery.countdown.css";
 import "../public/css/style.css";
 import "../public/css/skins/skin-demo-10.css";
-import "../public/css/demos/demo-10.css";
-/* Products */
+import "../public/css/demos/demo-10.css"; */
+import "../public/css/bootstrap.min.css";
+import "../public/css/plugins/owl-carousel/owl.carousel.css";
+import "../public/css/plugins/magnific-popup/magnific-popup.css";
+import "../public/css/style.css";
 import "../public/css/plugins/nouislider/nouislider.css";
+/*  */
+/* Products */
+/* import "../public/css/plugins/nouislider/nouislider.css"; */
 
 import { Header } from "@/components/common/Header";
 import { Metadata } from "next";
