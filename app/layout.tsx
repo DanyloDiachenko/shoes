@@ -63,7 +63,7 @@ const RootLayout = ({
                 </button>
                 <div className="mobile-menu-overlay"></div>
                 {/* Home */}
-                <script src="/js/demos/demo-10.js"></script>
+                <Script src="/js/demos/demo-10.js" />
                 <Script src="/js/jquery.min.js" />
                 <Script src="/js/bootstrap.bundle.min.js" />
                 <Script src="/js/jquery.hoverIntent.min.js" />
@@ -75,7 +75,6 @@ const RootLayout = ({
                 <Script src="/js/jquery.magnific-popup.min.js" />
                 <Script src="/js/jquery.countdown.min.js" />
                 <Script src="/js/main.js" />
-                <Script src="/js/demos/demo-10.js" />
                 {/* Products */}
                 <Script src="/js/wNumb.js" />
                 <Script src="/js/nouislider.min.js" />
