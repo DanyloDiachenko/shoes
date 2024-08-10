@@ -10,6 +10,8 @@ import { Header } from "@/components/common/Header";
 import { Metadata } from "next";
 import Script from "next/script";
 import { Footer } from "@/components/common/Footer";
+import { MobileMenu } from "@/components/common/MobileMenu";
+import { Newsletter } from "@/components/popups/Newsletter";
 
 export const metadata: Metadata = {
     title: "Molla - Bootstrap eCommerce Template",
@@ -61,11 +63,15 @@ const RootLayout = ({
             <body>
                 <div className="page-wrapper">
                     <Header />
-                    <div className="page-wrapper">
-                        <main>{children}</main>
-                    </div>
+                    <main>{children}</main>
                     <Footer />
                 </div>
+                <MobileMenu />
+                <button id="scroll-top" title="Back to Top">
+                    <i className="icon-arrow-up"></i>
+                </button>
+                <div className="mobile-menu-overlay"></div>
+                <Newsletter />
 
                 {/*  */}
                 <script src="assets/js/demos/demo-10.js"></script>
