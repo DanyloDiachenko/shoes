@@ -7,8 +7,7 @@ export const PageContent = () => {
                         <div className="toolbox">
                             <div className="toolbox-left">
                                 <div className="toolbox-info">
-                                    Showing
-                                    <span>9 of 56</span> Products
+                                    Showing <span>9 of 56</span> Products
                                 </div>
                             </div>
 
@@ -19,7 +18,7 @@ export const PageContent = () => {
                                         <select
                                             name="sortby"
                                             id="sortby"
-                                            className="htmlForm-control"
+                                            className="form-control"
                                         >
                                             <option
                                                 value="popularity"
