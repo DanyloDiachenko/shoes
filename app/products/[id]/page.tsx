@@ -23,9 +23,9 @@ const Product = () => {
             <Script src="/js/bootstrap.bundle.min.js" />
             <Script src="/js/jquery.hoverIntent.min.js" />
             <Script src="/js/jquery.waypoints.min.js" />
-            <Script src="assets/js/superfish.min.js" />
+            <Script src="/js/superfish.min.js" />
             <Script src="/js/owl.carousel.min.js" />
-            <Script src="assets/js/jquery.elevateZoom.min.js" />
+            <Script src="/js/jquery.elevateZoom.min.js" />
             <Script src="/js/bootstrap-input-spinner.js" />
             <Script src="/js/jquery.magnific-popup.min.js" />
             <Script src="/js/main.js" />
