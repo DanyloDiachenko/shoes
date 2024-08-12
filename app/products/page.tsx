@@ -4,10 +4,10 @@ import "../../public/css/plugins/magnific-popup/magnific-popup.css";
 import "../../public/css/style.css";
 import "../../public/css/plugins/nouislider/nouislider.css";
 /*  */
-import { PageContent } from "@/components/pageComponents/products/PageContent";
-import { PageHeader } from "@/components/pageComponents/products/PageHeader";
+import { ProductsPageContent } from "@/components/pageComponents/products/PageContent";
+import { PageHeader } from "@/components/common/PageHeader";
 import { AuthorizationPopup } from "@/components/popups/Authorization";
-import { Breadcrumbs } from "@/components/UI/Breadcrumbs";
+import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import Script from "next/script";
 
 const Products = () => {
@@ -15,7 +15,7 @@ const Products = () => {
         <>
             <PageHeader />
             <Breadcrumbs />
-            <PageContent />
+            <ProductsPageContent />
             {/* Popups */}
             <AuthorizationPopup />
             {/* Scripts */}

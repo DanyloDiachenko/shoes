@@ -5,15 +5,15 @@ import "../../../public/css/style.css";
 import "../../../public/css/plugins/nouislider/nouislider.css";
 import { AuthorizationPopup } from "@/components/popups/Authorization";
 import Script from "next/script";
-import { Breadcrumbs } from "@/components/UI/Breadcrumbs";
-import { PageContent } from "@/components/pageComponents/product/PageContent";
+import { Breadcrumbs } from "@/components/common/Breadcrumbs";
+import { ProductPageContent } from "@/components/pageComponents/product/PageContent";
 import { StickyBar } from "@/components/pageComponents/product/StickyBar";
 
 const Product = () => {
     return (
         <>
             <Breadcrumbs />
-            <PageContent />
+            <ProductPageContent />
             {/* Additional */}
             <StickyBar />
             {/* Popups */}

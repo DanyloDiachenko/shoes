@@ -1,4 +1,4 @@
-export const PageContent = () => {
+export const ProductsPageContent = () => {
     return (
         <div className="page-content">
             <div className="container">
