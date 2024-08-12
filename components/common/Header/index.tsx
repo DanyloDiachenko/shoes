@@ -5,7 +5,6 @@ export const Header = () => {
     return (
         <header className="header">
             <HeaderTop />
-
             <div className="header-middle sticky-header">
                 <div className="container">
                     <div className="header-left">
