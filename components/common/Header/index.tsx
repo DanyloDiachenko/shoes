@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const Header = () => {
     return (
         <header className="header">
@@ -5,31 +7,31 @@ export const Header = () => {
                 <div className="container">
                     <div className="header-left">
                         <div className="header-dropdown">
-                            <a href="#">Usd</a>
+                            <Link href="#">Usd</Link>
                             <div className="header-menu">
                                 <ul>
                                     <li>
-                                        <a href="#">Eur</a>
+                                        <Link href="#">Eur</Link>
                                     </li>
                                     <li>
-                                        <a href="#">Usd</a>
+                                        <Link href="#">Usd</Link>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
                         <div className="header-dropdown">
-                            <a href="#">Eng</a>
+                            <Link href="#">Eng</Link>
                             <div className="header-menu">
                                 <ul>
                                     <li>
-                                        <a href="#">English</a>
+                                        <Link href="#">English</Link>
                                     </li>
                                     <li>
-                                        <a href="#">French</a>
+                                        <Link href="#">French</Link>
                                     </li>
                                     <li>
-                                        <a href="#">Spanish</a>
+                                        <Link href="#">Spanish</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -39,33 +41,35 @@ export const Header = () => {
                     <div className="header-right">
                         <ul className="top-menu">
                             <li>
-                                <a href="#">Links</a>
+                                <Link href="#">Links</Link>
                                 <ul>
                                     <li>
-                                        <a href="tel:#">
+                                        <Link href="tel:#">
                                             <i className="icon-phone"></i>Call:
                                             +0123 456 789
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="wishlist.html">
+                                        <Link href="wishlist.html">
                                             <i className="icon-heart-o"></i>
                                             Wishlist <span>(3)</span>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="about.html">About Us</a>
+                                        <Link href="about.html">About Us</Link>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact Us</a>
+                                        <Link href="contact.html">
+                                            Contact Us
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             href="#signin-modal"
                                             data-toggle="modal"
                                         >
                                             <i className="icon-user"></i>Login
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </li>
@@ -82,21 +86,24 @@ export const Header = () => {
                             <i className="icon-bars"></i>
                         </button>
 
-                        <a href="index.html" className="logo">
+                        <Link href="index.html" className="logo">
                             <img
                                 src="/images/logo.png"
                                 alt="Molla Logo"
                                 width="105"
                                 height="25"
                             />
-                        </a>
+                        </Link>
 
                         <nav className="main-nav">
                             <ul className="menu sf-arrows">
                                 <li className="megamenu-container active">
-                                    <a href="index.html" className="sf-with-ul">
+                                    <Link
+                                        href="index.html"
+                                        className="sf-with-ul"
+                                    >
                                         Home
-                                    </a>
+                                    </Link>
 
                                     <div className="megamenu demo">
                                         <div className="menu-col">
@@ -106,7 +113,7 @@ export const Header = () => {
 
                                             <div className="demo-list">
                                                 <div className="demo-item">
-                                                    <a href="index-1.html">
+                                                    <Link href="index-1.html">
                                                         <span
                                                             className="demo-bg"
                                                             style={{
@@ -117,29 +124,29 @@ export const Header = () => {
                                                         <span className="demo-title">
                                                             01 - furniture store
                                                         </span>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             </div>
 
                                             <div className="megamenu-action text-center">
-                                                <a
+                                                <Link
                                                     href="#"
                                                     className="btn btn-outline-primary-2 view-all-demos"
                                                 >
                                                     <span>View All Demos</span>
                                                     <i className="icon-long-arrow-right"></i>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link
                                         href="category.html"
                                         className="sf-with-ul"
                                     >
                                         Shop
-                                    </a>
+                                    </Link>
 
                                     <div className="megamenu megamenu-md">
                                         <div className="row no-gutters">
@@ -153,34 +160,34 @@ export const Header = () => {
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="category-list.html">
+                                                                    <Link href="category-list.html">
                                                                         Shop
                                                                         List
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="category-2cols.html">
+                                                                    <Link href="category-2cols.html">
                                                                         Shop
                                                                         Grid 2
                                                                         Columns
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="category.html">
+                                                                    <Link href="category.html">
                                                                         Shop
                                                                         Grid 3
                                                                         Columns
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="category-4cols.html">
+                                                                    <Link href="category-4cols.html">
                                                                         Shop
                                                                         Grid 4
                                                                         Columns
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="category-market.html">
+                                                                    <Link href="category-market.html">
                                                                         <span>
                                                                             Shop
                                                                             Market
@@ -188,7 +195,7 @@ export const Header = () => {
                                                                                 New
                                                                             </span>
                                                                         </span>
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                             </ul>
 
@@ -197,7 +204,7 @@ export const Header = () => {
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="category-boxed.html">
+                                                                    <Link href="category-boxed.html">
                                                                         <span>
                                                                             Shop
                                                                             Boxed
@@ -207,15 +214,15 @@ export const Header = () => {
                                                                                 Hot
                                                                             </span>
                                                                         </span>
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="category-fullwidth.html">
+                                                                    <Link href="category-fullwidth.html">
                                                                         Shop
                                                                         Fullwidth
                                                                         No
                                                                         Sidebar
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -226,14 +233,14 @@ export const Header = () => {
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="product-category-boxed.html">
+                                                                    <Link href="product-category-boxed.html">
                                                                         Product
                                                                         Category
                                                                         Boxed
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-category-fullwidth.html">
+                                                                    <Link href="product-category-fullwidth.html">
                                                                         <span>
                                                                             Product
                                                                             Category
@@ -242,7 +249,7 @@ export const Header = () => {
                                                                                 New
                                                                             </span>
                                                                         </span>
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                             </ul>
                                                             <div className="menu-title">
@@ -250,30 +257,30 @@ export const Header = () => {
                                                             </div>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="cart.html">
+                                                                    <Link href="cart.html">
                                                                         Cart
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="checkout.html">
+                                                                    <Link href="checkout.html">
                                                                         Checkout
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="wishlist.html">
+                                                                    <Link href="wishlist.html">
                                                                         Wishlist
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dashboard.html">
+                                                                    <Link href="dashboard.html">
                                                                         My
                                                                         Account
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="#">
+                                                                    <Link href="#">
                                                                         Lookbook
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -283,7 +290,7 @@ export const Header = () => {
 
                                             <div className="col-md-4">
                                                 <div className="banner banner-overlay">
-                                                    <a
+                                                    <Link
                                                         href="category.html"
                                                         className="banner banner-menu"
                                                     >
@@ -305,19 +312,19 @@ export const Header = () => {
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link
                                         href="product.html"
                                         className="sf-with-ul"
                                     >
                                         Product
-                                    </a>
+                                    </Link>
 
                                     <div className="megamenu megamenu-sm">
                                         <div className="row no-gutters">
@@ -328,17 +335,17 @@ export const Header = () => {
                                                     </div>
                                                     <ul>
                                                         <li>
-                                                            <a href="product.html">
+                                                            <Link href="product.html">
                                                                 Default
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                         <li>
-                                                            <a href="product-centered.html">
+                                                            <Link href="product-centered.html">
                                                                 Centered
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                         <li>
-                                                            <a href="product-extended.html">
+                                                            <Link href="product-extended.html">
                                                                 <span>
                                                                     Extended
                                                                     Info
@@ -346,34 +353,34 @@ export const Header = () => {
                                                                         New
                                                                     </span>
                                                                 </span>
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                         <li>
-                                                            <a href="product-gallery.html">
+                                                            <Link href="product-gallery.html">
                                                                 Gallery
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                         <li>
-                                                            <a href="product-sticky.html">
+                                                            <Link href="product-sticky.html">
                                                                 Sticky Info
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                         <li>
-                                                            <a href="product-sidebar.html">
+                                                            <Link href="product-sidebar.html">
                                                                 Boxed With
                                                                 Sidebar
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                         <li>
-                                                            <a href="product-fullwidth.html">
+                                                            <Link href="product-fullwidth.html">
                                                                 Full Width
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                         <li>
-                                                            <a href="product-masonry.html">
+                                                            <Link href="product-masonry.html">
                                                                 Masonry Sticky
                                                                 Info
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -381,7 +388,7 @@ export const Header = () => {
 
                                             <div className="col-md-6">
                                                 <div className="banner banner-overlay">
-                                                    <a href="category.html">
+                                                    <Link href="category.html">
                                                         <img
                                                             src="/images/menu/banner-2.jpg"
                                                             alt="Banner"
@@ -399,255 +406,262 @@ export const Header = () => {
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#" className="sf-with-ul">
+                                    <Link href="#" className="sf-with-ul">
                                         Pages
-                                    </a>
+                                    </Link>
 
                                     <ul>
                                         <li>
-                                            <a
+                                            <Link
                                                 href="about.html"
                                                 className="sf-with-ul"
                                             >
                                                 About
-                                            </a>
+                                            </Link>
 
                                             <ul>
                                                 <li>
-                                                    <a href="about.html">
+                                                    <Link href="about.html">
                                                         About 01
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="about-2.html">
+                                                    <Link href="about-2.html">
                                                         About 02
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 href="contact.html"
                                                 className="sf-with-ul"
                                             >
                                                 Contact
-                                            </a>
+                                            </Link>
 
                                             <ul>
                                                 <li>
-                                                    <a href="contact.html">
+                                                    <Link href="contact.html">
                                                         Contact 01
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="contact-2.html">
+                                                    <Link href="contact-2.html">
                                                         Contact 02
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="login.html">Login</a>
+                                            <Link href="login.html">Login</Link>
                                         </li>
                                         <li>
-                                            <a href="faq.html">FAQs</a>
+                                            <Link href="faq.html">FAQs</Link>
                                         </li>
                                         <li>
-                                            <a href="404.html">Error 404</a>
+                                            <Link href="404.html">
+                                                Error 404
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="coming-soon.html">
+                                            <Link href="coming-soon.html">
                                                 Coming Soon
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="blog.html" className="sf-with-ul">
+                                    <Link
+                                        href="blog.html"
+                                        className="sf-with-ul"
+                                    >
                                         Blog
-                                    </a>
+                                    </Link>
 
                                     <ul>
                                         <li>
-                                            <a href="blog.html">Classic</a>
+                                            <Link href="blog.html">
+                                                Classic
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="blog-listing.html">
+                                            <Link href="blog-listing.html">
                                                 Listing
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="#">Grid</a>
+                                            <Link href="#">Grid</Link>
                                             <ul>
                                                 <li>
-                                                    <a href="blog-grid-2cols.html">
+                                                    <Link href="blog-grid-2cols.html">
                                                         Grid 2 columns
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="blog-grid-3cols.html">
+                                                    <Link href="blog-grid-3cols.html">
                                                         Grid 3 columns
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="blog-grid-4cols.html">
+                                                    <Link href="blog-grid-4cols.html">
                                                         Grid 4 columns
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="blog-grid-sidebar.html">
+                                                    <Link href="blog-grid-sidebar.html">
                                                         Grid sidebar
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="#">Masonry</a>
+                                            <Link href="#">Masonry</Link>
                                             <ul>
                                                 <li>
-                                                    <a href="blog-masonry-2cols.html">
+                                                    <Link href="blog-masonry-2cols.html">
                                                         Masonry 2 columns
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="blog-masonry-3cols.html">
+                                                    <Link href="blog-masonry-3cols.html">
                                                         Masonry 3 columns
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="blog-masonry-4cols.html">
+                                                    <Link href="blog-masonry-4cols.html">
                                                         Masonry 4 columns
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="blog-masonry-sidebar.html">
+                                                    <Link href="blog-masonry-sidebar.html">
                                                         Masonry sidebar
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="#">Mask</a>
+                                            <Link href="#">Mask</Link>
                                             <ul>
                                                 <li>
-                                                    <a href="blog-mask-grid.html">
+                                                    <Link href="blog-mask-grid.html">
                                                         Blog mask grid
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="blog-mask-masonry.html">
+                                                    <Link href="blog-mask-masonry.html">
                                                         Blog mask masonry
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="#">Single Post</a>
+                                            <Link href="#">Single Post</Link>
                                             <ul>
                                                 <li>
-                                                    <a href="single.html">
+                                                    <Link href="single.html">
                                                         Default with sidebar
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="single-fullwidth.html">
+                                                    <Link href="single-fullwidth.html">
                                                         Fullwidth no sidebar
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="single-fullwidth-sidebar.html">
+                                                    <Link href="single-fullwidth-sidebar.html">
                                                         Fullwidth with sidebar
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link
                                         href="elements-list.html"
                                         className="sf-with-ul"
                                     >
                                         Elements
-                                    </a>
+                                    </Link>
 
                                     <ul>
                                         <li>
-                                            <a href="elements-products.html">
+                                            <Link href="elements-products.html">
                                                 Products
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-typography.html">
+                                            <Link href="elements-typography.html">
                                                 Typography
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-titles.html">
+                                            <Link href="elements-titles.html">
                                                 Titles
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-banners.html">
+                                            <Link href="elements-banners.html">
                                                 Banners
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-product-category.html">
+                                            <Link href="elements-product-category.html">
                                                 Product Category
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-video-banners.html">
+                                            <Link href="elements-video-banners.html">
                                                 Video Banners
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-buttons.html">
+                                            <Link href="elements-buttons.html">
                                                 Buttons
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-accordions.html">
+                                            <Link href="elements-accordions.html">
                                                 Accordions
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-tabs.html">
+                                            <Link href="elements-tabs.html">
                                                 Tabs
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-testimonials.html">
+                                            <Link href="elements-testimonials.html">
                                                 Testimonials
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-blog-posts.html">
+                                            <Link href="elements-blog-posts.html">
                                                 Blog Posts
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-portfolio.html">
+                                            <Link href="elements-portfolio.html">
                                                 Portfolio
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-cta.html">
+                                            <Link href="elements-cta.html">
                                                 Call to Action
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="elements-icon-boxes.html">
+                                            <Link href="elements-icon-boxes.html">
                                                 Icon Boxes
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </li>
@@ -657,14 +671,14 @@ export const Header = () => {
 
                     <div className="header-right">
                         <div className="header-search">
-                            <a
+                            <Link
                                 href="#"
                                 className="search-toggle"
                                 role="button"
                                 title="Search"
                             >
                                 <i className="icon-search"></i>
-                            </a>
+                            </Link>
                             <form action="#" method="get">
                                 <div className="header-search-wrapper">
                                     <label htmlFor="q" className="sr-only">
@@ -682,7 +696,7 @@ export const Header = () => {
                             </form>
                         </div>
                         <div className="dropdown compare-dropdown">
-                            <a
+                            <Link
                                 href="#"
                                 className="dropdown-toggle"
                                 role="button"
@@ -694,57 +708,57 @@ export const Header = () => {
                                 aria-label="Compare Products"
                             >
                                 <i className="icon-random"></i>
-                            </a>
+                            </Link>
 
                             <div className="dropdown-menu dropdown-menu-right">
                                 <ul className="compare-products">
                                     <li className="compare-product">
-                                        <a
+                                        <Link
                                             href="#"
                                             className="btn-remove"
                                             title="Remove Product"
                                         >
                                             <i className="icon-close"></i>
-                                        </a>
+                                        </Link>
                                         <h4 className="compare-product-title">
-                                            <a href="product.html">
+                                            <Link href="product.html">
                                                 Blue Night Dress
-                                            </a>
+                                            </Link>
                                         </h4>
                                     </li>
                                     <li className="compare-product">
-                                        <a
+                                        <Link
                                             href="#"
                                             className="btn-remove"
                                             title="Remove Product"
                                         >
                                             <i className="icon-close"></i>
-                                        </a>
+                                        </Link>
                                         <h4 className="compare-product-title">
-                                            <a href="product.html">
+                                            <Link href="product.html">
                                                 White Long Skirt
-                                            </a>
+                                            </Link>
                                         </h4>
                                     </li>
                                 </ul>
 
                                 <div className="compare-actions">
-                                    <a href="#" className="action-link">
+                                    <Link href="#" className="action-link">
                                         Clear All
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         href="#"
                                         className="btn btn-outline-primary-2"
                                     >
                                         <span>Compare</span>
                                         <i className="icon-long-arrow-right"></i>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
 
                         <div className="dropdown cart-dropdown">
-                            <a
+                            <Link
                                 href="#"
                                 className="dropdown-toggle"
                                 role="button"
@@ -755,17 +769,17 @@ export const Header = () => {
                             >
                                 <i className="icon-shopping-cart"></i>
                                 <span className="cart-count">2</span>
-                            </a>
+                            </Link>
 
                             <div className="dropdown-menu dropdown-menu-right">
                                 <div className="dropdown-cart-products">
                                     <div className="product">
                                         <div className="product-cart-details">
                                             <h4 className="product-title">
-                                                <a href="product.html">
+                                                <Link href="product.html">
                                                     Beige knitted elastic runner
                                                     shoes
-                                                </a>
+                                                </Link>
                                             </h4>
 
                                             <span className="cart-product-info">
@@ -777,7 +791,7 @@ export const Header = () => {
                                         </div>
 
                                         <figure className="product-image-container">
-                                            <a
+                                            <Link
                                                 href="product.html"
                                                 className="product-image"
                                             >
@@ -785,24 +799,24 @@ export const Header = () => {
                                                     src="/images/products/cart/product-1.jpg"
                                                     alt="product"
                                                 />
-                                            </a>
+                                            </Link>
                                         </figure>
-                                        <a
+                                        <Link
                                             href="#"
                                             className="btn-remove"
                                             title="Remove Product"
                                         >
                                             <i className="icon-close"></i>
-                                        </a>
+                                        </Link>
                                     </div>
 
                                     <div className="product">
                                         <div className="product-cart-details">
                                             <h4 className="product-title">
-                                                <a href="product.html">
+                                                <Link href="product.html">
                                                     Blue utility pinafore denim
                                                     dress
-                                                </a>
+                                                </Link>
                                             </h4>
 
                                             <span className="cart-product-info">
@@ -814,7 +828,7 @@ export const Header = () => {
                                         </div>
 
                                         <figure className="product-image-container">
-                                            <a
+                                            <Link
                                                 href="product.html"
                                                 className="product-image"
                                             >
@@ -822,15 +836,15 @@ export const Header = () => {
                                                     src="/images/products/cart/product-2.jpg"
                                                     alt="product"
                                                 />
-                                            </a>
+                                            </Link>
                                         </figure>
-                                        <a
+                                        <Link
                                             href="#"
                                             className="btn-remove"
                                             title="Remove Product"
                                         >
                                             <i className="icon-close"></i>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
 
@@ -843,19 +857,19 @@ export const Header = () => {
                                 </div>
 
                                 <div className="dropdown-cart-action">
-                                    <a
+                                    <Link
                                         href="cart.html"
                                         className="btn btn-primary"
                                     >
                                         View Cart
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         href="checkout.html"
                                         className="btn btn-outline-primary-2"
                                     >
                                         <span>Checkout</span>
                                         <i className="icon-long-arrow-right"></i>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
