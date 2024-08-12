@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { CurrencyDropdown } from "./CurrencyDropdown";
 import { LanguageDropdown } from "./LanguageDropdown";
 import { Links } from "./Links";
