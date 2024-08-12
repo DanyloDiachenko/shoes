@@ -9,8 +9,7 @@ export const HeaderMiddle = () => {
                         <span className="sr-only">Toggle mobile menu</span>
                         <i className="icon-bars"></i>
                     </button>
-
-                    <Link href="index.html" className="logo">
+                    <Link href="/" className="logo">
                         <img
                             src="/images/logo.png"
                             alt="Molla Logo"
@@ -18,11 +17,10 @@ export const HeaderMiddle = () => {
                             height="25"
                         />
                     </Link>
-
                     <nav className="main-nav">
                         <ul className="menu sf-arrows">
                             <li className="megamenu-container active">
-                                <Link href="index.html" className="sf-with-ul">
+                                <Link href="/" className="sf-with-ul">
                                     Home
                                 </Link>
 
@@ -779,4 +777,4 @@ export const HeaderMiddle = () => {
             </div>
         </div>
     );
-}
+};
