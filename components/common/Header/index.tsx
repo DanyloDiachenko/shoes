@@ -1,82 +1,10 @@
 import Link from "next/link";
+import { HeaderTop } from "./HeaderTop";
 
 export const Header = () => {
     return (
         <header className="header">
-            <div className="header-top">
-                <div className="container">
-                    <div className="header-left">
-                        <div className="header-dropdown">
-                            <Link href="#">Usd</Link>
-                            <div className="header-menu">
-                                <ul>
-                                    <li>
-                                        <Link href="#">Eur</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">Usd</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="header-dropdown">
-                            <Link href="#">Eng</Link>
-                            <div className="header-menu">
-                                <ul>
-                                    <li>
-                                        <Link href="#">English</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">French</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">Spanish</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="header-right">
-                        <ul className="top-menu">
-                            <li>
-                                <Link href="#">Links</Link>
-                                <ul>
-                                    <li>
-                                        <Link href="tel:#">
-                                            <i className="icon-phone"></i>Call:
-                                            +0123 456 789
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="wishlist.html">
-                                            <i className="icon-heart-o"></i>
-                                            Wishlist <span>(3)</span>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="about.html">About Us</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="contact.html">
-                                            Contact Us
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            href="#signin-modal"
-                                            data-toggle="modal"
-                                        >
-                                            <i className="icon-user"></i>Login
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <HeaderTop />
 
             <div className="header-middle sticky-header">
                 <div className="container">
