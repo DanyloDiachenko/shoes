@@ -23,7 +23,6 @@ export const HeaderMiddle = () => {
                                 <Link href="/" className="sf-with-ul">
                                     Home
                                 </Link>
-
                                 <div className="megamenu demo">
                                     <div className="menu-col">
                                         <div className="menu-title">
@@ -46,7 +45,6 @@ export const HeaderMiddle = () => {
                                                 </Link>
                                             </div>
                                         </div>
-
                                         <div className="megamenu-action text-center">
                                             <Link
                                                 href="#"
@@ -61,12 +59,11 @@ export const HeaderMiddle = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="category.html"
+                                    href="/products"
                                     className="sf-with-ul"
                                 >
                                     Shop
                                 </Link>
-
                                 <div className="megamenu megamenu-md">
                                     <div className="row no-gutters">
                                         <div className="col-md-8">
