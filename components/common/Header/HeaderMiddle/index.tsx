@@ -19,213 +19,6 @@ export const HeaderMiddle = () => {
                     </Link>
                     <nav className="main-nav">
                         <ul className="menu sf-arrows">
-                            <li className="megamenu-container active">
-                                <Link href="/" className="sf-with-ul">
-                                    Home
-                                </Link>
-                                <div className="megamenu demo">
-                                    <div className="menu-col">
-                                        <div className="menu-title">
-                                            Choose your demo
-                                        </div>
-
-                                        <div className="demo-list">
-                                            <div className="demo-item">
-                                                <Link href="index-1.html">
-                                                    <span
-                                                        className="demo-bg"
-                                                        style={{
-                                                            backgroundImage:
-                                                                "url(/images/menu/demos/1.jpg)",
-                                                        }}
-                                                    ></span>
-                                                    <span className="demo-title">
-                                                        01 - furniture store
-                                                    </span>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                        <div className="megamenu-action text-center">
-                                            <Link
-                                                href="#"
-                                                className="btn btn-outline-primary-2 view-all-demos"
-                                            >
-                                                <span>View All Demos</span>
-                                                <i className="icon-long-arrow-right"></i>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/products"
-                                    className="sf-with-ul"
-                                >
-                                    Shop
-                                </Link>
-                                <div className="megamenu megamenu-md">
-                                    <div className="row no-gutters">
-                                        <div className="col-md-8">
-                                            <div className="menu-col">
-                                                <div className="row">
-                                                    <div className="col-md-6">
-                                                        <div className="menu-title">
-                                                            Shop with sidebar
-                                                        </div>
-                                                        <ul>
-                                                            <li>
-                                                                <Link href="category-list.html">
-                                                                    Shop List
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="category-2cols.html">
-                                                                    Shop Grid 2
-                                                                    Columns
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="category.html">
-                                                                    Shop Grid 3
-                                                                    Columns
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="category-4cols.html">
-                                                                    Shop Grid 4
-                                                                    Columns
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="category-market.html">
-                                                                    <span>
-                                                                        Shop
-                                                                        Market
-                                                                        <span className="tip tip-new">
-                                                                            New
-                                                                        </span>
-                                                                    </span>
-                                                                </Link>
-                                                            </li>
-                                                        </ul>
-
-                                                        <div className="menu-title">
-                                                            Shop no sidebar
-                                                        </div>
-                                                        <ul>
-                                                            <li>
-                                                                <Link href="category-boxed.html">
-                                                                    <span>
-                                                                        Shop
-                                                                        Boxed No
-                                                                        Sidebar
-                                                                        <span className="tip tip-hot">
-                                                                            Hot
-                                                                        </span>
-                                                                    </span>
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="category-fullwidth.html">
-                                                                    Shop
-                                                                    Fullwidth No
-                                                                    Sidebar
-                                                                </Link>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div className="col-md-6">
-                                                        <div className="menu-title">
-                                                            Product Category
-                                                        </div>
-                                                        <ul>
-                                                            <li>
-                                                                <Link href="product-category-boxed.html">
-                                                                    Product
-                                                                    Category
-                                                                    Boxed
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="product-category-fullwidth.html">
-                                                                    <span>
-                                                                        Product
-                                                                        Category
-                                                                        Fullwidth
-                                                                        <span className="tip tip-new">
-                                                                            New
-                                                                        </span>
-                                                                    </span>
-                                                                </Link>
-                                                            </li>
-                                                        </ul>
-                                                        <div className="menu-title">
-                                                            Shop Pages
-                                                        </div>
-                                                        <ul>
-                                                            <li>
-                                                                <Link href="cart.html">
-                                                                    Cart
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="checkout.html">
-                                                                    Checkout
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="wishlist.html">
-                                                                    Wishlist
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="dashboard.html">
-                                                                    My Account
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="#">
-                                                                    Lookbook
-                                                                </Link>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-md-4">
-                                            <div className="banner banner-overlay">
-                                                <Link
-                                                    href="category.html"
-                                                    className="banner banner-menu"
-                                                >
-                                                    <img
-                                                        src="/images/menu/banner-1.jpg"
-                                                        alt="Banner"
-                                                    />
-
-                                                    <div className="banner-content banner-content-top">
-                                                        <div className="banner-title text-white">
-                                                            Last
-                                                            <br />
-                                                            Chance
-                                                            <br />
-                                                            <span>
-                                                                <strong>
-                                                                    Sale
-                                                                </strong>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
                             <li>
                                 <Link
                                     href="product.html"
@@ -243,17 +36,17 @@ export const HeaderMiddle = () => {
                                                 </div>
                                                 <ul>
                                                     <li>
-                                                        <Link href="product.html">
+                                                        <Link href="#">
                                                             Default
                                                         </Link>
                                                     </li>
                                                     <li>
-                                                        <Link href="product-centered.html">
+                                                        <Link href="#">
                                                             Centered
                                                         </Link>
                                                     </li>
                                                     <li>
-                                                        <Link href="product-extended.html">
+                                                        <Link href="#">
                                                             <span>
                                                                 Extended Info
                                                                 <span className="tip tip-new">
@@ -262,38 +55,12 @@ export const HeaderMiddle = () => {
                                                             </span>
                                                         </Link>
                                                     </li>
-                                                    <li>
-                                                        <Link href="product-gallery.html">
-                                                            Gallery
-                                                        </Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link href="product-sticky.html">
-                                                            Sticky Info
-                                                        </Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link href="product-sidebar.html">
-                                                            Boxed With Sidebar
-                                                        </Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link href="product-fullwidth.html">
-                                                            Full Width
-                                                        </Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link href="product-masonry.html">
-                                                            Masonry Sticky Info
-                                                        </Link>
-                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
-
                                         <div className="col-md-6">
                                             <div className="banner banner-overlay">
-                                                <Link href="category.html">
+                                                <Link href="/products">
                                                     <img
                                                         src="/images/menu/banner-2.jpg"
                                                         alt="Banner"
@@ -305,7 +72,7 @@ export const HeaderMiddle = () => {
                                                             <br />
                                                             <span>
                                                                 <strong>
-                                                                    spring 2019
+                                                                    spring 2024
                                                                 </strong>
                                                             </span>
                                                         </div>

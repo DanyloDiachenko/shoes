@@ -31,7 +31,7 @@ const Home = () => {
             <NewDeals />
             <BlogPosts />
             {/* Popups */}
-            <NewsletterPopup />
+            {/* <NewsletterPopup /> */}
             {/* Scripts */}
             <Script src="/js/jquery.min.js" />
             <Script src="/js/bootstrap.bundle.min.js" />
