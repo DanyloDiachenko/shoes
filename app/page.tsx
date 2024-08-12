@@ -16,6 +16,7 @@ import { Slider } from "@/components/pageComponents/home/Slider";
 import { TopSellingProducts } from "@/components/pageComponents/home/TopSellingProducts";
 import { NewsletterPopup } from "@/components/popups/Newsletter";
 import Script from "next/script";
+import { Subscribe } from "@/components/pageComponents/home/Subscribe";
 
 const Home = () => {
     return (
@@ -30,6 +31,7 @@ const Home = () => {
             <div className="mb-5"></div>
             <NewDeals />
             <BlogPosts />
+            <Subscribe />
             {/* Popups */}
             {/* <NewsletterPopup /> */}
             {/* Scripts */}
