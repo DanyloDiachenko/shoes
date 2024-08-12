@@ -33,7 +33,6 @@ const Home = () => {
             {/* Popups */}
             <NewsletterPopup />
             {/* Scripts */}
-            <Script src="/js/demos/demo-10.js" />
             <Script src="/js/jquery.min.js" />
             <Script src="/js/bootstrap.bundle.min.js" />
             <Script src="/js/jquery.hoverIntent.min.js" />
