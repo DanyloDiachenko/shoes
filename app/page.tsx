@@ -17,6 +17,7 @@ import { TopSellingProducts } from "@/components/pageComponents/home/TopSellingP
 import { NewsletterPopup } from "@/components/popups/Newsletter";
 import Script from "next/script";
 import { Subscribe } from "@/components/pageComponents/home/Subscribe";
+import { AuthorizationPopup } from "@/components/popups/Authorization";
 
 const Home = () => {
     return (
@@ -34,6 +35,7 @@ const Home = () => {
             <Subscribe />
             {/* Popups */}
             <NewsletterPopup />
+            <AuthorizationPopup />
             {/* Scripts */}
             <Script src="/js/jquery.min.js" />
             <Script src="/js/bootstrap.bundle.min.js" />
