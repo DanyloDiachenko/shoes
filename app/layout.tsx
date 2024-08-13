@@ -1,7 +1,15 @@
-import { Header } from "@/components/common/Header";
 import { Metadata } from "next";
+import { Poppins } from "next/font/google";
 import { Footer } from "@/components/common/Footer";
 import { MobileMenu } from "@/components/common/MobileMenu";
+import { Header } from "@/components/common/Header";
+
+const poppinsFont = Poppins({
+    weight: ["300", "400", "500", "600", "700", "800"],
+    style: ["normal", "italic"],
+    subsets: ["latin", "latin-ext"],
+    display: "swap",
+});
 
 export const metadata: Metadata = {
     title: "Molla - Bootstrap eCommerce Template",
@@ -50,7 +58,7 @@ const RootLayout = ({
 }>) => {
     return (
         <html lang="en">
-            <body>
+            <body className={poppinsFont.className}>
                 <div className="page-wrapper">
                     <Header />
                     <main className="main">{children}</main>
