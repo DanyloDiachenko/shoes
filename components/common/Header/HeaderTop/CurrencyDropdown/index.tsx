@@ -1,16 +1,33 @@
-import Link from "next/link";
+"use client";
 
-export const CurrencyDropdown = () => {
-    return(
+import { useState } from "react";
+import Link from "next/link";
+import { CurrencyType } from "../../../../../types/currency.type";
+import { setCookie } from "@/helpers/setCookie";
+import { CurrencyDropdownProps } from "./currencyDropdown.props";
+
+export const CurrencyDropdown = ({ serverCurrency }: CurrencyDropdownProps) => {
+    const [currency, setCurrency] = useState<CurrencyType>(serverCurrency);
+
+    const onCurrencyClick = (currency: "uah" | "eur") => {
+        setCookie("currency", currency);
+        setCurrency(currency);
+    };
+
+    return (
         <div className="header-dropdown">
-            <Link href="#">Usd</Link>
+            <Link href="#">{currency}</Link>
             <div className="header-menu">
                 <ul>
                     <li>
-                        <Link href="#">Eur</Link>
+                        <Link href="#" onClick={() => onCurrencyClick("uah")}>
+                            UAH
+                        </Link>
                     </li>
                     <li>
-                        <Link href="#">Usd</Link>
+                        <Link href="#" onClick={() => onCurrencyClick("eur")}>
+                            EUR
+                        </Link>
                     </li>
                 </ul>
             </div>

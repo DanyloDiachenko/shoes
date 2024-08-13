@@ -48,6 +48,7 @@ const Home = () => {
             <Script src="/js/jquery.magnific-popup.min.js" />
             <Script src="/js/jquery.countdown.min.js" />
             <Script src="/js/main.js" />
+            <Script src="/js/demos/demo-10.js" />
         </>
     );
 };
