@@ -2650,9 +2650,9 @@ blockquote.text-white cite span {
     a:not(:hover):not(:focus).mobile-cats-lead {
     color: #333;
 }
-a {
+/* a {
     font-family: "Poppins";
-}
+} */
 p {
     margin-bottom: 0;
     font-size: 1.4rem;
