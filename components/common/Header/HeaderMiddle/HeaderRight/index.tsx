@@ -1,33 +1,10 @@
 import Link from "next/link";
+import { Search } from "./Search";
 
 export const HeaderRight = () => {
     return (
         <div className="header-right">
-            <div className="header-search">
-                <Link
-                    href="#"
-                    className="search-toggle"
-                    role="button"
-                    title="Search"
-                >
-                    <i className="icon-search"></i>
-                </Link>
-                <form action="#" method="get">
-                    <div className="header-search-wrapper">
-                        <label htmlFor="q" className="sr-only">
-                            Search
-                        </label>
-                        <input
-                            type="search"
-                            className="form-control"
-                            name="q"
-                            id="q"
-                            placeholder="Search in..."
-                            required
-                        />
-                    </div>
-                </form>
-            </div>
+            <Search />
             <div className="dropdown compare-dropdown">
                 <Link
                     href="#"
