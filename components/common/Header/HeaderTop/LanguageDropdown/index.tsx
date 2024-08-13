@@ -1,8 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { LanguageDropdownProps } from "./languageDropdown.props";
-import { useState } from "react";
 import { LanguageType } from "@/types/language.type";
 import { setCookie } from "@/helpers/setCookie";
 
