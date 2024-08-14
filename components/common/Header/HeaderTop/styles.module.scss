@@ -10,5 +10,10 @@
         position: relative;
         display: flex;
         align-items: center;
+
+        .headerLeft {
+            display: flex;
+            align-items: center;
+        }
     }
 }

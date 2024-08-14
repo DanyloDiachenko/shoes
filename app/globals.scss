@@ -41,6 +41,7 @@ body {
 }
 
 html {
+    font-size: 62.5%;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -48,10 +49,12 @@ html {
 ::after,
 ::before {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font: normal 300 1.4rem/1.86 "Poppins", sans-serif;
+    font: normal 300 1.4rem/1.86 var(--font-family-sans-serif);
     color: #666;
     background-color: #fff;
     -webkit-font-smoothing: antialiased;
@@ -76,19 +79,24 @@ body {
     margin-right: auto;
     margin-left: auto;
 
-    @media screen and (min-width: 1280px) {
+    @media (max-width: 1280px) {
         max-width: 1200px;
     }
-    @media (min-width: 1200px) {
+    @media (max-width: 1200px) {
         max-width: 1140px;
     }
-    @media (min-width: 992px) {
+    @media (max-width: 992px) {
         max-width: 960px;
     }
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
         max-width: 720px;
     }
-    @media (min-width: 576px) {
+    @media (max-width: 576px) {
         max-width: 540px;
     }
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
 }

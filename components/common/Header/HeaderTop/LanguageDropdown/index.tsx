@@ -5,6 +5,8 @@ import Link from "next/link";
 import { LanguageDropdownProps } from "./languageDropdown.props";
 import { LanguageType } from "@/types/language.type";
 import { setCookie } from "@/helpers/setCookie";
+import styles from "./styles.module.scss";
+import { IoIosArrowDown } from "react-icons/io";
 
 export const LanguageDropdown = ({ serverLanguage }: LanguageDropdownProps) => {
     const [language, setLanguage] = useState<LanguageType>(serverLanguage);
@@ -15,9 +17,12 @@ export const LanguageDropdown = ({ serverLanguage }: LanguageDropdownProps) => {
     };
 
     return (
-        <div className="header-dropdown">
-            <Link href="#">{language === "en" ? "Eng" : "Укр"}</Link>
-            <div className="header-menu">
+        <div className={styles.headerDropdown}>
+            <Link href="#" className={styles.active}>
+                {language === "en" ? "Eng" : "Укр"}
+                <IoIosArrowDown />
+            </Link>
+            <div className={styles.headerMenu}>
                 <ul>
                     <li>
                         <Link href="#" onClick={() => onLanguageClick("en")}>
