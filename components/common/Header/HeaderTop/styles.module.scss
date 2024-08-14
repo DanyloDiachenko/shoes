@@ -6,6 +6,10 @@
     color: #777;
     margin-bottom: 0.1rem;
 
+    a {
+        color: inherit;
+    }
+
     .headerContainer {
         position: relative;
         display: flex;

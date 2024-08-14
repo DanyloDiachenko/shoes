@@ -4,6 +4,10 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { setOpenedPopup } from "@/store/slices/openedPopup";
 import { PopupType } from "@/types/popup.type";
+import styles from "./styles.module.scss";
+import { BsTelephone } from "react-icons/bs";
+import { FaRegHeart } from "react-icons/fa";
+import { AiOutlineUser } from "react-icons/ai";
 
 export const Links = () => {
     const dispatch = useDispatch();
@@ -13,21 +17,31 @@ export const Links = () => {
     };
 
     return (
-        <div className="header-right">
-            <ul className="top-menu">
+        <div className={styles.headerRight}>
+            <ul className={styles.topMenu}>
                 <li>
-                    <Link href="#">Links</Link>
-                    <ul>
+                    <Link href="#" className={styles.mobileLink}>
+                        Links
+                    </Link>
+                    <ul className={styles.links}>
                         <li>
-                            <Link href="tel:#">
-                                <i className="icon-phone"></i>Call: +0123 456
-                                789
+                            <Link href="tel:#" className={styles.iconLink}>
+                                <BsTelephone className={styles.phoneIcon} />
+                                <span>Call: +0123 456 789</span>
                             </Link>
                         </li>
                         <li>
-                            <Link href="wishlist.html">
-                                <i className="icon-heart-o"></i>
-                                Wishlist <span>(3)</span>
+                            <Link
+                                href="wishlist.html"
+                                className={styles.iconLink}
+                            >
+                                <FaRegHeart />
+                                <span>
+                                    Wishlist{" "}
+                                    <span className={styles.wishlistQuantity}>
+                                        (3)
+                                    </span>
+                                </span>
                             </Link>
                         </li>
                         <li>
@@ -42,8 +56,10 @@ export const Links = () => {
                                 onClick={() =>
                                     setOpenedPopupHandler("authorization")
                                 }
+                                className={styles.iconLink}
                             >
-                                <i className="icon-user"></i>Login
+                                <AiOutlineUser />
+                                <span>Login</span>
                             </Link>
                         </li>
                     </ul>

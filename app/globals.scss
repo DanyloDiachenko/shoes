@@ -99,4 +99,13 @@ body {
 a {
     text-decoration: none;
     transition: color 0.3s ease;
+
+    &:hover {
+        color: #c96;
+    }
+}
+
+ul,
+li {
+    list-style: none;
 }

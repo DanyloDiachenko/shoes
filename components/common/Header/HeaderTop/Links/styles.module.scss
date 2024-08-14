@@ -1,0 +1,50 @@
+.headerRight {
+    margin-left: auto;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+
+    .topMenu {
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+        margin: 0;
+        list-style: none;
+
+        li {
+            position: relative;
+        }
+
+        .mobileLink {
+            display: none;
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+
+            li {
+                margin-left: 2.6rem;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                a {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .iconLink {
+                    svg {
+                        width: 12px;
+                        margin-right: 6px;
+                    }
+                }
+            }
+        }
+
+        .wishlistQuantity {
+            color: #c96;
+        }
+    }
+}
