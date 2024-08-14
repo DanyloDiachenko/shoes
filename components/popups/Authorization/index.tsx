@@ -1,20 +1,49 @@
-export const AuthorizationPopup = () => {
+"use client";
+
+import { useDispatch } from "react-redux";
+import { AuthorizationPopupProps } from "./authorizationPopup.props";
+import { PopupType } from "@/types/popup.type";
+import { setOpenedPopup } from "@/store/slices/openedPopup";
+import { useRef, useState } from "react";
+import { onOutsideClick } from "@/helpers/onOutsideClick";
+import { SignInForm } from "./SignInForm";
+import { RegisterForm } from "./RegisterForm";
+
+export const AuthorizationPopup = ({ isOpened }: AuthorizationPopupProps) => {
+    const [activeTab, setActiveTab] = useState<"signIn" | "register">("signIn");
+
+    const popupRef = useRef<HTMLDivElement>(null);
+
+    const dispatch = useDispatch();
+
+    const setOpenedPopupHandler = (popupToOpen: PopupType) => {
+        dispatch(setOpenedPopup(popupToOpen));
+    };
+
+    onOutsideClick(popupRef, () => {
+        setOpenedPopupHandler("");
+    });
+
     return (
         <div
-            className="modal fade"
-            id="signin-modal"
+            className={`modal fade ${isOpened ? "show" : ""}`}
             tabIndex={-1}
             role="dialog"
             aria-hidden="true"
+            style={{ display: isOpened ? "block" : "none" }}
         >
-            <div className="modal-dialog modal-dialog-centered" role="document">
+            <div
+                className="modal-dialog modal-dialog-centered"
+                role="document"
+                ref={popupRef}
+            >
                 <div className="modal-content">
                     <div className="modal-body">
                         <button
                             type="button"
                             className="close"
-                            data-dismiss="modal"
                             aria-label="Close"
+                            onClick={() => setOpenedPopupHandler("")}
                         >
                             <span aria-hidden="true">
                                 <i className="icon-close"></i>
@@ -29,209 +58,63 @@ export const AuthorizationPopup = () => {
                                 >
                                     <li className="nav-item">
                                         <a
-                                            className="nav-link active"
-                                            id="signin-tab"
-                                            data-toggle="tab"
-                                            href="#signin"
+                                            className={`nav-link ${
+                                                activeTab === "signIn"
+                                                    ? "active"
+                                                    : ""
+                                            }`}
+                                            href="#"
                                             role="tab"
                                             aria-controls="signin"
                                             aria-selected="true"
+                                            onClick={() =>
+                                                setActiveTab("signIn")
+                                            }
                                         >
                                             Sign In
                                         </a>
                                     </li>
                                     <li className="nav-item">
                                         <a
-                                            className="nav-link"
-                                            id="register-tab"
-                                            data-toggle="tab"
-                                            href="#register"
+                                            className={`nav-link ${
+                                                activeTab === "register"
+                                                    ? "active"
+                                                    : ""
+                                            }`}
+                                            href="#"
                                             role="tab"
                                             aria-controls="register"
                                             aria-selected="false"
+                                            onClick={() =>
+                                                setActiveTab("register")
+                                            }
                                         >
                                             Register
                                         </a>
                                     </li>
                                 </ul>
-                                <div className="tab-content" id="tab-content-5">
+                                <div className="tab-content">
                                     <div
-                                        className="tab-pane fade show active"
-                                        id="signin"
+                                        className={`tab-pane fade ${
+                                            activeTab === "signIn"
+                                                ? "show active"
+                                                : ""
+                                        }`}
                                         role="tabpanel"
                                         aria-labelledby="signin-tab"
                                     >
-                                        <form action="#">
-                                            <div className="form-group">
-                                                <label htmlFor="singin-email">
-                                                    Username or email address *
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    className="form-control"
-                                                    id="singin-email"
-                                                    name="singin-email"
-                                                    required
-                                                />
-                                            </div>
-
-                                            <div className="form-group">
-                                                <label htmlFor="singin-password">
-                                                    Password *
-                                                </label>
-                                                <input
-                                                    type="password"
-                                                    className="form-control"
-                                                    id="singin-password"
-                                                    name="singin-password"
-                                                    required
-                                                />
-                                            </div>
-
-                                            <div className="form-footer">
-                                                <button
-                                                    type="submit"
-                                                    className="btn btn-outline-primary-2"
-                                                >
-                                                    <span>LOG IN</span>
-                                                    <i className="icon-long-arrow-right"></i>
-                                                </button>
-
-                                                <div className="custom-control custom-checkbox">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="custom-control-input"
-                                                        id="signin-remember"
-                                                    />
-                                                    <label
-                                                        className="custom-control-label"
-                                                        htmlFor="signin-remember"
-                                                    >
-                                                        Remember Me
-                                                    </label>
-                                                </div>
-
-                                                <a
-                                                    href="#"
-                                                    className="forgot-link"
-                                                >
-                                                    Forgot Your Password?
-                                                </a>
-                                            </div>
-                                        </form>
-                                        <div className="form-choice">
-                                            <p className="text-center">
-                                                or sign in with
-                                            </p>
-                                            <div className="row">
-                                                <div className="col-sm-6">
-                                                    <a
-                                                        href="#"
-                                                        className="btn btn-login btn-g"
-                                                    >
-                                                        <i className="icon-google"></i>
-                                                        Login With Google
-                                                    </a>
-                                                </div>
-                                                <div className="col-sm-6">
-                                                    <a
-                                                        href="#"
-                                                        className="btn btn-login btn-f"
-                                                    >
-                                                        <i className="icon-facebook-f"></i>
-                                                        Login With Facebook
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <SignInForm />
                                     </div>
                                     <div
-                                        className="tab-pane fade"
-                                        id="register"
+                                        className={`tab-pane fade ${
+                                            activeTab === "register"
+                                                ? "show active"
+                                                : ""
+                                        }`}
                                         role="tabpanel"
                                         aria-labelledby="register-tab"
                                     >
-                                        <form action="#">
-                                            <div className="form-group">
-                                                <label htmlFor="register-email">
-                                                    Your email address *
-                                                </label>
-                                                <input
-                                                    type="email"
-                                                    className="form-control"
-                                                    id="register-email"
-                                                    name="register-email"
-                                                    required
-                                                />
-                                            </div>
-
-                                            <div className="form-group">
-                                                <label htmlFor="register-password">
-                                                    Password *
-                                                </label>
-                                                <input
-                                                    type="password"
-                                                    className="form-control"
-                                                    id="register-password"
-                                                    name="register-password"
-                                                    required
-                                                />
-                                            </div>
-
-                                            <div className="form-footer">
-                                                <button
-                                                    type="submit"
-                                                    className="btn btn-outline-primary-2"
-                                                >
-                                                    <span>SIGN UP</span>
-                                                    <i className="icon-long-arrow-right"></i>
-                                                </button>
-
-                                                <div className="custom-control custom-checkbox">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="custom-control-input"
-                                                        id="register-policy"
-                                                        required
-                                                    />
-                                                    <label
-                                                        className="custom-control-label"
-                                                        htmlFor="register-policy"
-                                                    >
-                                                        I agree to the
-                                                        <a href="#">
-                                                            privacy policy
-                                                        </a>
-                                                        *
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <div className="form-choice">
-                                            <p className="text-center">
-                                                or sign in with
-                                            </p>
-                                            <div className="row">
-                                                <div className="col-sm-6">
-                                                    <a
-                                                        href="#"
-                                                        className="btn btn-login btn-g"
-                                                    >
-                                                        <i className="icon-google"></i>
-                                                        Login With Google
-                                                    </a>
-                                                </div>
-                                                <div className="col-sm-6">
-                                                    <a
-                                                        href="#"
-                                                        className="btn btn-login btn-f"
-                                                    >
-                                                        <i className="icon-facebook-f"></i>
-                                                        Login With Facebook
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <RegisterForm />
                                     </div>
                                 </div>
                             </div>

@@ -13,8 +13,6 @@ const Profile = () => {
             <Breadcrumbs />
             <ProfilePageContent />
             {/*  */}
-            <AuthorizationPopup />
-            {/*  */}
             <Script src="/js/jquery.min.js" />
             <Script src="/js/bootstrap.bundle.min.js" />
             <Script src="/js/jquery.hoverIntent.min.js" />

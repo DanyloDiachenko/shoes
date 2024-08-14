@@ -1,6 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { setOpenedPopup } from "@/store/slices/openedPopup";
+import { PopupType } from "@/types/popup.type";
 
 export const Links = () => {
+    const dispatch = useDispatch();
+
+    const setOpenedPopupHandler = (popupToOpen: PopupType) => {
+        dispatch(setOpenedPopup(popupToOpen));
+    };
+
     return (
         <div className="header-right">
             <ul className="top-menu">
@@ -26,7 +37,12 @@ export const Links = () => {
                             <Link href="contact.html">Contact Us</Link>
                         </li>
                         <li>
-                            <Link href="#signin-modal" data-toggle="modal">
+                            <Link
+                                href="#"
+                                onClick={() =>
+                                    setOpenedPopupHandler("authorization")
+                                }
+                            >
                                 <i className="icon-user"></i>Login
                             </Link>
                         </li>
@@ -35,4 +51,4 @@ export const Links = () => {
             </ul>
         </div>
     );
-}
+};

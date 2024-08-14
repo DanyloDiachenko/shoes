@@ -33,12 +33,9 @@ const Home = () => {
             <NewDeals />
             <BlogPosts />
             <Subscribe />
-            {/* Popups */}
-            <NewsletterPopup />
-            <AuthorizationPopup />
             {/* Scripts */}
             <Script src="/js/jquery.min.js" />
-            <Script src="/js/bootstrap.bundle.min.js" />
+            {/* <Script src="/js/bootstrap.bundle.min.js" /> */}
             <Script src="/js/jquery.hoverIntent.min.js" />
             <Script src="/js/jquery.waypoints.min.js" />
             <Script src="/js/superfish.min.js" />
