@@ -1,0 +1,14 @@
+.headerTop {
+    font-weight: 300;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #777;
+    margin-bottom: 0.1rem;
+
+    .headerContainer {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+}
