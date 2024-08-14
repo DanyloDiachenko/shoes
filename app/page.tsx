@@ -1,11 +1,3 @@
-import "../public/css/bootstrap.min.css";
-import "../public/css/plugins/owl-carousel/owl.carousel.css";
-import "../public/css/plugins/magnific-popup/magnific-popup.css";
-import "../public/css/plugins/jquery.countdown.css";
-import "../public/css/style.css";
-import "../public/css/skins/skin-demo-10.css";
-import "../public/css/demos/demo-10.css";
-/*  */
 import { BannerGroup } from "@/components/pageComponents/home/BannerGroup";
 import { BlogPosts } from "@/components/pageComponents/home/BlogPosts";
 import { Categories } from "@/components/pageComponents/home/Categories";
@@ -27,23 +19,12 @@ const Home = () => {
             <Services />
             <NewArrivals />
             <Categories />
-            <div className="mb-4"></div>
             <TopSellingProducts />
-            <div className="mb-5"></div>
             <NewDeals />
             <BlogPosts />
             <Subscribe />
             {/* Scripts */}
             <Script src="/js/jquery.min.js" />
-            {/* <Script src="/js/bootstrap.bundle.min.js" /> */}
-            <Script src="/js/jquery.hoverIntent.min.js" />
-            <Script src="/js/jquery.waypoints.min.js" />
-            <Script src="/js/superfish.min.js" />
-            <Script src="/js/owl.carousel.min.js" />
-            <Script src="/js/bootstrap-input-spinner.js" />
-            <Script src="/js/jquery.plugin.min.js" />
-            <Script src="/js/jquery.magnific-popup.min.js" />
-            <Script src="/js/jquery.countdown.min.js" />
             <Script src="/js/main.js" />
             <Script src="/js/demos/demo-10.js" />
         </>
