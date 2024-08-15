@@ -31,8 +31,6 @@
         Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
 }
 
 html,
@@ -54,7 +52,7 @@ html {
 }
 
 body {
-    font: normal 300 1.4rem/1.86 var(--font-family-sans-serif);
+    font: normal 300 1.4rem/1.86 "Noto Sans, sans-serif";
     color: #666;
     background-color: #fff;
     -webkit-font-smoothing: antialiased;
@@ -96,15 +94,6 @@ body {
     }
 }
 
-a {
-    text-decoration: none;
-    transition: color 0.3s ease;
-
-    &:hover {
-        color: #c96 !important;
-    }
-}
-
 ul,
 li {
     list-style: none;
@@ -119,4 +108,160 @@ li {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 0;
+    color: #777;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ebebeb;
+    margin: 3rem auto 2.5rem;
+}
+
+.bg-light {
+    background-color: #f8f8f8;
+}
+
+.bg-light-2 {
+    background-color: #f9f9f9;
+}
+
+.bg-lighter {
+    background-color: #fafafa;
+}
+
+.bg-gray {
+    background-color: #f4f5f8;
+}
+
+.bg-primary {
+    background-color: #c96;
+}
+
+.bg-image {
+    background-color: #ccc;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 1.4rem;
+    color: #333;
+    letter-spacing: -0.03em;
+}
+
+h1,
+.h1 {
+    font-size: 4rem;
+}
+
+h2,
+.h2 {
+    font-size: 3.6rem;
+}
+
+h3,
+.h3 {
+    font-size: 2.6rem;
+}
+
+h4,
+.h4 {
+    font-size: 2.2rem;
+}
+
+h5,
+.h5 {
+    font-size: 2rem;
+    letter-spacing: -0.025em;
+}
+
+h6,
+.h6 {
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+}
+
+a {
+    color: #c96;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &:focus {
+        color: #bf8040;
+        text-decoration: none;
+    }
+}
+
+.link-underline {
+    box-shadow: 0 1px 0 0 #c96;
+}
+
+.text-primary {
+    color: #c96 !important;
+}
+
+.text-secondary {
+    color: #a6c76c !important;
+}
+
+.text-dark {
+    color: #333 !important;
+}
+
+.text-light {
+    color: #ccc !important;
+}
+
+@media screen and (min-width: 768px) {
+    h1,
+    .h1 {
+        font-size: 5rem;
+    }
+
+    h2,
+    .h2 {
+        font-size: 4rem;
+    }
+
+    h3,
+    .h3 {
+        font-size: 3rem;
+    }
+
+    h4,
+    .h4 {
+        font-size: 2.4rem;
+    }
 }

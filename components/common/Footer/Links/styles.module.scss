@@ -1,0 +1,49 @@
+.column {
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 100%;
+
+    @media (min-width: 576px) {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    @media (min-width: 992px) {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .widget {
+        margin-bottom: 4rem;
+
+        .widgetTitle {
+            font-weight: 600;
+            color: #333333;
+            font-size: 1.6rem;
+            letter-spacing: -0.01em;
+            margin-top: 0;
+            margin-bottom: 1.9rem;
+            line-height: 1.1;
+        }
+
+        .widgetList {
+            li {
+                margin-bottom: 0.4rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                a {
+                    color: inherit;
+                    transition: color 0.3s ease;
+
+                    &:hover,
+                    &:focus {
+                        color: #bf8040;
+                    }
+                }
+            }
+        }
+    }
+}
