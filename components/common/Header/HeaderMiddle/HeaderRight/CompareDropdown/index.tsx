@@ -1,52 +1,56 @@
 import Link from "next/link";
+import styles from "./styles.module.scss";
+import {
+    IoIosGitCompare,
+    IoMdClose,
+    IoIosArrowRoundForward,
+} from "react-icons/io";
 
 export const CompareDropdown = () => {
     return (
-        <div className="dropdown compare-dropdown">
+        <div className={`${styles.dropdown}`}>
             <Link
                 href="#"
-                className="dropdown-toggle"
+                className={styles.dropdownToggle}
                 role="button"
                 title="Compare Products"
             >
-                <i className="icon-random"></i>
+                <IoIosGitCompare className={styles.compareIcon} />
             </Link>
-
-            <div className="dropdown-menu dropdown-menu-right">
-                <ul className="compare-products">
-                    <li className="compare-product">
+            <div className={`${styles.dropdownMenu}`}>
+                <ul className={styles.compareProducts}>
+                    <li className={styles.compareProduct}>
                         <Link
                             href="#"
-                            className="btn-remove"
+                            className={styles.btnRemove}
                             title="Remove Product"
                         >
-                            <i className="icon-close"></i>
+                            <IoMdClose />
                         </Link>
-                        <h4 className="compare-product-title">
-                            <Link href="product.html">Blue Night Dress</Link>
+                        <h4 className={styles.compareProductTitle}>
+                            <Link href="#">Blue Night Dress</Link>
                         </h4>
                     </li>
-                    <li className="compare-product">
+                    <li className={styles.compareProduct}>
                         <Link
                             href="#"
-                            className="btn-remove"
+                            className={styles.btnRemove}
                             title="Remove Product"
                         >
-                            <i className="icon-close"></i>
+                            <IoMdClose />
                         </Link>
-                        <h4 className="compare-product-title">
-                            <Link href="product.html">White Long Skirt</Link>
+                        <h4 className={styles.compareProductTitle}>
+                            <Link href="#">Blue Night Dress</Link>
                         </h4>
                     </li>
                 </ul>
-
-                <div className="compare-actions">
-                    <Link href="#" className="action-link">
+                <div className={styles.compareActions}>
+                    <Link href="#" className={styles.actionLink}>
                         Clear All
                     </Link>
-                    <Link href="#" className="btn btn-outline-primary-2">
+                    <Link href="#" className={`${styles.button}`}>
                         <span>Compare</span>
-                        <i className="icon-long-arrow-right"></i>
+                        <IoIosArrowRoundForward />
                     </Link>
                 </div>
             </div>
