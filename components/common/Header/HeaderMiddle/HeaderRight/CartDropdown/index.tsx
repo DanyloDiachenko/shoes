@@ -1,97 +1,105 @@
 import Link from "next/link";
+import styles from "./styles.module.scss";
+import { BsCart2 } from "react-icons/bs";
+import { IoMdClose, IoIosArrowRoundForward } from "react-icons/io";
+import { Button } from "@/components/UI/Button";
 
 export const CartDropdown = () => {
     return (
-        <div className="dropdown cart-dropdown">
-            <Link href="#" className="dropdown-toggle" role="button">
-                <i className="icon-shopping-cart"></i>
-                <span className="cart-count">2</span>
+        <div className={styles.dropdown}>
+            <Link href="#" className={styles.dropdownToggle} role="button">
+                <BsCart2 className={styles.cartIcon} />
+                <span className={styles.cartCount}>2</span>
             </Link>
-
-            <div className="dropdown-menu dropdown-menu-right">
-                <div className="dropdown-cart-products">
-                    <div className="product">
-                        <div className="product-cart-details">
-                            <h4 className="product-title">
-                                <Link href="product.html">
-                                    Beige knitted elastic runner shoes
-                                </Link>
-                            </h4>
-
-                            <span className="cart-product-info">
-                                <span className="cart-product-qty">1</span>x
-                                $84.00
-                            </span>
-                        </div>
-
-                        <figure className="product-image-container">
-                            <Link href="product.html" className="product-image">
-                                <img
-                                    src="/images/products/cart/product-1.jpg"
-                                    alt="product"
-                                />
-                            </Link>
-                        </figure>
-                        <Link
-                            href="#"
-                            className="btn-remove"
-                            title="Remove Product"
-                        >
-                            <i className="icon-close"></i>
-                        </Link>
-                    </div>
-
-                    <div className="product">
-                        <div className="product-cart-details">
-                            <h4 className="product-title">
+            <div className={styles.dropdownMenu}>
+                <div className={styles.dropdownCartProducts}>
+                    <div className={styles.product}>
+                        <div className={styles.productCartDetails}>
+                            <h4 className={styles.productTitle}>
                                 <Link href="product.html">
                                     Blue utility pinafore denim dress
                                 </Link>
                             </h4>
-
-                            <span className="cart-product-info">
-                                <span className="cart-product-qty">1</span>x
-                                $76.00
+                            <span className={styles.cartProductInfo}>
+                                <span className={styles.cartProductQty}>1</span>{" "}
+                                x $76.00
                             </span>
                         </div>
-
-                        <figure className="product-image-container">
-                            <Link href="product.html" className="product-image">
+                        <figure className={styles.productImageContainer}>
+                            <Link
+                                href="product.html"
+                                className={styles.productImage}
+                            >
                                 <img
-                                    src="/images/products/cart/product-2.jpg"
+                                    src="/images/icons/product-1.png"
                                     alt="product"
                                 />
                             </Link>
                         </figure>
                         <Link
                             href="#"
-                            className="btn-remove"
+                            className={styles.btnRemove}
                             title="Remove Product"
                         >
-                            <i className="icon-close"></i>
+                            <IoMdClose />
+                        </Link>
+                    </div>
+                    <div className={styles.product}>
+                        <div className={styles.productCartDetails}>
+                            <h4 className={styles.productTitle}>
+                                <Link href="product.html">
+                                    Blue utility pinafore denim dress
+                                </Link>
+                            </h4>
+                            <span className={styles.cartProductInfo}>
+                                <span className={styles.cartProductQty}>1</span>{" "}
+                                x $76.00
+                            </span>
+                        </div>
+                        <figure className={styles.productImageContainer}>
+                            <Link
+                                href="product.html"
+                                className={styles.productImage}
+                            >
+                                <img
+                                    src="/images/icons/product-1.png"
+                                    alt="product"
+                                />
+                            </Link>
+                        </figure>
+                        <Link
+                            href="#"
+                            className={styles.btnRemove}
+                            title="Remove Product"
+                        >
+                            <IoMdClose />
                         </Link>
                     </div>
                 </div>
-
-                <div className="dropdown-cart-total">
+                <div className={styles.dropdownCartTotal}>
                     <span>Total</span>
-
-                    <span className="cart-total-price">$160.00</span>
+                    <span className={styles.cartTotalPrice}>$160.00</span>
                 </div>
-
-                <div className="dropdown-cart-action">
-                    <Link href="cart.html" className="btn btn-primary">
-                        View Cart
+                <div className={styles.dropdownCartAction}>
+                    <Link href="cart.html">
+                        <Button
+                            colorType="btnPrimary"
+                            className={styles.buttonView}
+                        >
+                            View Cart
+                        </Button>
                     </Link>
-                    <Link
-                        href="checkout.html"
-                        className="btn btn-outline-primary-2"
-                    >
-                        <span>Checkout</span>
-                        <i className="icon-long-arrow-right"></i>
+                    <Link href="checkout.html">
+                        <Button
+                            colorType="btnOutlinePrimary2"
+                            className={styles.buttonCheckout}
+                        >
+                            <span>Checkout</span>
+                            <IoIosArrowRoundForward />
+                        </Button>
                     </Link>
                 </div>
             </div>
         </div>
     );
-}
+};
