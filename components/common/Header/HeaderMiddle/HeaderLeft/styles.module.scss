@@ -1,0 +1,109 @@
+.headerLeft {
+    display: flex;
+    align-items: center;
+
+    .mobileMenuToggler {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        cursor: pointer;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        border: none;
+        background: transparent;
+        padding: 0.2rem 0.25rem;
+        color: #666;
+        font-size: 2.8rem;
+        line-height: 1;
+
+        @media screen and (min-width: 992px) {
+            display: none;
+        }
+    }
+
+    .mainNav {
+        display: none;
+        margin-left: 2rem;
+
+        @media screen and (min-width: 992px) {
+            display: block;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            line-height: 1.5;
+
+            .linksWrapper {
+                position: relative;
+
+                &:hover {
+                    .sublinks {
+                        opacity: 1;
+                        overflow: visible;
+                        height: auto;
+                        padding: 1.6rem 0 2rem;
+                    }
+                }
+
+                .mainLink {
+                    display: flex;
+                    position: relative;
+                    align-items: center;
+                    padding: 3.95rem 1.5rem 3.95rem 3rem;
+                    color: #333;
+                    font-weight: 500;
+                    font-size: 1.4rem;
+                    letter-spacing: 0.01em;
+                    text-transform: uppercase;
+
+                    &:hover {
+                        color: #c96;
+                    }
+
+                    svg {
+                        margin-left: 5px;
+                        width: 12px;
+                    }
+                }
+
+                .sublinks {
+                    height: 1px;
+                    overflow: hidden;
+                    opacity: 0;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    z-index: 1002;
+                    margin-top: 1px;
+                    box-shadow: 5px 10px 16px rgba(51, 51, 51, 0.05),
+                        -5px 10px 16px rgba(51, 51, 51, 0.05);
+                    background-color: #fff;
+                    padding: 0;
+                    min-width: 218px;
+                    transition: opacity 0.3s;
+
+                    li {
+                        padding-top: 0.5rem;
+                        padding-right: 3rem;
+                        padding-bottom: 0.5rem;
+                        padding-left: 3rem;
+                        font-weight: 300;
+                        font-size: 1.5rem;
+                        letter-spacing: 0;
+
+                        a {
+                            display: block;
+                            color: #999999;
+
+                            &:hover {
+                                color: #c96;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
