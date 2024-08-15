@@ -3,6 +3,8 @@
 import { onOutsideClick } from "@/helpers/onOutsideClick";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { LiaSearchSolid } from "react-icons/lia";
+import styles from "./search.module.scss";
 
 export const Search = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -27,30 +29,32 @@ export const Search = () => {
     onOutsideClick(searchWrapperRef, closeSearch);
 
     return (
-        <div className="header-search">
+        <div className={styles.headerSearch}>
             <Link
                 href="#"
-                className={`search-toggle ${isSearchOpen ? "active" : ""}`}
+                className={`${styles.searchToogle} ${
+                    isSearchOpen ? styles.active : ""
+                }`}
                 role="button"
                 title="Search"
                 onClick={toggleSearch}
             >
-                <i className="icon-search"></i>
+                <LiaSearchSolid />
             </Link>
             <form action="#" method="get">
                 <div
-                    className={`header-search-wrapper ${
-                        isSearchOpen ? "show" : ""
+                    className={`${styles.headerSearchWrapper} ${
+                        isSearchOpen ? styles.show : ""
                     }`}
                     ref={searchWrapperRef}
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <label htmlFor="q" className="sr-only">
+                    <label htmlFor="q" className="hidden">
                         Search
                     </label>
                     <input
                         type="search"
-                        className="form-control"
+                        className={styles.formControl}
                         name="q"
                         id="q"
                         placeholder="Search in..."
