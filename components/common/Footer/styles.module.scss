@@ -1,20 +1,20 @@
 .footer {
+    background-color: #fff;
     width: 100%;
+    color: #777;
     font-weight: 300;
     font-size: 1.4rem;
-    color: #777;
-    background-color: #fff;
 
     .footerMiddle {
-        padding: 6.7rem 0 2.2rem;
         border-top: 0.1rem solid #ebebeb;
+        padding: 6.7rem 0 2.2rem;
 
         .container {
             .row {
-                margin-left: -10px;
-                margin-right: -10px;
                 display: flex;
                 flex-wrap: wrap;
+                margin-right: -10px;
+                margin-left: -10px;
 
                 .column {
                     padding-right: 10px;
@@ -35,8 +35,8 @@
                         margin-bottom: 4rem;
 
                         .footerLogo {
-                            margin-bottom: 2rem;
                             margin-top: -0.8rem;
+                            margin-bottom: 2rem;
                         }
 
                         p {
@@ -53,20 +53,20 @@
         position: relative;
 
         &::before {
-            content: "";
             display: block;
-            height: 1px;
             position: absolute;
             top: 0;
-            left: 10px;
             right: 10px;
+            left: 10px;
             background-color: #ebebeb;
+            height: 1px;
+            content: "";
         }
 
         .bottomContainer {
-            flex-direction: row;
-            position: relative;
             display: flex;
+            position: relative;
+            flex-direction: row;
             padding-top: 2.1rem;
             padding-bottom: 2.9rem;
 
