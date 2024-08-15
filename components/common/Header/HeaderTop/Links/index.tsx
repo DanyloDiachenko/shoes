@@ -8,6 +8,7 @@ import styles from "./styles.module.scss";
 import { BsTelephone } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineUser } from "react-icons/ai";
+import { IoIosArrowDown } from "react-icons/io";
 
 export const Links = () => {
     const dispatch = useDispatch();
@@ -19,9 +20,10 @@ export const Links = () => {
     return (
         <div className={styles.headerRight}>
             <ul className={styles.topMenu}>
-                <li>
+                <li className={styles.liMain}>
                     <Link href="#" className={styles.mobileLink}>
-                        Links
+                        <span>Links</span>
+                        <IoIosArrowDown />
                     </Link>
                     <ul className={styles.links}>
                         <li>

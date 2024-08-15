@@ -2,6 +2,20 @@
     display: flex;
     align-items: center;
 
+    .logo {
+        display: block;
+        margin-top: 2.55rem;
+        margin-bottom: 2.95rem;
+        flex-shrink: 0;
+        min-height: 25px;
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
     .mobileMenuToggler {
         display: flex;
         justify-content: center;
@@ -51,7 +65,7 @@
                     display: flex;
                     position: relative;
                     align-items: center;
-                    padding: 3.95rem 1.5rem 3.95rem 3rem;
+                    padding: 3.95rem 0 3.95rem 3rem;
                     color: #333;
                     font-weight: 500;
                     font-size: 1.4rem;

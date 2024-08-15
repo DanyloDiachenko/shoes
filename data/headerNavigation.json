@@ -157,35 +157,5 @@
                 "url": "/products?color=white"
             }
         ]
-    },
-    {
-        "title": "Price",
-        "url": "/products",
-        "sublinks": [
-            {
-                "title": "Up To 50$",
-                "url": "/products?price=up-to-50"
-            },
-            {
-                "title": "Up To 100$",
-                "url": "/products?price=up-to-100"
-            },
-            {
-                "title": "Up To 200$",
-                "url": "/products?price=up-to-200"
-            },
-            {
-                "title": "Up To 300$",
-                "url": "/products?price=up-to-300"
-            },
-            {
-                "title": "Up To 400$",
-                "url": "/products?price=up-to-400"
-            },
-            {
-                "title": "More Than 500$",
-                "url": "/products?price=more-than-500"
-            }
-        ]
     }
 ]

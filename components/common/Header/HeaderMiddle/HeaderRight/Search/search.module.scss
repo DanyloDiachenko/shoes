@@ -6,6 +6,10 @@
     font-size: 0;
     line-height: 1;
 
+    @media (max-width: 991px) {
+        display: none;
+    }
+
     .searchToogle {
         display: block;
         position: relative;
