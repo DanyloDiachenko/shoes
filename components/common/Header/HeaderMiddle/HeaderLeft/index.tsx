@@ -8,7 +8,7 @@ export const HeaderLeft = () => {
     return (
         <div className={styles.headerLeft}>
             <button className={styles.mobileMenuToggler}>
-                <span className="hidden">Toggle mobile menu</span>
+                <span className="sr-only">Toggle mobile menu</span>
                 <RxHamburgerMenu />
             </button>
             <Link href="/" className={styles.logo}>

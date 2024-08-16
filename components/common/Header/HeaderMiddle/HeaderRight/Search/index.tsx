@@ -49,7 +49,7 @@ export const Search = () => {
                     ref={searchWrapperRef}
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <label htmlFor="q" className="hidden">
+                    <label htmlFor="q" className="sr-only">
                         Search
                     </label>
                     <input
