@@ -1,5 +1,7 @@
+import { PageHeader } from "@/components/common/PageHeader";
+
 const Home = () => {
-    return <main></main>;
+    return <></>;
 };
 
 export default Home;

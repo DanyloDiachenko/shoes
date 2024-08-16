@@ -1,0 +1,55 @@
+.breadcrumbs {
+    margin-bottom: 2rem;
+    border-bottom: 0.1rem solid rgba(235, 235, 235, 0.55);
+
+    .container {
+        padding-top: 1.4rem;
+        padding-bottom: 1.4rem;
+
+        .breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            .item {
+                font-weight: 300;
+                font-size: 1.4rem;
+                line-height: 1.5;
+                letter-spacing: 0;
+                text-transform: capitalize;
+                margin-left: 1rem;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                a {
+                    color: #777;
+                    transition: color 0.3s ease;
+
+                    &:hover,
+                    &:focus {
+                        color: #bf8040;
+                        text-decoration: none;
+                    }
+                }
+
+                &.active {
+                    a {
+                        color: #333333;
+                        cursor: auto;
+                    }
+                }
+            }
+
+            svg {
+                width: 14px;
+                height: auto;
+                color: #777;
+                margin-top: 3px;
+                margin-left: 1rem;
+                opacity: 0.6;
+            }
+        }
+    }
+}
