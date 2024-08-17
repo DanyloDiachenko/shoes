@@ -1,0 +1,64 @@
+.widget {
+    margin: 0 0 2rem;
+    border-bottom: 0.1rem solid #ebebeb;
+    color: #333;
+
+    .title {
+        margin-bottom: 0.7rem;
+        color: #333;
+        font-weight: 400;
+        font-size: 1.8rem;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+
+        .top {
+            display: flex;
+            position: relative;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 1.3rem;
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+
+            svg {
+                color: #333;
+                font-size: 1.4rem;
+                line-height: 1;
+            }
+        }
+    }
+
+    .widgetContentWrapper {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: 0.3s;
+        overflow: hidden;
+        padding: 0;
+
+        &.opened {
+            grid-template-rows: 1fr;
+            padding-top: 1rem;
+            padding-bottom: 2rem;
+        }
+
+        .widgetBody {
+            min-height: 0;
+
+            .filterPrice {
+                padding-top: 0.2rem;
+                padding-bottom: 3rem;
+
+                .text {
+                    margin-bottom: 2rem;
+                    letter-spacing: -0.01em;
+
+                    span {
+                        color: #c96;
+                        letter-spacing: -0.01em;
+                    }
+                }
+            }
+        }
+    }
+}
