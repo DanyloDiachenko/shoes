@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Checkbox } from "@/components/UI/Checkbox";
 
-export const Category = () => {
+export const Size = () => {
     const [isOpened, setIsOpened] = useState(true);
 
     return (
@@ -15,10 +15,10 @@ export const Category = () => {
                     className={styles.top}
                     role="button"
                     aria-expanded={isOpened}
-                    aria-controls="widget-1"
+                    aria-controls="widget-2"
                     onClick={() => setIsOpened(!isOpened)}
                 >
-                    <span>Category</span>
+                    <span>Size</span>
                     <IoIosArrowDown />
                 </div>
             </h3>
@@ -26,20 +26,26 @@ export const Category = () => {
                 className={`${styles.widgetContentWrapper} ${
                     isOpened ? styles.opened : ""
                 }`}
-                id="widget-1"
+                id="widget-2"
             >
                 <div className={styles.widgetBody}>
                     <div className={styles.item}>
-                        <Checkbox title="Category 1" id="cat-1" />
-                        <span className={styles.count}>3</span>
+                        <Checkbox title="XS" id="size-1" />
                     </div>
                     <div className={styles.item}>
-                        <Checkbox title="Category 2" id="cat-2" />
-                        <span className={styles.count}>10</span>
+                        <Checkbox title="S" id="size-2" />
                     </div>
                     <div className={styles.item}>
-                        <Checkbox title="Category 3" id="cat-3" />
-                        <span className={styles.count}>6</span>
+                        <Checkbox title="M" id="size-3" />
+                    </div>
+                    <div className={styles.item}>
+                        <Checkbox title="L" id="size-4" />
+                    </div>
+                    <div className={styles.item}>
+                        <Checkbox title="XL" id="size-5" />
+                    </div>
+                    <div className={styles.item}>
+                        <Checkbox title="XXL" id="size-6" />
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import { CheckboxProps } from "./checkbox.props";
 
-export const Chechbox = ({ className, id, title, ...rest }: CheckboxProps) => {
+export const Checkbox = ({ className, id, title, ...rest }: CheckboxProps) => {
     return (
         <div
             className={`${styles.customControl} ${className ? className : ""}`}

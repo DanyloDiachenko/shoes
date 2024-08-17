@@ -1,4 +1,5 @@
 import { Category } from "./Category";
+import { Size } from "./Size";
 import styles from "./styles.module.scss";
 
 export const Filters = () => {
@@ -12,40 +13,7 @@ export const Filters = () => {
                     </a>
                 </div>
                 <Category />
-                <div className="widget widget-collapsible">
-                    <h3 className="widget-title">
-                        <a
-                            data-toggle="collapse"
-                            href="#widget-2"
-                            role="button"
-                            aria-expanded="true"
-                            aria-controls="widget-2"
-                        >
-                            Size
-                        </a>
-                    </h3>
-                    <div className="collapse show" id="widget-2">
-                        <div className="widget-body">
-                            <div className="filter-items">
-                                <div className="filter-item">
-                                    <div className="custom-control custom-checkbox">
-                                        <input
-                                            type="checkbox"
-                                            className="custom-control-input"
-                                            id="size-1"
-                                        />
-                                        <label
-                                            className="custom-control-label"
-                                            htmlFor="size-1"
-                                        >
-                                            XS
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Size />
                 <div className="widget widget-collapsible">
                     <h3 className="widget-title">
                         <a
