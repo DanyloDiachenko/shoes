@@ -3,6 +3,7 @@
 import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { useState } from "react";
+import { Chechbox } from "@/components/UI/Checkbox";
 
 export const Category = () => {
     const [isOpened, setIsOpened] = useState(true);
@@ -29,51 +30,15 @@ export const Category = () => {
             >
                 <div className={styles.widgetBody}>
                     <div className={styles.item}>
-                        <div className={styles.customControl}>
-                            <input
-                                type="checkbox"
-                                className={styles.customControlInput}
-                                id="cat-1"
-                            />
-                            <label
-                                className={styles.customControlLabel}
-                                htmlFor="cat-1"
-                            >
-                                Dresses
-                            </label>
-                        </div>
+                        <Chechbox title="Category 1" id="cat-1" />
                         <span className={styles.count}>3</span>
                     </div>
                     <div className={styles.item}>
-                        <div className={styles.customControl}>
-                            <input
-                                type="checkbox"
-                                className={styles.customControlInput}
-                                id="cat-2"
-                            />
-                            <label
-                                className={styles.customControlLabel}
-                                htmlFor="cat-2"
-                            >
-                                Abcsdad
-                            </label>
-                        </div>
+                        <Chechbox title="Category 2" id="cat-2" />
                         <span className={styles.count}>10</span>
                     </div>
                     <div className={styles.item}>
-                        <div className={styles.customControl}>
-                            <input
-                                type="checkbox"
-                                className={styles.customControlInput}
-                                id="cat-3"
-                            />
-                            <label
-                                className={styles.customControlLabel}
-                                htmlFor="cat-3"
-                            >
-                                ds fdsfsdf
-                            </label>
-                        </div>
+                        <Chechbox title="Category 3" id="cat-3" />
                         <span className={styles.count}>6</span>
                     </div>
                 </div>
