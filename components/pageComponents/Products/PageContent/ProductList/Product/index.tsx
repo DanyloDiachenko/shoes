@@ -1,97 +1,93 @@
+import Link from "next/link";
 import styles from "./styles.module.scss";
+import { Button } from "@/components/UI/Button";
+import { FaRegStar } from "react-icons/fa";
 
 export const Product = () => {
     return (
-        <div className="product product-list">
+        <div className={styles.product}>
             <div className="row">
-                <div className="col-6 col-lg-3">
-                    <figure className="product-media">
-                        <span className="product-label label-new">New</span>
-                        <a href="product.html">
+                <div className={styles.columnImage}>
+                    <figure className={styles.media}>
+                        <span className={styles.new}>New</span>
+                        {/* <span className={styles.outOfStock}>Out of Stock</span> */}
+                        <Link href="#">
                             <img
-                                src="assets/images/products/product-4.jpg"
+                                src="/images/banners/product.png"
                                 alt="Product image"
-                                className="product-image"
+                                className={styles.image}
                             />
-                        </a>
+                        </Link>
                     </figure>
                 </div>
-                <div className="col-6 col-lg-3 order-lg-last">
-                    <div className="product-list-action">
-                        <div className="product-price">$60.00</div>
-                        <div className="ratings-container">
-                            <div className="ratings">
-                                <div
-                                    className="ratings-val"
-                                    style={{ width: "20%" }}
-                                ></div>
+                <div className={styles.columnActions}>
+                    <div className={styles.action}>
+                        <div className={styles.price}>$60.00</div>
+                        <div className={styles.ratingsContainer}>
+                            <div className={styles.ratings}>
+                                <FaRegStar className={styles.active} />
+                                <FaRegStar />
+                                <FaRegStar />
+                                <FaRegStar />
+                                <FaRegStar />
                             </div>
-                            <span className="ratings-text">( 2 Reviews )</span>
+                            <span className={styles.ratingText}>
+                                ( 2 Reviews )
+                            </span>
                         </div>
-                        <div className="product-action">
-                            <a
-                                href="popup/quickView.html"
-                                className="btn-product btn-quickview"
-                                title="Quick view"
-                            >
-                                <span>quick view</span>
-                            </a>
-                            <a
-                                href="#"
-                                className="btn-product btn-compare"
-                                title="Compare"
-                            >
-                                <span>compare</span>
-                            </a>
-                        </div>
-                        <a href="#" className="btn-product btn-cart">
+                        <Button
+                            colorType="btnOutlinePrimary2"
+                            className={`${styles.addToCart}`}
+                            /* className={`${styles.addToCart} ${styles.inactive}`} */
+                        >
+                            icon
                             <span>add to cart</span>
-                        </a>
+                        </Button>
                     </div>
                 </div>
-                <div className="col-lg-6">
-                    <div className="product-body product-action-inner">
-                        <a
-                            href="#"
-                            className="btn-product btn-wishlist"
+                <div className={styles.columnMain}>
+                    <div className={styles.productBody}>
+                        <Button
+                            className={styles.addToWishlist}
                             title="Add to wishlist"
+                            colorType="btnOutlinePrimary2"
                         >
-                            <span>add to wishlist</span>
-                        </a>
-                        <div className="product-cat">
+                            icon
+                        </Button>
+                        <div className={styles.category}>
                             <a href="#">Women</a>
                         </div>
-                        <h3 className="product-title">
-                            <a href="product.html">
+                        <h3 className={styles.title}>
+                            <Link href="#">
                                 Brown paperbag waist pencil skirt
-                            </a>
+                            </Link>
                         </h3>
-                        <div className="product-content">
+                        <div className={styles.description}>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetuer
                                 adipiscing elit. Phasellus hendrerit.
-                                Pellentesque{" "}
+                                Pellentesque
                             </p>
                         </div>
-                        <div className="product-nav product-nav-thumbs">
-                            <a href="#" className="active">
+                        <div className={styles.thumbs}>
+                            <Link href="#" className={styles.active}>
                                 <img
-                                    src="assets/images/products/product-4-thumb.jpg"
+                                    src="/images/banners/product.png"
                                     alt="product desc"
                                 />
-                            </a>
-                            <a href="#">
+                            </Link>
+                            <Link href="#">
                                 <img
-                                    src="assets/images/products/product-4-2-thumb.jpg"
+                                    src="/images/banners/product.png"
                                     alt="product desc"
                                 />
-                            </a>
-                            <a href="#">
+                            </Link>
+                            <Link href="#">
                                 <img
-                                    src="assets/images/products/product-4-3-thumb.jpg"
+                                    src="/images/banners/product.png"
                                     alt="product desc"
                                 />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
