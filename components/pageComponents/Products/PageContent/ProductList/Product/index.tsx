@@ -1,7 +1,10 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
-import { FaRegStar } from "react-icons/fa";
+import { FaStar, FaRegHeart } from "react-icons/fa";
+import { LiaCartPlusSolid } from "react-icons/lia";
+
+
 
 export const Product = () => {
     return (
@@ -25,11 +28,11 @@ export const Product = () => {
                         <div className={styles.price}>$60.00</div>
                         <div className={styles.ratingsContainer}>
                             <div className={styles.ratings}>
-                                <FaRegStar className={styles.active} />
-                                <FaRegStar />
-                                <FaRegStar />
-                                <FaRegStar />
-                                <FaRegStar />
+                                <FaStar className={styles.active} />
+                                <FaStar />
+                                <FaStar />
+                                <FaStar />
+                                <FaStar />
                             </div>
                             <span className={styles.ratingText}>
                                 ( 2 Reviews )
@@ -40,7 +43,7 @@ export const Product = () => {
                             className={`${styles.addToCart}`}
                             /* className={`${styles.addToCart} ${styles.inactive}`} */
                         >
-                            icon
+                            <LiaCartPlusSolid />
                             <span>add to cart</span>
                         </Button>
                     </div>
@@ -52,7 +55,7 @@ export const Product = () => {
                             title="Add to wishlist"
                             colorType="btnOutlinePrimary2"
                         >
-                            icon
+                            <FaRegHeart />
                         </Button>
                         <div className={styles.category}>
                             <a href="#">Women</a>

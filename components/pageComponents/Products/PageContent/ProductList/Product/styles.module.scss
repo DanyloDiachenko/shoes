@@ -127,7 +127,7 @@
                         }
 
                         &.active {
-                            fill: #fcb941;
+                            color: #fcb941;
                         }
                     }
                 }
@@ -149,7 +149,13 @@
                     color: #ccc;
                     border-color: #ebebeb;
                     background-color: #fafafa;
-                    cursor:default;
+                    cursor: default;
+                }
+
+                svg {
+                    margin-right: 0.5rem;
+                    font-size: 2rem;
+                    margin-top: -0.1rem;
                 }
 
                 span {
@@ -184,13 +190,17 @@
                 right: 0;
                 top: 3.1rem;
                 right: 2rem;
-                color: #777;
                 transition: 0.3s;
                 background: none;
                 min-width: 0;
 
-                &:hover {
-                    color: #c96;
+                svg {
+                    color: #777;
+                    transition: 0.3s;
+
+                    &:hover {
+                        color: #c96;
+                    }
                 }
             }
 
