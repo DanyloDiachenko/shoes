@@ -3,8 +3,7 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { FaStar, FaRegHeart } from "react-icons/fa";
 import { LiaCartPlusSolid } from "react-icons/lia";
-
-
+import { getRating } from "@/helpers/getRating";
 
 export const Product = () => {
     return (
@@ -27,13 +26,7 @@ export const Product = () => {
                     <div className={styles.action}>
                         <div className={styles.price}>$60.00</div>
                         <div className={styles.ratingsContainer}>
-                            <div className={styles.ratings}>
-                                <FaStar className={styles.active} />
-                                <FaStar />
-                                <FaStar />
-                                <FaStar />
-                                <FaStar />
-                            </div>
+                            {getRating(4)}
                             <span className={styles.ratingText}>
                                 ( 2 Reviews )
                             </span>

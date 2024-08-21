@@ -1,4 +1,3 @@
-import styles from "./styles.module.scss";
 import { Filters } from "./Filters";
 import { ProductList } from "./ProductList";
 
