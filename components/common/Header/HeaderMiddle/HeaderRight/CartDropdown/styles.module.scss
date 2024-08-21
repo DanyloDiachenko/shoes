@@ -115,6 +115,11 @@
 
                         a {
                             color: inherit;
+                            transition: 0.3s;
+
+                            &:hover {
+                                color: #c96;
+                            }
                         }
                     }
 
