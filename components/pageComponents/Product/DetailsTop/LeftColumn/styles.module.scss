@@ -146,19 +146,18 @@
                         width: 100%;
                     }
 
-                    &.active {
+                    &:hover::after,
+                    &.active::after {
+                        opacity: 0;
+                        visibility: hidden;
                     }
-                }
 
-                .galleryItem.active::before {
-                    visibility: visible;
-                    opacity: 1;
-                }
-
-                .galleryItem:hover:after,
-                .galleryItem.active:after {
-                    opacity: 0;
-                    visibility: hidden;
+                    &.active {
+                        &::before {
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
                 }
             }
         }
