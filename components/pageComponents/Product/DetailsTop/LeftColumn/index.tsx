@@ -17,7 +17,7 @@ export const DetailsTopLeftColumn = () => {
                         </Link>
                     </figure>
                     <div className={styles.galleryItems}>
-                        <a
+                        <Link
                             className={`${styles.galleryItem} ${styles.active}`}
                             href="#"
                         >
@@ -25,25 +25,25 @@ export const DetailsTopLeftColumn = () => {
                                 src="/images/banners/product-details.png"
                                 alt="product side"
                             />
-                        </a>
-                        <a className={`${styles.galleryItem}`} href="#">
+                        </Link>
+                        <Link className={`${styles.galleryItem}`} href="#">
                             <img
                                 src="/images/banners/product-details.png"
                                 alt="product side"
                             />
-                        </a>
-                        <a className={`${styles.galleryItem}`} href="#">
+                        </Link>
+                        <Link className={`${styles.galleryItem}`} href="#">
                             <img
                                 src="/images/banners/product-details.png"
                                 alt="product side"
                             />
-                        </a>
-                        <a className={`${styles.galleryItem}`} href="#">
+                        </Link>
+                        <Link className={`${styles.galleryItem}`} href="#">
                             <img
                                 src="/images/banners/product-details.png"
                                 alt="product side"
                             />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
