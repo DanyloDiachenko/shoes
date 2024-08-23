@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./styles.module.scss";
 
 export const DetailsTopLeftColumn = () => {
@@ -11,9 +12,9 @@ export const DetailsTopLeftColumn = () => {
                             src="/images/banners/product-details.png"
                             alt="product image"
                         />
-                        <a href="#" className={styles.productGallery}>
+                        <Link href="#" className={styles.productGallery}>
                             <i className="icon-arrows"></i>
-                        </a>
+                        </Link>
                     </figure>
                     <div className={styles.galleryItems}>
                         <a
