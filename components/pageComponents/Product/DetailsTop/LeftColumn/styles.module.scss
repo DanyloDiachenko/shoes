@@ -80,8 +80,65 @@
             }
 
             .galleryItems {
+                width: calc(100% + 10px);
+                display: flex;
+                flex-flow: row wrap;
+                margin-left: -0.5rem;
+                margin-right: -0.5rem;
+
+                @media (min-width: 992px) {
+                    width: auto;
+                    flex: 0 0 20%;
+                    max-width: 20%;
+                    margin-left: 0;
+                    margin-right: 0;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                }
+
                 .galleryItem {
+                    position: relative;
+                    display: block;
+                    flex: 0 0 25%;
+                    max-width: 25%;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    margin-bottom: 1rem;
+
+                    @media (min-width: 992px) {
+                        flex: 0 0 100%;
+                        max-width: 100%;
+                        padding-left: 0;
+                        padding-right: 0;
+                        margin-bottom: 1rem;
+                    }
+
+                    &::before,
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        left: 0.5rem;
+                        right: 0.5rem;
+                        top: 0;
+                        bottom: 0;
+                        transition: all 0.35s ease;
+
+                        @media (min-width: 992px) {
+                            left: 0;
+                            right: 0;
+                        }
+                    }
+
+                    &::before {
+                        visibility: visible;
+                        opacity: 1;
+                        border: 0.1rem solid #c96;
+                    }
+
                     img {
+                        max-width: none;
+                        width: 100%;
                     }
 
                     &.active {
