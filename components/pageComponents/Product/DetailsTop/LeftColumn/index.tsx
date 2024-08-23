@@ -12,7 +12,7 @@ export const DetailsTopLeftColumn = () => {
                             src="/images/banners/product-details.png"
                             alt="product image"
                         />
-                        <Link href="#" className={styles.productGallery}>
+                        <Link href="#" className={styles.productGalleryLink}>
                             <i className="icon-arrows"></i>
                         </Link>
                     </figure>

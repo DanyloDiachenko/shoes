@@ -1,0 +1,20 @@
+.columnLeft {
+    .gallery {
+        .mainImage {
+            .productGalleryLink {
+            }
+        }
+
+        .galleryItems {
+            .galleryItem {
+                img {
+                }
+
+                &.active {
+                    img {
+                    }
+                }
+            }
+        }
+    }
+}
