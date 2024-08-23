@@ -1,4 +1,4 @@
-import { Select } from "./Select";
+import { SortSelect } from "./SortSelect";
 import styles from "./styles.module.scss";
 
 export const Toolbox = () => {
@@ -12,7 +12,7 @@ export const Toolbox = () => {
             <div className={styles.toolboxRight}>
                 <div className={styles.toolboxSort}>
                     <label htmlFor="sortby">Sort by:</label>
-                    <Select />
+                    <SortSelect />
                 </div>
             </div>
         </div>
