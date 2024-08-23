@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
+import { FaExpandArrowsAlt } from "react-icons/fa";
 
 export const ProductDetailsTopLeftColumn = () => {
     return (
@@ -13,7 +14,7 @@ export const ProductDetailsTopLeftColumn = () => {
                             alt="product image"
                         />
                         <Link href="#" className={styles.productGalleryLink}>
-                            <i className="icon-arrows"></i>
+                            <FaExpandArrowsAlt />
                         </Link>
                     </figure>
                     <div className={styles.galleryItems}>
