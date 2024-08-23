@@ -131,8 +131,8 @@
                     }
 
                     &::before {
-                        visibility: visible;
-                        opacity: 1;
+                        opacity: 0;
+                        visibility: hidden;
                         border: 0.1rem solid #c96;
                     }
                     &::after {
@@ -147,9 +147,12 @@
                     }
 
                     &.active {
-                        img {
-                        }
                     }
+                }
+
+                .galleryItem.active::before {
+                    visibility: visible;
+                    opacity: 1;
                 }
 
                 .galleryItem:hover:after,
