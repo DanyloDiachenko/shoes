@@ -5,15 +5,22 @@ import styles from "./styles.module.scss";
 import { FaExpandArrowsAlt } from "react-icons/fa";
 import { useState } from "react";
 
-const productImages: string[] = [
-    "/images/banners/product-details.png",
-    "/images/banners/product-details.png",
-    "/images/banners/product-details.png",
-    "/images/banners/product-details.png",
+interface ProductImage {
+    id: number;
+    url: string;
+}
+
+const productImages: ProductImage[] = [
+    { id: 1, url: "/images/banners/product-details.png" },
+    { id: 2, url: "/images/banners/product-details.png" },
+    { id: 3, url: "/images/banners/product-details.png" },
+    { id: 4, url: "/images/banners/product-details.png" },
 ];
 
 export const ProductDetailsTopLeftColumn = () => {
-    const [activeImage, setActiveImage] = useState<string>(productImages[0]);
+    const [activeImageId, setActiveImageId] = useState<number>(
+        productImages[0].id
+    );
 
     return (
         <div className={styles.columnLeft}>
@@ -22,7 +29,11 @@ export const ProductDetailsTopLeftColumn = () => {
                     <figure className={styles.mainImage}>
                         <img
                             id="product-zoom"
-                            src={activeImage}
+                            src={
+                                productImages.find(
+                                    (img) => img.id === activeImageId
+                                )?.url
+                            }
                             alt="product image"
                         />
                         <Link href="#" className={styles.productGalleryLink}>
@@ -30,16 +41,18 @@ export const ProductDetailsTopLeftColumn = () => {
                         </Link>
                     </figure>
                     <div className={styles.galleryItems}>
-                        {productImages.map((image, index) => (
+                        {productImages.map((image) => (
                             <Link
                                 className={`${styles.galleryItem} ${
-                                    image === activeImage ? styles.active : ""
+                                    image.id === activeImageId
+                                        ? styles.active
+                                        : ""
                                 }`}
                                 href="#"
-                                onClick={() => setActiveImage(image)}
-                                key={index}
+                                onClick={() => setActiveImageId(image.id)}
+                                key={image.id}
                             >
-                                <img src={image} alt="product side" />
+                                <img src={image.url} alt="product side" />
                             </Link>
                         ))}
                     </div>
