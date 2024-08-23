@@ -1,11 +1,11 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 
-export const DetailsTopLeftColumn = () => {
+export const ProductDetailsTopLeftColumn = () => {
     return (
         <div className={styles.columnLeft}>
             <div className={styles.gallery}>
-                <div className="row">
+                <div className={`row ${styles.row}`}>
                     <figure className={styles.mainImage}>
                         <img
                             id="product-zoom"

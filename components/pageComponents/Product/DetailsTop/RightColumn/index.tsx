@@ -1,7 +1,7 @@
 import { getRating } from "@/helpers/getRating";
 import styles from "./styles.module.scss";
 
-export const DetailsTopRightColumn = () => {
+export const ProductDetailsTopRightColumn = () => {
     return (
         <div className={styles.columnRight}>
             <div className={styles.details}>

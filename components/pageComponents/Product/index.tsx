@@ -1,9 +1,11 @@
+import { ProductDetailsTop } from "./DetailsTop";
 import styles from "./styles.module.scss";
 
 export const ProductPageContent = () => {
     return (
         <div className="page-content">
             <div className="container">
+                <ProductDetailsTop />
                 <div className="product-details-tab">
                     <ul
                         className="nav nav-pills justify-content-center"
