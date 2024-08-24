@@ -1,10 +1,14 @@
 import styles from "./styles.module.scss";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 export const ProductDetailsTopRightColumnQuantity = () => {
     return (
         <div className={styles.detailsFilter}>
             <label htmlFor="qty">Qty:</label>
             <div className={styles.quantityFilter}>
+                <button className={styles.decrement} aria-label="Decrement">
+                    <FaMinus />
+                </button>
                 <input
                     type="number"
                     id="qty"
@@ -16,6 +20,9 @@ export const ProductDetailsTopRightColumnQuantity = () => {
                     data-decimals="0"
                     required
                 />
+                <button className={styles.increment} aria-label="Increment">
+                    <FaPlus />
+                </button>
             </div>
         </div>
     );
