@@ -11,7 +11,7 @@ export const ProductDetailsTopRightColumnInfo = () => {
             <div className={styles.ratingsContainer}>
                 {getRating(4)}
                 <Link
-                    className={styles.ratingsText}
+                    className={`link-dark ${styles.ratingsText}`}
                     href="#product-review-link"
                 >
                     ( 2 Reviews )

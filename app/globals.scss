@@ -134,33 +134,6 @@ hr {
     margin: 3rem auto 2.5rem;
 }
 
-.bg-light {
-    background-color: #f8f8f8;
-}
-
-.bg-light-2 {
-    background-color: #f9f9f9;
-}
-
-.bg-lighter {
-    background-color: #fafafa;
-}
-
-.bg-gray {
-    background-color: #f4f5f8;
-}
-
-.bg-primary {
-    background-color: #c96;
-}
-
-.bg-image {
-    background-color: #ccc;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
 h1,
 .h1,
 h2,
@@ -223,25 +196,12 @@ a {
         text-decoration: none;
     }
 }
+.link-dark {
+    color: #cccccc;
 
-.link-underline {
-    box-shadow: 0 1px 0 0 #c96;
-}
-
-.text-primary {
-    color: #c96 !important;
-}
-
-.text-secondary {
-    color: #a6c76c !important;
-}
-
-.text-dark {
-    color: #333 !important;
-}
-
-.text-light {
-    color: #ccc !important;
+    &:hover {
+        color: #c96;
+    }
 }
 
 @media screen and (min-width: 768px) {

@@ -1,3 +1,5 @@
+"use client";
+
 import { ISelectOption } from "@/interfaces/selectOption.interface";
 import styles from "./styles.module.scss";
 import { useState } from "react";
