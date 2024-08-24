@@ -41,6 +41,7 @@ export const ProductDetailsTopRightColumnSizes = () => {
                 options={selectOptions}
                 activeOption={activeOption}
                 setActiveOption={setActiveOption}
+                className={styles.selectWrapper}
             />
         </div>
     );

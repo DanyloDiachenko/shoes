@@ -6,4 +6,5 @@ export interface SelectProps {
     activeOption: ISelectOption;
     setActiveOption: (option: ISelectOption) => void;
     id: string;
+    className?: string;
 }

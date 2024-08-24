@@ -8,6 +8,7 @@ export const Select = ({
     setActiveOption,
     activeOption,
     id,
+    className,
 }: SelectProps) => {
     const onOptionChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const selectedOption = options.find(
@@ -19,7 +20,7 @@ export const Select = ({
     };
 
     return (
-        <div className={styles.selectCustom}>
+        <div className={`${styles.selectCustom} ${className || ""}`}>
             <select
                 name={id}
                 id={id}

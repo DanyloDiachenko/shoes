@@ -1,0 +1,29 @@
+.sizes {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    margin-bottom: 2rem;
+
+    label {
+        margin: 0 0 1.1rem;
+        display: inline-block;
+        width: 67px;
+        font-weight: 400;
+        font-size: 1.4rem;
+        margin-bottom: 0;
+        color: #666;
+    }
+
+    .selectWrapper {
+        margin-right: 3.9rem;
+
+        select {
+            height: 40px;
+            padding-right: 3rem;
+            font-size: 1.4rem;
+            color: #777;
+            border-color: #d7d7d7;
+            min-width: 131px;
+        }
+    }
+}
