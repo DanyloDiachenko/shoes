@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
 
-export const HeaderLeft = () => {
+export const Left = () => {
     return (
         <div className={styles.headerLeft}>
             <button className={styles.mobileMenuToggler}>

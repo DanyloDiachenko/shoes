@@ -6,7 +6,7 @@ import { CurrencyType } from "@/types/currency.type";
 import { LanguageType } from "@/types/language.type";
 import styles from "./styles.module.scss";
 
-export const HeaderTop = async () => {
+export const Top = async () => {
     const currency = (getServerCookie("currency") || "uah") as CurrencyType;
     const language = (getServerCookie("language") || "en") as LanguageType;
 
