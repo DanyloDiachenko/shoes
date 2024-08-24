@@ -1,17 +1,28 @@
 import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { SelectProps } from "./select.props";
+import { ChangeEvent } from "react";
 
 export const Select = ({
     options,
-    onOptionChange,
+    setActiveOption,
     activeOption,
+    id,
 }: SelectProps) => {
+    const onOptionChange = (event: ChangeEvent<HTMLSelectElement>) => {
+        const selectedOption = options.find(
+            (option) => option.value === event.target.value
+        );
+        if (selectedOption) {
+            setActiveOption(selectedOption);
+        }
+    };
+
     return (
         <div className={styles.selectCustom}>
             <select
-                name="sortby"
-                id="sortby"
+                name={id}
+                id={id}
                 className={styles.formControl}
                 value={activeOption.value}
                 onChange={onOptionChange}

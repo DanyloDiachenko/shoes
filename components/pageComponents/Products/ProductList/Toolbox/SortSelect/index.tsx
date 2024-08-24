@@ -24,20 +24,12 @@ export const SortSelect = () => {
         sortOptions[0]
     );
 
-    const handleOptionChange = (event: ChangeEvent<HTMLSelectElement>) => {
-        const selectedOption = sortOptions.find(
-            (option) => option.value === event.target.value
-        );
-        if (selectedOption) {
-            setActiveOption(selectedOption);
-        }
-    };
-
     return (
         <Select
             activeOption={activeOption}
             options={sortOptions}
-            onOptionChange={handleOptionChange}
+            setActiveOption={setActiveOption}
+            id="sortby"
         />
     );
 };

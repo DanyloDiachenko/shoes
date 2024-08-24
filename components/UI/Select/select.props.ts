@@ -4,5 +4,6 @@ import { ChangeEventHandler } from "react";
 export interface SelectProps {
     options: ISelectOption[];
     activeOption: ISelectOption;
-    onOptionChange: ChangeEventHandler<HTMLSelectElement>;
+    setActiveOption: (option: ISelectOption) => void;
+    id: string;
 }
