@@ -1,0 +1,66 @@
+.actions {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    margin-bottom: 3rem;
+
+    .addToCart {
+        width: 100%;
+        max-width: 198px;
+        text-transform: uppercase;
+
+        &.inactive {
+            color: #ccc;
+            border-color: #ebebeb;
+            background-color: #fafafa;
+            cursor: default;
+        }
+
+        svg {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+            margin-top: -0.1rem;
+        }
+
+        span {
+            font-size: 1.4rem;
+        }
+    }
+
+    .actionsWrapper {
+        display: flex;
+        align-items: center;
+        margin-left: 4rem;
+
+        .addToWishlist {
+            padding-top: 0;
+            padding-bottom: 0;
+            white-space: nowrap;
+            align-self: stretch;
+            line-height: 1.4;
+            font-size: 1.6rem;
+            color: #666666;
+            letter-spacing: -0.01em;
+            border: none;
+            background: none;
+
+            svg {
+                margin-top: -0.1rem;
+                color: #c96;
+                margin-right: 1rem;
+            }
+
+            span {
+                transition: 0.3s;
+                letter-spacing: 0.01rem;
+            }
+
+            &:hover {
+                span {
+                    color: #c96;
+                    box-shadow: 0 1px 0 0 #c96;
+                }
+            }
+        }
+    }
+}

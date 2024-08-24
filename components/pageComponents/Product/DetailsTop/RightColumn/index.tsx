@@ -15,7 +15,6 @@ export const ProductDetailsTopRightColumn = () => {
                 <ProductDetailsTopRightColumnSizes />
                 <ProductDetailsTopRightColumnQuantity />
                 <ProductDetailsTopRightColumnActions />
-                <ProductDetailsTopRightColumnActions />
                 <ProductDetailsTopRightColumnBottom />
             </div>
         </div>
