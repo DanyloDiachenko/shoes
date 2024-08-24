@@ -28,7 +28,7 @@ const selectOptions: ISelectOption[] = [
     },
 ];
 
-export const ProductDetailsTopRightColumnSizes = () => {
+export const Sizes = () => {
     const [activeOption, setActiveOption] = useState<ISelectOption>(
         selectOptions[0]
     );

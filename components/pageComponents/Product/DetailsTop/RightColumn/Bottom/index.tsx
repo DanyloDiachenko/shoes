@@ -31,7 +31,7 @@ const socials: ISocialMedia[] = [
     },
 ];
 
-export const ProductDetailsTopRightColumnBottom = () => {
+export const Bottom = () => {
     return (
         <div className={styles.bottom}>
             <div className={styles.category}>

@@ -17,7 +17,7 @@ const productImages: ProductImage[] = [
     { id: 4, url: "/images/banners/product-details.png" },
 ];
 
-export const ProductDetailsTopLeftColumn = () => {
+export const LeftColumn = () => {
     const [activeImageId, setActiveImageId] = useState<number>(
         productImages[0].id
     );

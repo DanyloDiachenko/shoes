@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { FaRegHeart } from "react-icons/fa";
 
-export const ProductDetailsTopRightColumnActions = () => {
+export const Actions = () => {
     return (
         <div className={styles.actions}>
             <Button

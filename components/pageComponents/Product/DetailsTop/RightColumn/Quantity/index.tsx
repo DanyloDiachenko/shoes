@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
-export const ProductDetailsTopRightColumnQuantity = () => {
+export const Quantity = () => {
     return (
         <div className={styles.detailsFilter}>
             <label htmlFor="qty">Qty:</label>

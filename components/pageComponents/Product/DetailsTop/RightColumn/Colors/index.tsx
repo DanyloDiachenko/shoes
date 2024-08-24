@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 
-export const ProductDetailsTopRightColumnColors = () => {
+export const Colors = () => {
     return (
         <div className={styles.detailsFilters}>
             <label>Color:</label>

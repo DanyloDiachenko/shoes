@@ -2,7 +2,7 @@ import { getRating } from "@/helpers/getRating";
 import styles from "./styles.module.scss";
 import Link from "next/link";
 
-export const ProductDetailsTopRightColumnInfo = () => {
+export const Info = () => {
     return (
         <>
             <h1 className={styles.title}>

@@ -1,21 +1,21 @@
 import styles from "./styles.module.scss";
-import { ProductDetailsTopRightColumnColors } from "./Colors";
-import { ProductDetailsTopRightColumnSizes } from "./Sizes";
-import { ProductDetailsTopRightColumnQuantity } from "./Quantity";
-import { ProductDetailsTopRightColumnActions } from "./Actions";
-import { ProductDetailsTopRightColumnBottom } from "./Bottom";
-import { ProductDetailsTopRightColumnInfo } from "./Info";
+import { Colors } from "./Colors";
+import { Sizes } from "./Sizes";
+import { Quantity } from "./Quantity";
+import { Actions } from "./Actions";
+import { Bottom } from "./Bottom";
+import { Info } from "./Info";
 
-export const ProductDetailsTopRightColumn = () => {
+export const RightColumn = () => {
     return (
         <div className={styles.columnRight}>
             <div className={styles.details}>
-                <ProductDetailsTopRightColumnInfo />
-                <ProductDetailsTopRightColumnColors />
-                <ProductDetailsTopRightColumnSizes />
-                <ProductDetailsTopRightColumnQuantity />
-                <ProductDetailsTopRightColumnActions />
-                <ProductDetailsTopRightColumnBottom />
+                <Info />
+                <Colors />
+                <Sizes />
+                <Quantity />
+                <Actions />
+                <Bottom />
             </div>
         </div>
     );

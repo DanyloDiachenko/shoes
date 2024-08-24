@@ -8,9 +8,7 @@ export const ProductPageContent = () => {
             <div className="container">
                 <DetailsTop />
                 <DetailsBottom />
-
                 <h2 className="title text-center mb-4">You May Also Like</h2>
-
                 <div
                     className="owl-carousel owl-simple carousel-equal-height carousel-with-shadow"
                     data-toggle="owl"
