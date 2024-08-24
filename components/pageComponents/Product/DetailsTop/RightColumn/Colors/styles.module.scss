@@ -1,0 +1,40 @@
+.detailsFilters {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    margin-bottom: 2rem;
+
+    label {
+        margin: 0 0 1.1rem;
+        display: inline-block;
+        width: 67px;
+        font-weight: 400;
+        font-size: 1.4rem;
+        margin-bottom: 0;
+        color: #666;
+    }
+
+    .colors {
+        display: flex;
+        align-items: center;
+
+        a {
+            display: flex;
+            align-items: center;
+            width: 4.4rem;
+            height: 4.4rem;
+            border-radius: 0.2rem;
+            border: 0.2rem solid #fff;
+            margin-right: 0.4rem;
+            transition: box-shadow 0.35s ease;
+
+            &.active {
+                box-shadow: 0 0 0 0.1rem #cccccc;
+            }
+
+            img {
+                border-radius: 0.2rem;
+            }
+        }
+    }
+}

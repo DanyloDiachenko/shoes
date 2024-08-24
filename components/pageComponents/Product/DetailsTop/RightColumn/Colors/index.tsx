@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./styles.module.scss";
 
 export const ProductDetailsTopRightColumnColors = () => {
@@ -5,18 +6,18 @@ export const ProductDetailsTopRightColumnColors = () => {
         <div className={styles.detailsFilters}>
             <label>Color:</label>
             <div className={styles.colors}>
-                <a href="#" className={styles.active}>
+                <Link href="#" className={styles.active}>
                     <img
                         src="/images/banners/product-details.png"
                         alt="product desc"
                     />
-                </a>
-                <a href="#">
+                </Link>
+                <Link href="#">
                     <img
                         src="/images/banners/product-details.png"
                         alt="product desc"
                     />
-                </a>
+                </Link>
             </div>
         </div>
     );
