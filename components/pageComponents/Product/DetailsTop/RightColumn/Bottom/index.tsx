@@ -36,7 +36,7 @@ export const ProductDetailsTopRightColumnBottom = () => {
         <div className={styles.bottom}>
             <div className={styles.category}>
                 <span>Category:</span>
-                <Link href="#">Women</Link>,<Link href="#">Dresses</Link>,
+                <Link href="#">Women</Link>, <Link href="#">Dresses</Link>,{" "}
                 <Link href="#">Yellow</Link>
             </div>
             <div className={styles.socialIcons}>
