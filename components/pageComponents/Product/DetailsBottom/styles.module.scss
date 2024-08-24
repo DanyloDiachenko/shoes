@@ -1,3 +1,66 @@
 .tabsWrapper {
     margin-bottom: 5rem;
+
+    .tabContent {
+        border: 0.1rem solid #dadada;
+        margin-top: -0.1rem;
+        border-radius: 0.3rem;
+
+        .tabPanel {
+            padding: 2.7rem 3rem;
+            display: block;
+            transition: opacity 0.15s linear;
+            opacity: 0;
+
+            &.active {
+                opacity: 1;
+            }
+
+            &.transitioning {
+                opacity: 0;
+            }
+
+            h3 {
+                font-weight: 400;
+                font-size: 1.6rem;
+                letter-spacing: -0.01em;
+                margin-bottom: 1.8rem;
+            }
+
+            p {
+                font-size: 1.4rem;
+                font-weight: 300;
+                color: #777;
+            }
+
+            ul {
+                color: #333333;
+                margin-bottom: 1.5rem;
+
+                li {
+                    position: relative;
+                    padding-left: 1.3rem;
+
+                    &::before {
+                        content: "•";
+                        position: absolute;
+                        display: block;
+                        top: 0;
+                        left: 0.2rem;
+                    }
+                }
+            }
+
+            a {
+                color: #333;
+                border-bottom: 0.1rem solid #b8b8b8;
+                transition: all 0.35s ease;
+
+                &:hover {
+                    color: #c96;
+                    border-bottom-color: #c96;
+                }
+            }
+        }
+    }
 }

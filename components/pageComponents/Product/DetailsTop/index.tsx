@@ -2,7 +2,7 @@ import { ProductDetailsTopLeftColumn } from "./LeftColumn";
 import { ProductDetailsTopRightColumn } from "./RightColumn";
 import styles from "./styles.module.scss";
 
-export const ProductDetailsTop = () => {
+export const DetailsTop = () => {
     return (
         <div className={styles.top}>
             <div className="row">

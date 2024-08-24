@@ -1,13 +1,13 @@
-import { ProductDetailsBottom } from "./DetailsBottom";
-import { ProductDetailsTop } from "./DetailsTop";
+import { DetailsBottom } from "./DetailsBottom";
+import { DetailsTop } from "./DetailsTop";
 import styles from "./styles.module.scss";
 
 export const ProductPageContent = () => {
     return (
         <div className="page-content">
             <div className="container">
-                <ProductDetailsTop />
-                <ProductDetailsBottom />
+                <DetailsTop />
+                <DetailsBottom />
 
                 <h2 className="title text-center mb-4">You May Also Like</h2>
 
