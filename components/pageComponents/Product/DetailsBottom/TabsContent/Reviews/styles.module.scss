@@ -1,0 +1,85 @@
+.reviews {
+    .title {
+        font-size: 1.6rem !important;
+        margin-bottom: 2.3rem !important;
+        font-weight: 500 !important;
+    }
+
+    .review {
+        padding-bottom: 1.3rem;
+        margin-bottom: 2rem;
+        border-bottom: 0.1rem solid #ebebeb;
+
+        h4 {
+            color: #333;
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.8rem;
+        }
+
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+
+            .leftColumn {
+                width: 120px;
+                padding-right: 2rem;
+
+                .ratingsContainer {
+                    padding-top: 0.7rem;
+                    margin-bottom: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    font-size: 1.3rem;
+                    line-height: 1;
+                    white-space: nowrap;
+                }
+
+                .reviewDate {
+                    color: #ccc;
+                }
+            }
+
+            .mainColumn {
+                flex-basis: 0;
+                flex-grow: 1;
+                max-width: 100%;
+                position: relative;
+                width: 100%;
+
+                .description {
+                    margin-bottom: 0.8rem;
+                }
+
+                .actions {
+                    font-size: 1.2rem;
+                    display: flex;
+
+                    a {
+                        color: #777;
+                        transition: all 0.35s ease;
+                        margin-left: 1.6rem;
+                        display: flex;
+                        align-items: center;
+
+                        &:hover {
+                            color: #c96;
+                            box-shadow: 0 1px 0 #c96;
+                        }
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+
+                        svg {
+                            font-size: 1.4rem;
+                            margin-right: 0.6rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
