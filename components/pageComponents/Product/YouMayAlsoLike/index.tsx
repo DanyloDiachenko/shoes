@@ -1,156 +1,96 @@
 "use client";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import productsData from "../../../../data/products.json";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import styles from "./styles.module.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import Slider from "react-slick";
 import { ProductSlide } from "./ProductSlide";
-import { ProductSlideProps } from "./ProductSlide/productSlide.props";
+import { IProduct } from "@/interfaces/product.interface";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
-const swiperSettings = {
-    spaceBetween: 20,
-    loop: false,
-    pagination: {
-        clickable: true,
-    },
-    navigation: true,
-    breakpoints: {
-        0: {
-            slidesPerView: 1,
-        },
-        480: {
-            slidesPerView: 2,
-        },
-        768: {
-            slidesPerView: 3,
-        },
-        992: {
-            slidesPerView: 4,
-        },
-        1200: {
-            slidesPerView: 4,
-            navigation: true,
-            pagination: false,
-        },
-    },
-};
-
-const products: ProductSlideProps[] = [
-    {
-        label: "New",
-        labelType: "new",
-        imageSrc: "/images/banners/product.png",
-        productLink: "#",
-        category: "Women",
-        title: "Brown paperbag waist pencil skirt",
-        price: "$60.00",
-        rating: 4,
-        reviews: 2,
-        thumbs: [
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-        ],
-    },
-    {
-        label: "Sale",
-        labelType: "sale",
-        imageSrc: "/images/banners/product.png",
-        productLink: "#",
-        category: "Men",
-        title: "Blue denim jacket",
-        price: "$120.00",
-        rating: 5,
-        reviews: 10,
-        thumbs: [
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-        ],
-    },
-    {
-        label: "New",
-        labelType: "new",
-        imageSrc: "/images/banners/product.png",
-        productLink: "#",
-        category: "Women",
-        title: "Brown paperbag waist pencil skirt",
-        price: "$60.00",
-        rating: 4,
-        reviews: 2,
-        thumbs: [
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-        ],
-    },
-    {
-        label: "Sale",
-        labelType: "sale",
-        imageSrc: "/images/banners/product.png",
-        productLink: "#",
-        category: "Men",
-        title: "Blue denim jacket",
-        price: "$120.00",
-        rating: 5,
-        reviews: 10,
-        thumbs: [
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-        ],
-    },
-    {
-        label: "New",
-        labelType: "new",
-        imageSrc: "/images/banners/product.png",
-        productLink: "#",
-        category: "Women",
-        title: "Brown paperbag waist pencil skirt",
-        price: "$60.00",
-        rating: 4,
-        reviews: 2,
-        thumbs: [
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-        ],
-    },
-    {
-        label: "Sale",
-        labelType: "sale",
-        imageSrc: "/images/banners/product.png",
-        productLink: "#",
-        category: "Men",
-        title: "Blue denim jacket",
-        price: "$120.00",
-        rating: 5,
-        reviews: 10,
-        thumbs: [
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-            "/images/icons/product-1.png",
-        ],
-    },
-];
+const products: IProduct[] = productsData as IProduct[];
 
 export const YouMayAlsoLike = () => {
+    const sliderSettings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                },
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+    };
+
     return (
         <>
             <h2 className={styles.title}>You May Also Like</h2>
-            <Swiper
-                className={styles.swiper}
-                modules={[Navigation, Pagination]}
-                {...swiperSettings}
-            >
+            <Slider className={styles.slider} {...sliderSettings}>
                 {products.map((product, index) => (
-                    <SwiperSlide key={index}>
+                    <div key={index}>
                         <ProductSlide {...product} />
-                    </SwiperSlide>
+                    </div>
                 ))}
-            </Swiper>
+            </Slider>
         </>
+    );
+};
+
+const SampleNextArrow = (props: any) => {
+    const { className, style, onClick } = props;
+
+    return (
+        <div
+            className={`${className} ${styles.arrowNext}`}
+            style={{ ...style }}
+            onClick={onClick}
+        >
+            <IoIosArrowForward />
+        </div>
+    );
+};
+
+const SamplePrevArrow = (props: any) => {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={`${className} ${styles.arrowPrev}`}
+            style={{ ...style }}
+            onClick={onClick}
+        >
+            <IoIosArrowBack />
+        </div>
     );
 };

@@ -9,26 +9,24 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import { ProductSlideProps } from "./productSlide.props";
 
 export const ProductSlide = ({
-    label,
-    labelType,
-    imageSrc,
-    productLink,
-    category,
+    mainCategory,
+    id,
+    mainImage,
     title,
     price,
     rating,
     reviews,
-    thumbs,
+    images,
 }: ProductSlideProps) => {
     return (
         <div className={styles.productSlide}>
             <figure className={styles.media}>
-                <span className={`${styles.label} ${styles[labelType]}`}>
-                    {label}
+                <span className={`${styles.label} ${styles[mainCategory.key]}`}>
+                    {mainCategory.label}
                 </span>
-                <Link href={productLink}>
+                <Link href={`/products/${id}`}>
                     <img
-                        src={imageSrc}
+                        src={mainImage}
                         alt="Product image"
                         className={styles.productImage}
                     />
@@ -50,24 +48,28 @@ export const ProductSlide = ({
             </figure>
             <div className={styles.productBody}>
                 <div className={styles.category}>
-                    <Link href={productLink}>{category}</Link>
+                    <Link href={`/products?category=${mainCategory.key}`}>
+                        {mainCategory.label}
+                    </Link>
                 </div>
                 <h3 className={styles.title}>
-                    <Link href={productLink}>{title}</Link>
+                    <Link href={`/products/${id}`}>{title}</Link>
                 </h3>
-                <div className={styles.price}>{price}</div>
+                <div className={styles.price}>${price.toFixed(2)}</div>
                 <div className={styles.ratingsContainer}>
                     {getRating(rating)}
-                    <span className={styles.text}>({reviews} Reviews)</span>
+                    <span className={styles.text}>
+                        ({reviews.length} Reviews)
+                    </span>
                 </div>
                 <div className={styles.thumbs}>
-                    {thumbs.map((thumb, index) => (
+                    {images.map((image, index) => (
                         <Link
                             href="#"
                             key={index}
                             className={index === 0 ? styles.active : ""}
                         >
-                            <img src={thumb} alt="product desc" />
+                            <img src={image} alt="product desc" />
                         </Link>
                     ))}
                 </div>

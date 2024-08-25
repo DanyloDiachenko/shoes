@@ -1,0 +1,236 @@
+[
+    {
+        "id": "1",
+        "mainImage": "/images/banners/product.png",
+        "images": [
+            "/images/banners/product.png",
+            "/images/banners/product.png",
+            "/images/banners/product.png"
+        ],
+        "title": "Air Max 270",
+        "rating": 4.5,
+        "price": 150,
+        "description": "A revolutionary new design with a comfortable and stylish look.",
+        "sizes": [
+            { "id": "1", "key": "m", "label": "Medium" },
+            { "id": "2", "key": "l", "label": "Large" }
+        ],
+        "quantityInStock": 20,
+        "mainCategory": { "id": "1", "key": "men", "label": "Men" },
+        "categories": [
+            { "id": "1", "key": "men", "label": "Men" },
+            { "id": "2", "key": "sneakers", "label": "Sneakers" },
+            { "id": "3", "key": "sport", "label": "Sport" }
+        ],
+        "productInformtion": "Breathable mesh with supportive overlays.",
+        "additionalInformation": "Available in various colors.",
+        "reviews": [
+            {
+                "id": "1",
+                "author": "John D.",
+                "rating": 5,
+                "createdAt": "2023-07-20",
+                "title": "Great Sneakers!",
+                "description": "Very comfortable and stylish, would definitely recommend!",
+                "helpfulNumber": 12,
+                "unhelpfulNumber": 2
+            }
+        ],
+        "purchasedNumber": 200
+    },
+    {
+        "id": "2",
+        "mainImage": "/images/banners/product.png",
+        "images": [
+            "/images/banners/product.png",
+            "/images/banners/product.png"
+        ],
+        "title": "Adidas Ultraboost",
+        "rating": 4.8,
+        "price": 180,
+        "description": "Boost your performance with these top-notch sneakers.",
+        "sizes": [
+            { "id": "3", "key": "s", "label": "Small" },
+            { "id": "4", "key": "m", "label": "Medium" },
+            { "id": "5", "key": "l", "label": "Large" }
+        ],
+        "quantityInStock": 15,
+        "mainCategory": { "id": "1", "key": "women", "label": "Women" },
+        "categories": [
+            { "id": "4", "key": "women", "label": "Women" },
+            { "id": "5", "key": "sneakers", "label": "Sneakers" },
+            { "id": "6", "key": "running", "label": "Running" }
+        ],
+        "productInformtion": "Energy-returning boost midsole.",
+        "additionalInformation": "Ideal for running and casual wear.",
+        "reviews": [
+            {
+                "id": "2",
+                "author": "Jane S.",
+                "rating": 5,
+                "createdAt": "2023-06-15",
+                "title": "Best running shoes ever!",
+                "description": "I have been using these for a month and I am loving them!",
+                "helpfulNumber": 20,
+                "unhelpfulNumber": 1
+            }
+        ],
+        "purchasedNumber": 300
+    },
+    {
+        "id": "3",
+        "mainImage": "/images/banners/product.png",
+        "images": [
+            "/images/banners/product.png",
+            "/images/banners/product.png"
+        ],
+        "title": "Puma RS-X3",
+        "rating": 4.2,
+        "price": 120,
+        "description": "Bold, vibrant design with superior comfort.",
+        "sizes": [
+            { "id": "6", "key": "m", "label": "Medium" },
+            { "id": "7", "key": "l", "label": "Large" },
+            { "id": "8", "key": "xl", "label": "Extra Large" }
+        ],
+        "quantityInStock": 30,
+        "mainCategory": { "id": "1", "key": "sneakers", "label": "Sneakers" },
+        "categories": [
+            { "id": "7", "key": "men", "label": "Men" },
+            { "id": "8", "key": "sneakers", "label": "Sneakers" },
+            { "id": "9", "key": "casual", "label": "Casual" }
+        ],
+        "productInformtion": "Retro design with modern performance.",
+        "additionalInformation": "Perfect for everyday wear.",
+        "reviews": [
+            {
+                "id": "3",
+                "author": "Alex J.",
+                "rating": 4,
+                "createdAt": "2023-08-01",
+                "title": "Stylish and comfortable.",
+                "description": "I love the design and they feel great on my feet.",
+                "helpfulNumber": 8,
+                "unhelpfulNumber": 3
+            }
+        ],
+        "purchasedNumber": 150
+    },
+    {
+        "id": "4",
+        "mainImage": "/images/banners/product.png",
+        "images": [
+            "/images/banners/product.png",
+            "/images/banners/product.png"
+        ],
+        "title": "Nike Air Zoom Pegasus",
+        "rating": 4.9,
+        "price": 130,
+        "description": "Run faster and more comfortably with Nike's latest technology.",
+        "sizes": [
+            { "id": "9", "key": "s", "label": "Small" },
+            { "id": "10", "key": "m", "label": "Medium" },
+            { "id": "11", "key": "l", "label": "Large" }
+        ],
+        "quantityInStock": 25,
+        "mainCategory": { "id": "1", "key": "running", "label": "Running" },
+        "categories": [
+            { "id": "10", "key": "women", "label": "Women" },
+            { "id": "11", "key": "sneakers", "label": "Sneakers" },
+            { "id": "12", "key": "running", "label": "Running" }
+        ],
+        "productInformtion": "Lightweight and responsive cushioning.",
+        "additionalInformation": "Ideal for long-distance running.",
+        "reviews": [
+            {
+                "id": "4",
+                "author": "Michael L.",
+                "rating": 5,
+                "createdAt": "2023-08-10",
+                "title": "Amazing running shoes!",
+                "description": "These shoes are perfect for my daily runs.",
+                "helpfulNumber": 25,
+                "unhelpfulNumber": 2
+            }
+        ],
+        "purchasedNumber": 220
+    },
+    {
+        "id": "5",
+        "mainImage": "/images/banners/product.png",
+        "images": [
+            "/images/banners/product.png",
+            "/images/banners/product.png"
+        ],
+        "title": "New Balance 990v5",
+        "rating": 4.7,
+        "price": 175,
+        "description": "Classic design with exceptional comfort and durability.",
+        "sizes": [
+            { "id": "12", "key": "m", "label": "Medium" },
+            { "id": "13", "key": "l", "label": "Large" },
+            { "id": "14", "key": "xl", "label": "Extra Large" }
+        ],
+        "quantityInStock": 18,
+        "mainCategory": { "id": "1", "key": "casual", "label": "Casual" },
+        "categories": [
+            { "id": "13", "key": "men", "label": "Men" },
+            { "id": "14", "key": "sneakers", "label": "Sneakers" },
+            { "id": "15", "key": "casual", "label": "Casual" }
+        ],
+        "productInformtion": "High-quality materials and classic silhouette.",
+        "additionalInformation": "Perfect for daily wear and walking.",
+        "reviews": [
+            {
+                "id": "5",
+                "author": "Emma D.",
+                "rating": 4.5,
+                "createdAt": "2023-07-25",
+                "title": "Comfortable and stylish.",
+                "description": "These shoes are my go-to for any casual outing.",
+                "helpfulNumber": 18,
+                "unhelpfulNumber": 4
+            }
+        ],
+        "purchasedNumber": 180
+    },
+    {
+        "id": "6",
+        "mainImage": "/images/banners/product.png",
+        "images": [
+            "/images/banners/product.png",
+            "/images/banners/product.png"
+        ],
+        "title": "Asics Gel-Kayano 27",
+        "rating": 4.6,
+        "price": 160,
+        "description": "Advanced stability and cushioning for long runs.",
+        "sizes": [
+            { "id": "15", "key": "s", "label": "Small" },
+            { "id": "16", "key": "m", "label": "Medium" },
+            { "id": "17", "key": "l", "label": "Large" }
+        ],
+        "quantityInStock": 22,
+        "mainCategory": { "id": "1", "key": "sport", "label": "Sport" },
+        "categories": [
+            { "id": "16", "key": "women", "label": "Women" },
+            { "id": "17", "key": "sneakers", "label": "Sneakers" },
+            { "id": "18", "key": "sport", "label": "Sport" }
+        ],
+        "productInformtion": "Supportive fit with GEL technology cushioning.",
+        "additionalInformation": "Ideal for overpronators.",
+        "reviews": [
+            {
+                "id": "6",
+                "author": "Sophia W.",
+                "rating": 4.5,
+                "createdAt": "2023-08-05",
+                "title": "Great support for long runs.",
+                "description": "These are the best shoes I've used for marathon training.",
+                "helpfulNumber": 15,
+                "unhelpfulNumber": 3
+            }
+        ],
+        "purchasedNumber": 210
+    }
+]
