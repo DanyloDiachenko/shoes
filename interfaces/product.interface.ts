@@ -1,22 +1,14 @@
-import {
-    ProductCategoryKeyType,
-    ProductCategoryLabelType,
-} from "@/types/productCategory.type";
-import {
-    ProductSizeKeyType,
-    ProductSizeLabelType,
-} from "@/types/productSize.type";
-
 export interface IProductSize {
     id: string;
-    key: ProductSizeKeyType;
-    label: ProductSizeLabelType;
+    key: string;
+    label: string;
 }
 
 export interface IProductCategory {
     id: string;
-    key: ProductCategoryKeyType;
-    label: ProductCategoryLabelType;
+    key: string;
+    label: string;
+    productsQuantity: number;
 }
 
 export interface IProductReview {
@@ -31,6 +23,12 @@ export interface IProductReview {
 }
 
 export interface IProductBrand {
+    id: string;
+    key: string;
+    label: string;
+}
+
+export interface IProductColor {
     id: string;
     key: string;
     label: string;
@@ -52,4 +50,5 @@ export interface IProduct {
     additionalInformation: string;
     reviews: IProductReview[];
     purchasedNumber: number;
+    color: IProductColor;
 }

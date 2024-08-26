@@ -4,9 +4,17 @@ import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Checkbox } from "@/components/UI/Checkbox";
+import { CategoryProps } from "./category.props";
+import { IProductCategory } from "@/interfaces/product.interface";
 
-export const Category = () => {
+export const Category = ({
+    allCategories,
+    onCategoryClick,
+    selectedCategories,
+}: CategoryProps) => {
     const [isOpened, setIsOpened] = useState(true);
+
+    console.log(selectedCategories);
 
     return (
         <div className={styles.widget}>
@@ -29,18 +37,19 @@ export const Category = () => {
                 id="widget-1"
             >
                 <div className={styles.widgetBody}>
-                    <div className={styles.item}>
-                        <Checkbox title="Category 1" id="cat-1" />
-                        <span className={styles.count}>3</span>
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="Category 2" id="cat-2" />
-                        <span className={styles.count}>10</span>
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="Category 3" id="cat-3" />
-                        <span className={styles.count}>6</span>
-                    </div>
+                    {allCategories.map((category) => (
+                        <div className={styles.item} key={category.id}>
+                            <Checkbox
+                                title={category.label}
+                                id={category.id}
+                                checked={selectedCategories.includes(category)}
+                                onClick={() => onCategoryClick(category)}
+                            />
+                            <span className={styles.count}>
+                                {category.productsQuantity}
+                            </span>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
