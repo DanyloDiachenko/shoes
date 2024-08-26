@@ -12,15 +12,15 @@
         "price": 150,
         "description": "A revolutionary new design with a comfortable and stylish look.",
         "sizes": [
-            { "id": "1", "key": "m", "label": "Medium" },
-            { "id": "2", "key": "l", "label": "Large" }
+            { "id": "1", "slug": "m", "title": "Medium" },
+            { "id": "2", "slug": "l", "title": "Large" }
         ],
         "quantityInStock": 20,
-        "mainCategory": { "id": "1", "key": "men", "label": "Men" },
+        "mainCategory": { "id": "1", "slug": "men", "title": "Men" },
         "categories": [
-            { "id": "1", "key": "men", "label": "Men" },
-            { "id": "2", "key": "sneakers", "label": "Sneakers" },
-            { "id": "3", "key": "sport", "label": "Sport" }
+            { "id": "1", "kslugey": "men", "title": "Men" },
+            { "id": "2", "slug": "sneakers", "title": "Sneakers" },
+            { "id": "3", "slug": "sport", "title": "Sport" }
         ],
         "productInformtion": "Breathable mesh with supportive overlays.",
         "additionalInformation": "Available in various colors.",
@@ -50,16 +50,16 @@
         "price": 180,
         "description": "Boost your performance with these top-notch sneakers.",
         "sizes": [
-            { "id": "3", "key": "s", "label": "Small" },
-            { "id": "4", "key": "m", "label": "Medium" },
-            { "id": "5", "key": "l", "label": "Large" }
+            { "id": "3", "slug": "s", "title": "Small" },
+            { "id": "4", "slug": "m", "title": "Medium" },
+            { "id": "5", "slug": "l", "title": "Large" }
         ],
         "quantityInStock": 15,
-        "mainCategory": { "id": "1", "key": "women", "label": "Women" },
+        "mainCategory": { "id": "1", "slug": "women", "title": "Women" },
         "categories": [
-            { "id": "4", "key": "women", "label": "Women" },
-            { "id": "5", "key": "sneakers", "label": "Sneakers" },
-            { "id": "6", "key": "running", "label": "Running" }
+            { "id": "4", "slug": "women", "title": "Women" },
+            { "id": "5", "slug": "sneakers", "title": "Sneakers" },
+            { "id": "6", "slug": "running", "title": "Running" }
         ],
         "productInformtion": "Energy-returning boost midsole.",
         "additionalInformation": "Ideal for running and casual wear.",
@@ -89,16 +89,16 @@
         "price": 120,
         "description": "Bold, vibrant design with superior comfort.",
         "sizes": [
-            { "id": "6", "key": "m", "label": "Medium" },
-            { "id": "7", "key": "l", "label": "Large" },
-            { "id": "8", "key": "xl", "label": "Extra Large" }
+            { "id": "6", "slug": "m", "title": "Medium" },
+            { "id": "7", "slug": "l", "title": "Large" },
+            { "id": "8", "slug": "xl", "title": "Extra Large" }
         ],
         "quantityInStock": 30,
-        "mainCategory": { "id": "1", "key": "sneakers", "label": "Sneakers" },
+        "mainCategory": { "id": "1", "slug": "sneakers", "title": "Sneakers" },
         "categories": [
-            { "id": "7", "key": "men", "label": "Men" },
-            { "id": "8", "key": "sneakers", "label": "Sneakers" },
-            { "id": "9", "key": "casual", "label": "Casual" }
+            { "id": "7", "slug": "men", "title": "Men" },
+            { "id": "8", "slug": "sneakers", "title": "Sneakers" },
+            { "id": "9", "slug": "casual", "title": "Casual" }
         ],
         "productInformtion": "Retro design with modern performance.",
         "additionalInformation": "Perfect for everyday wear.",
@@ -128,16 +128,16 @@
         "price": 130,
         "description": "Run faster and more comfortably with Nike's latest technology.",
         "sizes": [
-            { "id": "9", "key": "s", "label": "Small" },
-            { "id": "10", "key": "m", "label": "Medium" },
-            { "id": "11", "key": "l", "label": "Large" }
+            { "id": "9", "slug": "s", "title": "Small" },
+            { "id": "10", "slug": "m", "title": "Medium" },
+            { "id": "11", "slug": "l", "title": "Large" }
         ],
         "quantityInStock": 25,
-        "mainCategory": { "id": "1", "key": "running", "label": "Running" },
+        "mainCategory": { "id": "1", "slug": "running", "title": "Running" },
         "categories": [
-            { "id": "10", "key": "women", "label": "Women" },
-            { "id": "11", "key": "sneakers", "label": "Sneakers" },
-            { "id": "12", "key": "running", "label": "Running" }
+            { "id": "10", "slug": "women", "title": "Women" },
+            { "id": "11", "slug": "sneakers", "title": "Sneakers" },
+            { "id": "12", "slug": "running", "title": "Running" }
         ],
         "productInformtion": "Lightweight and responsive cushioning.",
         "additionalInformation": "Ideal for long-distance running.",
@@ -167,16 +167,16 @@
         "price": 175,
         "description": "Classic design with exceptional comfort and durability.",
         "sizes": [
-            { "id": "12", "key": "m", "label": "Medium" },
-            { "id": "13", "key": "l", "label": "Large" },
-            { "id": "14", "key": "xl", "label": "Extra Large" }
+            { "id": "12", "slug": "m", "title": "Medium" },
+            { "id": "13", "slug": "l", "title": "Large" },
+            { "id": "14", "slug": "xl", "title": "Extra Large" }
         ],
         "quantityInStock": 18,
-        "mainCategory": { "id": "1", "key": "casual", "label": "Casual" },
+        "mainCategory": { "id": "1", "slug": "casual", "title": "Casual" },
         "categories": [
-            { "id": "13", "key": "men", "label": "Men" },
-            { "id": "14", "key": "sneakers", "label": "Sneakers" },
-            { "id": "15", "key": "casual", "label": "Casual" }
+            { "id": "13", "slug": "men", "title": "Men" },
+            { "id": "14", "slug": "sneakers", "title": "Sneakers" },
+            { "id": "15", "slug": "casual", "title": "Casual" }
         ],
         "productInformtion": "High-quality materials and classic silhouette.",
         "additionalInformation": "Perfect for daily wear and walking.",
@@ -206,16 +206,16 @@
         "price": 160,
         "description": "Advanced stability and cushioning for long runs.",
         "sizes": [
-            { "id": "15", "key": "s", "label": "Small" },
-            { "id": "16", "key": "m", "label": "Medium" },
-            { "id": "17", "key": "l", "label": "Large" }
+            { "id": "15", "slug": "s", "title": "Small" },
+            { "id": "16", "slug": "m", "title": "Medium" },
+            { "id": "17", "slug": "l", "title": "Large" }
         ],
         "quantityInStock": 22,
-        "mainCategory": { "id": "1", "key": "sport", "label": "Sport" },
+        "mainCategory": { "id": "1", "slug": "sport", "title": "Sport" },
         "categories": [
-            { "id": "16", "key": "women", "label": "Women" },
-            { "id": "17", "key": "sneakers", "label": "Sneakers" },
-            { "id": "18", "key": "sport", "label": "Sport" }
+            { "id": "16", "slug": "women", "title": "Women" },
+            { "id": "17", "slug": "sneakers", "title": "Sneakers" },
+            { "id": "18", "slug": "sport", "title": "Sport" }
         ],
         "productInformtion": "Supportive fit with GEL technology cushioning.",
         "additionalInformation": "Ideal for overpronators.",

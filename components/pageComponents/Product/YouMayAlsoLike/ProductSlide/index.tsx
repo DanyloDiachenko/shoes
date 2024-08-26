@@ -21,8 +21,10 @@ export const ProductSlide = ({
     return (
         <div className={styles.productSlide}>
             <figure className={styles.media}>
-                <span className={`${styles.label} ${styles[mainCategory.key]}`}>
-                    {mainCategory.label}
+                <span
+                    className={`${styles.label} ${styles[mainCategory.slug]}`}
+                >
+                    {mainCategory.title}
                 </span>
                 <Link href={`/products/${id}`}>
                     <img
@@ -48,8 +50,8 @@ export const ProductSlide = ({
             </figure>
             <div className={styles.productBody}>
                 <div className={styles.category}>
-                    <Link href={`/products?category=${mainCategory.key}`}>
-                        {mainCategory.label}
+                    <Link href={`/products?category=${mainCategory.slug}`}>
+                        {mainCategory.title}
                     </Link>
                 </div>
                 <h3 className={styles.title}>

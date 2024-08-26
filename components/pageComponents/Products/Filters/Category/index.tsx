@@ -40,7 +40,7 @@ export const Category = ({
                     {allCategories.map((category) => (
                         <div className={styles.item} key={category.id}>
                             <Checkbox
-                                title={category.label}
+                                title={category.title}
                                 id={category.id}
                                 checked={selectedCategories.includes(category)}
                                 onClick={() => onCategoryClick(category)}

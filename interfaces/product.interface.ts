@@ -1,13 +1,13 @@
 export interface IProductSize {
     id: string;
-    key: string;
-    label: string;
+    slug: string;
+    title: string;
 }
 
 export interface IProductCategory {
     id: string;
-    key: string;
-    label: string;
+    slug: string;
+    title: string;
     productsQuantity: number;
 }
 
@@ -24,14 +24,14 @@ export interface IProductReview {
 
 export interface IProductBrand {
     id: string;
-    key: string;
-    label: string;
+    slug: string;
+    title: string;
 }
 
 export interface IProductColor {
     id: string;
-    key: string;
-    label: string;
+    slug: string;
+    title: string;
 }
 
 export interface IProduct {
