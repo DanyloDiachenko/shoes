@@ -11,10 +11,7 @@
         "rating": 4.5,
         "price": 150,
         "description": "A revolutionary new design with a comfortable and stylish look.",
-        "sizes": [
-            { "id": "1", "slug": "m", "title": "Medium" },
-            { "id": "2", "slug": "l", "title": "Large" }
-        ],
+        "sizes": [37.5, 38],
         "quantityInStock": 20,
         "mainCategory": { "id": "1", "slug": "men", "title": "Men" },
         "categories": [
@@ -49,11 +46,7 @@
         "rating": 4.8,
         "price": 180,
         "description": "Boost your performance with these top-notch sneakers.",
-        "sizes": [
-            { "id": "3", "slug": "s", "title": "Small" },
-            { "id": "4", "slug": "m", "title": "Medium" },
-            { "id": "5", "slug": "l", "title": "Large" }
-        ],
+        "sizes": [37.5, 38],
         "quantityInStock": 15,
         "mainCategory": { "id": "1", "slug": "women", "title": "Women" },
         "categories": [
@@ -88,11 +81,7 @@
         "rating": 4.2,
         "price": 120,
         "description": "Bold, vibrant design with superior comfort.",
-        "sizes": [
-            { "id": "6", "slug": "m", "title": "Medium" },
-            { "id": "7", "slug": "l", "title": "Large" },
-            { "id": "8", "slug": "xl", "title": "Extra Large" }
-        ],
+        "sizes": [37.5, 38],
         "quantityInStock": 30,
         "mainCategory": { "id": "1", "slug": "sneakers", "title": "Sneakers" },
         "categories": [
@@ -127,11 +116,7 @@
         "rating": 4.9,
         "price": 130,
         "description": "Run faster and more comfortably with Nike's latest technology.",
-        "sizes": [
-            { "id": "9", "slug": "s", "title": "Small" },
-            { "id": "10", "slug": "m", "title": "Medium" },
-            { "id": "11", "slug": "l", "title": "Large" }
-        ],
+        "sizes": [37.5, 38],
         "quantityInStock": 25,
         "mainCategory": { "id": "1", "slug": "running", "title": "Running" },
         "categories": [
@@ -166,11 +151,7 @@
         "rating": 4.7,
         "price": 175,
         "description": "Classic design with exceptional comfort and durability.",
-        "sizes": [
-            { "id": "12", "slug": "m", "title": "Medium" },
-            { "id": "13", "slug": "l", "title": "Large" },
-            { "id": "14", "slug": "xl", "title": "Extra Large" }
-        ],
+        "sizes": [37.5, 38],
         "quantityInStock": 18,
         "mainCategory": { "id": "1", "slug": "casual", "title": "Casual" },
         "categories": [
@@ -205,11 +186,7 @@
         "rating": 4.6,
         "price": 160,
         "description": "Advanced stability and cushioning for long runs.",
-        "sizes": [
-            { "id": "15", "slug": "s", "title": "Small" },
-            { "id": "16", "slug": "m", "title": "Medium" },
-            { "id": "17", "slug": "l", "title": "Large" }
-        ],
+        "sizes": [37.5, 38],
         "quantityInStock": 22,
         "mainCategory": { "id": "1", "slug": "sport", "title": "Sport" },
         "categories": [

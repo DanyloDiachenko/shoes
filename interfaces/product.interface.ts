@@ -1,9 +1,3 @@
-export interface IProductSize {
-    id: string;
-    slug: string;
-    title: string;
-}
-
 export interface IProductCategory {
     id: string;
     slug: string;
@@ -42,7 +36,7 @@ export interface IProduct {
     rating: number;
     price: number;
     description: string;
-    sizes: IProductSize[];
+    sizes: number[];
     quantityInStock: number;
     mainCategory: IProductCategory;
     categories: IProductCategory[];
