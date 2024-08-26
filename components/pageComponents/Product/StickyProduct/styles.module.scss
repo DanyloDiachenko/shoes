@@ -1,0 +1,227 @@
+.stickyProduct {
+    display: none;
+
+    @media (min-width: 992px) {
+        display: block;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 500;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: #fff;
+        box-shadow: -15px 0 43px rgba(51, 51, 51, 0.15);
+    }
+
+    .row {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        .columnLeft {
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+            padding-left: 10px;
+            flex: 0 0 50%;
+            max-width: 50%;
+            position: relative;
+            width: 100%;
+
+            .media {
+                position: relative;
+                display: block;
+                background-color: #d7d7d7;
+                overflow: hidden;
+                margin: 0 0 1rem;
+
+                @media (min-width: 992px) {
+                    max-width: 60px;
+                    margin-right: 2rem;
+                    margin-bottom: 0;
+                    flex-shrink: 0;
+                }
+            }
+
+            .title {
+                font-weight: 400;
+                font-size: 1.6rem;
+                line-height: 1.25;
+                letter-spacing: -0.01em;
+                color: #333333;
+                margin-bottom: 0.2rem;
+
+                @media (min-width: 992px) {
+                    margin-bottom: 0;
+                    letter-spacing: -0.025em;
+                }
+
+                a {
+                    color: inherit;
+
+                    &:hover {
+                        color: #c96;
+                    }
+                }
+            }
+        }
+
+        .columnRight {
+            padding-right: 10px;
+            padding-left: 10px;
+            justify-content: flex-end;
+            flex: 0 0 50%;
+            max-width: 50%;
+            position: relative;
+            width: 100%;
+
+            @media (min-width: 992px) {
+                display: flex;
+                align-items: center;
+            }
+
+            .price {
+                display: flex;
+                align-items: center;
+                flex-flow: wrap;
+                font-weight: 400;
+                font-size: 1.6rem;
+                line-height: 1.25;
+                color: #c96;
+                margin-bottom: 1.3rem;
+
+                @media (min-width: 992px) {
+                    margin-bottom: 0;
+                    margin-right: 2rem;
+                }
+            }
+
+            .quantityFilter {
+                display: flex;
+                position: relative;
+                flex-wrap: wrap;
+                align-items: stretch;
+                width: 100%;
+                max-width: 131px;
+
+                @media (min-width: 992px) {
+                    max-width: 100px;
+                    margin-right: 2rem;
+                }
+
+                button {
+                    display: flex;
+                    position: absolute;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 2;
+                    cursor: pointer;
+                    border: none;
+                    background: none;
+                    padding: 1.25rem 1rem;
+                    height: 100%;
+                    font-size: 0.8rem;
+                    transition: 0.35s;
+
+                    &:hover {
+                        svg {
+                            color: #c96;
+                        }
+                    }
+
+                    &.decrement {
+                        left: 0;
+                    }
+                    &.increment {
+                        right: 0;
+                    }
+
+                    svg {
+                        color: #6666669d;
+                    }
+                }
+
+                input {
+                    border: 1px solid #dadada;
+                    background-color: #fff;
+                    padding: 0.85rem 2.6rem;
+                    width: 100%;
+                    height: auto;
+                    color: #777;
+                    font-size: 1.4rem;
+                    line-height: 1.5;
+                    text-align: center;
+                    -moz-appearance: none;
+                    appearance: none;
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                }
+            }
+
+            .actions {
+                display: flex;
+                align-items: center;
+                flex-flow: row wrap;
+                margin-bottom: 3rem;
+
+                @media (min-width: 992px) {
+                    margin-bottom: 0;
+                }
+
+                .addToCart {
+                    padding: 1rem 1.5rem;
+                    max-width: 198px;
+                    font-size: 1.8rem;
+                    text-transform: uppercase;
+
+                    @media (min-width: 992px) {
+                        min-width: 200px;
+                        margin-right: 2rem;
+                    }
+
+                    span {
+                        font-size: 1.4rem;
+                        letter-spacing: -0.01em;
+                    }
+
+                    svg {
+                        margin-right: 0.4rem;
+                        margin-top: -0.1rem;
+                    }
+
+                    &:hover {
+                        svg,
+                        span {
+                            color: #fff;
+                        }
+                    }
+                }
+
+                .addToWishlist {
+                    min-width: 0;
+                    font-size: 1.6rem;
+                    border-left: 0.1rem dotted #e5e5e5;
+                    color: #c96;
+                    padding-top: 1.9rem;
+                    padding-bottom: 1.9rem;
+
+                    @media (min-width: 992px) {
+                        border: none;
+                        font-size: 1.8rem;
+                        margin-right: 2rem;
+                    }
+
+                    &:hover {
+                        color: #bf8040;
+                        background: none;
+                    }
+                }
+            }
+        }
+    }
+}
