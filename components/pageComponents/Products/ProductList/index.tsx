@@ -17,7 +17,7 @@ export const ProductList = ({ productsResponse }: ProductListProps) => {
                     <Product key={product.id} {...product} />
                 ))}
             </div>
-            <Pagination />
+            <Pagination totalPages={productsResponse.totalPages} />
         </div>
     );
 };

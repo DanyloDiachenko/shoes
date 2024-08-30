@@ -60,9 +60,3 @@ export interface IProduct {
     categories: IProductCategory[];
     rating: number | null;
 }
-
-export interface GetProductsResponse {
-    data: IProduct[];
-    activeCount: number;
-    remainingPages: number;
-}

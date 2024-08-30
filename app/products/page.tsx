@@ -4,7 +4,7 @@ import { ProductsPageContent } from "@/components/pageComponents/Products";
 import { getProducts } from "../api/products";
 
 const Products = async () => {
-    const productsResponse = await getProducts();
+    const productsResponse = await getProducts(1);
 
     return (
         <>

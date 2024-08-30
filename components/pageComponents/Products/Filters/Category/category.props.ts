@@ -5,6 +5,4 @@ import {
 
 export interface CategoryProps {
     allCategories: IProductCategoryWithProductsQuantity[];
-    onCategoryClick: (category: IProductCategory) => void;
-    selectedCategories: IProductCategory[];
 }

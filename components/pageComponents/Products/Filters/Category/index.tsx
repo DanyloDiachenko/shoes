@@ -5,14 +5,42 @@ import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Checkbox } from "@/components/UI/Checkbox";
 import { CategoryProps } from "./category.props";
-import { IProductCategory } from "@/interfaces/product.interface";
+import { IProductCategoryWithProductsQuantity } from "@/interfaces/product.interface";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { setCategories } from "@/store/slices/products";
 
-export const Category = ({
-    allCategories,
-    onCategoryClick,
-    selectedCategories,
-}: CategoryProps) => {
+export const Category = ({ allCategories }: CategoryProps) => {
     const [isOpened, setIsOpened] = useState(true);
+
+    const dispatch = useDispatch();
+    const selectedCategories = useSelector(
+        (state: RootState) => state.products.filters.categories
+    );
+
+    const setCategoriesHandler = (
+        categories: IProductCategoryWithProductsQuantity[]
+    ) => {
+        dispatch(setCategories(categories));
+    };
+
+    const onCategoryClick = (
+        category: IProductCategoryWithProductsQuantity
+    ) => {
+        const existingCategory = selectedCategories.find(
+            (cat) => cat.id === category.id
+        );
+
+        if (existingCategory) {
+            setCategoriesHandler(
+                selectedCategories.filter((cat) => cat.id !== category.id)
+            );
+        } else {
+            setCategoriesHandler([...selectedCategories, category]);
+        }
+    };
+
+    console.log(selectedCategories);
 
     return (
         <div className={styles.widget}>
@@ -41,8 +69,7 @@ export const Category = ({
                                 title={category.title}
                                 id={category.id}
                                 checked={selectedCategories.includes(category)}
-                                onClick={() => onCategoryClick(category)}
-                                onChange={() => {}}
+                                onChange={() => onCategoryClick(category)}
                             />
                             <span className={styles.count}>
                                 {category.productsQuantity}

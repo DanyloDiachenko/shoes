@@ -1,94 +1,14 @@
-"use client";
-
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Brand } from "./Brand";
 import { Category } from "./Category";
 import { Colour } from "./Colour";
 import { Price } from "./Price";
 import { Size } from "./Size";
 import styles from "./styles.module.scss";
-import {
-    IProductCategory,
-    IProductCategoryWithProductsQuantity,
-} from "@/interfaces/product.interface";
-import { IFilters } from "./filters.interface";
+import { getCategories } from "@/app/api/categories";
 
-const categories: IProductCategoryWithProductsQuantity[] = [
-    {
-        id: "1",
-        slug: "sneakers",
-        title: "Sneakers",
-        productsQuantity: 120,
-    },
-    {
-        id: "2",
-        slug: "boots",
-        title: "Boots",
-        productsQuantity: 85,
-    },
-    {
-        id: "3",
-        slug: "sandals",
-        title: "Sandals",
-        productsQuantity: 60,
-    },
-    {
-        id: "4",
-        slug: "formal",
-        title: "Formal Shoes",
-        productsQuantity: 50,
-    },
-    {
-        id: "5",
-        slug: "casual",
-        title: "Casual Shoes",
-        productsQuantity: 90,
-    },
-    {
-        id: "6",
-        slug: "sports",
-        title: "Sports Shoes",
-        productsQuantity: 70,
-    },
-    {
-        id: "7",
-        slug: "kids",
-        title: "Kids' Shoes",
-        productsQuantity: 40,
-    },
-];
-
-export const Filters = () => {
-    const [filters, setFilters] = useState<IFilters>({
-        categories: [],
-        sizes: [],
-        colour: null,
-        brands: [],
-        priceFrom: 0,
-        priceTo: 1000,
-    });
-
-    const onCategoryClick = (category: IProductCategory) => {
-        const existingCategory = filters.categories.find(
-            (cat) => cat.id === category.id
-        );
-
-        if (existingCategory) {
-            setFilters({
-                ...filters,
-                categories: filters.categories.filter(
-                    (filterCategory) => filterCategory.id !== category.id
-                ),
-            });
-        } else {
-            setFilters({
-                ...filters,
-                categories: [...filters.categories, category],
-            });
-
-            /* fetch() */
-        }
-    };
+export const Filters = async () => {
+    const categoriesResponse = await getCategories();
 
     return (
         <aside className={styles.column}>
@@ -99,11 +19,7 @@ export const Filters = () => {
                         Clean All
                     </a>
                 </div>
-                <Category
-                    allCategories={categories}
-                    selectedCategories={filters.categories}
-                    onCategoryClick={onCategoryClick}
-                />
+                <Category allCategories={categoriesResponse} />
                 <Size />
                 <Colour />
                 <Brand />

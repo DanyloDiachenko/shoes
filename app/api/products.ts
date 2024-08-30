@@ -1,8 +1,10 @@
-import { GetProductsResponse } from "@/interfaces/product.interface";
+import { GetProductsResponse } from "@/interfaces/responses";
 
-export const getProducts = async (): Promise<GetProductsResponse> => {
+export const getProducts = async (
+    page: number
+): Promise<GetProductsResponse> => {
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/products?page=1`,
+        `${process.env.NEXT_PUBLIC_API_URL}/products?page=${page}`,
         { cache: "no-cache" }
     );
 
