@@ -1,21 +1,50 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { FaStar, FaRegHeart } from "react-icons/fa";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { getRating } from "@/helpers/getRating";
+import { ProductProps } from "./product.props";
+import { useState } from "react";
 
-export const Product = () => {
+export const Product = ({
+    mainCategory,
+    quantityInStock,
+    id,
+    mainImage,
+    priceUah,
+    reviews,
+    categories,
+    title,
+    description,
+    images,
+    rating,
+}: ProductProps) => {
+    const [activeImage, setActiveImage] = useState<string>(mainImage);
+
     return (
         <div className={styles.product}>
             <div className="row">
                 <div className={styles.columnImage}>
                     <figure className={styles.media}>
-                        <span className={styles.new}>New</span>
-                        {/* <span className={styles.outOfStock}>Out of Stock</span> */}
-                        <Link href="#">
+                        {quantityInStock > 0 ? (
+                            <span
+                                className={`${styles.category} ${
+                                    styles[mainCategory.slug]
+                                }`}
+                            >
+                                {mainCategory.title}
+                            </span>
+                        ) : (
+                            <span className={styles.outOfStock}>
+                                Out of Stock
+                            </span>
+                        )}
+                        <Link href={`/products/${id}`}>
                             <img
-                                src="/images/banners/product.png"
+                                src={activeImage}
                                 alt="Product image"
                                 className={styles.image}
                             />
@@ -24,11 +53,13 @@ export const Product = () => {
                 </div>
                 <div className={styles.columnActions}>
                     <div className={styles.action}>
-                        <div className={styles.price}>$60.00</div>
+                        <div className={styles.price}>
+                            ₴{Number(priceUah).toFixed(2)}
+                        </div>
                         <div className={styles.ratingsContainer}>
-                            {getRating(4)}
+                            {getRating(rating || 0)}
                             <span className={styles.ratingText}>
-                                ( 2 Reviews )
+                                ( {reviews.length} Reviews )
                             </span>
                         </div>
                         <Button
@@ -50,40 +81,47 @@ export const Product = () => {
                         >
                             <FaRegHeart />
                         </Button>
-                        <div className={styles.category}>
-                            <a href="#">Women</a>
+                        <div className={styles.categories}>
+                            {categories.map((category, index) => (
+                                <div
+                                    key={category.id}
+                                    className={styles.category}
+                                >
+                                    <Link
+                                        href={`/products?category=${category.slug}`}
+                                    >
+                                        {category.title +
+                                            (index === categories.length - 1
+                                                ? ""
+                                                : ", ")}
+                                    </Link>
+                                </div>
+                            ))}
                         </div>
                         <h3 className={styles.title}>
-                            <Link href="#">
-                                Brown paperbag waist pencil skirt
-                            </Link>
+                            <Link href={`/products/${id}`}>{title}</Link>
                         </h3>
                         <div className={styles.description}>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer
-                                adipiscing elit. Phasellus hendrerit.
-                                Pellentesque
-                            </p>
+                            <p>{description}</p>
                         </div>
                         <div className={styles.thumbs}>
-                            <Link href="#" className={styles.active}>
-                                <img
-                                    src="/images/banners/product.png"
-                                    alt="product desc"
-                                />
-                            </Link>
-                            <Link href="#">
-                                <img
-                                    src="/images/banners/product.png"
-                                    alt="product desc"
-                                />
-                            </Link>
-                            <Link href="#">
-                                <img
-                                    src="/images/banners/product.png"
-                                    alt="product desc"
-                                />
-                            </Link>
+                            {images.map((image, index) => (
+                                <Link
+                                    key={index}
+                                    href="#"
+                                    onMouseEnter={() => setActiveImage(image)}
+                                    className={
+                                        activeImage === image
+                                            ? styles.active
+                                            : ""
+                                    }
+                                    onMouseLeave={() =>
+                                        setActiveImage(mainImage)
+                                    }
+                                >
+                                    <img src={image} alt="product desc" />
+                                </Link>
+                            ))}
                         </div>
                     </div>
                 </div>

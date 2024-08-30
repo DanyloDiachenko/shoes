@@ -1,8 +1,29 @@
 export interface IProductCategory {
     id: string;
-    slug: string;
     title: string;
+    slug: string;
+}
+export interface IProductCategoryWithProductsQuantity extends IProductCategory {
     productsQuantity: number;
+}
+
+export interface IProductBrand {
+    id: string;
+    title: string;
+    slug: string;
+}
+
+export interface IProductSize {
+    id: string;
+    title: string;
+    slug: string;
+}
+
+export interface IProductColor {
+    id: string;
+    title: string;
+    slug: string;
+    hexCode: string;
 }
 
 export interface IProductReview {
@@ -14,35 +35,34 @@ export interface IProductReview {
     description: string;
     helpfulNumber: number;
     unhelpfulNumber: number;
-}
-
-export interface IProductBrand {
-    id: string;
     slug: string;
-    title: string;
-}
-
-export interface IProductColor {
-    id: string;
-    slug: string;
-    title: string;
 }
 
 export interface IProduct {
     id: string;
-    mainImage: string;
-    images: string[];
     title: string;
-    rating: number;
-    price: number;
     description: string;
-    sizes: number[];
     quantityInStock: number;
-    mainCategory: IProductCategory;
-    categories: IProductCategory[];
+    priceUah: number;
+    priceEur: number;
+    mainImage: string;
     productInformtion: string;
     additionalInformation: string;
+    purchasedNumber: 10;
+    images: string[];
+    priceWithDiscountUah: number | null;
+    priceWithDiscountEur: number | null;
+    mainCategory: IProductCategory;
+    brand: IProductBrand;
     reviews: IProductReview[];
-    purchasedNumber: number;
     color: IProductColor;
+    sizes: IProductSize[];
+    categories: IProductCategory[];
+    rating: number | null;
+}
+
+export interface GetProductsResponse {
+    data: IProduct[];
+    activeCount: number;
+    remainingPages: number;
 }

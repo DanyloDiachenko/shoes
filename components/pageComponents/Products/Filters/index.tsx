@@ -7,10 +7,13 @@ import { Colour } from "./Colour";
 import { Price } from "./Price";
 import { Size } from "./Size";
 import styles from "./styles.module.scss";
-import { IProductCategory } from "@/interfaces/product.interface";
+import {
+    IProductCategory,
+    IProductCategoryWithProductsQuantity,
+} from "@/interfaces/product.interface";
 import { IFilters } from "./filters.interface";
 
-const categories: IProductCategory[] = [
+const categories: IProductCategoryWithProductsQuantity[] = [
     {
         id: "1",
         slug: "sneakers",

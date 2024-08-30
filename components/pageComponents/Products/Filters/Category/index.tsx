@@ -14,8 +14,6 @@ export const Category = ({
 }: CategoryProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
-    console.log(selectedCategories);
-
     return (
         <div className={styles.widget}>
             <h3 className={styles.title}>
@@ -44,6 +42,7 @@ export const Category = ({
                                 id={category.id}
                                 checked={selectedCategories.includes(category)}
                                 onClick={() => onCategoryClick(category)}
+                                onChange={() => {}}
                             />
                             <span className={styles.count}>
                                 {category.productsQuantity}

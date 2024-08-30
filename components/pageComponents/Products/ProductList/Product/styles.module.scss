@@ -33,8 +33,7 @@
             height: 100%;
             overflow: hidden;
 
-            .new,
-            .outOfStock {
+            .category {
                 position: absolute;
                 top: 2rem;
                 left: 2rem;
@@ -47,7 +46,7 @@
                 letter-spacing: -0.01em;
                 text-align: center;
 
-                &.new {
+                &.bestsellers {
                     background-color: #a6c76c;
                     color: #fff;
                 }
@@ -183,20 +182,25 @@
                 }
             }
 
-            .category {
-                color: #777;
-                font-weight: 300;
-                font-size: 1.3rem;
-                line-height: 1.2;
-                letter-spacing: -0.01em;
-                margin-bottom: 0.3rem;
+            .categories {
+                display: flex;
+                gap: 3px;
 
-                a {
-                    color: inherit;
-                    transition: 0.3s;
+                .category {
+                    color: #777;
+                    font-weight: 300;
+                    font-size: 1.3rem;
+                    line-height: 1.2;
+                    letter-spacing: -0.01em;
+                    margin-bottom: 0.3rem;
 
-                    &:hover {
-                        color: #c96;
+                    a {
+                        color: inherit;
+                        transition: 0.3s;
+
+                        &:hover {
+                            color: #c96;
+                        }
                     }
                 }
             }
@@ -239,7 +243,7 @@
                     width: 4.4rem;
                     height: 4.4rem;
                     border-radius: 0.2rem;
-                    border: 0.2rem solid #fff;
+                    border: 0.4rem solid #fff;
                     margin-right: 0.4rem;
                     transition: box-shadow 0.35s ease;
 
@@ -248,7 +252,10 @@
                     }
 
                     img {
+                        width: 36px;
+                        height: 36px;
                         border-radius: 0.2rem;
+                        object-fit: contain;
                     }
                 }
             }

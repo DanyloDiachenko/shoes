@@ -1,7 +1,10 @@
-import { IProductCategory } from "@/interfaces/product.interface";
+import {
+    IProductCategory,
+    IProductCategoryWithProductsQuantity,
+} from "@/interfaces/product.interface";
 
 export interface CategoryProps {
-    allCategories: IProductCategory[];
+    allCategories: IProductCategoryWithProductsQuantity[];
     onCategoryClick: (category: IProductCategory) => void;
     selectedCategories: IProductCategory[];
 }
