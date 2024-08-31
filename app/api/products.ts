@@ -1,10 +1,16 @@
 import { GetProductsResponse } from "@/interfaces/responses";
 
 export const getProducts = async (
-    page: number
+    page: number | undefined = 1,
+    limit: number | undefined = 9,
+    categorySlugs: string[] | undefined
 ): Promise<GetProductsResponse> => {
+    const categoriesQuery = categorySlugs ? categorySlugs.join(",") : "";
+
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/products?page=${page}`,
+        `${
+            process.env.NEXT_PUBLIC_API_URL
+        }/products?page=${page}&limit=${limit}&categories=${categoriesQuery}`,
         { cache: "no-cache" }
     );
 
@@ -13,6 +19,5 @@ export const getProducts = async (
     }
 
     const data = await res.json();
-
     return data;
 };

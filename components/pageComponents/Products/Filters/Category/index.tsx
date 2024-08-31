@@ -40,8 +40,6 @@ export const Category = ({ allCategories }: CategoryProps) => {
         }
     };
 
-    console.log(selectedCategories);
-
     return (
         <div className={styles.widget}>
             <h3 className={styles.title}>

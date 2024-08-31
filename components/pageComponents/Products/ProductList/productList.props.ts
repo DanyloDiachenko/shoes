@@ -1,4 +1,4 @@
-import { GetProductsResponse, IProduct } from "@/interfaces/product.interface";
+import { GetProductsResponse } from "@/interfaces/responses";
 
 export interface ProductListProps {
     productsResponse: GetProductsResponse;

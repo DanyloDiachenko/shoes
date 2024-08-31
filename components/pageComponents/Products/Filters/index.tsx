@@ -6,10 +6,9 @@ import { Price } from "./Price";
 import { Size } from "./Size";
 import styles from "./styles.module.scss";
 import { getCategories } from "@/app/api/categories";
+import { FiltersProps } from "./filters.props";
 
-export const Filters = async () => {
-    const categoriesResponse = await getCategories();
-
+export const Filters = ({ categoriesResponse }: FiltersProps) => {
     return (
         <aside className={styles.column}>
             <div className={styles.sidebar}>

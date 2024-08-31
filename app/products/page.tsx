@@ -2,15 +2,25 @@ import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { PageHeader } from "@/components/common/PageHeader";
 import { ProductsPageContent } from "@/components/pageComponents/Products";
 import { getProducts } from "../api/products";
+import { getCategories } from "../api/categories";
 
-const Products = async () => {
-    const productsResponse = await getProducts(1);
+const Products = async ({ searchParams }: any) => {
+    const page = Number(searchParams.page) || undefined;
+    const categorySlugs = searchParams.categories
+        ? searchParams.categories.split(",")
+        : undefined;
+
+    const productsResponse = await getProducts(page, 9, categorySlugs);
+    const categoriesResponse = await getCategories();
 
     return (
         <>
             <PageHeader title="List" subtitle="Shop" />
             <Breadcrumbs />
-            <ProductsPageContent productsResponse={productsResponse} />
+            <ProductsPageContent
+                productsResponse={productsResponse}
+                categoriesResponse={categoriesResponse}
+            />
         </>
     );
 };

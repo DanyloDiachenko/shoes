@@ -7,8 +7,6 @@ import styles from "./styles.module.scss";
 import { Toolbox } from "./Toolbox";
 
 export const ProductList = ({ productsResponse }: ProductListProps) => {
-    console.log(productsResponse.data);
-
     return (
         <div className={styles.column}>
             <Toolbox />
