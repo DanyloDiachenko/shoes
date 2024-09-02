@@ -4,8 +4,9 @@ import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Checkbox } from "@/components/UI/Checkbox";
+import { SizeProps } from "./sizes.props";
 
-export const Size = () => {
+export const Size = ({ sizesResponse }: SizeProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     return (

@@ -22,6 +22,7 @@ const Products = async ({ searchParams }: any) => {
             <ProductsPageContent
                 productsResponse={productsResponse}
                 categoriesResponse={categoriesResponse}
+                sizesResponse={sizesResponse}
             />
         </>
     );
