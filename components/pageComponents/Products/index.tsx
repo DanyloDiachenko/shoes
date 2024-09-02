@@ -12,6 +12,7 @@ import { getProducts } from "@/app/api/products";
 export const ProductsPageContent = ({
     productsResponse,
     categoriesResponse,
+    sizesResponse,
 }: ProductsPageContentProps) => {
     const [productsResponseClient, setProductsResponseClient] =
         useState<GetProductsResponse>(productsResponse);
@@ -42,7 +43,10 @@ export const ProductsPageContent = ({
             <div className="container">
                 <div className="row">
                     <ProductList productsResponse={productsResponseClient} />
-                    <Filters categoriesResponse={categoriesResponse} />
+                    <Filters
+                        categoriesResponse={categoriesResponse}
+                        sizesResponse={sizesResponse}
+                    />
                 </div>
             </div>
         </div>
