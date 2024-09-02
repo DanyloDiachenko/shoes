@@ -31,7 +31,6 @@ export const ProductsPageContent = ({
         );
 
         setProductsResponseClient(productsResponse);
-        console.log(productsResponse);
     };
 
     useEffect(() => {
