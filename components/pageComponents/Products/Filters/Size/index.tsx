@@ -9,6 +9,8 @@ import { SizeProps } from "./sizes.props";
 export const Size = ({ sizesResponse }: SizeProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
+    console.log(sizesResponse);
+
     return (
         <div className={styles.widget}>
             <h3 className={styles.title}>
