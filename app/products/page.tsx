@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/common/PageHeader";
 import { ProductsPageContent } from "@/components/pageComponents/Products";
 import { getProducts } from "../api/products";
 import { getCategories } from "../api/categories";
+import { getSizes } from "../api/sizes";
 
 const Products = async ({ searchParams }: any) => {
     const page = Number(searchParams.page) || undefined;
@@ -12,6 +13,7 @@ const Products = async ({ searchParams }: any) => {
 
     const productsResponse = await getProducts(page, 9, categorySlugs);
     const categoriesResponse = await getCategories();
+    const sizesResponse = await getSizes();
 
     return (
         <>
