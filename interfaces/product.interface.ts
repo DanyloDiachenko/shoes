@@ -15,8 +15,8 @@ export interface IProductBrand {
 
 export interface IProductSize {
     id: string;
-    title: string;
-    slug: string;
+    title: number;
+    slug: number;
 }
 
 export interface IProductColor {

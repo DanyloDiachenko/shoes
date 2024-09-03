@@ -5,11 +5,38 @@ import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Checkbox } from "@/components/UI/Checkbox";
 import { SizeProps } from "./sizes.props";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { IProductSize } from "@/interfaces/product.interface";
+import { setSizes } from "@/store/slices/products";
 
 export const Size = ({ sizesResponse }: SizeProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
-    console.log(sizesResponse);
+    const dispatch = useDispatch();
+    const selectedSizes = useSelector(
+        (state: RootState) => state.products.filters.sizes
+    );
+
+    const setSizesHandler = (sizes: IProductSize[]) => {
+        dispatch(setSizes(sizes));
+    };
+
+    const onSizeClick = (size: IProductSize) => {
+        const existingSize = selectedSizes.find(
+            (selectedSize) => selectedSize.id === size.id
+        );
+
+        if (existingSize) {
+            setSizesHandler(
+                selectedSizes.filter(
+                    (selectedSize) => selectedSize.id !== size.id
+                )
+            );
+        } else {
+            setSizesHandler([...selectedSizes, size]);
+        }
+    };
 
     return (
         <div className={styles.widget}>
@@ -32,24 +59,16 @@ export const Size = ({ sizesResponse }: SizeProps) => {
                 id="widget-2"
             >
                 <div className={styles.widgetBody}>
-                    <div className={styles.item}>
-                        <Checkbox title="XS" id="size-1" />
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="S" id="size-2" />
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="M" id="size-3" />
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="L" id="size-4" />
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="XL" id="size-5" />
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="XXL" id="size-6" />
-                    </div>
+                    {sizesResponse.map((size) => (
+                        <div className={styles.item} key={size.id}>
+                            <Checkbox
+                                title={String(size.slug)}
+                                id={size.id}
+                                checked={selectedSizes.includes(size)}
+                                onChange={() => onSizeClick(size)}
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
