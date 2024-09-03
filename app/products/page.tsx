@@ -4,6 +4,7 @@ import { ProductsPageContent } from "@/components/pageComponents/Products";
 import { getProducts } from "../api/products";
 import { getCategories } from "../api/categories";
 import { getSizes } from "../api/sizes";
+import { getColors } from "../api/colors";
 
 const Products = async ({ searchParams }: any) => {
     const page = Number(searchParams.page) || undefined;
@@ -18,8 +19,10 @@ const Products = async ({ searchParams }: any) => {
         categorySlugs,
         sizeSlugs
     );
+
     const categoriesResponse = await getCategories();
     const sizesResponse = await getSizes();
+    const colorsResponse = await getColors();
 
     return (
         <>
@@ -29,6 +32,7 @@ const Products = async ({ searchParams }: any) => {
                 productsResponse={productsResponse}
                 categoriesResponse={categoriesResponse}
                 sizesResponse={sizesResponse}
+                colorsResponse={colorsResponse}
             />
         </>
     );

@@ -52,7 +52,7 @@
                 padding-top: 0.7rem;
                 padding-bottom: 0.5rem;
 
-                a {
+                div {
                     position: relative;
                     display: block;
                     width: 2.4rem;
@@ -61,6 +61,7 @@
                     border: 0.2rem solid #fff;
                     margin: 0 0.3rem 0.3rem;
                     transition: box-shadow 0.35s ease;
+                    cursor: pointer;
 
                     &::after {
                         color: #fff;

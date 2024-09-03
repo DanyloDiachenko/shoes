@@ -8,7 +8,11 @@ import styles from "./styles.module.scss";
 import { getCategories } from "@/app/api/categories";
 import { FiltersProps } from "./filters.props";
 
-export const Filters = ({ categoriesResponse, sizesResponse }: FiltersProps) => {
+export const Filters = ({
+    categoriesResponse,
+    sizesResponse,
+    colorsResponse,
+}: FiltersProps) => {
     return (
         <aside className={styles.column}>
             <div className={styles.sidebar}>
@@ -19,8 +23,8 @@ export const Filters = ({ categoriesResponse, sizesResponse }: FiltersProps) => 
                     </a>
                 </div>
                 <Category allCategories={categoriesResponse} />
-                <Size sizesResponse={sizesResponse} />
-                <Colour />
+                <Size allSizes={sizesResponse} />
+                <Colour allColors={colorsResponse} />
                 <Brand />
                 <Price />
             </div>

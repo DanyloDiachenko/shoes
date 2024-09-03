@@ -13,6 +13,7 @@ export const ProductsPageContent = ({
     productsResponse,
     categoriesResponse,
     sizesResponse,
+    colorsResponse,
 }: ProductsPageContentProps) => {
     const [productsResponseClient, setProductsResponseClient] =
         useState<GetProductsResponse>(productsResponse);
@@ -46,6 +47,7 @@ export const ProductsPageContent = ({
                     <Filters
                         categoriesResponse={categoriesResponse}
                         sizesResponse={sizesResponse}
+                        colorsResponse={colorsResponse}
                     />
                 </div>
             </div>

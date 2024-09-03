@@ -10,7 +10,7 @@ import { RootState } from "@/store";
 import { IProductSize } from "@/interfaces/product.interface";
 import { setSizes } from "@/store/slices/products";
 
-export const Size = ({ sizesResponse }: SizeProps) => {
+export const Size = ({ allSizes }: SizeProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
@@ -59,7 +59,7 @@ export const Size = ({ sizesResponse }: SizeProps) => {
                 id="widget-2"
             >
                 <div className={styles.widgetBody}>
-                    {sizesResponse.map((size) => (
+                    {allSizes.map((size) => (
                         <div className={styles.item} key={size.id}>
                             <Checkbox
                                 title={String(size.slug)}
