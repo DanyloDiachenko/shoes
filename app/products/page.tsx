@@ -10,8 +10,14 @@ const Products = async ({ searchParams }: any) => {
     const categorySlugs = searchParams.categories
         ? searchParams.categories.split(",")
         : undefined;
+    const sizeSlugs = searchParams.slugs ? searchParams.split(",") : undefined;
 
-    const productsResponse = await getProducts(page, 9, categorySlugs);
+    const productsResponse = await getProducts(
+        page,
+        9,
+        categorySlugs,
+        sizeSlugs
+    );
     const categoriesResponse = await getCategories();
     const sizesResponse = await getSizes();
 
