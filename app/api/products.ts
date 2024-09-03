@@ -4,13 +4,14 @@ export const getProducts = async (
     page: number | undefined = 1,
     limit: number | undefined = 9,
     categorySlugs?: string[],
-    sizeSlugs?: string[]
+    sizeSlugs?: string[],
+    colourSlug?: string
 ): Promise<GetProductsResponse> => {
     const categoriesQuery = categorySlugs ? categorySlugs.join(",") : "";
     const sizesQuery = sizeSlugs ? sizeSlugs.join(",") : "";
 
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/products?page=${page}&limit=${limit}&categories=${categoriesQuery}&sizes=${sizesQuery}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/products?page=${page}&limit=${limit}&categories=${categoriesQuery}&sizes=${sizesQuery}&colour=${colourSlug}`,
         { cache: "no-cache" }
     );
 

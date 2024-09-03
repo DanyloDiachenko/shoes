@@ -18,18 +18,27 @@ export const ProductsPageContent = ({
     const [productsResponseClient, setProductsResponseClient] =
         useState<GetProductsResponse>(productsResponse);
 
+    const currentPage = useSelector(
+        (state: RootState) => state.products.pagination.currentPage
+    );
+
     const selectedCategories = useSelector(
         (state: RootState) => state.products.filters.categories
     );
-    const currentPage = useSelector(
-        (state: RootState) => state.products.pagination.currentPage
+    const selectedSizes = useSelector(
+        (state: RootState) => state.products.filters.sizes
+    );
+    const selectedColour = useSelector(
+        (state: RootState) => state.products.filters.colour
     );
 
     const fetchProducts = async () => {
         const productsResponse = await getProducts(
             currentPage,
             9,
-            selectedCategories.map((category) => category.slug)
+            selectedCategories.map((category) => category.slug),
+            selectedSizes.map((size) => String(size.slug)),
+            selectedColour?.slug
         );
 
         setProductsResponseClient(productsResponse);
@@ -37,7 +46,7 @@ export const ProductsPageContent = ({
 
     useEffect(() => {
         fetchProducts();
-    }, [selectedCategories, currentPage]);
+    }, [currentPage, selectedCategories, selectedSizes, selectedColour]);
 
     return (
         <div className="page-content">
