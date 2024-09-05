@@ -13,13 +13,7 @@ export const getProducts = async (
     const brandsQuery = brandSlugs ? brandSlugs.join(",") : "";
 
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/products
-        ?page=${page}
-        &limit=${limit}
-        &categories=${categoriesQuery}
-        &sizes=${sizesQuery}
-        &colour=${colourSlug}
-        &brands=${brandsQuery}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/products?page=${page}&limit=${limit}&categories=${categoriesQuery}&sizes=${sizesQuery}&colour=${colourSlug}&brands=${brandsQuery}`,
         { cache: "no-cache" }
     );
 
