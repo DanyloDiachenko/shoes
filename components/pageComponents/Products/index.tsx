@@ -14,6 +14,7 @@ export const ProductsPageContent = ({
     categoriesResponse,
     sizesResponse,
     colorsResponse,
+    brandsResponse,
 }: ProductsPageContentProps) => {
     const [productsResponseClient, setProductsResponseClient] =
         useState<GetProductsResponse>(productsResponse);
@@ -31,6 +32,9 @@ export const ProductsPageContent = ({
     const selectedColour = useSelector(
         (state: RootState) => state.products.filters.colour
     );
+    const selectedBrands = useSelector(
+        (state: RootState) => state.products.filters.brands
+    );
 
     const fetchProducts = async () => {
         const productsResponse = await getProducts(
@@ -38,7 +42,8 @@ export const ProductsPageContent = ({
             9,
             selectedCategories.map((category) => category.slug),
             selectedSizes.map((size) => String(size.slug)),
-            selectedColour?.slug
+            selectedColour?.slug,
+            selectedBrands.map(brand => brand.slug)
         );
 
         setProductsResponseClient(productsResponse);
@@ -46,7 +51,13 @@ export const ProductsPageContent = ({
 
     useEffect(() => {
         fetchProducts();
-    }, [currentPage, selectedCategories, selectedSizes, selectedColour]);
+    }, [
+        currentPage,
+        selectedCategories,
+        selectedSizes,
+        selectedColour,
+        selectedBrands,
+    ]);
 
     return (
         <div className="page-content">
@@ -57,6 +68,7 @@ export const ProductsPageContent = ({
                         categoriesResponse={categoriesResponse}
                         sizesResponse={sizesResponse}
                         colorsResponse={colorsResponse}
+                        brandsResponse={brandsResponse}
                     />
                 </div>
             </div>

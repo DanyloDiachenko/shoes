@@ -1,4 +1,5 @@
 import {
+    IProductBrand,
     IProductCategoryWithProductsQuantity,
     IProductColor,
     IProductSize,
@@ -10,4 +11,5 @@ export interface ProductsPageContentProps {
     categoriesResponse: IProductCategoryWithProductsQuantity[];
     sizesResponse: IProductSize[];
     colorsResponse: IProductColor[];
+    brandsResponse: IProductBrand[];
 }

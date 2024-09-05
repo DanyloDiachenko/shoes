@@ -5,13 +5,13 @@ import { Colour } from "./Colour";
 import { Price } from "./Price";
 import { Size } from "./Size";
 import styles from "./styles.module.scss";
-import { getCategories } from "@/app/api/categories";
 import { FiltersProps } from "./filters.props";
 
 export const Filters = ({
     categoriesResponse,
     sizesResponse,
     colorsResponse,
+    brandsResponse,
 }: FiltersProps) => {
     return (
         <aside className={styles.column}>
@@ -25,7 +25,7 @@ export const Filters = ({
                 <Category allCategories={categoriesResponse} />
                 <Size allSizes={sizesResponse} />
                 <Colour allColors={colorsResponse} />
-                <Brand />
+                <Brand allBrands={brandsResponse} />
                 <Price />
             </div>
         </aside>

@@ -5,13 +5,21 @@ export const getProducts = async (
     limit: number | undefined = 9,
     categorySlugs?: string[],
     sizeSlugs?: string[],
-    colourSlug?: string
+    colourSlug?: string,
+    brandSlugs?: string[]
 ): Promise<GetProductsResponse> => {
     const categoriesQuery = categorySlugs ? categorySlugs.join(",") : "";
     const sizesQuery = sizeSlugs ? sizeSlugs.join(",") : "";
+    const brandsQuery = brandSlugs ? brandSlugs.join(",") : "";
 
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/products?page=${page}&limit=${limit}&categories=${categoriesQuery}&sizes=${sizesQuery}&colour=${colourSlug}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/products
+        ?page=${page}
+        &limit=${limit}
+        &categories=${categoriesQuery}
+        &sizes=${sizesQuery}
+        &colour=${colourSlug}
+        &brands=${brandsQuery}`,
         { cache: "no-cache" }
     );
 

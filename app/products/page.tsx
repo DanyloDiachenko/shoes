@@ -5,6 +5,7 @@ import { getProducts } from "../api/products";
 import { getCategories } from "../api/categories";
 import { getSizes } from "../api/sizes";
 import { getColors } from "../api/colors";
+import { getBrands } from "../api/brands";
 
 const Products = async ({ searchParams }: any) => {
     const page = Number(searchParams.page) || undefined;
@@ -23,6 +24,7 @@ const Products = async ({ searchParams }: any) => {
     const categoriesResponse = await getCategories();
     const sizesResponse = await getSizes();
     const colorsResponse = await getColors();
+    const brandsResponse = await getBrands();
 
     return (
         <>
@@ -33,6 +35,7 @@ const Products = async ({ searchParams }: any) => {
                 categoriesResponse={categoriesResponse}
                 sizesResponse={sizesResponse}
                 colorsResponse={colorsResponse}
+                brandsResponse={brandsResponse}
             />
         </>
     );

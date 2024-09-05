@@ -4,9 +4,37 @@ import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Checkbox } from "@/components/UI/Checkbox";
+import { BrandProps } from "./brand.props";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { IProductBrand } from "@/interfaces/product.interface";
+import { setBrands } from "@/store/slices/products";
 
-export const Brand = () => {
+export const Brand = ({ allBrands }: BrandProps) => {
     const [isOpened, setIsOpened] = useState(true);
+
+    const dispatch = useDispatch();
+    const selectedBrands = useSelector(
+        (state: RootState) => state.products.filters.brands
+    );
+
+    const setBrandsHandler = (brands: IProductBrand[]) => {
+        dispatch(setBrands(brands));
+    };
+
+    const onBrandClick = (brand: IProductBrand) => {
+        const exitstingBrand = selectedBrands.find(
+            (selBrand) => selBrand.id === brand.id
+        );
+
+        if (exitstingBrand) {
+            setBrandsHandler(
+                selectedBrands.filter((selBrand) => selBrand.id !== brand.id)
+            );
+        } else {
+            setBrandsHandler([...selectedBrands, brand]);
+        }
+    };
 
     return (
         <div className={styles.widget}>
@@ -29,27 +57,16 @@ export const Brand = () => {
                 id="widget-4"
             >
                 <div className={styles.widgetBody}>
-                    <div className={styles.item}>
-                        <Checkbox title="Brand 1" id="brand-1" />
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="Brand 2" id="brand-2" />
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="Brand 3" id="brand-3" />
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="Brand 4" id="brand-4" />
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="Brand 5" id="brand-5" />
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="Brand 6" id="brand-6" />
-                    </div>
-                    <div className={styles.item}>
-                        <Checkbox title="Brand 6" id="brand-6" />
-                    </div>
+                    {allBrands.map((brand) => (
+                        <div className={styles.item} key={brand.id}>
+                            <Checkbox
+                                title={brand.title}
+                                id={brand.id}
+                                onChange={() => onBrandClick(brand)}
+                                checked={selectedBrands.includes(brand)}
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
