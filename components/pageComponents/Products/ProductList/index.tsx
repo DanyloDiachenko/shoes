@@ -9,7 +9,10 @@ import { Toolbox } from "./Toolbox";
 export const ProductList = ({ productsResponse }: ProductListProps) => {
     return (
         <div className={styles.column}>
-            <Toolbox />
+            <Toolbox
+                total={productsResponse.total}
+                count={productsResponse.count}
+            />
             <div className="products mb-3">
                 {productsResponse.data.map((product) => (
                     <Product key={product.id} {...product} />

@@ -23,7 +23,9 @@ export const ProductsPageContent = ({
     const currentPage = useSelector(
         (state: RootState) => state.products.pagination.currentPage
     );
-
+    const sortBy = useSelector(
+        (state: RootState) => state.products.filters.sortBy
+    );
     const selectedCategories = useSelector(
         (state: RootState) => state.products.filters.categories
     );
@@ -41,6 +43,7 @@ export const ProductsPageContent = ({
         const productsResponse = await getProducts(
             currentPage,
             9,
+            sortBy,
             selectedCategories.map((category) => category.slug),
             selectedSizes.map((size) => String(size.slug)),
             selectedColor?.slug,
@@ -58,6 +61,7 @@ export const ProductsPageContent = ({
         selectedSizes,
         selectedColor,
         selectedBrands,
+        sortBy
     ]);
 
     return (

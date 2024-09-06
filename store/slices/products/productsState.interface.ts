@@ -5,6 +5,7 @@ import {
     IProductSize,
 } from "@/interfaces/product.interface";
 import { PopupType } from "@/types/popup.type";
+import { SortProductsByType } from "@/types/sortProductsBy.type";
 
 export interface IProductsState {
     pagination: {
@@ -18,5 +19,6 @@ export interface IProductsState {
         brands: IProductBrand[];
         priceFrom: number;
         priceTo: number;
+        sortBy: SortProductsByType;
     };
 }

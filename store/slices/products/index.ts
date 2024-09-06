@@ -7,6 +7,7 @@ import {
     IProductColor,
     IProductSize,
 } from "@/interfaces/product.interface";
+import { SortProductsByType } from "@/types/sortProductsBy.type";
 
 const initialState: IProductsState = {
     pagination: {
@@ -20,6 +21,7 @@ const initialState: IProductsState = {
         brands: [],
         priceFrom: 0,
         priceTo: 1000,
+        sortBy: "mostPopular",
     },
 };
 
@@ -54,6 +56,9 @@ export const productsSlice = createSlice({
         setPriceTo: (state, action: PayloadAction<number>) => {
             state.filters.priceTo = action.payload;
         },
+        setSortBy: (state, action: PayloadAction<SortProductsByType>) => {
+            state.filters.sortBy = action.payload;
+        },
     },
 });
 
@@ -66,4 +71,5 @@ export const {
     setBrands,
     setPriceFrom,
     setPriceTo,
+    setSortBy,
 } = productsSlice.actions;

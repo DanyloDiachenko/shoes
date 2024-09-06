@@ -12,13 +12,21 @@ const Products = async ({ searchParams }: any) => {
     const categorySlugs = searchParams.categories
         ? searchParams.categories.split(",")
         : undefined;
-    const sizeSlugs = searchParams.slugs ? searchParams.split(",") : undefined;
+    const sizeSlugs = searchParams.sizes ? searchParams.split(",") : undefined;
+    const brandSlugs = searchParams.brands
+        ? searchParams.split(",")
+        : undefined;
+    const sortBy = searchParams.sortBy || undefined;
+    const color = searchParams.color || undefined;
 
     const productsResponse = await getProducts(
         page,
         9,
+        sortBy,
         categorySlugs,
-        sizeSlugs
+        sizeSlugs,
+        color,
+        brandSlugs
     );
 
     const categoriesResponse = await getCategories();
