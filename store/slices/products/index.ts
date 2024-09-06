@@ -16,7 +16,7 @@ const initialState: IProductsState = {
     filters: {
         categories: [],
         sizes: [],
-        colour: null,
+        color: null,
         brands: [],
         priceFrom: 0,
         priceTo: 1000,
@@ -42,8 +42,8 @@ export const productsSlice = createSlice({
         setSizes: (state, action: PayloadAction<IProductSize[]>) => {
             state.filters.sizes = action.payload;
         },
-        setColour: (state, action: PayloadAction<IProductColor | null>) => {
-            state.filters.colour = action.payload;
+        setColor: (state, action: PayloadAction<IProductColor | null>) => {
+            state.filters.color = action.payload;
         },
         setBrands: (state, action: PayloadAction<IProductBrand[]>) => {
             state.filters.brands = action.payload;
@@ -62,7 +62,7 @@ export const {
     setTotalPages,
     setCategories,
     setSizes,
-    setColour,
+    setColor,
     setBrands,
     setPriceFrom,
     setPriceTo,

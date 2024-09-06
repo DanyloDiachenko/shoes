@@ -8,6 +8,7 @@ import { GetProductsResponse } from "@/interfaces/responses";
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
 import { getProducts } from "@/app/api/products";
+import styles from "./styles.module.scss";
 
 export const ProductsPageContent = ({
     productsResponse,
@@ -29,8 +30,8 @@ export const ProductsPageContent = ({
     const selectedSizes = useSelector(
         (state: RootState) => state.products.filters.sizes
     );
-    const selectedColour = useSelector(
-        (state: RootState) => state.products.filters.colour
+    const selectedColor = useSelector(
+        (state: RootState) => state.products.filters.color
     );
     const selectedBrands = useSelector(
         (state: RootState) => state.products.filters.brands
@@ -42,8 +43,8 @@ export const ProductsPageContent = ({
             9,
             selectedCategories.map((category) => category.slug),
             selectedSizes.map((size) => String(size.slug)),
-            selectedColour?.slug,
-            selectedBrands.map(brand => brand.slug)
+            selectedColor?.slug,
+            selectedBrands.map((brand) => brand.slug)
         );
 
         setProductsResponseClient(productsResponse);
@@ -55,7 +56,7 @@ export const ProductsPageContent = ({
         currentPage,
         selectedCategories,
         selectedSizes,
-        selectedColour,
+        selectedColor,
         selectedBrands,
     ]);
 
@@ -63,13 +64,21 @@ export const ProductsPageContent = ({
         <div className="page-content">
             <div className="container">
                 <div className="row">
-                    <ProductList productsResponse={productsResponseClient} />
                     <Filters
                         categoriesResponse={categoriesResponse}
                         sizesResponse={sizesResponse}
                         colorsResponse={colorsResponse}
                         brandsResponse={brandsResponse}
                     />
+                    {productsResponseClient.data.length ? (
+                        <>
+                            <ProductList
+                                productsResponse={productsResponseClient}
+                            />
+                        </>
+                    ) : (
+                        <h2 className={styles.notFound}>No results found</h2>
+                    )}
                 </div>
             </div>
         </div>

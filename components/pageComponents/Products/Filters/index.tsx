@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Brand } from "./Brand";
 import { Category } from "./Category";
-import { Colour } from "./Colour";
+import { Color } from "./Color";
 import { Price } from "./Price";
 import { Size } from "./Size";
 import styles from "./styles.module.scss";
@@ -24,7 +24,7 @@ export const Filters = ({
                 </div>
                 <Category allCategories={categoriesResponse} />
                 <Size allSizes={sizesResponse} />
-                <Colour allColors={colorsResponse} />
+                <Color allColors={colorsResponse} />
                 <Brand allBrands={brandsResponse} />
                 <Price />
             </div>

@@ -43,7 +43,6 @@ export const Pagination = ({ totalPages }: PaginationProps) => {
                         Prev
                     </a>
                 </li>
-
                 {Array.from({ length: totalPages }, (_, index) => (
                     <li
                         key={index + 1}
@@ -66,7 +65,6 @@ export const Pagination = ({ totalPages }: PaginationProps) => {
                         </a>
                     </li>
                 ))}
-
                 <li
                     className={`${styles.pageItem} ${
                         currentPage === totalPages ? styles.inactive : ""

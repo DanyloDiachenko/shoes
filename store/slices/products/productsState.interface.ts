@@ -14,7 +14,7 @@ export interface IProductsState {
     filters: {
         categories: IProductCategoryWithProductsQuantity[];
         sizes: IProductSize[];
-        colour: IProductColor | null;
+        color: IProductColor | null;
         brands: IProductBrand[];
         priceFrom: number;
         priceTo: number;

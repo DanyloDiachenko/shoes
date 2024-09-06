@@ -5,7 +5,7 @@ export const getProducts = async (
     limit: number | undefined = 9,
     categorySlugs?: string[],
     sizeSlugs?: string[],
-    colourSlug?: string,
+    colorSlug: string = "",
     brandSlugs?: string[]
 ): Promise<GetProductsResponse> => {
     const categoriesQuery = categorySlugs ? categorySlugs.join(",") : "";
@@ -13,7 +13,7 @@ export const getProducts = async (
     const brandsQuery = brandSlugs ? brandSlugs.join(",") : "";
 
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/products?page=${page}&limit=${limit}&categories=${categoriesQuery}&sizes=${sizesQuery}&colour=${colourSlug}&brands=${brandsQuery}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/products?page=${page}&limit=${limit}&categories=${categoriesQuery}&sizes=${sizesQuery}&color=${colorSlug}&brands=${brandsQuery}`,
         { cache: "no-cache" }
     );
 

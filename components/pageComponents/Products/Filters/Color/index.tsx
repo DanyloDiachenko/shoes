@@ -7,25 +7,25 @@ import { ColorProps } from "./colour.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { IProductColor } from "@/interfaces/product.interface";
-import { setColour } from "@/store/slices/products";
+import { setColor } from "@/store/slices/products";
 
-export const Colour = ({ allColors }: ColorProps) => {
+export const Color = ({ allColors }: ColorProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
     const selectedColor = useSelector(
-        (state: RootState) => state.products.filters.colour
+        (state: RootState) => state.products.filters.color
     );
 
-    const setColorHandler = (colour: IProductColor | null) => {
-        dispatch(setColour(colour));
+    const setColorHandler = (color: IProductColor | null) => {
+        dispatch(setColor(color));
     };
 
-    const onColourClick = (colour: IProductColor) => {
-        if (selectedColor?.id === colour.id) {
+    const onColorClick = (color: IProductColor) => {
+        if (selectedColor?.id === color.id) {
             setColorHandler(null);
         } else {
-            setColorHandler(colour);
+            setColorHandler(color);
         }
     };
 
@@ -39,7 +39,7 @@ export const Colour = ({ allColors }: ColorProps) => {
                     aria-controls="widget-3"
                     onClick={() => setIsOpened(!isOpened)}
                 >
-                    <span>Colour</span>
+                    <span>Color</span>
                     <IoIosArrowDown />
                 </div>
             </h3>
@@ -51,17 +51,17 @@ export const Colour = ({ allColors }: ColorProps) => {
             >
                 <div className={styles.widgetBody}>
                     <div className={styles.filterColors}>
-                        {allColors.map((colour) => (
+                        {allColors.map((color) => (
                             <div
                                 className={
-                                    selectedColor?.id === colour.id
+                                    selectedColor?.id === color.id
                                         ? styles.selected
                                         : ""
                                 }
-                                style={{ background: colour.hexCode }}
-                                onClick={() => onColourClick(colour)}
+                                style={{ background: color.hexCode }}
+                                onClick={() => onColorClick(color)}
                             >
-                                <span className="sr-only">{colour.title}</span>
+                                <span className="sr-only">{color.title}</span>
                             </div>
                         ))}
                     </div>
