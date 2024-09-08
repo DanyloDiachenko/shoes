@@ -9,6 +9,8 @@ import { RootState } from "@/store";
 import { useSelector } from "react-redux";
 import { getProducts } from "@/app/api/products";
 import styles from "./styles.module.scss";
+import { CurrencyType } from "@/types/currency.type";
+import { getClientCookie } from "@/helpers/getClientCookie";
 
 export const ProductsPageContent = ({
     productsResponse,
@@ -17,6 +19,8 @@ export const ProductsPageContent = ({
     colorsResponse,
     brandsResponse,
 }: ProductsPageContentProps) => {
+    const currency = getClientCookie("currency") as CurrencyType;
+
     const [productsResponseClient, setProductsResponseClient] =
         useState<GetProductsResponse>(productsResponse);
 
@@ -38,6 +42,11 @@ export const ProductsPageContent = ({
     const selectedBrands = useSelector(
         (state: RootState) => state.products.filters.brands
     );
+    const price = useSelector((state: RootState) =>
+        currency === "uah"
+            ? state.products.filters.priceUah
+            : state.products.filters.priceEur
+    );
 
     const fetchProducts = async () => {
         const productsResponse = await getProducts(
@@ -47,7 +56,10 @@ export const ProductsPageContent = ({
             selectedCategories.map((category) => category.slug),
             selectedSizes.map((size) => String(size.slug)),
             selectedColor?.slug,
-            selectedBrands.map((brand) => brand.slug)
+            selectedBrands.map((brand) => brand.slug),
+            currency,
+            price.min,
+            price.max
         );
 
         setProductsResponseClient(productsResponse);
@@ -61,7 +73,9 @@ export const ProductsPageContent = ({
         selectedSizes,
         selectedColor,
         selectedBrands,
-        sortBy
+        sortBy,
+        price.min,
+        price.max,
     ]);
 
     return (

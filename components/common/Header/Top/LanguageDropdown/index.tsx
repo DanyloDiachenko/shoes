@@ -14,6 +14,8 @@ export const LanguageDropdown = ({ serverLanguage }: LanguageDropdownProps) => {
     const onLanguageClick = (language: LanguageType) => {
         setCookie("language", language);
         setLanguage(language);
+
+        location.reload();
     };
 
     return (

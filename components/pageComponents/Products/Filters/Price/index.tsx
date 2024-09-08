@@ -3,13 +3,40 @@
 import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { useState } from "react";
-import { Checkbox } from "@/components/UI/Checkbox";
 import InputRange, { Range } from "react-input-range";
-/* import "react-input-range/lib/css/index.css"; */
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { setPriceEur, setPriceUah } from "@/store/slices/products";
+import { CurrencyType } from "@/types/currency.type";
+import { getClientCookie } from "@/helpers/getClientCookie";
 
 export const Price = () => {
+    const currency = getClientCookie("currency") as CurrencyType;
+
     const [isOpened, setIsOpened] = useState(true);
-    const [price, setPrice] = useState<Range>({ min: 0, max: 1000 });
+    const [priceVisible, setPriceVisible] = useState<Range>({
+        min: 0,
+        max: currency === "uah" ? 10000 : 1000,
+    });
+
+    console.log(priceVisible.max);
+
+    const dispatch = useDispatch();
+
+    const setPriceHandler = (price: Range) => {
+        if (currency === "uah") {
+            dispatch(setPriceUah(price));
+        }
+        if (currency === "eur") {
+            dispatch(setPriceEur(price));
+        }
+    };
+
+    const price = useSelector((state: RootState) =>
+        currency === "uah"
+            ? state.products.filters.priceUah
+            : state.products.filters.priceUah
+    );
 
     return (
         <div className={styles.widget}>
@@ -36,16 +63,26 @@ export const Price = () => {
                         <div className={styles.text}>
                             Price Range:{" "}
                             <span>
-                                ${price.min} - ${price.max}
+                                {currency === "uah" ? "₴" : "€"}
+                                {priceVisible.min} -{" "}
+                                {currency === "uah" ? "₴" : "€"}
+                                {priceVisible.max}
                             </span>
                         </div>
                         <InputRange
-                            value={price}
-                            onChange={(newPrice) => setPrice(newPrice as Range)}
+                            value={priceVisible}
+                            onChangeComplete={(newPrice) =>
+                                setPriceHandler(newPrice as Range)
+                            }
+                            onChange={(newPrice) =>
+                                setPriceVisible(newPrice as Range)
+                            }
                             minValue={0}
-                            maxValue={1000}
-                            step={50}
-                            formatLabel={(price) => `$${price}`}
+                            maxValue={currency === "uah" ? 10000 : 1000}
+                            step={currency === "uah" ? 100 : 5}
+                            formatLabel={(price) =>
+                                `${currency === "uah" ? "₴" : "€"}${price}`
+                            }
                             classNames={{
                                 track: styles.inputRangeTrack,
                                 activeTrack: styles.inputRangeTrackActive,

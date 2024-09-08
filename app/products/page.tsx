@@ -6,9 +6,13 @@ import { getCategories } from "../api/categories";
 import { getSizes } from "../api/sizes";
 import { getColors } from "../api/colors";
 import { getBrands } from "../api/brands";
+import { PageProps } from "@/.next/types/app/layout";
+import { getServerCookie } from "@/helpers/getServerCookie";
+import { CurrencyType } from "@/types/currency.type";
 
-const Products = async ({ searchParams }: any) => {
-    const page = Number(searchParams.page) || undefined;
+const Products = async ({ searchParams }: PageProps) => {
+    const currency = getServerCookie("currency") as CurrencyType;
+
     const categorySlugs = searchParams.categories
         ? searchParams.categories.split(",")
         : undefined;
@@ -16,8 +20,12 @@ const Products = async ({ searchParams }: any) => {
     const brandSlugs = searchParams.brands
         ? searchParams.split(",")
         : undefined;
+
+    const page = Number(searchParams.page) || undefined;
     const sortBy = searchParams.sortBy || undefined;
     const color = searchParams.color || undefined;
+    const priceFrom = searchParams.priceFrom || undefined;
+    const priceTo = searchParams.priceTo || undefined;
 
     const productsResponse = await getProducts(
         page,
@@ -26,7 +34,10 @@ const Products = async ({ searchParams }: any) => {
         categorySlugs,
         sizeSlugs,
         color,
-        brandSlugs
+        brandSlugs,
+        currency,
+        priceFrom,
+        priceTo
     );
 
     const categoriesResponse = await getCategories();

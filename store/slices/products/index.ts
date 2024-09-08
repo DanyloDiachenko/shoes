@@ -1,4 +1,3 @@
-import { PopupType } from "@/types/popup.type";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IProductsState } from "./productsState.interface";
 import {
@@ -8,6 +7,7 @@ import {
     IProductSize,
 } from "@/interfaces/product.interface";
 import { SortProductsByType } from "@/types/sortProductsBy.type";
+import { Range } from "react-input-range";
 
 const initialState: IProductsState = {
     pagination: {
@@ -19,8 +19,14 @@ const initialState: IProductsState = {
         sizes: [],
         color: null,
         brands: [],
-        priceFrom: 0,
-        priceTo: 1000,
+        priceUah: {
+            min: 0,
+            max: 10000,
+        },
+        priceEur: {
+            min: 0,
+            max: 1000,
+        },
         sortBy: "mostPopular",
     },
 };
@@ -50,11 +56,11 @@ export const productsSlice = createSlice({
         setBrands: (state, action: PayloadAction<IProductBrand[]>) => {
             state.filters.brands = action.payload;
         },
-        setPriceFrom: (state, action: PayloadAction<number>) => {
-            state.filters.priceFrom = action.payload;
+        setPriceUah: (state, action: PayloadAction<Range>) => {
+            state.filters.priceUah = action.payload;
         },
-        setPriceTo: (state, action: PayloadAction<number>) => {
-            state.filters.priceTo = action.payload;
+        setPriceEur: (state, action: PayloadAction<Range>) => {
+            state.filters.priceUah = action.payload;
         },
         setSortBy: (state, action: PayloadAction<SortProductsByType>) => {
             state.filters.sortBy = action.payload;
@@ -69,7 +75,7 @@ export const {
     setSizes,
     setColor,
     setBrands,
-    setPriceFrom,
-    setPriceTo,
+    setPriceEur,
+    setPriceUah,
     setSortBy,
 } = productsSlice.actions;

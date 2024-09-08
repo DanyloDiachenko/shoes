@@ -6,6 +6,7 @@ import {
 } from "@/interfaces/product.interface";
 import { PopupType } from "@/types/popup.type";
 import { SortProductsByType } from "@/types/sortProductsBy.type";
+import { Range } from "react-input-range";
 
 export interface IProductsState {
     pagination: {
@@ -17,8 +18,8 @@ export interface IProductsState {
         sizes: IProductSize[];
         color: IProductColor | null;
         brands: IProductBrand[];
-        priceFrom: number;
-        priceTo: number;
+        priceUah: Range;
+        priceEur: Range;
         sortBy: SortProductsByType;
     };
 }

@@ -14,6 +14,8 @@ export const CurrencyDropdown = ({ serverCurrency }: CurrencyDropdownProps) => {
     const onCurrencyClick = (currency: "uah" | "eur") => {
         setCookie("currency", currency);
         setCurrency(currency);
+
+        location.reload();
     };
 
     return (
