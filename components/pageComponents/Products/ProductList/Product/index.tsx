@@ -8,6 +8,8 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import { getRating } from "@/helpers/getRating";
 import { ProductProps } from "./product.props";
 import { useState } from "react";
+import { getClientCookie } from "@/helpers/getClientCookie";
+import { CurrencyType } from "@/types/currency.type";
 
 export const Product = ({
     mainCategory,
@@ -21,8 +23,11 @@ export const Product = ({
     description,
     images,
     rating,
+    priceEur,
 }: ProductProps) => {
     const [activeImage, setActiveImage] = useState<string>(mainImage);
+
+    const currency = getClientCookie("currency") as CurrencyType;
 
     return (
         <div className={styles.product}>
@@ -54,7 +59,10 @@ export const Product = ({
                 <div className={styles.columnActions}>
                     <div className={styles.action}>
                         <div className={styles.price}>
-                            ₴{Number(priceUah).toFixed(2)}
+                            {currency === "uah" ? "₴" : "€"}
+                            {Number(
+                                currency === "uah" ? priceUah : priceEur
+                            ).toFixed(2)}
                         </div>
                         <div className={styles.ratingsContainer}>
                             {getRating(rating || 0)}
@@ -88,7 +96,7 @@ export const Product = ({
                                     className={styles.category}
                                 >
                                     <Link
-                                        href={`/products?category=${category.slug}`}
+                                        href={`/products?categories=${category.slug}`}
                                     >
                                         {category.title +
                                             (index === categories.length - 1

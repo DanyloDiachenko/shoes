@@ -19,8 +19,6 @@ export const Price = () => {
         max: currency === "uah" ? 10000 : 1000,
     });
 
-    console.log(priceVisible.max);
-
     const dispatch = useDispatch();
 
     const setPriceHandler = (price: Range) => {

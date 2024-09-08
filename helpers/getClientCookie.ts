@@ -1,6 +1,10 @@
 export const getClientCookie = (name: string): string | null => {
-    const nameEQ = `${name}=`;
+    // Check if `document` is available (i.e., if we're in a browser environment)
+    if (typeof document === "undefined") {
+        return null; // Return null if we are on the server-side
+    }
 
+    const nameEQ = `${name}=`;
     const ca = document.cookie.split(";");
 
     for (let i = 0; i < ca.length; i++) {
