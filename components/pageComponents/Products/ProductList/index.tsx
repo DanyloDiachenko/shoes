@@ -1,5 +1,5 @@
-"use client";
 
+import { getServerCookie } from "@/helpers/getServerCookie";
 import { Pagination } from "./Pagination";
 import { Product } from "./Product";
 import { ProductListProps } from "./productList.props";
@@ -7,6 +7,8 @@ import styles from "./styles.module.scss";
 import { Toolbox } from "./Toolbox";
 
 export const ProductList = ({ productsResponse }: ProductListProps) => {
+    const serverCurrency = getServerCookie("currency");
+
     return (
         <div className={styles.column}>
             <Toolbox

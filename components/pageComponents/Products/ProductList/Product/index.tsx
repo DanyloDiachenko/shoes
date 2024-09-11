@@ -7,7 +7,7 @@ import { FaStar, FaRegHeart } from "react-icons/fa";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { getRating } from "@/helpers/getRating";
 import { ProductProps } from "./product.props";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getClientCookie } from "@/helpers/getClientCookie";
 import { CurrencyType } from "@/types/currency.type";
 
@@ -26,8 +26,13 @@ export const Product = ({
     priceEur,
 }: ProductProps) => {
     const [activeImage, setActiveImage] = useState<string>(mainImage);
+    const [currency, setCurrency] = useState<CurrencyType | null>(null);
 
-    const currency = getClientCookie("currency") as CurrencyType;
+    useEffect(() => {
+        const currency = getClientCookie("currency") as CurrencyType;
+
+        setCurrency(currency)
+    }, []);
 
     return (
         <div className={styles.product}>
