@@ -58,7 +58,7 @@ export const Price = () => {
             >
                 <div className={styles.widgetBody}>
                     <div className={styles.filterPrice}>
-                        <div className={styles.text}>
+                        {/* <div className={styles.text}>
                             Price Range:{" "}
                             <span>
                                 {currency === "uah" ? "₴" : "€"}
@@ -66,8 +66,8 @@ export const Price = () => {
                                 {currency === "uah" ? "₴" : "€"}
                                 {priceVisible.max}
                             </span>
-                        </div>
-                        <InputRange
+                        </div> */}
+                        {/* <InputRange
                             value={priceVisible}
                             onChangeComplete={(newPrice) =>
                                 setPriceHandler(newPrice as Range)
@@ -94,7 +94,7 @@ export const Price = () => {
                                     styles.inputRangeSliderContainer,
                                 valueLabel: styles.inputRangeLabelValue,
                             }}
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>
