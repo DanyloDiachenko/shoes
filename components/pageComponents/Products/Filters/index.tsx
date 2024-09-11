@@ -12,6 +12,7 @@ export const Filters = ({
     sizesResponse,
     colorsResponse,
     brandsResponse,
+    serverCurrency,
 }: FiltersProps) => {
     return (
         <aside className={styles.column}>
@@ -26,7 +27,7 @@ export const Filters = ({
                 <Size allSizes={sizesResponse} />
                 <Color allColors={colorsResponse} />
                 <Brand allBrands={brandsResponse} />
-                <Price />
+                <Price serverCurrency={serverCurrency} />
             </div>
         </aside>
     );

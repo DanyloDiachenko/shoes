@@ -84,6 +84,7 @@ export const ProductsPageContent = ({
                         sizesResponse={sizesResponse}
                         colorsResponse={colorsResponse}
                         brandsResponse={brandsResponse}
+                        serverCurrency={serverCurrency}
                     />
                     {productsResponseClient.data.length ? (
                         <>

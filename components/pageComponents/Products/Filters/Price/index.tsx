@@ -9,9 +9,10 @@ import { RootState } from "@/store";
 import { setPriceEur, setPriceUah } from "@/store/slices/products";
 import { CurrencyType } from "@/types/currency.type";
 import { getClientCookie } from "@/helpers/getClientCookie";
+import { PriceProps } from "./price.props";
 
-export const Price = () => {
-    const [currency, setCurrency] = useState<CurrencyType | null>(null);
+export const Price = ({ serverCurrency }: PriceProps) => {
+    const [currency, setCurrency] = useState<CurrencyType>(serverCurrency);
     const [isOpened, setIsOpened] = useState(true);
     const [priceVisible, setPriceVisible] = useState<Range>({
         min: 0,
