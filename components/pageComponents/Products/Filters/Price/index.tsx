@@ -2,7 +2,7 @@
 
 import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputRange, { Range } from "react-input-range";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
@@ -11,7 +11,7 @@ import { CurrencyType } from "@/types/currency.type";
 import { getClientCookie } from "@/helpers/getClientCookie";
 
 export const Price = () => {
-    const currency = getClientCookie("currency") as CurrencyType;
+    const [currency, setCurrency] = useState<CurrencyType | null>(null);
 
     const [isOpened, setIsOpened] = useState(true);
     const [priceVisible, setPriceVisible] = useState<Range>({
@@ -36,6 +36,12 @@ export const Price = () => {
             : state.products.filters.priceUah
     );
 
+    useEffect(() => {
+        const currency = getClientCookie("currency") as CurrencyType;
+
+        setCurrency(currency);
+    }, []);
+
     return (
         <div className={styles.widget}>
             <h3 className={styles.title}>
@@ -58,7 +64,7 @@ export const Price = () => {
             >
                 <div className={styles.widgetBody}>
                     <div className={styles.filterPrice}>
-                        {/* <div className={styles.text}>
+                        <div className={styles.text}>
                             Price Range:{" "}
                             <span>
                                 {currency === "uah" ? "₴" : "€"}
@@ -66,8 +72,8 @@ export const Price = () => {
                                 {currency === "uah" ? "₴" : "€"}
                                 {priceVisible.max}
                             </span>
-                        </div> */}
-                        {/* <InputRange
+                        </div>
+                        <InputRange
                             value={priceVisible}
                             onChangeComplete={(newPrice) =>
                                 setPriceHandler(newPrice as Range)
@@ -94,7 +100,7 @@ export const Price = () => {
                                     styles.inputRangeSliderContainer,
                                 valueLabel: styles.inputRangeLabelValue,
                             }}
-                        /> */}
+                        />
                     </div>
                 </div>
             </div>

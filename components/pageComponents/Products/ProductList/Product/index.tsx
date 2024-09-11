@@ -31,7 +31,7 @@ export const Product = ({
     useEffect(() => {
         const currency = getClientCookie("currency") as CurrencyType;
 
-        setCurrency(currency)
+        setCurrency(currency);
     }, []);
 
     return (
