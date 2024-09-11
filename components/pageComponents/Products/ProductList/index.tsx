@@ -6,7 +6,10 @@ import { ProductListProps } from "./productList.props";
 import styles from "./styles.module.scss";
 import { Toolbox } from "./Toolbox";
 
-export const ProductList = ({ productsResponse }: ProductListProps) => {
+export const ProductList = ({
+    productsResponse,
+    serverCurrency,
+}: ProductListProps) => {
     return (
         <div className={styles.column}>
             <Toolbox
@@ -15,7 +18,11 @@ export const ProductList = ({ productsResponse }: ProductListProps) => {
             />
             <div className="products mb-3">
                 {productsResponse.data.map((product) => (
-                    <Product key={product.id} {...product} />
+                    <Product
+                        key={product.id}
+                        {...product}
+                        serverCurrency={serverCurrency}
+                    />
                 ))}
             </div>
             <Pagination totalPages={productsResponse.totalPages} />

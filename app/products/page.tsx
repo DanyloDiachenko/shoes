@@ -55,6 +55,7 @@ const Products = async ({ searchParams }: PageProps) => {
                 sizesResponse={sizesResponse}
                 colorsResponse={colorsResponse}
                 brandsResponse={brandsResponse}
+                serverCurrency={currency}
             />
         </>
     );

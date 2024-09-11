@@ -24,15 +24,9 @@ export const Product = ({
     images,
     rating,
     priceEur,
+    serverCurrency
 }: ProductProps) => {
     const [activeImage, setActiveImage] = useState<string>(mainImage);
-    const [currency, setCurrency] = useState<CurrencyType | null>(null);
-
-    useEffect(() => {
-        const currency = getClientCookie("currency") as CurrencyType;
-
-        setCurrency(currency);
-    }, []);
 
     return (
         <div className={styles.product}>
@@ -64,9 +58,9 @@ export const Product = ({
                 <div className={styles.columnActions}>
                     <div className={styles.action}>
                         <div className={styles.price}>
-                            {currency === "uah" ? "₴" : "€"}
+                            {serverCurrency === "uah" ? "₴" : "€"}
                             {Number(
-                                currency === "uah" ? priceUah : priceEur
+                                serverCurrency === "uah" ? priceUah : priceEur
                             ).toFixed(2)}
                         </div>
                         <div className={styles.ratingsContainer}>

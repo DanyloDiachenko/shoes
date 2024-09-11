@@ -9,8 +9,6 @@ import { RootState } from "@/store";
 import { useSelector } from "react-redux";
 import { getProducts } from "@/app/api/products";
 import styles from "./styles.module.scss";
-import { CurrencyType } from "@/types/currency.type";
-import { getClientCookie } from "@/helpers/getClientCookie";
 
 export const ProductsPageContent = ({
     productsResponse,
@@ -18,9 +16,8 @@ export const ProductsPageContent = ({
     sizesResponse,
     colorsResponse,
     brandsResponse,
+    serverCurrency,
 }: ProductsPageContentProps) => {
-    const currency = getClientCookie("currency") as CurrencyType;
-
     const [productsResponseClient, setProductsResponseClient] =
         useState<GetProductsResponse>(productsResponse);
 
@@ -43,7 +40,7 @@ export const ProductsPageContent = ({
         (state: RootState) => state.products.filters.brands
     );
     const price = useSelector((state: RootState) =>
-        currency === "uah"
+        serverCurrency === "uah"
             ? state.products.filters.priceUah
             : state.products.filters.priceEur
     );
@@ -57,7 +54,7 @@ export const ProductsPageContent = ({
             selectedSizes.map((size) => String(size.slug)),
             selectedColor?.slug,
             selectedBrands.map((brand) => brand.slug),
-            currency,
+            serverCurrency,
             price.min,
             price.max
         );
@@ -92,6 +89,7 @@ export const ProductsPageContent = ({
                         <>
                             <ProductList
                                 productsResponse={productsResponseClient}
+                                serverCurrency={serverCurrency}
                             />
                         </>
                     ) : (

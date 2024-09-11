@@ -12,7 +12,6 @@ import { getClientCookie } from "@/helpers/getClientCookie";
 
 export const Price = () => {
     const [currency, setCurrency] = useState<CurrencyType | null>(null);
-
     const [isOpened, setIsOpened] = useState(true);
     const [priceVisible, setPriceVisible] = useState<Range>({
         min: 0,
