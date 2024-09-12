@@ -60,7 +60,7 @@ export const productsSlice = createSlice({
             state.filters.priceUah = action.payload;
         },
         setPriceEur: (state, action: PayloadAction<Range>) => {
-            state.filters.priceUah = action.payload;
+            state.filters.priceEur = action.payload;
         },
         setSortBy: (state, action: PayloadAction<SortProductsByType>) => {
             state.filters.sortBy = action.payload;

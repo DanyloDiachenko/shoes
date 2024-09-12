@@ -1,4 +1,3 @@
-import { getServerCookie } from "@/helpers/getServerCookie";
 import { GetProductsResponse } from "@/interfaces/responses";
 import { CurrencyType } from "@/types/currency.type";
 import { SortProductsByType } from "@/types/sortProductsBy.type";
@@ -24,7 +23,7 @@ export const getProducts = async (
             process.env.NEXT_PUBLIC_API_URL
         }/products?page=${page}&limit=${limit}&sortBy=${
             sortBy || "mostPopular"
-        }&categories=${categoriesQuery}&sizes=${sizesQuery}&color=${colorSlug}&brands=${brandsQuery}&currency=${currency}&priceFrom=${priceFrom}$priceTo=${priceTo}`,
+        }&categories=${categoriesQuery}&sizes=${sizesQuery}&color=${colorSlug}&brands=${brandsQuery}&currency=${currency}&priceFrom=${priceFrom || 0}&priceTo=${priceTo || 100000}`,
         { cache: "no-cache" }
     );
 

@@ -12,35 +12,22 @@ import { getClientCookie } from "@/helpers/getClientCookie";
 import { PriceProps } from "./price.props";
 
 export const Price = ({ serverCurrency }: PriceProps) => {
-    const [currency, setCurrency] = useState<CurrencyType>(serverCurrency);
     const [isOpened, setIsOpened] = useState(true);
     const [priceVisible, setPriceVisible] = useState<Range>({
         min: 0,
-        max: currency === "uah" ? 10000 : 1000,
+        max: serverCurrency === "uah" ? 10000 : 1000,
     });
 
     const dispatch = useDispatch();
 
     const setPriceHandler = (price: Range) => {
-        if (currency === "uah") {
+        if (serverCurrency === "uah") {
             dispatch(setPriceUah(price));
         }
-        if (currency === "eur") {
+        if (serverCurrency === "eur") {
             dispatch(setPriceEur(price));
         }
     };
-
-    const price = useSelector((state: RootState) =>
-        currency === "uah"
-            ? state.products.filters.priceUah
-            : state.products.filters.priceUah
-    );
-
-    useEffect(() => {
-        const currency = getClientCookie("currency") as CurrencyType;
-
-        setCurrency(currency);
-    }, []);
 
     return (
         <div className={styles.widget}>
@@ -67,9 +54,9 @@ export const Price = ({ serverCurrency }: PriceProps) => {
                         <div className={styles.text}>
                             Price Range:{" "}
                             <span>
-                                {currency === "uah" ? "₴" : "€"}
+                                {serverCurrency === "uah" ? "₴" : "€"}
                                 {priceVisible.min} -{" "}
-                                {currency === "uah" ? "₴" : "€"}
+                                {serverCurrency === "uah" ? "₴" : "€"}
                                 {priceVisible.max}
                             </span>
                         </div>
@@ -82,10 +69,12 @@ export const Price = ({ serverCurrency }: PriceProps) => {
                                 setPriceVisible(newPrice as Range)
                             }
                             minValue={0}
-                            maxValue={currency === "uah" ? 10000 : 1000}
-                            step={currency === "uah" ? 100 : 5}
+                            maxValue={serverCurrency === "uah" ? 10000 : 1000}
+                            step={serverCurrency === "uah" ? 100 : 5}
                             formatLabel={(price) =>
-                                `${currency === "uah" ? "₴" : "€"}${price}`
+                                `${
+                                    serverCurrency === "uah" ? "₴" : "€"
+                                }${price}`
                             }
                             classNames={{
                                 track: styles.inputRangeTrack,

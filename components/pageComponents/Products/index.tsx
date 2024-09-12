@@ -45,6 +45,7 @@ export const ProductsPageContent = ({
             ? state.products.filters.priceUah
             : state.products.filters.priceEur
     );
+    console.log(price);
 
     const fetchProducts = async () => {
         console.log("QUERY");
