@@ -20,6 +20,7 @@ export const ProductsPageContent = ({
 }: ProductsPageContentProps) => {
     const [productsResponseClient, setProductsResponseClient] =
         useState<GetProductsResponse>(productsResponse);
+    const [isFirstRender, setIsFirstRender] = useState(true);
 
     const currentPage = useSelector(
         (state: RootState) => state.products.pagination.currentPage
@@ -46,6 +47,7 @@ export const ProductsPageContent = ({
     );
 
     const fetchProducts = async () => {
+        console.log("QUERY");
         const productsResponse = await getProducts(
             currentPage,
             9,
@@ -63,7 +65,11 @@ export const ProductsPageContent = ({
     };
 
     useEffect(() => {
-        fetchProducts();
+        if (!isFirstRender) {
+            fetchProducts();
+        } else {
+            setIsFirstRender(false);
+        }
     }, [
         currentPage,
         selectedCategories,

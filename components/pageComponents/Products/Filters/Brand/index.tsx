@@ -9,12 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { IProductBrand } from "@/interfaces/product.interface";
 import { setBrands } from "@/store/slices/products";
-import { useParams } from "next/navigation";
 
 export const Brand = ({ allBrands }: BrandProps) => {
-    const params = useParams();
-    console.log(params);
-
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
