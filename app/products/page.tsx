@@ -16,9 +16,9 @@ const Products = async ({ searchParams }: PageProps) => {
     const categorySlugs = searchParams.categories
         ? searchParams.categories.split(",")
         : undefined;
-    const sizeSlugs = searchParams.sizes ? searchParams.split(",") : undefined;
+    const sizeSlugs = searchParams.sizes ? searchParams.sizes.split(",") : undefined;
     const brandSlugs = searchParams.brands
-        ? searchParams.split(",")
+        ? searchParams.brands.split(",")
         : undefined;
 
     const page = Number(searchParams.page) || undefined;
