@@ -9,8 +9,6 @@ import { ProductSlide } from "./ProductSlide";
 import { IProduct } from "@/interfaces/product.interface";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
-const products: IProduct[] = productsData as IProduct[];
-
 export const YouMayAlsoLike = () => {
     const sliderSettings = {
         dots: false,
@@ -58,11 +56,11 @@ export const YouMayAlsoLike = () => {
         <>
             <h2 className={styles.title}>You May Also Like</h2>
             <Slider className={styles.slider} {...sliderSettings}>
-                {products.map((product, index) => (
+                {/* {products.map((product, index) => (
                     <div key={index}>
                         <ProductSlide {...product} />
                     </div>
-                ))}
+                ))} */}
             </Slider>
         </>
     );

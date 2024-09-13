@@ -58,9 +58,9 @@ export const ProductSlide = ({
                 <h3 className={styles.title}>
                     <Link href={`/products/${id}`}>{title}</Link>
                 </h3>
-                <div className={styles.price}>${price.toFixed(2)}</div>
+                <div className={styles.price}>${priceUah.toFixed(2)}</div>
                 <div className={styles.ratingsContainer}>
-                    {getRating(rating)}
+                    {getRating(rating || 0)}
                     <span className={styles.text}>
                         ({reviews.length} Reviews)
                     </span>
