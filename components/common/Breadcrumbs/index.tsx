@@ -9,7 +9,7 @@ export const Breadcrumbs = ({ links }: BreadcrumbsProps) => {
             <div className={`container ${styles.container}`}>
                 <ol className={styles.breadcrumb}>
                     {links.map((link, index) => (
-                        <>
+                        <span key={index}>
                             <li
                                 className={`${styles.item} ${
                                     links.length === index ? styles.active : ""
@@ -21,7 +21,7 @@ export const Breadcrumbs = ({ links }: BreadcrumbsProps) => {
                             {links.length - 1 !== index && (
                                 <IoIosArrowForward />
                             )}
-                        </>
+                        </span>
                     ))}
                 </ol>
             </div>

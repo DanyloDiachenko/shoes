@@ -37,7 +37,8 @@ export const StickyProduct = () => {
                                 type="number"
                                 id="qty"
                                 className={styles.input}
-                                value="1"
+                                /* value="1" */
+                                defaultValue={1}
                                 min="1"
                                 max="10"
                                 step="1"
