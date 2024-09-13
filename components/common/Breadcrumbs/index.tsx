@@ -1,26 +1,28 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { IoIosArrowForward } from "react-icons/io";
+import { BreadcrumbsProps } from "./breadcrumbs.props";
 
-export const Breadcrumbs = () => {
+export const Breadcrumbs = ({ links }: BreadcrumbsProps) => {
     return (
         <nav aria-label="breadcrumb" className={styles.breadcrumbs}>
             <div className={`container ${styles.container}`}>
                 <ol className={styles.breadcrumb}>
-                    <li className={styles.item}>
-                        <Link href="/">Home</Link>
-                    </li>
-                    <IoIosArrowForward />
-                    <li className={styles.item}>
-                        <Link href="#">Shop</Link>
-                    </li>
-                    <IoIosArrowForward />
-                    <li
-                        className={`${styles.item} ${styles.active}`}
-                        aria-current="page"
-                    >
-                        <Link href="#">List</Link>
-                    </li>
+                    {links.map((link, index) => (
+                        <>
+                            <li
+                                className={`${styles.item} ${
+                                    links.length === index ? styles.active : ""
+                                }`}
+                                aria-current="page"
+                            >
+                                <Link href={link.link}>{link.title}</Link>
+                            </li>
+                            {links.length - 1 !== index && (
+                                <IoIosArrowForward />
+                            )}
+                        </>
+                    ))}
                 </ol>
             </div>
         </nav>

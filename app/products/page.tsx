@@ -6,7 +6,7 @@ import { getCategories } from "../api/categories";
 import { getSizes } from "../api/sizes";
 import { getColors } from "../api/colors";
 import { getBrands } from "../api/brands";
-import { PageProps } from "@/.next/types/app/layout";
+import { PageProps } from "@/.next/types/app/page";
 import { getServerCookie } from "@/helpers/getServerCookie";
 import { CurrencyType } from "@/types/currency.type";
 
