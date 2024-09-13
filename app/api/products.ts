@@ -23,8 +23,24 @@ export const getProducts = async (
             process.env.NEXT_PUBLIC_API_URL
         }/products?page=${page}&limit=${limit}&sortBy=${
             sortBy || "mostPopular"
-        }&categories=${categoriesQuery}&sizes=${sizesQuery}&color=${colorSlug}&brands=${brandsQuery}&currency=${currency}&priceFrom=${priceFrom || 0}&priceTo=${priceTo || 100000}`,
+        }&categories=${categoriesQuery}&sizes=${sizesQuery}&color=${colorSlug}&brands=${brandsQuery}&currency=${currency}&priceFrom=${
+            priceFrom || 0
+        }&priceTo=${priceTo || 100000}`,
         { cache: "no-cache" }
+    );
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch data");
+    }
+
+    const data = await res.json();
+
+    return data;
+};
+
+export const getProduct = async (productId: string) => {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`
     );
 
     if (!res.ok) {

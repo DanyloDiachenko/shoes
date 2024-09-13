@@ -1,3 +1,5 @@
+import { PageProps } from "@/.next/types/app/products/[id]/page";
+import { getProduct } from "@/app/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/pageComponents/Product";
 
@@ -16,11 +18,14 @@ const links = [
     },
 ];
 
-const ProductDetails = () => {
+const ProductDetails = async ({ params }: PageProps) => {
+    const productId = params.id;
+    const product = await getProduct(productId);
+
     return (
         <>
             <Breadcrumbs links={links} />
-            <ProductPageContent />
+            <ProductPageContent product={product}  />
         </>
     );
 };
