@@ -7,6 +7,7 @@ import {
     FaInstagram,
     FaPinterest,
 } from "react-icons/fa";
+import { BottomProps } from "./bottom.props";
 
 const socials: ISocialMedia[] = [
     {
@@ -31,13 +32,22 @@ const socials: ISocialMedia[] = [
     },
 ];
 
-export const Bottom = () => {
+export const Bottom = ({ product }: BottomProps) => {
     return (
         <div className={styles.bottom}>
             <div className={styles.category}>
                 <span>Category:</span>
-                <Link href="#">Women</Link>, <Link href="#">Dresses</Link>,{" "}
-                <Link href="#">Yellow</Link>
+                {product.categories.map((category, index) => (
+                    <span>
+                        <Link
+                            key={category.id}
+                            href={`/products?categories=${category.slug}`}
+                        >
+                            {category.title}
+                        </Link>
+                        {product.categories.length - 1 === index ? "" : ", "}
+                    </span>
+                ))}
             </div>
             <div className={styles.socialIcons}>
                 <span className={styles.label}>Share:</span>

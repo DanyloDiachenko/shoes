@@ -22,7 +22,9 @@
         margin-bottom: 0.3rem;
 
         span {
-            margin-right: 0.7rem;
+            &:first-child {
+                margin-right: 0.7rem;
+            }
         }
 
         a {
