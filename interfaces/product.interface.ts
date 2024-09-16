@@ -35,7 +35,6 @@ export interface IProductReview {
     description: string;
     helpfulNumber: number;
     unhelpfulNumber: number;
-    slug: string;
 }
 
 export interface IProduct {

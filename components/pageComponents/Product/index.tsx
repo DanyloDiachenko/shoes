@@ -10,7 +10,7 @@ export const ProductPageContent = ({ product }: ProductPageContentProps) => {
             <div className="page-content">
                 <div className="container">
                     <DetailsTop product={product} />
-                    <DetailsBottom />
+                    <DetailsBottom product={product} />
                     <YouMayAlsoLike />
                 </div>
             </div>

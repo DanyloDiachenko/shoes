@@ -2,38 +2,49 @@
 
 import { useState } from "react";
 import styles from "./styles.module.scss";
-import { AdditionalInfo } from "./TabsContent/AdditionalInfo";
-import { Description } from "./TabsContent/Description";
 import { Reviews } from "./TabsContent/Reviews";
-import { ShippingReturns } from "./TabsContent/ShippingReturns";
 import { TabTitles } from "./TabTitles";
 import { ProductDetailsTabType } from "@/types/productDetailsTab.type";
 import { IProductDetailsTabContent } from "@/interfaces/productDetailsTabContent.interface";
+import { DetailsBottomProps } from "./detailsBottom.props";
+import { ShippingReturns } from "./TabsContent/ShippingReturns";
 
-const tabContent: IProductDetailsTabContent[] = [
-    {
-        key: "description",
-        title: "Description",
-        content: <Description />,
-    },
-    {
-        key: "additionalInfo",
-        title: "Additional information",
-        content: <AdditionalInfo />,
-    },
-    {
-        key: "shippingReturns",
-        title: "Shipping & Returns",
-        content: <ShippingReturns />,
-    },
-    {
-        key: "reviews",
-        title: "Reviews (2)",
-        content: <Reviews />,
-    },
-];
+export const DetailsBottom = ({ product }: DetailsBottomProps) => {
+    const tabContent: IProductDetailsTabContent[] = [
+        {
+            key: "description",
+            title: "Description",
+            content: (
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: product.productInformtion,
+                    }}
+                />
+            ),
+        },
+        {
+            key: "additionalInfo",
+            title: "Additional information",
+            content: (
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: product.additionalInformation,
+                    }}
+                />
+            ),
+        },
+        {
+            key: "shippingReturns",
+            title: "Shipping & Returns",
+            content: <ShippingReturns />,
+        },
+        {
+            key: "reviews",
+            title: `Reviews (${product.reviews.length})`,
+            content: <Reviews reviews={product.reviews} />,
+        },
+    ];
 
-export const DetailsBottom = () => {
     const [activeTab, setActiveTab] =
         useState<ProductDetailsTabType>("description");
     const [isTransitioning, setIsTransitioning] = useState(false);
@@ -45,7 +56,7 @@ export const DetailsBottom = () => {
     const handleTabChange = (tab: ProductDetailsTabType) => {
         if (tab !== activeTab) {
             setIsTransitioning(true);
-            
+
             setTimeout(() => {
                 setActiveTab(tab);
                 setIsTransitioning(false);
