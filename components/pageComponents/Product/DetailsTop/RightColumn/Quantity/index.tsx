@@ -8,8 +8,6 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 export const Quantity = ({ product }: QuantityProps) => {
     const [quantity, setQuantity] = useState(1);
 
-    console.log(quantity);
-
     return (
         <div className={styles.detailsFilter}>
             <label htmlFor="qty">Qty:</label>

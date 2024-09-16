@@ -7,7 +7,6 @@ import { useState } from "react";
 import { LeftColumnProps } from "./leftColumn.props";
 
 export const LeftColumn = ({ product }: LeftColumnProps) => {
-    console.log(product);
     const [activeImage, setActiveImage] = useState<string>(product.mainImage);
 
     return (

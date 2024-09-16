@@ -8,8 +8,6 @@ import { CurrencyType } from "@/types/currency.type";
 export const Info = ({ product }: InfoProps) => {
     const currency = (getServerCookie("currency") || "uah") as CurrencyType;
 
-    console.log(product.priceUah);
-
     return (
         <>
             <h1 className={styles.title}>{product.title}</h1>
