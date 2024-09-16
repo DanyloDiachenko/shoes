@@ -3,7 +3,7 @@ import { getProduct } from "@/app/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/pageComponents/Product";
 
-const links = [
+const breadcrumbItems = [
     {
         title: "Home",
         link: "/",
@@ -13,8 +13,8 @@ const links = [
         link: "/products",
     },
     {
-        title: "List",
-        link: "/products",
+        title: "Details",
+        link: "#",
     },
 ];
 
@@ -24,8 +24,8 @@ const ProductDetails = async ({ params }: PageProps) => {
 
     return (
         <>
-            <Breadcrumbs links={links} />
-            <ProductPageContent product={product}  />
+            <Breadcrumbs links={breadcrumbItems} />
+            <ProductPageContent product={product} />
         </>
     );
 };

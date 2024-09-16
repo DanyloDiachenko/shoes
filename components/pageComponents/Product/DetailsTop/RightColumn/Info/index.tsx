@@ -1,29 +1,32 @@
 import { getRating } from "@/helpers/getRating";
 import styles from "./styles.module.scss";
 import Link from "next/link";
+import { InfoProps } from "./info.props";
+import { getServerCookie } from "@/helpers/getServerCookie";
+import { CurrencyType } from "@/types/currency.type";
 
-export const Info = () => {
+export const Info = ({ product }: InfoProps) => {
+    const currency = (getServerCookie("currency") || "uah") as CurrencyType;
+
     return (
         <>
-            <h1 className={styles.title}>
-                Dark yellow lace cut out swing dress
-            </h1>
+            <h1 className={styles.title}>{product.title}</h1>
             <div className={styles.ratingsContainer}>
-                {getRating(4)}
+                {getRating(product.rating || 0)}
                 <Link
                     className={`link-dark ${styles.ratingsText}`}
                     href="#product-review-link"
                 >
-                    ( 2 Reviews )
+                    ( {product.reviews.length} Reviews )
                 </Link>
             </div>
-            <div className={styles.price}>$84.00</div>
+            <div className={styles.price}>
+                {currency === "uah"
+                    ? `₴${product.priceUah}`
+                    : `€${product.priceEur}`}
+            </div>
             <div className={styles.description}>
-                <p>
-                    Sed egestas, ante et vulputate volutpat, eros pede semper
-                    est, vitae luctus metus libero eu augue. Morbi purus libero,
-                    faucibus adipiscing. Sed lectus.
-                </p>
+                <p>{product.description}</p>
             </div>
         </>
     );

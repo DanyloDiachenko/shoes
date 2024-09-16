@@ -5,12 +5,13 @@ import { Quantity } from "./Quantity";
 import { Actions } from "./Actions";
 import { Bottom } from "./Bottom";
 import { Info } from "./Info";
+import { RightColumnProps } from "./rightColumn.props";
 
-export const RightColumn = () => {
+export const RightColumn = ({ product }: RightColumnProps) => {
     return (
         <div className={styles.columnRight}>
             <div className={styles.details}>
-                <Info />
+                <Info product={product} />
                 <Colors />
                 <Sizes />
                 <Quantity />

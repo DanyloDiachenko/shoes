@@ -10,13 +10,30 @@ import { PageProps } from "@/.next/types/app/page";
 import { getServerCookie } from "@/helpers/getServerCookie";
 import { CurrencyType } from "@/types/currency.type";
 
+const breadcrumbItems = [
+    {
+        title: "Home",
+        link: "/",
+    },
+    {
+        title: "Shop",
+        link: "/products",
+    },
+    {
+        title: "List",
+        link: "#",
+    },
+];
+
 const Products = async ({ searchParams }: PageProps) => {
     const currency = getServerCookie("currency") as CurrencyType;
 
     const categorySlugs = searchParams.categories
         ? searchParams.categories.split(",")
         : undefined;
-    const sizeSlugs = searchParams.sizes ? searchParams.sizes.split(",") : undefined;
+    const sizeSlugs = searchParams.sizes
+        ? searchParams.sizes.split(",")
+        : undefined;
     const brandSlugs = searchParams.brands
         ? searchParams.brands.split(",")
         : undefined;
@@ -48,7 +65,7 @@ const Products = async ({ searchParams }: PageProps) => {
     return (
         <>
             <PageHeader title="List" subtitle="Shop" />
-            <Breadcrumbs />
+            <Breadcrumbs links={breadcrumbItems} />
             <ProductsPageContent
                 productsResponse={productsResponse}
                 categoriesResponse={categoriesResponse}

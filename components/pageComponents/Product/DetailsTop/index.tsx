@@ -8,7 +8,7 @@ export const DetailsTop = ({ product }: DetailsTopProps) => {
         <div className={styles.top}>
             <div className="row">
                 <LeftColumn product={product} />
-                <RightColumn />
+                <RightColumn product={product} />
             </div>
         </div>
     );
