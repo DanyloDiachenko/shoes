@@ -49,18 +49,18 @@ export const ProductsPageContent = ({
 
     const fetchProducts = async () => {
         console.log("QUERY");
-        const productsResponse = await getProducts(
-            currentPage,
-            9,
-            sortBy,
-            selectedCategories.map((category) => category.slug),
-            selectedSizes.map((size) => String(size.slug)),
-            selectedColor?.slug,
-            selectedBrands.map((brand) => brand.slug),
-            serverCurrency,
-            price.min,
-            price.max
-        );
+        const productsResponse = await getProducts({
+            page: currentPage,
+            limit: 9,
+            sortBy: sortBy,
+            categorySlugs: selectedCategories.map((category) => category.slug),
+            sizeSlugs: selectedSizes.map((size) => String(size.slug)),
+            colorSlug: selectedColor?.slug,
+            brandSlugs: selectedBrands.map((brand) => brand.slug),
+            currency: serverCurrency,
+            priceFrom: price.min,
+            priceTo: price.max,
+        });
 
         setProductsResponseClient(productsResponse);
     };

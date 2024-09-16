@@ -44,18 +44,18 @@ const Products = async ({ searchParams }: PageProps) => {
     const priceFrom = searchParams.priceFrom || undefined;
     const priceTo = searchParams.priceTo || undefined;
 
-    const productsResponse = await getProducts(
+    const productsResponse = await getProducts({
         page,
-        9,
+        limit: 9,
         sortBy,
         categorySlugs,
         sizeSlugs,
-        color,
+        colorSlug: color,
         brandSlugs,
         currency,
         priceFrom,
-        priceTo
-    );
+        priceTo,
+    });
 
     const categoriesResponse = await getCategories();
     const sizesResponse = await getSizes();
