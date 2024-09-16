@@ -4,34 +4,22 @@ import { ISelectOption } from "@/interfaces/selectOption.interface";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Select } from "@/components/UI/Select";
+import { SizesProps } from "./info.props";
 
-const selectOptions: ISelectOption[] = [
-    {
+export const Sizes = ({ product }: SizesProps) => {
+    const [activeOption, setActiveOption] = useState<ISelectOption>({
         label: "Select a size",
         value: "#",
-    },
-    {
-        label: "Small",
-        value: "s",
-    },
-    {
-        label: "Medium",
-        value: "m",
-    },
-    {
-        label: "Large",
-        value: "l",
-    },
-    {
-        label: "Extra Large",
-        value: "xl",
-    },
-];
+    });
 
-export const Sizes = () => {
-    const [activeOption, setActiveOption] = useState<ISelectOption>(
-        selectOptions[0]
-    );
+    const selectOptions: ISelectOption[] = product.sizes.map((size) => ({
+        label: String(size.title),
+        value: size.id,
+    }));
+    selectOptions.push({
+        label: "Select a size",
+        value: "#",
+    });
 
     return (
         <div className={styles.sizes}>

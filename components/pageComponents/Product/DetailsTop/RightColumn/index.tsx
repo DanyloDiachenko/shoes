@@ -13,7 +13,7 @@ export const RightColumn = ({ product }: RightColumnProps) => {
             <div className={styles.details}>
                 <Info product={product} />
                 <Colors product={product} />
-                <Sizes />
+                <Sizes product={product} />
                 <Quantity />
                 <Actions />
                 <Bottom />

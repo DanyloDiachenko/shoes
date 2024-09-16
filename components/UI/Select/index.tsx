@@ -14,6 +14,7 @@ export const Select = ({
         const selectedOption = options.find(
             (option) => option.value === event.target.value
         );
+        
         if (selectedOption) {
             setActiveOption(selectedOption);
         }
