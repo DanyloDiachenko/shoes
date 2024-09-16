@@ -23,38 +23,55 @@ const breadcrumbItems = [
 
 const ProductDetails = async ({ params }: PageProps) => {
     const currency = getServerCookie("currency") as CurrencyType;
-
     const productId = params.id;
-    const product: IProduct = await getProduct(productId);
 
-    const mayLikedProductsByCategories = await getProducts({
-        limit: 3,
-        categorySlugs: product.categories.map((category) => category.slug),
-        currency: currency,
-    });
+    const [product, mayLikedProducts] = await Promise.all([
+        getProduct(productId),
+        (await getProducts({ limit: 12, currency })).data,
+    ]);
 
-    const mayLikedProductsBySizes = await getProducts({
-        limit: 3,
-        sizeSlugs: product.sizes.map((size) => String(size.slug)),
-        currency: currency,
-    });
-
-    const mayLikedProductsByColor = await getProducts({
-        limit: 3,
-        colorSlug: product.color.slug,
-        currency: currency,
-    });
-
-    const mayLikedProductsByBrand = await getProducts({
-        limit: 3,
-        brandSlugs: [product.brand.slug],
-        currency: currency,
-    });
+    /* const [
+        mayLikedProductsByCategories,
+        mayLikedProductsBySizes,
+        mayLikedProductsByColor,
+        mayLikedProductsByBrand,
+    ] = await Promise.all([
+        getProducts({
+            limit: 3,
+            categorySlugs: product.categories.map((category) => category.slug),
+            currency: currency,
+        }),
+        getProducts({
+            limit: 3,
+            sizeSlugs: product.sizes.map((size) => String(size.slug)),
+            currency: currency,
+        }),
+        getProducts({
+            limit: 3,
+            colorSlug: product.color.slug,
+            currency: currency,
+        }),
+        getProducts({
+            limit: 3,
+            brandSlugs: [product.brand.slug],
+            currency: currency,
+        }),
+    ]); */
+    /* const mayLikedProducts = [
+        ...mayLikedProductsByCategories.data,
+        ...mayLikedProductsBySizes.data,
+        ...mayLikedProductsByColor.data,
+        ...mayLikedProductsByBrand.data,
+    ]; */
 
     return (
         <>
             <Breadcrumbs links={breadcrumbItems} />
-            <ProductPageContent product={product} />
+            <ProductPageContent
+                product={product}
+                mayLikedProducts={mayLikedProducts}
+                serverCurrency={currency}
+            />
         </>
     );
 };

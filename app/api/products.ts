@@ -1,3 +1,4 @@
+import { IProduct } from "@/interfaces/product.interface";
 import { GetProductsResponse } from "@/interfaces/responses";
 import { CurrencyType } from "@/types/currency.type";
 import { SortProductsByType } from "@/types/sortProductsBy.type";
@@ -45,7 +46,7 @@ export const getProducts = async ({
     return data;
 };
 
-export const getProduct = async (productId: string) => {
+export const getProduct = async (productId: string): Promise<IProduct> => {
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`
     );

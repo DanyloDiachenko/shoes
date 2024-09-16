@@ -26,8 +26,6 @@ export const Product = ({
 }: ProductProps) => {
     const [activeImage, setActiveImage] = useState<string>(mainImage);
 
-    console.log(typeof priceUah);
-
     return (
         <div className={styles.product}>
             <div className="row">
@@ -114,9 +112,8 @@ export const Product = ({
                         </div>
                         <div className={styles.thumbs}>
                             {images.map((image, index) => (
-                                <Link
+                                <div
                                     key={index}
-                                    href="#"
                                     onMouseEnter={() => setActiveImage(image)}
                                     className={
                                         activeImage === image
@@ -128,7 +125,7 @@ export const Product = ({
                                     }
                                 >
                                     <img src={image} alt="product desc" />
-                                </Link>
+                                </div>
                             ))}
                         </div>
                     </div>

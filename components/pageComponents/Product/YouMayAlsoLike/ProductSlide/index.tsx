@@ -7,18 +7,22 @@ import { FaRegHeart } from "react-icons/fa";
 import styles from "./styles.module.scss";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { ProductSlideProps } from "./productSlide.props";
+import { useState } from "react";
 
 export const ProductSlide = ({
     mainCategory,
     id,
     mainImage,
     title,
-    priceEur,
-    priceUah,
     rating,
+    priceUah,
+    priceEur,
     reviews,
     images,
+    serverCurrency,
 }: ProductSlideProps) => {
+    const [activeImage, setActiveImage] = useState<string>(mainImage);
+
     return (
         <div className={styles.productSlide}>
             <figure className={styles.media}>
@@ -29,7 +33,7 @@ export const ProductSlide = ({
                 </span>
                 <Link href={`/products/${id}`}>
                     <img
-                        src={mainImage}
+                        src={activeImage}
                         alt="Product image"
                         className={styles.productImage}
                     />
@@ -58,7 +62,11 @@ export const ProductSlide = ({
                 <h3 className={styles.title}>
                     <Link href={`/products/${id}`}>{title}</Link>
                 </h3>
-                <div className={styles.price}>${priceUah.toFixed(2)}</div>
+                <div className={styles.price}>
+                    {serverCurrency === "uah"
+                        ? `₴${priceUah.toFixed(2)}`
+                        : `€${priceEur.toFixed(2)}`}
+                </div>
                 <div className={styles.ratingsContainer}>
                     {getRating(rating || 0)}
                     <span className={styles.text}>
@@ -67,13 +75,16 @@ export const ProductSlide = ({
                 </div>
                 <div className={styles.thumbs}>
                     {images.map((image, index) => (
-                        <Link
-                            href="#"
+                        <div
                             key={index}
-                            className={index === 0 ? styles.active : ""}
+                            onMouseEnter={() => setActiveImage(image)}
+                            className={
+                                activeImage === image ? styles.active : ""
+                            }
+                            onMouseLeave={() => setActiveImage(mainImage)}
                         >
                             <img src={image} alt="product desc" />
-                        </Link>
+                        </div>
                     ))}
                 </div>
             </div>

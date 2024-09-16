@@ -4,14 +4,21 @@ import { ProductPageContentProps } from "./product.props";
 import { StickyProduct } from "./StickyProduct";
 import { YouMayAlsoLike } from "./YouMayAlsoLike";
 
-export const ProductPageContent = ({ product }: ProductPageContentProps) => {
+export const ProductPageContent = ({
+    product,
+    mayLikedProducts,
+    serverCurrency,
+}: ProductPageContentProps) => {
     return (
         <>
             <div className="page-content">
                 <div className="container">
                     <DetailsTop product={product} />
                     <DetailsBottom product={product} />
-                    <YouMayAlsoLike />
+                    <YouMayAlsoLike
+                        products={mayLikedProducts}
+                        serverCurrency={serverCurrency}
+                    />
                 </div>
             </div>
             <StickyProduct />

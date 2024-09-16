@@ -8,8 +8,9 @@ import Slider from "react-slick";
 import { ProductSlide } from "./ProductSlide";
 import { IProduct } from "@/interfaces/product.interface";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { YouMayAlsoLikeProps } from "./youMayAlsoLike.props";
 
-export const YouMayAlsoLike = () => {
+export const YouMayAlsoLike = ({ products, serverCurrency }: YouMayAlsoLikeProps) => {
     const sliderSettings = {
         dots: false,
         infinite: false,
@@ -56,11 +57,14 @@ export const YouMayAlsoLike = () => {
         <>
             <h2 className={styles.title}>You May Also Like</h2>
             <Slider className={styles.slider} {...sliderSettings}>
-                {/* {products.map((product, index) => (
+                {products.map((product, index) => (
                     <div key={index}>
-                        <ProductSlide {...product} />
+                        <ProductSlide
+                            {...product}
+                            serverCurrency={serverCurrency}
+                        />
                     </div>
-                ))} */}
+                ))}
             </Slider>
         </>
     );
