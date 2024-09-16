@@ -41,6 +41,10 @@
             &.increment {
                 right: 0;
             }
+            &.disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
 
             svg {
                 color: #6666669d;

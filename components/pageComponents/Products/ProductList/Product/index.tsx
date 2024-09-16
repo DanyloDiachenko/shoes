@@ -7,9 +7,7 @@ import { FaStar, FaRegHeart } from "react-icons/fa";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { getRating } from "@/helpers/getRating";
 import { ProductProps } from "./product.props";
-import { useEffect, useState } from "react";
-import { getClientCookie } from "@/helpers/getClientCookie";
-import { CurrencyType } from "@/types/currency.type";
+import { useState } from "react";
 
 export const Product = ({
     mainCategory,
@@ -24,9 +22,11 @@ export const Product = ({
     images,
     rating,
     priceEur,
-    serverCurrency
+    serverCurrency,
 }: ProductProps) => {
     const [activeImage, setActiveImage] = useState<string>(mainImage);
+
+    console.log(typeof priceUah);
 
     return (
         <div className={styles.product}>
@@ -59,9 +59,9 @@ export const Product = ({
                     <div className={styles.action}>
                         <div className={styles.price}>
                             {serverCurrency === "uah" ? "₴" : "€"}
-                            {Number(
-                                serverCurrency === "uah" ? priceUah : priceEur
-                            ).toFixed(2)}
+                            {serverCurrency === "uah"
+                                ? priceUah.toFixed(2)
+                                : priceEur.toFixed(2)}
                         </div>
                         <div className={styles.ratingsContainer}>
                             {getRating(rating || 0)}
@@ -71,8 +71,9 @@ export const Product = ({
                         </div>
                         <Button
                             colorType="btnOutlinePrimary2"
-                            className={`${styles.addToCart}`}
-                            /* className={`${styles.addToCart} ${styles.inactive}`} */
+                            className={`${styles.addToCart} ${
+                                quantityInStock === 0 ? styles.inactive : ""
+                            }`}
                         >
                             <LiaCartPlusSolid />
                             <span>add to cart</span>

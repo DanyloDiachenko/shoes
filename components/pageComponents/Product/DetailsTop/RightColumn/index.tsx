@@ -14,7 +14,7 @@ export const RightColumn = ({ product }: RightColumnProps) => {
                 <Info product={product} />
                 <Colors product={product} />
                 <Sizes product={product} />
-                <Quantity />
+                <Quantity product={product} />
                 <Actions />
                 <Bottom />
             </div>

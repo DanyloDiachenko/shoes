@@ -8,6 +8,8 @@ import { CurrencyType } from "@/types/currency.type";
 export const Info = ({ product }: InfoProps) => {
     const currency = (getServerCookie("currency") || "uah") as CurrencyType;
 
+    console.log(product.priceUah);
+
     return (
         <>
             <h1 className={styles.title}>{product.title}</h1>
@@ -22,8 +24,8 @@ export const Info = ({ product }: InfoProps) => {
             </div>
             <div className={styles.price}>
                 {currency === "uah"
-                    ? `₴${product.priceUah}`
-                    : `€${product.priceEur}`}
+                    ? `₴${product.priceUah.toFixed(2)}`
+                    : `€${product.priceEur.toFixed(2)}`}
             </div>
             <div className={styles.description}>
                 <p>{product.description}</p>

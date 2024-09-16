@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
-import { ColorsProps } from "./info.props";
+import { ColorsProps } from "./colors.props";
 
 export const Colors = ({ product }: ColorsProps) => {
     return (

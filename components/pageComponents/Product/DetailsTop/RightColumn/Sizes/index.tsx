@@ -4,7 +4,7 @@ import { ISelectOption } from "@/interfaces/selectOption.interface";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Select } from "@/components/UI/Select";
-import { SizesProps } from "./info.props";
+import { SizesProps } from "./sizes.props";
 
 export const Sizes = ({ product }: SizesProps) => {
     const [activeOption, setActiveOption] = useState<ISelectOption>({
