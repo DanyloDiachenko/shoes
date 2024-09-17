@@ -57,6 +57,7 @@ const Products = async (/* { searchParams }: PageProps */) => {
             priceFrom,
             priceTo,
         });
+        console.log(productsResponse);
     } catch (error) {
         console.log(error);
     }
