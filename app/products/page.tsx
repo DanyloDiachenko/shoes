@@ -25,8 +25,9 @@ const breadcrumbItems = [
     },
 ];
 
-const Products = async ({ searchParams }: PageProps) => {
+const Products = async (/* { searchParams }: PageProps */) => {
     const currency = getServerCookie("currency") as CurrencyType;
+    const searchParams: any = {};
 
     const categorySlugs = searchParams.categories
         ? searchParams.categories.split(",")
