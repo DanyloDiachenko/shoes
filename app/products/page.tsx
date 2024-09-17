@@ -44,8 +44,15 @@ const Products = async (/* { searchParams }: PageProps */) => {
     const color = searchParams.color || undefined;
     const priceFrom = searchParams.priceFrom || undefined;
     const priceTo = searchParams.priceTo || undefined;
-    try {
-        const productsResponse = await getProducts({
+
+    const [
+        productsResponse,
+        categoriesResponse,
+        sizesResponse,
+        colorsResponse,
+        brandsResponse,
+    ] = await Promise.all([
+        getProducts({
             page,
             limit: 9,
             sortBy,
@@ -56,31 +63,25 @@ const Products = async (/* { searchParams }: PageProps */) => {
             currency,
             priceFrom,
             priceTo,
-        });
-        console.log(productsResponse);
-    } catch (error) {
-        console.log(error);
-    }
-
-    /* 
-
-    const categoriesResponse = await getCategories();
-    const sizesResponse = await getSizes();
-    const colorsResponse = await getColors();
-    const brandsResponse = await getBrands(); */
+        }),
+        getCategories(),
+        getSizes(),
+        getColors(),
+        getBrands(),
+    ]);
 
     return (
         <>
             <PageHeader title="List" subtitle="Shop" />
             <Breadcrumbs links={breadcrumbItems} />
-            {/* <ProductsPageContent
+            <ProductsPageContent
                 productsResponse={productsResponse}
                 categoriesResponse={categoriesResponse}
                 sizesResponse={sizesResponse}
                 colorsResponse={colorsResponse}
                 brandsResponse={brandsResponse}
                 serverCurrency={currency}
-            /> */}
+            />
         </>
     );
 };
