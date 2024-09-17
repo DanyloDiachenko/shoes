@@ -29,7 +29,7 @@ const Products = async (/* { searchParams }: PageProps */) => {
     const currency = getServerCookie("currency") as CurrencyType;
     const searchParams: any = {};
 
-    const categorySlugs = searchParams.categories
+    /* const categorySlugs = searchParams.categories
         ? searchParams.categories.split(",")
         : undefined;
     const sizeSlugs = searchParams.sizes
@@ -43,9 +43,9 @@ const Products = async (/* { searchParams }: PageProps */) => {
     const sortBy = searchParams.sortBy || undefined;
     const color = searchParams.color || undefined;
     const priceFrom = searchParams.priceFrom || undefined;
-    const priceTo = searchParams.priceTo || undefined;
+    const priceTo = searchParams.priceTo || undefined; */
 
-    const productsResponse = await getProducts({
+    /* const productsResponse = await getProducts({
         page,
         limit: 9,
         sortBy,
@@ -61,20 +61,20 @@ const Products = async (/* { searchParams }: PageProps */) => {
     const categoriesResponse = await getCategories();
     const sizesResponse = await getSizes();
     const colorsResponse = await getColors();
-    const brandsResponse = await getBrands();
+    const brandsResponse = await getBrands(); */
 
     return (
         <>
             <PageHeader title="List" subtitle="Shop" />
             <Breadcrumbs links={breadcrumbItems} />
-            <ProductsPageContent
+            {/* <ProductsPageContent
                 productsResponse={productsResponse}
                 categoriesResponse={categoriesResponse}
                 sizesResponse={sizesResponse}
                 colorsResponse={colorsResponse}
                 brandsResponse={brandsResponse}
                 serverCurrency={currency}
-            />
+            /> */}
         </>
     );
 };
