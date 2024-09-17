@@ -29,7 +29,7 @@ const Products = async (/* { searchParams }: PageProps */) => {
     const currency = getServerCookie("currency") as CurrencyType;
     const searchParams: any = {};
 
-    /* const categorySlugs = searchParams.categories
+    const categorySlugs = searchParams.categories
         ? searchParams.categories.split(",")
         : undefined;
     const sizeSlugs = searchParams.sizes
@@ -43,7 +43,7 @@ const Products = async (/* { searchParams }: PageProps */) => {
     const sortBy = searchParams.sortBy || undefined;
     const color = searchParams.color || undefined;
     const priceFrom = searchParams.priceFrom || undefined;
-    const priceTo = searchParams.priceTo || undefined; */
+    const priceTo = searchParams.priceTo || undefined;
 
     /* const productsResponse = await getProducts({
         page,
