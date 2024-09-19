@@ -1,3 +1,3 @@
-export interface ToogleLocalStorageState {
+export interface IToogleLocalStorageState {
     value: boolean;
 }

@@ -2,15 +2,26 @@
 
 import { ISelectOption } from "@/interfaces/selectOption.interface";
 import styles from "./styles.module.scss";
-import { useState } from "react";
 import { Select } from "@/components/UI/Select";
 import { SizesProps } from "./sizes.props";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { setProductToCart } from "@/store/slices/productToCart";
 
 export const Sizes = ({ product }: SizesProps) => {
-    const [activeOption, setActiveOption] = useState<ISelectOption>({
-        label: "Select a size",
-        value: "#",
-    });
+    const dispatch = useDispatch();
+    const productToCart = useSelector(
+        (state: RootState) => state.productToCart
+    );
+
+    const setActiveOptionHandler = (option: ISelectOption) => {
+        dispatch(
+            setProductToCart({
+                ...productToCart,
+                sizeId: option.value,
+            })
+        );
+    };
 
     const selectOptions: ISelectOption[] = product.sizes.map((size) => ({
         label: String(size.title),
@@ -27,8 +38,12 @@ export const Sizes = ({ product }: SizesProps) => {
             <Select
                 id="size"
                 options={selectOptions}
-                activeOption={activeOption}
-                setActiveOption={setActiveOption}
+                activeOption={
+                    selectOptions.find(
+                        (option) => option.value === productToCart.sizeId
+                    ) || selectOptions[selectOptions.length - 1]
+                }
+                setActiveOption={setActiveOptionHandler}
                 className={styles.selectWrapper}
             />
         </div>
