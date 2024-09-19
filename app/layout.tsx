@@ -1,5 +1,6 @@
 import { Header } from "@/components/common/Header";
 import "./globals.scss";
+import "react-toastify/dist/ReactToastify.css";
 import { Noto_Sans } from "next/font/google";
 import { StoreProvider } from "@/store/StoreProvider";
 import { Footer } from "@/components/common/Footer";
