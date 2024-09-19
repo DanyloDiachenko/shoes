@@ -67,15 +67,17 @@ export const Product = ({
                                 ( {reviews.length} Reviews )
                             </span>
                         </div>
-                        <Button
-                            colorType="btnOutlinePrimary2"
-                            className={`${styles.addToCart} ${
-                                quantityInStock === 0 ? styles.inactive : ""
-                            }`}
-                        >
-                            <LiaCartPlusSolid />
-                            <span>add to cart</span>
-                        </Button>
+                        <Link href={`/products/${id}`}>
+                            <Button
+                                colorType="btnOutlinePrimary2"
+                                className={`${styles.addToCart} ${
+                                    quantityInStock === 0 ? styles.inactive : ""
+                                }`}
+                            >
+                                <LiaCartPlusSolid />
+                                <span>add to cart</span>
+                            </Button>
+                        </Link>
                     </div>
                 </div>
                 <div className={styles.columnMain}>
