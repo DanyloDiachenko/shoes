@@ -24,16 +24,18 @@
             width: 4.4rem;
             height: 4.4rem;
             border-radius: 0.2rem;
-            border: 0.2rem solid #fff;
+            border: 0.1rem solid #fff;
             margin-right: 0.4rem;
             transition: box-shadow 0.35s ease;
+            overflow: hidden;
+            padding: 0.1rem;
 
             &.active {
                 box-shadow: 0 0 0 0.1rem #cccccc;
             }
 
             img {
-                border-radius: 0.2rem;
+                border-radius: 0.1rem;
             }
         }
     }
