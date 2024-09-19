@@ -21,7 +21,7 @@ export const ProductPageContent = ({
                     />
                 </div>
             </div>
-            <StickyProduct />
+            <StickyProduct product={product} serverCurrency={serverCurrency} />
         </>
     );
 };

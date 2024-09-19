@@ -3,29 +3,38 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
+import { StickyProductProps } from "./stickyProduct.props";
 
-export const StickyProduct = () => {
+export const StickyProduct = ({
+    product,
+    serverCurrency,
+}: StickyProductProps) => {
     return (
         <div className={styles.stickyProduct}>
             <div className={`container ${styles.container}`}>
                 <div className={`row ${styles.row}`}>
                     <div className={styles.columnLeft}>
                         <figure className={styles.media}>
-                            <Link href={`/products/123`}>
+                            <Link href={`/products/${product.id}`}>
                                 <img
-                                    src="/images/icons/product-1.png"
+                                    src={product.mainImage}
                                     alt="Product image"
                                 />
                             </Link>
                         </figure>
                         <h4 className={styles.title}>
-                            <Link href={`/products/123`}>
-                                Dark yellow lace cut out swing dress
+                            <Link href={`/products/${product.id}`}>
+                                {product.title}
                             </Link>
                         </h4>
                     </div>
                     <div className={styles.columnRight}>
-                        <div className={styles.price}>$84.00</div>
+                        <div className={styles.price}>
+                            {serverCurrency === "uah" ? "₴" : "€"}
+                            {serverCurrency === "uah"
+                                ? product.priceUah.toFixed(2)
+                                : product.priceEur.toFixed(2)}
+                        </div>
                         <div className={styles.quantityFilter}>
                             <button
                                 className={styles.decrement}
@@ -40,10 +49,11 @@ export const StickyProduct = () => {
                                 /* value="1" */
                                 defaultValue={1}
                                 min="1"
-                                max="10"
+                                max={product.quantityInStock}
                                 step="1"
                                 data-decimals="0"
                                 required
+                                disabled
                             />
                             <button
                                 className={styles.increment}
