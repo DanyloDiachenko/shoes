@@ -3,7 +3,7 @@ import { IProductToCartState } from "./productToCart.interface";
 
 const initialState: IProductToCartState = {
     id: null,
-    quantity: 0,
+    quantity: 1,
     colorId: null,
     sizeId: null,
 };

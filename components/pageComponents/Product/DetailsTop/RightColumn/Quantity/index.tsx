@@ -4,9 +4,24 @@ import { useState } from "react";
 import { QuantityProps } from "./quantity.props";
 import styles from "./styles.module.scss";
 import { FaMinus, FaPlus } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { setProductToCart } from "@/store/slices/productToCart";
 
 export const Quantity = ({ product }: QuantityProps) => {
-    const [quantity, setQuantity] = useState(1);
+    const dispatch = useDispatch();
+    const productToCart = useSelector(
+        (state: RootState) => state.productToCart
+    );
+
+    const setProductQuantityToCart = (quantity: number) => {
+        dispatch(
+            setProductToCart({
+                ...productToCart,
+                quantity,
+            })
+        );
+    };
 
     return (
         <div className={styles.detailsFilter}>
@@ -14,11 +29,13 @@ export const Quantity = ({ product }: QuantityProps) => {
             <div className={styles.quantityFilter}>
                 <button
                     className={`${styles.decrement} ${
-                        quantity === 1 ? styles.disabled : ""
+                        productToCart.quantity === 1 ? styles.disabled : ""
                     }`}
                     aria-label="Decrement"
-                    onClick={() => setQuantity(quantity - 1)}
-                    disabled={quantity === 1}
+                    onClick={() =>
+                        setProductQuantityToCart(productToCart.quantity - 1)
+                    }
+                    disabled={productToCart.quantity === 1}
                 >
                     <FaMinus />
                 </button>
@@ -28,7 +45,7 @@ export const Quantity = ({ product }: QuantityProps) => {
                     className={styles.input}
                     defaultValue="1"
                     min="1"
-                    value={quantity}
+                    value={productToCart.quantity}
                     max={product.quantityInStock}
                     step="1"
                     data-decimals="0"
@@ -37,13 +54,17 @@ export const Quantity = ({ product }: QuantityProps) => {
                 />
                 <button
                     className={`${styles.increment} ${
-                        quantity === product.quantityInStock
+                        productToCart.quantity === product.quantityInStock
                             ? styles.disabled
                             : ""
                     }`}
                     aria-label="Increment"
-                    onClick={() => setQuantity(quantity + 1)}
-                    disabled={quantity === product.quantityInStock}
+                    onClick={() =>
+                        setProductQuantityToCart(productToCart.quantity + 1)
+                    }
+                    disabled={
+                        productToCart.quantity === product.quantityInStock
+                    }
                 >
                     <FaPlus />
                 </button>
