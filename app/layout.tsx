@@ -6,6 +6,9 @@ import { StoreProvider } from "@/store/StoreProvider";
 import { Footer } from "@/components/common/Footer";
 import { getServerCookie } from "@/helpers/getServerCookie";
 import { IProductCookie } from "@/interfaces/productCookie.interface";
+import { IProduct } from "@/interfaces/product.interface";
+import { CurrencyType } from "@/types/currency.type";
+import { getProduct } from "./api/products";
 
 const notoSans = Noto_Sans({
     weight: ["200", "300", "400", "500", "600", "700", "800"],
@@ -13,19 +16,27 @@ const notoSans = Noto_Sans({
     display: "swap",
 });
 
-const RootLayout = ({
+const RootLayout = async ({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) => {
-
-
+    const currency = getServerCookie("currency") as CurrencyType;
     const cartCookie: string | null = getServerCookie("cart");
-    
+
+    let cartProducts: IProduct[] = [];
+
+    const getProduct = async (productId: string) => {
+        return await getProduct(productId);
+    };
+
     if (cartCookie?.length) {
         const cartCookieArray: IProductCookie[] = JSON.parse(cartCookie);
+
         for (let i = 0; i < cartCookieArray.length; i++) {
-            console.log(cartCookieArray[i]);
+            const productToCart = await getProduct(cartCookieArray[i].id);
+
+            cartProducts.push(productToCart);
         }
     }
 
