@@ -5,6 +5,8 @@ import { IoMdClose, IoIosArrowRoundForward } from "react-icons/io";
 import { Button } from "@/components/UI/Button";
 
 export const CartDropdown = () => {
+    
+
     return (
         <div className={styles.dropdown}>
             <Link href="#" className={styles.dropdownToggle} role="button">
