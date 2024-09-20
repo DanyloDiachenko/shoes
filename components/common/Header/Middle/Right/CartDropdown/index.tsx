@@ -3,10 +3,13 @@ import styles from "./styles.module.scss";
 import { BsCart2 } from "react-icons/bs";
 import { IoMdClose, IoIosArrowRoundForward } from "react-icons/io";
 import { Button } from "@/components/UI/Button";
+import { CartDropdownProps } from "./cartDropdown.props";
 
-export const CartDropdown = () => {
-    
-
+export const CartDropdown = ({
+    currency,
+    cartProducts,
+    cookieProducts,
+}: CartDropdownProps) => {
     return (
         <div className={styles.dropdown}>
             <Link href="#" className={styles.dropdownToggle} role="button">

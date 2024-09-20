@@ -26,17 +26,19 @@ const RootLayout = async ({
 
     let cartProducts: IProduct[] = [];
 
+    const cookieProducts: IProductCookie[] = cartCookie?.length
+        ? JSON.parse(cartCookie)
+        : [];
+
     const getProduct = async (productId: string) => {
         return await getProduct(productId);
     };
 
     if (cartCookie?.length) {
-        const cartCookieArray: IProductCookie[] = JSON.parse(cartCookie);
+        for (let i = 0; i < cartProducts.length; i++) {
+            const productToCart = await getProduct(cartProducts[i].id);
 
-        for (let i = 0; i < cartCookieArray.length; i++) {
-            const productToCart = await getProduct(cartCookieArray[i].id);
-
-            cartProducts.push(productToCart);
+            cartProducts = [...cartProducts, productToCart];
         }
     }
 
@@ -45,7 +47,11 @@ const RootLayout = async ({
             <body className={notoSans.className}>
                 <StoreProvider>
                     <div className="page-wrapper">
-                        <Header />
+                        <Header
+                            currency={currency}
+                            cartProducts={cartProducts}
+                            cookieProducts={cookieProducts}
+                        />
                         <main className="main">{children}</main>
                         <Footer />
                     </div>
