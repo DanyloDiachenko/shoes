@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { BsCart2 } from "react-icons/bs";
@@ -10,6 +12,9 @@ export const CartDropdown = ({
     cartProducts,
     cookieProducts,
 }: CartDropdownProps) => {
+    console.log(cartProducts);
+    console.log(cookieProducts);
+
     return (
         <div className={styles.dropdown}>
             <Link href="#" className={styles.dropdownToggle} role="button">

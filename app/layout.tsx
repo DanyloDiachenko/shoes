@@ -30,13 +30,9 @@ const RootLayout = async ({
         ? JSON.parse(cartCookie)
         : [];
 
-    const getProduct = async (productId: string) => {
-        return await getProduct(productId);
-    };
-
-    if (cartCookie?.length) {
-        for (let i = 0; i < cartProducts.length; i++) {
-            const productToCart = await getProduct(cartProducts[i].id);
+    if (cookieProducts?.length) {
+        for (let i = 0; i < cookieProducts.length; i++) {
+            const productToCart = await getProduct(cookieProducts[i].id);
 
             cartProducts = [...cartProducts, productToCart];
         }

@@ -9,6 +9,9 @@ import { RootState } from "@/store";
 import { ActionsProps } from "./actions.props";
 import { toast } from "react-toastify";
 import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
+import { getClientCookie } from "@/helpers/getClientCookie";
+import { IProductCookie } from "@/interfaces/productCookie.interface";
+import { setCookie } from "@/helpers/setCookie";
 
 export const Actions = ({ product }: ActionsProps) => {
     const dispatch = useDispatch();
@@ -21,15 +24,39 @@ export const Actions = ({ product }: ActionsProps) => {
         (state: RootState) => state.productToCart
     );
 
+    const cookieProductsString = getClientCookie("cart") || "";
+    const cookieProducts: IProductCookie[] = cookieProductsString
+        ? JSON.parse(cookieProductsString)
+        : [];
+
     const onAddToCartClick = () => {
+        if (cookieProducts.find((product) => product.id === product.id)) {
+            toast.error("Product already in cart");
+
+            return;
+        }
+
         if (!productToCart.sizeId) {
             toast.error("Please select size");
 
             return;
         }
 
-        /* add to cookies, toogle local storage */
+        const newCookieProducts: IProductCookie[] = [
+            ...cookieProducts,
+            {
+                id: product.id,
+                quantity: productToCart.quantity,
+                colorId: product.color.id,
+                sizeId: productToCart.sizeId,
+            },
+        ];
+
+        const cookieProductsString = JSON.stringify(newCookieProducts);
+
+        setCookie("cart", cookieProductsString);
         toogleLocalStorageHandler();
+
         toast.success("Product successfully added to cart");
     };
 
