@@ -4,12 +4,19 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { FaRegHeart } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { ActionsProps } from "./actions.props";
 import { toast } from "react-toastify";
+import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
 
 export const Actions = ({ product }: ActionsProps) => {
+    const dispatch = useDispatch();
+
+    const toogleLocalStorageHandler = () => {
+        dispatch(toogleLocalStorage());
+    };
+
     const productToCart = useSelector(
         (state: RootState) => state.productToCart
     );
@@ -22,6 +29,7 @@ export const Actions = ({ product }: ActionsProps) => {
         }
 
         /* add to cookies, toogle local storage */
+        toogleLocalStorageHandler();
         toast.success("Product successfully added to cart");
     };
 
