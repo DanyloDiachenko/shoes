@@ -37,7 +37,6 @@ const RootLayout = async ({
             cartProducts = [...cartProducts, productToCart];
         }
     }
-    /*  */
     return (
         <html lang="en">
             <body className={notoSans.className}>
