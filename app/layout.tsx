@@ -35,7 +35,7 @@ const RootLayout = async ({
             const productToCart = await getProduct(cookieProducts[i].id);
 
             cartProducts = [...cartProducts, productToCart];
-        }/*  */
+        }
     }
 
     return (
