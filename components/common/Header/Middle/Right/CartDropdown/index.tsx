@@ -30,13 +30,19 @@ export const CartDropdown = ({
         useState<IProductCookie[]>(cookieProducts);
 
     const getProductHandler = async (productId: string) => {
-        const productToCart = await getProduct(productId);
+        try {
+            const productToCart = await getProduct(productId);
 
-        if (products.find((product) => product.id === productToCart.id)) {
-            return;
+            const productExists = products.some(
+                (product) => product.id === productToCart.id
+            );
+
+            if (!productExists) {
+                setProducts([...products, productToCart]);
+            }
+        } catch (error) {
+            toast.error("Failed to fetch product");
         }
-
-        setProducts([...products, productToCart]);
     };
 
     const onRemoveProductClick = (productId: string) => {
@@ -45,7 +51,7 @@ export const CartDropdown = ({
         );
         setProducts(updatedProducts);
 
-        const updatedCookieProducts = cookieProducts
+        const updatedCookieProducts = cookieProductsClient
             .filter((product) => product.id !== productId)
             .map((product) => ({
                 id: product.id,
@@ -53,6 +59,7 @@ export const CartDropdown = ({
                 colorId: product.colorId,
                 sizeId: product.sizeId,
             }));
+
         setCookieProductsClient(updatedCookieProducts);
 
         const cookieProductsString = JSON.stringify(updatedCookieProducts);
@@ -68,8 +75,12 @@ export const CartDropdown = ({
             : [];
         setCookieProductsClient(cookieProducts);
 
-        for (let i = 0; i < cookieProducts.length; i++) {
-            getProductHandler(cookieProducts[i].id);
+        if (cookieProducts.length) {
+            for (let i = 0; i < cookieProducts.length; i++) {
+                getProductHandler(cookieProducts[i].id);
+            }
+        } else {
+            setProducts([]);
         }
     }, [localStorageToogler]);
 

@@ -8,12 +8,16 @@ export const ProductPageContent = ({
     product,
     mayLikedProducts,
     serverCurrency,
+    cookieProducts,
 }: ProductPageContentProps) => {
     return (
         <>
             <div className="page-content">
                 <div className="container">
-                    <DetailsTop product={product} />
+                    <DetailsTop
+                        product={product}
+                        cookieProducts={cookieProducts}
+                    />
                     <DetailsBottom product={product} />
                     <YouMayAlsoLike
                         products={mayLikedProducts}

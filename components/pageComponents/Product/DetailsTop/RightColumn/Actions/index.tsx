@@ -12,9 +12,13 @@ import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
 import { getClientCookie } from "@/helpers/getClientCookie";
 import { IProductCookie } from "@/interfaces/productCookie.interface";
 import { setCookie } from "@/helpers/setCookie";
+import { useEffect, useState } from "react";
 
-export const Actions = ({ product }: ActionsProps) => {
+export const Actions = ({ product, cookieProducts }: ActionsProps) => {
     const dispatch = useDispatch();
+
+    const [cookieProductsClient, setCookieProductsClient] =
+        useState<IProductCookie[]>(cookieProducts);
 
     const toogleLocalStorageHandler = () => {
         dispatch(toogleLocalStorage());
@@ -24,26 +28,19 @@ export const Actions = ({ product }: ActionsProps) => {
         (state: RootState) => state.productToCart
     );
 
-    const cookieProductsString = getClientCookie("cart") || "";
-    const cookieProducts: IProductCookie[] = cookieProductsString
-        ? JSON.parse(cookieProductsString)
-        : [];
-
     const onAddToCartClick = () => {
-        if (cookieProducts.find((product) => product.id === product.id)) {
+        if (cookieProductsClient.find((p) => p.id === product.id)) {
             toast.error("Product already in cart");
-
             return;
         }
 
         if (!productToCart.sizeId) {
             toast.error("Please select size");
-
             return;
         }
 
         const newCookieProducts: IProductCookie[] = [
-            ...cookieProducts,
+            ...cookieProductsClient,
             {
                 id: product.id,
                 quantity: productToCart.quantity,
@@ -52,12 +49,23 @@ export const Actions = ({ product }: ActionsProps) => {
             },
         ];
 
-        const cookieProductsString = JSON.stringify(newCookieProducts);
-
-        setCookie("cart", cookieProductsString);
+        setCookie("cart", JSON.stringify(newCookieProducts));
+        setCookieProductsClient(newCookieProducts);
         toogleLocalStorageHandler();
 
         toast.success("Product successfully added to cart");
+    };
+
+    const onRemoveProductClick = () => {
+        const updatedProducts = cookieProductsClient.filter(
+            (p) => p.id !== product.id
+        );
+
+        setCookie("cart", JSON.stringify(updatedProducts));
+        setCookieProductsClient(updatedProducts);
+        toogleLocalStorageHandler();
+
+        toast.success("Product successfully removed from cart");
     };
 
     return (
@@ -66,10 +74,22 @@ export const Actions = ({ product }: ActionsProps) => {
                 colorType="btnOutlinePrimary2"
                 className={`${styles.addToCart}`}
                 /* className={`${styles.addToCart} ${styles.inactive}`} */
-                onClick={onAddToCartClick}
+                onClick={
+                    cookieProductsClient.find(
+                        (product) => product.id === product.id
+                    )
+                        ? onRemoveProductClick
+                        : onAddToCartClick
+                }
             >
                 <LiaCartPlusSolid />
-                <span>add to cart</span>
+                <span>
+                    {cookieProductsClient.find(
+                        (product) => product.id === product.id
+                    )
+                        ? "Remove from cart"
+                        : "Add to cart"}
+                </span>
             </Button>
             <div className={styles.actionsWrapper}>
                 <Button

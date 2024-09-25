@@ -7,7 +7,7 @@ import { Bottom } from "./Bottom";
 import { Info } from "./Info";
 import { RightColumnProps } from "./rightColumn.props";
 
-export const RightColumn = ({ product }: RightColumnProps) => {
+export const RightColumn = ({ product, cookieProducts }: RightColumnProps) => {
     return (
         <div className={styles.columnRight}>
             <div className={styles.details}>
@@ -15,7 +15,7 @@ export const RightColumn = ({ product }: RightColumnProps) => {
                 <Colors product={product} />
                 <Sizes product={product} />
                 <Quantity product={product} />
-                <Actions product={product} />
+                <Actions product={product} cookieProducts={cookieProducts} />
                 <Bottom product={product} />
             </div>
         </div>
