@@ -82,7 +82,7 @@ export const CartDropdown = ({
             <div className={styles.dropdownMenu}>
                 <div className={styles.dropdownCartProducts}>
                     {products.map((product) => (
-                        <div className={styles.product}>
+                        <div className={styles.product} key={product.id}>
                             <div className={styles.productCartDetails}>
                                 <h4 className={styles.productTitle}>
                                     <Link href={`/products/${product.id}`}>
