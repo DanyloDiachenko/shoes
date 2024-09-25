@@ -43,7 +43,6 @@ export const Quantity = ({ product }: QuantityProps) => {
                     type="number"
                     id="qty"
                     className={styles.input}
-                    defaultValue="1"
                     min="1"
                     value={productToCart.quantity}
                     max={product.quantityInStock}
