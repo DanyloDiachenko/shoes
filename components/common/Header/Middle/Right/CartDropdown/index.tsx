@@ -143,7 +143,7 @@ export const CartDropdown = ({
                             View Cart
                         </Button>
                     </Link>
-                    <Link href="checkout.html">
+                    <Link href={`/checkout`}>
                         <Button
                             colorType="btnOutlinePrimary2"
                             className={styles.buttonCheckout}
