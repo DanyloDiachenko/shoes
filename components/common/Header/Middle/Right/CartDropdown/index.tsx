@@ -21,13 +21,13 @@ export const CartDropdown = ({
     cartProducts,
     cookieProducts,
 }: CartDropdownProps) => {
-    console.log(cartProducts);
-    console.log(cookieProducts);
     const localStorageToogler = useSelector(
         (state: RootState) => state.toogleLocalStorage.value
     );
 
     const [products, setProducts] = useState<IProduct[]>(cartProducts);
+    const [cookieProductsClient, setCookieProductsClient] =
+        useState<IProductCookie[]>(cookieProducts);
 
     const getProductHandler = async (productId: string) => {
         const productToCart = await getProduct(productId);
@@ -53,6 +53,7 @@ export const CartDropdown = ({
                 colorId: product.colorId,
                 sizeId: product.sizeId,
             }));
+        setCookieProductsClient(updatedCookieProducts);
 
         const cookieProductsString = JSON.stringify(updatedCookieProducts);
         setCookie("cart", cookieProductsString);
@@ -65,6 +66,7 @@ export const CartDropdown = ({
         const cookieProducts: IProductCookie[] = cookieProductsString
             ? JSON.parse(cookieProductsString)
             : [];
+        setCookieProductsClient(cookieProducts);
 
         for (let i = 0; i < cookieProducts.length; i++) {
             getProductHandler(cookieProducts[i].id);
@@ -90,7 +92,7 @@ export const CartDropdown = ({
                                 <span className={styles.cartProductInfo}>
                                     <span className={styles.cartProductQty}>
                                         {
-                                            cookieProducts.find(
+                                            cookieProductsClient.find(
                                                 (product) =>
                                                     product.id === product.id
                                             )?.quantity
