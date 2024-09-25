@@ -135,7 +135,7 @@ export const CartDropdown = ({
                     </span>
                 </div>
                 <div className={styles.dropdownCartAction}>
-                    <Link href="cart.html">
+                    <Link href={`/cart`}>
                         <Button
                             colorType="btnPrimary"
                             className={styles.buttonView}
