@@ -45,7 +45,7 @@ export interface IProduct {
     priceUah: number;
     priceEur: number;
     mainImage: string;
-    productInformtion: string;
+    productInformation: string;
     additionalInformation: string;
     purchasedNumber: 10;
     images: string[];

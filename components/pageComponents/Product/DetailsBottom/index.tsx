@@ -17,7 +17,7 @@ export const DetailsBottom = ({ product }: DetailsBottomProps) => {
             content: (
                 <div
                     dangerouslySetInnerHTML={{
-                        __html: product.productInformtion,
+                        __html: product.productInformation,
                     }}
                 />
             ),
