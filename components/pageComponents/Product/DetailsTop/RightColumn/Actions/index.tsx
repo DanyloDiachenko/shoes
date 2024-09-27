@@ -13,6 +13,8 @@ import { getClientCookie } from "@/helpers/getClientCookie";
 import { IProductCookie } from "@/interfaces/productCookie.interface";
 import { setCookie } from "@/helpers/setCookie";
 import { useEffect, useState } from "react";
+import { IProductToCartState } from "@/store/slices/productToCart/productToCart.interface";
+import { setProductToCart } from "@/store/slices/productToCart";
 
 export const Actions = ({ product, cookieProducts }: ActionsProps) => {
     const dispatch = useDispatch();
@@ -22,6 +24,9 @@ export const Actions = ({ product, cookieProducts }: ActionsProps) => {
 
     const toogleLocalStorageHandler = () => {
         dispatch(toogleLocalStorage());
+    };
+    const setProductToCartHandler = (productToCart: IProductToCartState) => {
+        dispatch(setProductToCart(productToCart));
     };
 
     const productToCart = useSelector(
@@ -53,6 +58,11 @@ export const Actions = ({ product, cookieProducts }: ActionsProps) => {
         setCookieProductsClient(newCookieProducts);
         toogleLocalStorageHandler();
 
+        setProductToCartHandler({
+            quantity: 0,
+            sizeId: null,
+        });
+
         toast.success("Product successfully added to cart");
     };
 
@@ -76,7 +86,7 @@ export const Actions = ({ product, cookieProducts }: ActionsProps) => {
                 /* className={`${styles.addToCart} ${styles.inactive}`} */
                 onClick={
                     cookieProductsClient.find(
-                        (product) => product.id === product.id
+                        (productCookie) => productCookie.id === product.id
                     )
                         ? onRemoveProductClick
                         : onAddToCartClick
@@ -85,7 +95,7 @@ export const Actions = ({ product, cookieProducts }: ActionsProps) => {
                 <LiaCartPlusSolid />
                 <span>
                     {cookieProductsClient.find(
-                        (product) => product.id === product.id
+                        (productCookie) => productCookie.id === product.id
                     )
                         ? "Remove from cart"
                         : "Add to cart"}

@@ -100,7 +100,7 @@ export const CartDropdown = ({
                                         {product.title}
                                     </Link>
                                 </h4>
-                                <span className={styles.cartProductInfo}>
+                                <div className={styles.cartProductInfo}>
                                     <span className={styles.cartProductQty}>
                                         {
                                             cookieProductsClient.find(
@@ -113,7 +113,7 @@ export const CartDropdown = ({
                                     {currency === "uah"
                                         ? product.priceUah.toFixed(2)
                                         : product.priceEur.toFixed(2)}
-                                </span>
+                                </div>
                             </div>
                             <figure className={styles.productImageContainer}>
                                 <Link
