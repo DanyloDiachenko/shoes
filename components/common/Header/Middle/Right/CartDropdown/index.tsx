@@ -8,22 +8,28 @@ import { Button } from "@/components/UI/Button";
 import { CartDropdownProps } from "./cartDropdown.props";
 import { useEffect, useState } from "react";
 import { IProduct } from "@/interfaces/product.interface";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { getClientCookie } from "@/helpers/getClientCookie";
 import { IProductCookie } from "@/interfaces/productCookie.interface";
 import { getProduct } from "@/app/api/products";
 import { toast } from "react-toastify";
 import { setCookie } from "@/helpers/setCookie";
+import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
 
 export const CartDropdown = ({
     currency,
     cartProducts,
     cookieProducts,
 }: CartDropdownProps) => {
+    const dispatch = useDispatch();
     const localStorageToogler = useSelector(
         (state: RootState) => state.toogleLocalStorage.value
     );
+
+    const toogleLocalStorageHandler = () => {
+        dispatch(toogleLocalStorage());
+    };
 
     const [products, setProducts] = useState<IProduct[]>(cartProducts);
     const [cookieProductsClient, setCookieProductsClient] =
@@ -64,6 +70,7 @@ export const CartDropdown = ({
 
         const cookieProductsString = JSON.stringify(updatedCookieProducts);
         setCookie("cart", cookieProductsString);
+        toogleLocalStorageHandler();
 
         toast.success("Product successfully removed from cart");
     };
