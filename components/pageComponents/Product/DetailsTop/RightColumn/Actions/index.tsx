@@ -15,9 +15,13 @@ import { setCookie } from "@/helpers/setCookie";
 import { useEffect, useState } from "react";
 import { IProductToCartState } from "@/store/slices/productToCart/productToCart.interface";
 import { setProductToCart } from "@/store/slices/productToCart";
+import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
 
 export const Actions = ({ product, cookieProducts }: ActionsProps) => {
     const dispatch = useDispatch();
+    const localStorageToogler = useSelector(
+        (state: RootState) => state.toogleLocalStorage.value
+    );
 
     const [cookieProductsClient, setCookieProductsClient] =
         useState<IProductCookie[]>(cookieProducts);
@@ -77,6 +81,12 @@ export const Actions = ({ product, cookieProducts }: ActionsProps) => {
 
         toast.success("Product successfully removed from cart");
     };
+
+    useEffect(() => {
+        const cookieProducts = getCookieProductsClient();
+
+        setCookieProductsClient(cookieProducts);
+    }, [localStorageToogler]);
 
     return (
         <div className={styles.actions}>
