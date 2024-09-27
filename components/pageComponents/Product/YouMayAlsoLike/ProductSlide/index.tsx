@@ -47,10 +47,10 @@ export const ProductSlide = ({
                     </Button>
                 </div>
                 <div className={styles.productAction}>
-                    <Button colorType="btnOutlinePrimary2">
+                    <Link href={`/products/${id}`}>
                         <LiaCartPlusSolid />
                         <span>add to cart</span>
-                    </Button>
+                    </Link>
                 </div>
             </figure>
             <div className={styles.productBody}>
