@@ -91,6 +91,18 @@ export const CartDropdown = ({
         }
     }, [localStorageToogler]);
 
+    const getProductSize = (product: IProduct) => {
+        const cookieProduct = cookieProductsClient.find(
+            (cookieProduct) => cookieProduct.id === product.id
+        );
+
+        const productSize = product.sizes.find(
+            (size) => size.id === cookieProduct?.sizeId
+        );
+
+        return productSize?.title;
+    };
+
     return (
         <div className={styles.dropdown}>
             <Link href="#" className={styles.dropdownToggle} role="button">
@@ -99,49 +111,62 @@ export const CartDropdown = ({
             </Link>
             <div className={styles.dropdownMenu}>
                 <div className={styles.dropdownCartProducts}>
-                    {products.map((product) => (
-                        <div className={styles.product} key={product.id}>
-                            <div className={styles.productCartDetails}>
-                                <h4 className={styles.productTitle}>
-                                    <Link href={`/products/${product.id}`}>
-                                        {product.title}
-                                    </Link>
-                                </h4>
-                                <div className={styles.cartProductInfo}>
-                                    <span className={styles.cartProductQty}>
-                                        {
-                                            cookieProductsClient.find(
-                                                (product) =>
-                                                    product.id === product.id
-                                            )?.quantity
-                                        }
-                                    </span>{" "}
-                                    x {currency === "uah" ? "₴" : "€"}
-                                    {currency === "uah"
-                                        ? product.priceUah.toFixed(2)
-                                        : product.priceEur.toFixed(2)}
+                    {products.map((product) => {
+                        return (
+                            <div className={styles.product} key={product.id}>
+                                <div className={styles.productCartDetails}>
+                                    <h4 className={styles.productTitle}>
+                                        <Link href={`/products/${product.id}`}>
+                                            {product.title}
+                                        </Link>
+                                    </h4>
+                                    <div className={styles.cartProductInfo}>
+                                        <span className={styles.cartProductQty}>
+                                            {
+                                                cookieProductsClient.find(
+                                                    (product) =>
+                                                        product.id ===
+                                                        product.id
+                                                )?.quantity
+                                            }
+                                        </span>{" "}
+                                        x {currency === "uah" ? "₴" : "€"}
+                                        {currency === "uah"
+                                            ? product.priceUah.toFixed(2)
+                                            : product.priceEur.toFixed(2)}
+                                    </div>
+                                    <div className={styles.cartProductInfo}>
+                                        <span className={styles.cartProductQty}>
+                                            Size:
+                                        </span>{" "}
+                                        {getProductSize(product)}
+                                    </div>
                                 </div>
-                            </div>
-                            <figure className={styles.productImageContainer}>
-                                <Link
-                                    href={`/products/${product.id}`}
-                                    className={styles.productImage}
+                                <figure
+                                    className={styles.productImageContainer}
                                 >
-                                    <img
-                                        src={product.mainImage}
-                                        alt="product"
-                                    />
-                                </Link>
-                            </figure>
-                            <button
-                                className={styles.btnRemove}
-                                title="Remove Product"
-                                onClick={() => onRemoveProductClick(product.id)}
-                            >
-                                <IoMdClose />
-                            </button>
-                        </div>
-                    ))}
+                                    <Link
+                                        href={`/products/${product.id}`}
+                                        className={styles.productImage}
+                                    >
+                                        <img
+                                            src={product.mainImage}
+                                            alt="product"
+                                        />
+                                    </Link>
+                                </figure>
+                                <button
+                                    className={styles.btnRemove}
+                                    title="Remove Product"
+                                    onClick={() =>
+                                        onRemoveProductClick(product.id)
+                                    }
+                                >
+                                    <IoMdClose />
+                                </button>
+                            </div>
+                        );
+                    })}
                 </div>
                 <div className={styles.dropdownCartTotal}>
                     <span>Total</span>
