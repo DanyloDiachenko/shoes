@@ -16,6 +16,12 @@
     border: 1px solid transparent;
     cursor: pointer;
 
+    @media(max-width: 400px) {
+        padding-left: 0;
+        padding-right: 0;
+        min-width: 100%;
+    }
+
     &.btnPrimary {
         color: #fff;
         background-color: #c96;
