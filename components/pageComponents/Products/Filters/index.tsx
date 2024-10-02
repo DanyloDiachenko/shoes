@@ -6,6 +6,7 @@ import { Price } from "./Price";
 import { Size } from "./Size";
 import styles from "./styles.module.scss";
 import { FiltersProps } from "./filters.props";
+import { CleanAll } from "./CleanAll";
 
 export const Filters = ({
     categoriesResponse,
@@ -17,12 +18,7 @@ export const Filters = ({
     return (
         <aside className={styles.column}>
             <div className={styles.sidebar}>
-                <div className={styles.widgetClean}>
-                    <label>Filters:</label>
-                    <a href="#" className={styles.clear}>
-                        Clean All
-                    </a>
-                </div>
+                <CleanAll />
                 <Category allCategories={categoriesResponse} />
                 <Size allSizes={sizesResponse} />
                 <Color allColors={colorsResponse} />
