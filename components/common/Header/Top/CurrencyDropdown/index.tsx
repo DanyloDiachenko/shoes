@@ -11,9 +11,13 @@ import { IoIosArrowDown } from "react-icons/io";
 export const CurrencyDropdown = ({ serverCurrency }: CurrencyDropdownProps) => {
     const [currency, setCurrency] = useState<CurrencyType>(serverCurrency);
 
-    const onCurrencyClick = (currency: "uah" | "eur") => {
-        setCookie("currency", currency);
-        setCurrency(currency);
+    const onCurrencyClick = (clickedCurrency: "uah" | "eur") => {
+        if (currency === clickedCurrency) {
+            return;
+        }
+
+        setCookie("currency", clickedCurrency);
+        setCurrency(clickedCurrency);
 
         location.reload();
     };
