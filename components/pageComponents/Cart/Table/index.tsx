@@ -1,4 +1,6 @@
+import { Quantity } from "./Quantity";
 import styles from "./styles.module.scss";
+import { IoMdClose } from "react-icons/io";
 
 export const Table = () => {
     return (
@@ -35,23 +37,12 @@ export const Table = () => {
                         </td>
                         <td className={styles.priceCol}>$84.00</td>
                         <td className={styles.quantityCol}>
-                            <div className={styles.cartProductQuantity}>
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    value="1"
-                                    min="1"
-                                    max="10"
-                                    step="1"
-                                    data-decimals="0"
-                                    required
-                                />
-                            </div>
+                            <Quantity />
                         </td>
                         <td className={styles.totalCol}>$84.00</td>
                         <td className={styles.removeCol}>
                             <button className={styles.btnRemove}>
-                                <i className={styles.iconClose}></i>
+                                <IoMdClose />
                             </button>
                         </td>
                     </tr>
