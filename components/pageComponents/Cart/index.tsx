@@ -1,4 +1,3 @@
-import styles from "./styles.module.scss";
 import { CartTotal } from "./CartTotal";
 import { Table } from "./Table";
 

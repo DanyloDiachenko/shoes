@@ -1,7 +1,9 @@
+import styles from "./styles.module.scss";
+
 export const Table = () => {
     return (
-        <div className="col-lg-9">
-            <table className="table table-cart table-mobile">
+        <div className={styles.column}>
+            <table className={styles.table}>
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -11,12 +13,11 @@ export const Table = () => {
                         <th></th>
                     </tr>
                 </thead>
-
                 <tbody>
                     <tr>
-                        <td className="product-col">
-                            <div className="product">
-                                <figure className="product-media">
+                        <td className={styles.productCol}>
+                            <div className={styles.product}>
+                                <figure className={styles.productMedia}>
                                     <a href="#">
                                         <img
                                             src="assets/images/products/table/product-1.jpg"
@@ -25,16 +26,16 @@ export const Table = () => {
                                     </a>
                                 </figure>
 
-                                <h3 className="product-title">
+                                <h3 className={styles.productTitle}>
                                     <a href="#">
                                         Beige knitted elastic runner shoes
                                     </a>
                                 </h3>
                             </div>
                         </td>
-                        <td className="price-col">$84.00</td>
-                        <td className="quantity-col">
-                            <div className="cart-product-quantity">
+                        <td className={styles.priceCol}>$84.00</td>
+                        <td className={styles.quantityCol}>
+                            <div className={styles.cartProductQuantity}>
                                 <input
                                     type="number"
                                     className="form-control"
@@ -47,82 +48,42 @@ export const Table = () => {
                                 />
                             </div>
                         </td>
-                        <td className="total-col">$84.00</td>
-                        <td className="remove-col">
-                            <button className="btn-remove">
-                                <i className="icon-close"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="product-col">
-                            <div className="product">
-                                <figure className="product-media">
-                                    <a href="#">
-                                        <img
-                                            src="assets/images/products/table/product-2.jpg"
-                                            alt="Product image"
-                                        />
-                                    </a>
-                                </figure>
-
-                                <h3 className="product-title">
-                                    <a href="#">
-                                        Blue utility pinafore denim dress
-                                    </a>
-                                </h3>
-                            </div>
-                        </td>
-                        <td className="price-col">$76.00</td>
-                        <td className="quantity-col">
-                            <div className="cart-product-quantity">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    value="1"
-                                    min="1"
-                                    max="10"
-                                    step="1"
-                                    data-decimals="0"
-                                    required
-                                />
-                            </div>
-                        </td>
-                        <td className="total-col">$76.00</td>
-                        <td className="remove-col">
-                            <button className="btn-remove">
-                                <i className="icon-close"></i>
+                        <td className={styles.totalCol}>$84.00</td>
+                        <td className={styles.removeCol}>
+                            <button className={styles.btnRemove}>
+                                <i className={styles.iconClose}></i>
                             </button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-
-            <div className="cart-bottom">
-                <div className="cart-discount">
+            <div className={styles.cartBottom}>
+                <div className={styles.cartDiscount}>
                     <form action="#">
-                        <div className="input-group">
+                        <div className={styles.inputGroup}>
                             <input
                                 type="text"
-                                className="form-control"
+                                className={styles.formControl}
                                 required
                                 placeholder="coupon code"
                             />
-                            <div className="input-group-append">
+                            <div className={styles.inputGroupAppend}>
                                 <button
-                                    className="btn btn-outline-primary-2"
+                                    className={styles.btnOutlinePrimary2}
                                     type="submit"
                                 >
-                                    <i className="icon-long-arrow-right"></i>
+                                    <i
+                                        className={styles.iconLongArrowRight}
+                                    ></i>
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
 
-                <a href="#" className="btn btn-outline-dark-2">
+                <a href="#" className={styles.btnOutlineDark2}>
                     <span>UPDATE CART</span>
-                    <i className="icon-refresh"></i>
+                    <i className={styles.iconRefresh}></i>
                 </a>
             </div>
         </div>

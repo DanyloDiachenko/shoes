@@ -1,0 +1,107 @@
+.column {
+    padding-right: 10px;
+    padding-left: 10px;
+    position: relative;
+    width: 100%;
+
+    @media screen and (min-width: 992px) {
+        -ms-flex: 0 70%;
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+    @media (min-width: 992px) {
+        -ms-flex: 0 0 75%;
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .table {
+        margin-bottom: 3rem;
+        width: 100%;
+        color: #212529;
+        border-collapse: collapse;
+
+        th {
+            border-top: none;
+            border-bottom: 0.1rem solid #ebebeb;
+            vertical-align: bottom;
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 1.4rem;
+            padding-bottom: 1.4rem;
+            font-weight: 400;
+            font-size: 1.4rem;
+            line-height: 1.5;
+            color: #999;
+            text-align: inherit;
+        }
+
+        td {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            vertical-align: middle;
+            padding-left: 0;
+            padding-right: 0;
+            border-top: none;
+            border-bottom: 0.1rem solid #ebebeb;
+
+            &.productCol {
+                .product {
+                    display: flex;
+                    align-items: center;
+                    margin: 0;
+                    padding-right: 2rem;
+                    box-shadow: none;
+                    overflow: hidden;
+                    position: relative;
+                    transition: box-shadow 0.35s ease;
+                    background-color: #fff;
+
+                    .productMedia {
+                        display: inline-block;
+                        margin: 0;
+                        margin-right: 2.8rem;
+                        flex-shrink: 0;
+                        max-width: 60px;
+                        position: relative;
+                        background-color: #d7d7d7;
+                        overflow: hidden;
+
+                        a {
+                            display: block;
+                        }
+                    }
+
+                    .productTitle {
+                        display: inline-block;
+                        color: #333;
+                        font-weight: 400;
+                        font-size: 1.6rem;
+                        line-height: 1.25;
+                        margin: 0;
+                        letter-spacing: -0.01em;
+
+                        a {
+                            color: inherit;
+
+                            &:hover {
+                                color: #c96;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.priceCol {
+                width: 120px;
+                color: #333;
+                font-weight: 400;
+                font-size: 1.6rem;
+            }
+
+            &.quantityCol {
+                width: 135px;
+            }
+        }
+    }
+}
