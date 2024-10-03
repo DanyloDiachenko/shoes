@@ -12,7 +12,7 @@ export const Breadcrumbs = ({ links }: BreadcrumbsProps) => {
                         <span key={index}>
                             <li
                                 className={`${styles.item} ${
-                                    links.length === index ? styles.active : ""
+                                    links.length === index + 1 ? styles.active : ""
                                 }`}
                                 aria-current="page"
                             >
