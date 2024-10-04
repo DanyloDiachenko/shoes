@@ -1,6 +1,9 @@
+import { Button } from "@/components/UI/Button";
 import { Quantity } from "./Quantity";
 import styles from "./styles.module.scss";
 import { IoMdClose } from "react-icons/io";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { RxUpdate } from "react-icons/rx";
 
 export const Table = () => {
     return (
@@ -59,23 +62,24 @@ export const Table = () => {
                                 placeholder="coupon code"
                             />
                             <div className={styles.inputGroupAppend}>
-                                <button
-                                    className={styles.btnOutlinePrimary2}
-                                    type="submit"
+                                <Button
+                                    colorType="btnOutlinePrimary2"
+                                    className={styles.button}
                                 >
-                                    <i
-                                        className={styles.iconLongArrowRight}
-                                    ></i>
-                                </button>
+                                    <FaArrowRightLong />
+                                </Button>
                             </div>
                         </div>
                     </form>
                 </div>
 
-                <a href="#" className={styles.btnOutlineDark2}>
+                <Button
+                    colorType="btnOutlineDark2"
+                    className={styles.updateCart}
+                >
                     <span>UPDATE CART</span>
-                    <i className={styles.iconRefresh}></i>
-                </a>
+                    <RxUpdate />
+                </Button>
             </div>
         </div>
     );

@@ -16,7 +16,7 @@
     border: 1px solid transparent;
     cursor: pointer;
 
-    @media(max-width: 400px) {
+    @media (max-width: 400px) {
         padding-left: 0;
         padding-right: 0;
         min-width: 100%;
@@ -26,7 +26,6 @@
         color: #fff;
         background-color: #c96;
         border-color: #c96;
-        box-shadow: none;
 
         &:hover {
             background-color: #ebebeb64;
@@ -37,13 +36,22 @@
     &.btnOutlinePrimary2 {
         color: #c96;
         background-color: transparent;
-        background-image: none;
         border-color: #c96;
-        box-shadow: none;
 
         &:hover {
             background-color: rgba(204, 153, 102, 0.89);
             color: white;
+        }
+    }
+
+    &.btnOutlineDark2 {
+        color: #333;
+        background-color: transparent;
+        border-color: #ebebeb;
+
+        &:hover {
+            color: #c96;
+            background-color: #fafafa;
         }
     }
 }
