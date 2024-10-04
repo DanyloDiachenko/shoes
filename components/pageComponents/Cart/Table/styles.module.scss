@@ -4,15 +4,15 @@
     position: relative;
     width: 100%;
 
-    @media screen and (min-width: 992px) {
-        -ms-flex: 0 70%;
-        flex: 0 0 70%;
-        max-width: 70%;
-    }
     @media (min-width: 992px) {
         -ms-flex: 0 0 75%;
         flex: 0 0 75%;
         max-width: 75%;
+    }
+    @media screen and (min-width: 992px) {
+        -ms-flex: 0 70%;
+        flex: 0 0 70%;
+        max-width: 70%;
     }
 
     .table {
@@ -20,6 +20,18 @@
         width: 100%;
         color: #212529;
         border-collapse: collapse;
+
+        @media screen and (max-width: 991px) {
+            border: 0.1rem solid #ebebeb;
+            width: 100%;
+            display: block;
+        }
+
+        thead {
+            @media screen and (max-width: 991px) {
+                display: none;
+            }
+        }
 
         th {
             border-top: none;
@@ -46,6 +58,10 @@
             border-bottom: 0.1rem solid #ebebeb;
 
             &.productCol {
+                @media screen and (max-width: 991px) {
+                    padding-bottom: 0.6rem;
+                }
+
                 .product {
                     display: flex;
                     align-items: center;
@@ -57,6 +73,11 @@
                     transition: box-shadow 0.35s ease;
                     background-color: #fff;
 
+                    @media screen and (max-width: 991px) {
+                        justify-content: center;
+                        padding-right: 0;
+                    }
+
                     .productMedia {
                         display: inline-block;
                         margin: 0;
@@ -66,6 +87,10 @@
                         position: relative;
                         background-color: #d7d7d7;
                         overflow: hidden;
+
+                        @media screen and (max-width: 767px) {
+                            margin-right: 1.5rem;
+                        }
 
                         a {
                             display: block;
@@ -80,6 +105,10 @@
                         line-height: 1.25;
                         margin: 0;
                         letter-spacing: -0.01em;
+
+                        @media screen and (max-width: 991px) {
+                            text-align: left;
+                        }
 
                         a {
                             color: inherit;
@@ -116,6 +145,14 @@
                 width: 38px;
                 text-align: right;
 
+                @media screen and (max-width: 991px) {
+                    position: absolute;
+                    right: 1.5rem;
+                    top: 0.5rem;
+                    padding: 0.5rem !important;
+                    width: auto !important;
+                }
+
                 .btnRemove {
                     display: inline-flex;
                     align-items: center;
@@ -143,12 +180,44 @@
                 }
             }
         }
+
+        @media screen and (max-width: 991px) {
+            tbody,
+            tr,
+            td {
+                width: 100% !important;
+                display: block !important;
+            }
+
+            tr {
+                border-bottom: 0.1rem solid #ebebeb;
+                position: relative;
+                padding-top: 4.2rem;
+                padding-bottom: 4rem;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        @media screen and (max-width: 991px) {
+            tr td {
+                text-align: center;
+                padding: 0.1rem 3rem;
+                border-bottom: none;
+            }
+        }
     }
 
     .cartBottom {
         display: flex;
         align-items: flex-start;
         margin-bottom: 5rem;
+
+        @media screen and (max-width: 575px) {
+            flex-direction: column;
+        }
 
         .cartDiscount {
             flex: 0 0 50%;
@@ -216,6 +285,11 @@
         .updateCart {
             margin-left: auto;
             min-width: 152px;
+
+            @media screen and (max-width: 575px) {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
 
             svg {
                 margin-left: 1rem;

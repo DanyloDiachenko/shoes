@@ -1,31 +1,34 @@
+import { Button } from "@/components/UI/Button";
+import styles from "./styles.module.scss";
+import { RxUpdate } from "react-icons/rx";
+
 export const CartTotal = () => {
     return (
-        <aside className="col-lg-3">
-            <div className="summary summary-cart">
-                <h3 className="summary-title">Cart Total</h3>
-
-                <table className="table table-summary">
+        <aside className={styles.column}>
+            <div className={styles.summary}>
+                <h3 className={styles.summaryTitle}>Cart Total</h3>
+                <table className={styles.table}>
                     <tbody>
-                        <tr className="summary-subtotal">
+                        <tr className={styles.summarySubtotal}>
                             <td>Subtotal:</td>
                             <td>$160.00</td>
                         </tr>
-                        <tr className="summary-shipping">
+                        <tr className={styles.summaryShipping}>
                             <td>Shipping:</td>
                             <td>&nbsp;</td>
                         </tr>
 
-                        <tr className="summary-shipping-row">
+                        <tr className={styles.summaryShippingRow}>
                             <td>
-                                <div className="custom-control custom-radio">
+                                <div className={styles.customControl}>
                                     <input
                                         type="radio"
                                         id="free-shipping"
                                         name="shipping"
-                                        className="custom-control-input"
+                                        className={styles.customControlInput}
                                     />
                                     <label
-                                        className="custom-control-label"
+                                        className={styles.customControlLabel}
                                         htmlFor="free-shipping"
                                     >
                                         Free Shipping
@@ -35,17 +38,17 @@ export const CartTotal = () => {
                             <td>$0.00</td>
                         </tr>
 
-                        <tr className="summary-shipping-row">
+                        <tr className={styles.summaryShippingRow}>
                             <td>
-                                <div className="custom-control custom-radio">
+                                <div className={styles.customControl}>
                                     <input
                                         type="radio"
                                         id="standart-shipping"
                                         name="shipping"
-                                        className="custom-control-input"
+                                        className={styles.customControlInput}
                                     />
                                     <label
-                                        className="custom-control-label"
+                                        className={styles.customControlLabel}
                                         htmlFor="standart-shipping"
                                     >
                                         Standart:
@@ -55,17 +58,17 @@ export const CartTotal = () => {
                             <td>$10.00</td>
                         </tr>
 
-                        <tr className="summary-shipping-row">
+                        <tr className={styles.summaryShippingRow}>
                             <td>
-                                <div className="custom-control custom-radio">
+                                <div className={styles.customControl}>
                                     <input
                                         type="radio"
                                         id="express-shipping"
                                         name="shipping"
-                                        className="custom-control-input"
+                                        className={styles.customControlInput}
                                     />
                                     <label
-                                        className="custom-control-label"
+                                        className={styles.customControlLabel}
                                         htmlFor="express-shipping"
                                     >
                                         Express:
@@ -75,7 +78,7 @@ export const CartTotal = () => {
                             <td>$20.00</td>
                         </tr>
 
-                        <tr className="summary-shipping-estimate">
+                        <tr className={styles.summaryShippingEstimate}>
                             <td>
                                 Estimate for Your Country
                                 <br />{" "}
@@ -84,28 +87,26 @@ export const CartTotal = () => {
                             <td>&nbsp;</td>
                         </tr>
 
-                        <tr className="summary-total">
+                        <tr className={styles.summaryTotal}>
                             <td>Total:</td>
                             <td>$160.00</td>
                         </tr>
                     </tbody>
                 </table>
-
-                <a
-                    href="checkout.html"
-                    className="btn btn-outline-primary-2 btn-order btn-block"
+                <Button
+                    colorType="btnOutlinePrimary2"
+                    className={styles.buttonProceedToCheckout}
                 >
                     PROCEED TO CHECKOUT
-                </a>
+                </Button>
             </div>
-
-            <a
-                href="category.html"
-                className="btn btn-outline-dark-2 btn-block mb-3"
+            <Button
+                colorType="btnOutlineDark2"
+                className={styles.buttonContinueShopping}
             >
                 <span>CONTINUE SHOPPING</span>
-                <i className="icon-refresh"></i>
-            </a>
+                <RxUpdate />
+            </Button>
         </aside>
     );
 };

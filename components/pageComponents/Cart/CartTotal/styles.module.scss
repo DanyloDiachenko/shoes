@@ -1,0 +1,238 @@
+.column {
+    padding-right: 10px;
+    padding-left: 10px;
+    position: relative;
+    width: 100%;
+
+    @media (min-width: 992px) {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    @media screen and (min-width: 992px) {
+        -ms-flex: 0 0 30%;
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+
+    .summary {
+        margin-bottom: 3rem;
+        padding: 2.5rem 3rem 3rem;
+        border: 0.1rem dashed #d7d7d7;
+        background-color: #f9f9f9;
+        border-radius: 0.3rem;
+        margin-top: 2rem;
+
+        @media screen and (min-width: 992px) {
+            margin-top: 0;
+        }
+
+        .summaryTitle {
+            margin-bottom: 0;
+            font-weight: 500;
+            font-size: 1.6rem;
+            letter-spacing: 0;
+            padding-bottom: 1.7rem;
+            border-bottom: 0.1rem solid #cccccc;
+        }
+
+        .table {
+            line-height: 1.43;
+            color: #666;
+            border: none;
+            margin-bottom: 0;
+            width: 100%;
+            border-collapse: collapse;
+
+            tbody {
+                td {
+                    vertical-align: middle;
+                    border-top: none;
+                    padding: 0;
+                    height: 70px;
+                    border-bottom: 0.1rem solid #ebebeb;
+                }
+
+                .summarySubtotal {
+                    td {
+                        color: #333;
+                        font-weight: 400;
+                        font-size: 1.6rem;
+
+                        &:last-child {
+                            min-width: 0;
+                            text-align: right;
+                        }
+                    }
+                }
+
+                .summaryShipping {
+                    color: #333;
+                    font-weight: 400;
+                    font-size: 1.6rem;
+
+                    td {
+                        padding-top: 2rem;
+                        padding-bottom: 1.3rem;
+                        height: auto;
+                        border-bottom: none;
+                    }
+                }
+
+                .summaryShippingRow {
+                    color: #333;
+
+                    td {
+                        height: auto;
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.5rem;
+                        border-bottom: none;
+
+                        &:last-child {
+                            min-width: 0;
+                            text-align: right;
+                        }
+
+                        .customControl {
+                            margin: 0;
+                            position: relative;
+                            padding-left: 2.6rem;
+                            display: block;
+                            min-height: 1.5rem;
+
+                            input {
+                                box-sizing: border-box;
+                                padding: 0;
+                                position: absolute;
+                                z-index: -1;
+                                opacity: 0;
+                                overflow: visible;
+                                margin: 0;
+                                font-family: inherit;
+                                font-size: inherit;
+                                line-height: inherit;
+
+                                &:checked {
+                                    & + label::before {
+                                        border-color: #c96;
+                                        background-color: #fff;
+                                        color: #fff;
+                                    }
+                                    & + label::after {
+                                        z-index: 2;
+                                        background-color: #c96;
+                                    }
+                                }
+                            }
+
+                            label {
+                                color: inherit;
+                                position: static;
+                                margin-bottom: 0;
+                                margin-top: 0.1rem;
+                                font-size: 1.4rem;
+                                padding-left: 2.6rem;
+                                margin-left: -2.6rem;
+                                vertical-align: top;
+                                font-weight: 300;
+                                display: inline-block;
+
+                                &::before {
+                                    top: 0.4rem;
+                                    background-color: #f9f9f9;
+                                    border-color: #dadada;
+                                    border-radius: 50%;
+                                    left: 0;
+                                    width: 1.6rem;
+                                    height: 1.6rem;
+                                    border: 1px solid #dadada;
+                                    box-shadow: none;
+                                    transition: background-color 0.15s
+                                            ease-in-out,
+                                        border-color 0.15s ease-in-out,
+                                        box-shadow 0.15s ease-in-out;
+                                    position: absolute;
+                                    display: block;
+                                    pointer-events: none;
+                                    content: "";
+                                }
+
+                                &::after {
+                                    border-radius: 50%;
+                                    width: 0.6rem;
+                                    height: 0.6rem;
+                                    top: 0.9rem;
+                                    left: 0.5rem;
+                                    position: absolute;
+                                    display: block;
+                                    content: "";
+                                    background: no-repeat 50%/50% 50%;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .summaryShippingEstimate {
+                    color: #333;
+                    font-weight: 400;
+                    font-size: 1.6rem;
+
+                    td {
+                        height: auto;
+                        padding-top: 1.4rem;
+                        padding-bottom: 2.3rem;
+
+                        a {
+                            margin-top: 0.6rem;
+                            display: inline-block;
+                            font-weight: 300;
+                            color: #999;
+                            font-size: 1.4rem;
+                            border-bottom: 0.1rem solid #999;
+                            transition: 0.35s all;
+
+                            &:hover {
+                                color: #c96;
+                                border-color: #c96;
+                            }
+                        }
+
+                        &:last-child {
+                            min-width: 0;
+                            text-align: right;
+                        }
+                    }
+                }
+
+                .summaryTotal {
+                    td {
+                        font-weight: 400;
+                        font-size: 1.6rem;
+                        color: #c96;
+                        border-bottom: none;
+
+                        &:last-child {
+                            min-width: 0;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+
+        .buttonProceedToCheckout {
+            width: 100%;
+        }
+    }
+
+    .buttonContinueShopping {
+        margin-bottom: 3rem;
+        width: 100%;
+
+        svg {
+            width: 14px;
+            margin-left: 1rem;
+        }
+    }
+}

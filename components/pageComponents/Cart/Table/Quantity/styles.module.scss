@@ -3,10 +3,13 @@
     position: relative;
     flex-wrap: wrap;
     align-items: stretch;
-    width: 100%;
+    width: 100px;
 
     @media (min-width: 992px) {
         max-width: 100px;
+    }
+    @media screen and (max-width: 991px) {
+        margin: 0.5rem auto;
     }
 
     button {
