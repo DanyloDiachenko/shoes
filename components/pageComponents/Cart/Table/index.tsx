@@ -14,6 +14,7 @@ const getProductSize = (productId: string, cookieProducts: any[]) => {
     const productCookie = cookieProducts.find(
         (cookieProduct) => cookieProduct.id === productId
     );
+
     return productCookie ? productCookie.size : null;
 };
 
