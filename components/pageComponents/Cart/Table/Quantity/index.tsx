@@ -2,7 +2,7 @@
 
 import styles from "./styles.module.scss";
 import { useDispatch } from "react-redux";
-import { FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import { QuantityProps } from "./quantity.props";
 import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
 import { setCookie } from "@/helpers/setCookie";
@@ -29,6 +29,7 @@ export const Quantity = ({
                             : cookieProduct.quantity - 1,
                 };
             }
+
             return cookieProduct;
         });
 

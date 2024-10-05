@@ -6,7 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { RxUpdate } from "react-icons/rx";
 import { TableProps } from "./table.props";
 import Link from "next/link";
-import { IProduct, IProductSize } from "@/interfaces/product.interface";
+import { IProduct } from "@/interfaces/product.interface";
 
 const getProductPrice = (product: IProduct, currency: string) => {
     return currency === "uah" ? product.priceUah : product.priceEur;
@@ -25,6 +25,7 @@ const calculateTotalPerProduct = (
     currency: string
 ) => {
     const price = getProductPrice(product, currency);
+
     return price * quantity;
 };
 
@@ -35,10 +36,13 @@ export const Table = ({
 }: TableProps) => {
     const processedProducts = cartProducts.map((cartProduct) => {
         const selectedSize = getProductSize(cartProduct.id, cookieProducts);
+
         const productCookie = cookieProducts.find(
             (cookieProduct) => cookieProduct.id === cartProduct.id
         );
+
         const quantity = productCookie ? productCookie.quantity : 1;
+
         const totalPrice = calculateTotalPerProduct(
             cartProduct,
             quantity,
