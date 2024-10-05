@@ -15,7 +15,6 @@ export const Sizes = ({ product }: SizesProps) => {
     );
 
     const setActiveOptionHandler = (option: ISelectOption) => {
-        console.log(option);
         dispatch(
             setProductToCart({
                 ...productToCart,
@@ -32,7 +31,6 @@ export const Sizes = ({ product }: SizesProps) => {
         label: "Select a size",
         value: "#",
     });
-    console.log(productToCart);
 
     return (
         <div className={styles.sizes}>

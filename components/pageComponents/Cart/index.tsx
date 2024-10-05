@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { CartPageContentProps } from "./cart.props";
 import { CartTotal } from "./CartTotal";
 import { Table } from "./Table";
-import { IProduct } from "@/interfaces/product.interface";
 import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
 import { IProductCookie } from "@/interfaces/productCookie.interface";
 import { RootState } from "@/store";
@@ -27,6 +26,7 @@ export const CartPageContent = ({
 
         setCookieProductsClient(cookieProductsUpdated);
     }, [localStorageToogler]);
+
 
     return (
         <div className="page-content">

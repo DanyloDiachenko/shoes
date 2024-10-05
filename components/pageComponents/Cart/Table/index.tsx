@@ -32,28 +32,31 @@ export const Table = ({
     currency,
     cookieProducts,
 }: TableProps) => {
-    const processedProducts = cartProducts.map((cartProduct) => {
-        const selectedSize = getProductSize(cartProduct.id, cookieProducts);
+    const processedProducts = cookieProducts
+        .map((cookieProduct) => {
+            const cartProduct = cartProducts.find(
+                (cartProduct) => cartProduct.id === cookieProduct.id
+            );
 
-        const productCookie = cookieProducts.find(
-            (cookieProduct) => cookieProduct.id === cartProduct.id
-        );
+            const selectedSize = getProductSize(
+                cookieProduct.id,
+                cookieProducts
+            );
 
-        const quantity = productCookie ? productCookie.quantity : 1;
+            const quantity = cookieProduct ? cookieProduct.quantity : 1;
 
-        const totalPrice = calculateTotalPerProduct(
-            cartProduct,
-            quantity,
-            currency
-        );
+            const totalPrice = cartProduct
+                ? calculateTotalPerProduct(cartProduct, quantity, currency)
+                : 0;
 
-        return {
-            ...cartProduct,
-            selectedSize,
-            quantity,
-            totalPrice,
-        };
-    });
+            return {
+                ...(cartProduct as IProduct),
+                selectedSize,
+                quantity,
+                totalPrice,
+            };
+        })
+        .filter(Boolean);
 
     return (
         <div className={styles.column}>
