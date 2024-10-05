@@ -62,8 +62,7 @@ export const CartDropdown = ({
             .map((product) => ({
                 id: product.id,
                 quantity: product.quantity,
-                colorId: product.colorId,
-                sizeId: product.sizeId,
+                size: product.size,
             }));
 
         setCookieProductsClient(updatedCookieProducts);
@@ -97,7 +96,7 @@ export const CartDropdown = ({
         );
 
         const productSize = product.sizes.find(
-            (size) => size.id === cookieProduct?.sizeId
+            (size) => size.title === cookieProduct?.size
         );
 
         return productSize?.title;

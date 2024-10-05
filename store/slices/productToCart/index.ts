@@ -3,7 +3,7 @@ import { IProductToCartState } from "./productToCart.interface";
 
 const initialState: IProductToCartState = {
     quantity: 1,
-    sizeId: null,
+    size: null,
 };
 
 export const productToCartSlice = createSlice({
@@ -15,7 +15,7 @@ export const productToCartSlice = createSlice({
             action: PayloadAction<IProductToCartState>
         ) => {
             state.quantity = action.payload.quantity;
-            state.sizeId = action.payload.sizeId;
+            state.size = action.payload.size;
         },
     },
 });

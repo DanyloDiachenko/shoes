@@ -15,10 +15,11 @@ export const Sizes = ({ product }: SizesProps) => {
     );
 
     const setActiveOptionHandler = (option: ISelectOption) => {
+        console.log(option);
         dispatch(
             setProductToCart({
                 ...productToCart,
-                sizeId: option.value,
+                size: Number(option.label),
             })
         );
     };
@@ -31,6 +32,7 @@ export const Sizes = ({ product }: SizesProps) => {
         label: "Select a size",
         value: "#",
     });
+    console.log(productToCart);
 
     return (
         <div className={styles.sizes}>
@@ -40,7 +42,7 @@ export const Sizes = ({ product }: SizesProps) => {
                 options={selectOptions}
                 activeOption={
                     selectOptions.find(
-                        (option) => option.value === productToCart.sizeId
+                        (option) => Number(option.label) === productToCart.size
                     ) || selectOptions[selectOptions.length - 1]
                 }
                 setActiveOption={setActiveOptionHandler}

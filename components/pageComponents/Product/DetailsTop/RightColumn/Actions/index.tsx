@@ -43,7 +43,7 @@ export const Actions = ({ product, cookieProducts }: ActionsProps) => {
             return;
         }
 
-        if (!productToCart.sizeId) {
+        if (!productToCart.size) {
             toast.error("Please select size");
             return;
         }
@@ -53,8 +53,7 @@ export const Actions = ({ product, cookieProducts }: ActionsProps) => {
             {
                 id: product.id,
                 quantity: productToCart.quantity,
-                colorId: product.color.id,
-                sizeId: productToCart.sizeId,
+                size: productToCart.size,
             },
         ];
 
@@ -64,7 +63,7 @@ export const Actions = ({ product, cookieProducts }: ActionsProps) => {
 
         setProductToCartHandler({
             quantity: 0,
-            sizeId: null,
+            size: null,
         });
 
         toast.success("Product successfully added to cart");
