@@ -2,7 +2,8 @@ import Link from "next/link";
 import { ProductRowProps } from "./productRow.props";
 import { Quantity } from "./Quantity";
 import styles from "./styles.module.scss";
-import { IoMdClose } from "react-icons/io";
+import { RemoveButton } from "./RemoveButton";
+import { getPrice } from "@/helpers/getPrice";
 
 export const ProductRow = ({ cartProduct, currency }: ProductRowProps) => {
     return (
@@ -26,9 +27,7 @@ export const ProductRow = ({ cartProduct, currency }: ProductRowProps) => {
             </td>
             <td className={styles.sizeCol}>{cartProduct.selectedSize}</td>
             <td className={styles.priceCol}>
-                {currency === "uah"
-                    ? `₴${cartProduct.priceUah.toFixed(2)}`
-                    : `€${cartProduct.priceEur.toFixed(2)}`}
+                {getPrice(cartProduct, currency)}
             </td>
             <td className={styles.quantityCol}>
                 <Quantity
@@ -42,9 +41,7 @@ export const ProductRow = ({ cartProduct, currency }: ProductRowProps) => {
                     : `€${cartProduct.totalPrice.toFixed(2)}`}
             </td>
             <td className={styles.removeCol}>
-                <button className={styles.btnRemove}>
-                    <IoMdClose />
-                </button>
+                <RemoveButton cartProduct={cartProduct} />
             </td>
         </tr>
     );
