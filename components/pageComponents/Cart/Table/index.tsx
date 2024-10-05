@@ -6,12 +6,53 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { RxUpdate } from "react-icons/rx";
 import { TableProps } from "./table.props";
 import Link from "next/link";
-import { getServerCookie } from "@/helpers/getServerCookie";
-import { CurrencyType } from "@/types/currency.type";
-import { getSizes } from "@/app/api/sizes";
-import { IProductSize } from "@/interfaces/product.interface";
+import { IProduct, IProductSize } from "@/interfaces/product.interface";
 
-export const Table = async ({ cartProducts, currency }: TableProps) => {
+const getProductPrice = (product: IProduct, currency: string) => {
+    return currency === "uah" ? product.priceUah : product.priceEur;
+};
+
+const getProductSize = (productId: string, cookieProducts: any[]) => {
+    const productCookie = cookieProducts.find(
+        (cookieProduct) => cookieProduct.id === productId
+    );
+    return productCookie ? productCookie.size : null;
+};
+
+const calculateTotalPerProduct = (
+    product: IProduct,
+    quantity: number,
+    currency: string
+) => {
+    const price = getProductPrice(product, currency);
+    return price * quantity;
+};
+
+export const Table = ({
+    cartProducts,
+    currency,
+    cookieProducts,
+}: TableProps) => {
+    const processedProducts = cartProducts.map((cartProduct) => {
+        const selectedSize = getProductSize(cartProduct.id, cookieProducts);
+        const productCookie = cookieProducts.find(
+            (cookieProduct) => cookieProduct.id === cartProduct.id
+        );
+        const quantity = productCookie ? productCookie.quantity : 1;
+        const totalPrice = calculateTotalPerProduct(
+            cartProduct,
+            quantity,
+            currency
+        );
+
+        return {
+            ...cartProduct,
+            selectedSize,
+            quantity,
+            totalPrice,
+        };
+    });
+
     return (
         <div className={styles.column}>
             <table className={styles.table}>
@@ -26,7 +67,7 @@ export const Table = async ({ cartProducts, currency }: TableProps) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {cartProducts.map((cartProduct, index) => (
+                    {processedProducts.map((cartProduct) => (
                         <tr key={cartProduct.id}>
                             <td className={styles.productCol}>
                                 <div className={styles.product}>
@@ -49,16 +90,26 @@ export const Table = async ({ cartProducts, currency }: TableProps) => {
                                     </h3>
                                 </div>
                             </td>
-                            <td className={styles.sizeCol}>43</td>
+                            <td className={styles.sizeCol}>
+                                {cartProduct.selectedSize}
+                            </td>
                             <td className={styles.priceCol}>
                                 {currency === "uah"
                                     ? `₴${cartProduct.priceUah.toFixed(2)}`
                                     : `€${cartProduct.priceEur.toFixed(2)}`}
                             </td>
                             <td className={styles.quantityCol}>
-                                <Quantity />
+                                <Quantity
+                                    cookieProducts={cookieProducts}
+                                    quantity={cartProduct.quantity}
+                                    product={cartProduct}
+                                />
                             </td>
-                            <td className={styles.totalCol}>$84.00</td>
+                            <td className={styles.totalCol}>
+                                {currency === "uah"
+                                    ? `₴${cartProduct.totalPrice.toFixed(2)}`
+                                    : `€${cartProduct.totalPrice.toFixed(2)}`}
+                            </td>
                             <td className={styles.removeCol}>
                                 <button className={styles.btnRemove}>
                                     <IoMdClose />

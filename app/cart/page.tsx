@@ -39,7 +39,11 @@ const Cart = async () => {
         <>
             <PageHeader title="Shopping Cart" subtitle="Shop" />
             <Breadcrumbs links={breadcrumbItems} />
-            <CartPageContent cartProducts={cartProducts} currency={currency} />
+            <CartPageContent
+                cartProducts={cartProducts}
+                cookieProducts={cookieProducts}
+                currency={currency}
+            />
         </>
     );
 };

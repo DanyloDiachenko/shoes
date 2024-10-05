@@ -1,23 +1,51 @@
 "use client";
 
-import { RootState } from "@/store";
 import styles from "./styles.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { IProductToCartState } from "@/store/slices/productToCart/productToCart.interface";
-import { setProductToCart } from "@/store/slices/productToCart";
+import { useDispatch } from "react-redux";
 import { FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
 import { QuantityProps } from "./quantity.props";
+import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
+import { setCookie } from "@/helpers/setCookie";
 
-export const Quantity = () => {
+export const Quantity = ({
+    cookieProducts,
+    quantity,
+    product,
+}: QuantityProps) => {
+    const dispatch = useDispatch();
+
+    const toogleLocalStorageHandler = () => {
+        dispatch(toogleLocalStorage());
+    };
+
+    const onQuantityChange = (type: "increment" | "decrement") => {
+        const updatedProducts = cookieProducts.map((cookieProduct) => {
+            if (cookieProduct.id === product.id) {
+                return {
+                    ...cookieProduct,
+                    quantity:
+                        type === "increment"
+                            ? cookieProduct.quantity + 1
+                            : cookieProduct.quantity - 1,
+                };
+            }
+            return cookieProduct;
+        });
+
+        setCookie("cart", JSON.stringify(updatedProducts));
+
+        toogleLocalStorageHandler();
+    };
+
     return (
         <div className={styles.quantityFilter}>
             <button
                 className={`${styles.decrement} ${
-                    /* productToCart.quantity === 1 ? styles.disabled :  */ ""
+                    quantity === 1 ? styles.disabled : ""
                 }`}
                 aria-label="Decrement"
-                onClick={() => {}}
-                /* disabled={productToCart.quantity === 1} */
+                onClick={() => onQuantityChange("decrement")}
+                disabled={quantity === 1}
             >
                 <FaMinus />
             </button>
@@ -25,30 +53,24 @@ export const Quantity = () => {
                 type="number"
                 id="qty"
                 className={styles.input}
-                /* value={productToCart.quantity} */
+                value={quantity}
                 min={1}
-                value={1}
-                /* max={product.quantityInStock} */
+                max={product.quantityInStock}
                 step="1"
                 data-decimals="0"
                 required
                 disabled
             />
             <button
-                className={`${styles.increment} ${/* 
-                    product.quantityInStock === productToCart.quantity
-                        ? styles.disabled
-                        :  */""
+                className={`${styles.increment} ${
+                    product.quantityInStock === quantity ? styles.disabled : ""
                 }`}
                 aria-label="Increment"
-                /* onClick={() =>
-                    product.quantityInStock > productToCart.quantity &&
-                    setProductToCartHandler({
-                        ...productToCart,
-                        quantity: productToCart.quantity + 1,
-                    })
-                } */
-                /* disabled={productToCart.quantity === product.quantityInStock} */
+                onClick={() =>
+                    product.quantityInStock > quantity &&
+                    onQuantityChange("increment")
+                }
+                disabled={quantity === product.quantityInStock}
             >
                 <FaPlus />
             </button>
