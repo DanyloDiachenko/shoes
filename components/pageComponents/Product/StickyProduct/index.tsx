@@ -48,7 +48,7 @@ export const StickyProduct = ({
             return;
         }
 
-        if (!productToCart.sizeId) {
+        if (!productToCart.size) {
             toast.error("Please select size");
             return;
         }
@@ -58,8 +58,7 @@ export const StickyProduct = ({
             {
                 id: product.id,
                 quantity: productToCart.quantity,
-                colorId: product.color.id,
-                sizeId: productToCart.sizeId,
+                size: productToCart.size,
             },
         ];
 
@@ -69,7 +68,7 @@ export const StickyProduct = ({
 
         setProductToCartHandler({
             quantity: 0,
-            sizeId: null,
+            size: null,
         });
 
         toast.success("Product successfully added to cart");
