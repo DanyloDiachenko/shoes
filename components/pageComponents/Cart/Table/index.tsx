@@ -1,10 +1,9 @@
-import { Button } from "@/components/UI/Button";
 import styles from "./styles.module.scss";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { RxUpdate } from "react-icons/rx";
 import { TableProps } from "./table.props";
 import { IProduct } from "@/interfaces/product.interface";
 import { ProductRow } from "./ProductRow";
+import { CartDiscount } from "./CartDiscount";
+import { ClearCartButton } from "./ClearCartButton";
 
 const getProductPrice = (product: IProduct, currency: string) => {
     return currency === "uah" ? product.priceUah : product.priceEur;
@@ -80,33 +79,8 @@ export const Table = ({
                 </tbody>
             </table>
             <div className={styles.cartBottom}>
-                <div className={styles.cartDiscount}>
-                    <form action="#">
-                        <div className={styles.inputGroup}>
-                            <input
-                                type="text"
-                                className={styles.formControl}
-                                required
-                                placeholder="coupon code"
-                            />
-                            <div className={styles.inputGroupAppend}>
-                                <Button
-                                    colorType="btnOutlinePrimary2"
-                                    className={styles.button}
-                                >
-                                    <FaArrowRightLong />
-                                </Button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <Button
-                    colorType="btnOutlineDark2"
-                    className={styles.updateCart}
-                >
-                    <span>UPDATE CART</span>
-                    <RxUpdate />
-                </Button>
+                <CartDiscount />
+                <ClearCartButton />
             </div>
         </div>
     );

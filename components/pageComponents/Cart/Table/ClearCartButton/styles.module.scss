@@ -1,0 +1,14 @@
+.updateCart {
+    margin-left: auto;
+    min-width: 152px;
+
+    @media screen and (max-width: 575px) {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    svg {
+        margin-left: 1rem;
+        width: 14px;
+    }
+}
