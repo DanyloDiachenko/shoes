@@ -1,12 +1,10 @@
 import { Button } from "@/components/UI/Button";
-import { Quantity } from "./Quantity";
 import styles from "./styles.module.scss";
-import { IoMdClose } from "react-icons/io";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { RxUpdate } from "react-icons/rx";
 import { TableProps } from "./table.props";
-import Link from "next/link";
 import { IProduct } from "@/interfaces/product.interface";
+import { ProductRow } from "./ProductRow";
 
 const getProductPrice = (product: IProduct, currency: string) => {
     return currency === "uah" ? product.priceUah : product.priceEur;
@@ -72,54 +70,11 @@ export const Table = ({
                 </thead>
                 <tbody>
                     {processedProducts.map((cartProduct) => (
-                        <tr key={cartProduct.id}>
-                            <td className={styles.productCol}>
-                                <div className={styles.product}>
-                                    <figure className={styles.productMedia}>
-                                        <Link
-                                            href={`/products/${cartProduct.id}`}
-                                        >
-                                            <img
-                                                src={cartProduct.mainImage}
-                                                alt="Product image"
-                                            />
-                                        </Link>
-                                    </figure>
-                                    <h3 className={styles.productTitle}>
-                                        <Link
-                                            href={`/products/${cartProduct.id}`}
-                                        >
-                                            {cartProduct.title}
-                                        </Link>
-                                    </h3>
-                                </div>
-                            </td>
-                            <td className={styles.sizeCol}>
-                                {cartProduct.selectedSize}
-                            </td>
-                            <td className={styles.priceCol}>
-                                {currency === "uah"
-                                    ? `₴${cartProduct.priceUah.toFixed(2)}`
-                                    : `€${cartProduct.priceEur.toFixed(2)}`}
-                            </td>
-                            <td className={styles.quantityCol}>
-                                <Quantity
-                                    cookieProducts={cookieProducts}
-                                    quantity={cartProduct.quantity}
-                                    product={cartProduct}
-                                />
-                            </td>
-                            <td className={styles.totalCol}>
-                                {currency === "uah"
-                                    ? `₴${cartProduct.totalPrice.toFixed(2)}`
-                                    : `€${cartProduct.totalPrice.toFixed(2)}`}
-                            </td>
-                            <td className={styles.removeCol}>
-                                <button className={styles.btnRemove}>
-                                    <IoMdClose />
-                                </button>
-                            </td>
-                        </tr>
+                        <ProductRow
+                            key={cartProduct.id}
+                            cartProduct={cartProduct}
+                            currency={currency}
+                        />
                     ))}
                 </tbody>
             </table>
@@ -144,7 +99,6 @@ export const Table = ({
                         </div>
                     </form>
                 </div>
-
                 <Button
                     colorType="btnOutlineDark2"
                     className={styles.updateCart}

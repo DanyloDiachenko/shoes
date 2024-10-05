@@ -6,12 +6,11 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import { QuantityProps } from "./quantity.props";
 import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
 import { setCookie } from "@/helpers/setCookie";
+import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
 
-export const Quantity = ({
-    cookieProducts,
-    quantity,
-    product,
-}: QuantityProps) => {
+export const Quantity = ({ quantity, product }: QuantityProps) => {
+    const cookieProducts = getCookieProductsClient();
+
     const dispatch = useDispatch();
 
     const toogleLocalStorageHandler = () => {
