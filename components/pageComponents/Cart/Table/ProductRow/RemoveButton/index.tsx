@@ -18,7 +18,7 @@ export const RemoveButton = ({ cartProduct }: RemoveButtonProps) => {
 
     const onRemoveButtonClick = () => {
         const cookieProducts = getCookieProductsClient();
-    
+
         const updatedProducts = cookieProducts.filter(
             (product) => product.id !== cartProduct.id
         );
@@ -26,9 +26,7 @@ export const RemoveButton = ({ cartProduct }: RemoveButtonProps) => {
 
         toogleLocalStorageHandler();
 
-        toast.success(
-            `Product ${cartProduct.title} successfully removed from cart`
-        );
+        toast.success(`Product successfully removed from cart`);
     };
 
     return (

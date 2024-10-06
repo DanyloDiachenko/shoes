@@ -4,6 +4,8 @@ import { IProduct } from "@/interfaces/product.interface";
 import { ProductRow } from "./ProductRow";
 import { CartDiscount } from "./CartDiscount";
 import { ClearCartButton } from "./ClearCartButton";
+import { Button } from "@/components/UI/Button";
+import Link from "next/link";
 
 const getProductPrice = (product: IProduct, currency: string) => {
     return currency === "uah" ? product.priceUah : product.priceEur;
@@ -60,31 +62,44 @@ export const Table = ({
 
     return (
         <div className={styles.column}>
-            <table className={styles.table}>
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Size</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {processedProducts.map((cartProduct) => (
-                        <ProductRow
-                            key={cartProduct.id}
-                            cartProduct={cartProduct}
-                            currency={currency}
-                        />
-                    ))}
-                </tbody>
-            </table>
-            <div className={styles.cartBottom}>
-                <CartDiscount />
-                <ClearCartButton />
-            </div>
+            {cookieProducts.length ? (
+                <>
+                    <table className={styles.table}>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {processedProducts.map((cartProduct) => (
+                                <ProductRow
+                                    key={cartProduct.id}
+                                    cartProduct={cartProduct}
+                                    currency={currency}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                    <div className={styles.cartBottom}>
+                        <CartDiscount />
+                        <ClearCartButton />
+                    </div>
+                </>
+            ) : (
+                <>
+                    <h2 className={styles.notFound}>No results found</h2>
+                    <Link href="/products">
+                        <Button colorType="btnOutlinePrimary2">
+                            Go to Shop
+                        </Button>
+                    </Link>
+                </>
+            )}
         </div>
     );
 };
