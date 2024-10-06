@@ -67,7 +67,7 @@ export const StickyProduct = ({
         toogleLocalStorageHandler();
 
         setProductToCartHandler({
-            quantity: 0,
+            quantity: 1,
             size: null,
         });
 

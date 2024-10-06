@@ -27,7 +27,6 @@ export const CartPageContent = ({
         setCookieProductsClient(cookieProductsUpdated);
     }, [localStorageToogler]);
 
-
     return (
         <div className="page-content">
             <div className="container">
@@ -37,7 +36,11 @@ export const CartPageContent = ({
                         currency={currency}
                         cookieProducts={cookieProductsClient}
                     />
-                    <CartTotal />
+                    <CartTotal
+                        currency={currency}
+                        cartProducts={cartProducts}
+                        cookieProducts={cookieProductsClient}
+                    />
                 </div>
             </div>
         </div>

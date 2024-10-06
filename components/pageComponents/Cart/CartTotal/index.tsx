@@ -1,8 +1,26 @@
 import { Button } from "@/components/UI/Button";
 import styles from "./styles.module.scss";
 import { RxUpdate } from "react-icons/rx";
+import { CartTotalProps } from "./cartTotal.props";
 
-export const CartTotal = () => {
+export const CartTotal = ({
+    currency,
+    cartProducts,
+    cookieProducts,
+}: CartTotalProps) => {
+    let subtotal = 0;
+
+    for (let i = 0; i < cartProducts.length; i++) {
+        for (let j = 0; j < cookieProducts.length; j++) {
+            if (cartProducts[i].id === cookieProducts[j].id) {
+                subtotal +=
+                    currency === "uah"
+                        ? cartProducts[j].priceUah * cookieProducts[j].quantity
+                        : cartProducts[j].priceEur * cookieProducts[j].quantity;
+            }
+        }
+    }
+
     return (
         <aside className={styles.column}>
             <div className={styles.summary}>
@@ -11,13 +29,15 @@ export const CartTotal = () => {
                     <tbody>
                         <tr className={styles.summarySubtotal}>
                             <td>Subtotal:</td>
-                            <td>$160.00</td>
+                            <td>
+                                {currency === "uah" ? "₴" : "€"}
+                                {subtotal.toFixed(2)}
+                            </td>
                         </tr>
                         <tr className={styles.summaryShipping}>
                             <td>Shipping:</td>
                             <td>&nbsp;</td>
                         </tr>
-
                         <tr className={styles.summaryShippingRow}>
                             <td>
                                 <div className={styles.customControl}>

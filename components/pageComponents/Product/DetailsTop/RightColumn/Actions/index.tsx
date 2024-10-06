@@ -62,7 +62,7 @@ export const Actions = ({ product, cookieProducts }: ActionsProps) => {
         toogleLocalStorageHandler();
 
         setProductToCartHandler({
-            quantity: 0,
+            quantity: 1,
             size: null,
         });
 
