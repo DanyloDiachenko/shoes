@@ -1,14 +1,26 @@
+"use client";
+
 import { Button } from "@/components/UI/Button";
 import styles from "./styles.module.scss";
 import { RxUpdate } from "react-icons/rx";
 import { CartTotalProps } from "./cartTotal.props";
+import { ShippingType } from "@/types/shipping.type";
+import { useState } from "react";
+import { setCookie } from "@/helpers/setCookie";
+
+let subtotal = 0;
 
 export const CartTotal = ({
     currency,
     cartProducts,
     cookieProducts,
 }: CartTotalProps) => {
-    let subtotal = 0;
+    const [shipping, setShipping] = useState<ShippingType>("free");
+
+    const onShippingChange = (shipping: ShippingType) => {
+        setShipping(shipping);
+        setCookie("shipping", shipping);
+    };
 
     for (let i = 0; i < cartProducts.length; i++) {
         for (let j = 0; j < cookieProducts.length; j++) {
@@ -46,6 +58,10 @@ export const CartTotal = ({
                                         id="free-shipping"
                                         name="shipping"
                                         className={styles.customControlInput}
+                                        checked={shipping === "free"}
+                                        onChange={() =>
+                                            onShippingChange("free")
+                                        }
                                     />
                                     <label
                                         className={styles.customControlLabel}
@@ -66,6 +82,10 @@ export const CartTotal = ({
                                         id="standart-shipping"
                                         name="shipping"
                                         className={styles.customControlInput}
+                                        checked={shipping === "standart"}
+                                        onChange={() =>
+                                            onShippingChange("standart")
+                                        }
                                     />
                                     <label
                                         className={styles.customControlLabel}
@@ -86,6 +106,10 @@ export const CartTotal = ({
                                         id="express-shipping"
                                         name="shipping"
                                         className={styles.customControlInput}
+                                        checked={shipping === "express"}
+                                        onChange={() =>
+                                            onShippingChange("express")
+                                        }
                                     />
                                     <label
                                         className={styles.customControlLabel}
