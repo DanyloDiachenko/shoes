@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Brand } from "./Brand";
+import { Brands } from "./Brands";
 import { Category } from "./Category";
 import { Color } from "./Color";
 import { Price } from "./Price";
@@ -22,7 +22,7 @@ export const Filters = ({
                 <Category allCategories={categoriesResponse} />
                 <Size allSizes={sizesResponse} />
                 <Color allColors={colorsResponse} />
-                <Brand allBrands={brandsResponse} />
+                <Brands allBrands={brandsResponse} />
                 <Price serverCurrency={serverCurrency} />
             </div>
         </aside>

@@ -4,13 +4,13 @@ import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Checkbox } from "@/components/UI/Checkbox";
-import { BrandProps } from "./brand.props";
+import { BrandsProps } from "./brands.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { IProductBrand } from "@/interfaces/product.interface";
+import { ProductBrand } from "@/interfaces/product.interface";
 import { setBrands } from "@/store/slices/products";
 
-export const Brand = ({ allBrands }: BrandProps) => {
+export const Brands = ({ allBrands }: BrandsProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
@@ -18,11 +18,11 @@ export const Brand = ({ allBrands }: BrandProps) => {
         (state: RootState) => state.products.filters.brands
     );
 
-    const setBrandsHandler = (brands: IProductBrand[]) => {
+    const setBrandsHandler = (brands: ProductBrand[]) => {
         dispatch(setBrands(brands));
     };
 
-    const onBrandClick = (brand: IProductBrand) => {
+    const onBrandClick = (brand: ProductBrand) => {
         const exitstingBrand = selectedBrands.find(
             (selBrand) => selBrand.id === brand.id
         );
