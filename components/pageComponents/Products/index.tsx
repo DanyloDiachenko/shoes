@@ -85,7 +85,6 @@ export const ProductsPageContent = ({
             return (
                 <ProductList
                     getProductsResponseServer={getProductsResponseClient}
-                    currency={currency}
                 />
             );
         } else {

@@ -8,6 +8,7 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import { getRating } from "@/helpers/getRating";
 import { ProductProps } from "./product.props";
 import { useState } from "react";
+import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const Product = ({
     mainCategory,
@@ -22,7 +23,6 @@ export const Product = ({
     images,
     rating,
     priceEur,
-    serverCurrency,
 }: ProductProps) => {
     const [activeImage, setActiveImage] = useState<string>(mainImage);
 
@@ -56,10 +56,7 @@ export const Product = ({
                 <div className={styles.columnActions}>
                     <div className={styles.action}>
                         <div className={styles.price}>
-                            {serverCurrency === "uah" ? "₴" : "€"}
-                            {serverCurrency === "uah"
-                                ? priceUah.toFixed(2)
-                                : priceEur.toFixed(2)}
+                            {getProductPrice(priceUah, priceEur)}
                         </div>
                         <div className={styles.ratingsContainer}>
                             {getRating(rating || 0)}
