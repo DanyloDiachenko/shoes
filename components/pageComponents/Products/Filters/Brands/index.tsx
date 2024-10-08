@@ -10,7 +10,7 @@ import { RootState } from "@/store";
 import { ProductBrand } from "@/interfaces/product.interface";
 import { setBrands } from "@/store/slices/products";
 
-export const Brands = ({ allBrands }: BrandsProps) => {
+export const Brands = ({ brands }: BrandsProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
@@ -57,7 +57,7 @@ export const Brands = ({ allBrands }: BrandsProps) => {
                 id="widget-4"
             >
                 <div className={styles.widgetBody}>
-                    {allBrands.map((brand) => (
+                    {brands.map((brand) => (
                         <div className={styles.item} key={brand.id}>
                             <Checkbox
                                 title={brand.title}

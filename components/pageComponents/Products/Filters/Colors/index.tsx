@@ -9,7 +9,7 @@ import { RootState } from "@/store";
 import { ProductColor } from "@/interfaces/product.interface";
 import { setColor } from "@/store/slices/products";
 
-export const Colors = ({ allColors }: ColorsProps) => {
+export const Colors = ({ colors }: ColorsProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
@@ -51,7 +51,7 @@ export const Colors = ({ allColors }: ColorsProps) => {
             >
                 <div className={styles.widgetBody}>
                     <div className={styles.filterColors}>
-                        {allColors.map((color) => (
+                        {colors.map((color) => (
                             <div
                                 className={
                                     selectedColor?.id === color.id

@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { setCategories } from "@/store/slices/products";
 
-export const Categories = ({ allCategories }: CategoriesProps) => {
+export const Categories = ({ categories }: CategoriesProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
@@ -59,7 +59,7 @@ export const Categories = ({ allCategories }: CategoriesProps) => {
                 id="widget-1"
             >
                 <div className={styles.widgetBody}>
-                    {allCategories.map((category) => (
+                    {categories.map((category) => (
                         <div className={styles.item} key={category.id}>
                             <Checkbox
                                 title={category.title}

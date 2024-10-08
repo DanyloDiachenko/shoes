@@ -18,10 +18,10 @@ export const Filters = ({
         <aside className={styles.column}>
             <div className={styles.sidebar}>
                 <CleanAllFilters />
-                <Categories allCategories={getCategoriesResponseServer} />
-                <Size allSizes={getSizesResponseServer} />
-                <Colors allColors={getColorsResponseServer} />
-                <Brands allBrands={getBrandsResponseServer} />
+                <Categories categories={getCategoriesResponseServer} />
+                <Size sizes={getSizesResponseServer} />
+                <Colors colors={getColorsResponseServer} />
+                <Brands brands={getBrandsResponseServer} />
                 <PriceRange currency={currency} />
             </div>
         </aside>
