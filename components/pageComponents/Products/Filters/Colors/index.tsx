@@ -17,15 +17,15 @@ export const Colors = ({ allColors }: ColorsProps) => {
         (state: RootState) => state.products.filters.color
     );
 
-    const setColorHandler = (color: ProductColor | null) => {
+    const setSelectedColorHandler = (color: ProductColor | null) => {
         dispatch(setColor(color));
     };
 
     const onColorClick = (color: ProductColor) => {
         if (selectedColor?.id === color.id) {
-            setColorHandler(null);
+            setSelectedColorHandler(null);
         } else {
-            setColorHandler(color);
+            setSelectedColorHandler(color);
         }
     };
 

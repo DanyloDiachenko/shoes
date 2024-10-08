@@ -1,7 +1,7 @@
 import { Brands } from "./Brands";
 import { Categories } from "./Categories";
 import { Colors } from "./Colors";
-import { Price } from "./Price";
+import { PriceRange } from "./PriceRange";
 import { Size } from "./Size";
 import styles from "./styles.module.scss";
 import { FiltersProps } from "./filters.props";
@@ -22,7 +22,7 @@ export const Filters = ({
                 <Size allSizes={sizesResponse} />
                 <Colors allColors={colorsResponse} />
                 <Brands allBrands={brandsResponse} />
-                <Price serverCurrency={serverCurrency} />
+                <PriceRange currency={serverCurrency} />
             </div>
         </aside>
     );
