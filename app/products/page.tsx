@@ -10,7 +10,7 @@ import { PageProps } from "@/.next/types/app/page";
 import { getServerCookie } from "@/helpers/getServerCookie";
 import { CurrencyType } from "@/types/currency.type";
 
-const breadcrumbItems = [
+const breadcrumbs = [
     {
         title: "Home",
         link: "/",
@@ -72,7 +72,7 @@ const Products = async ({ searchParams }: PageProps) => {
     return (
         <>
             <PageHeader title="List" subtitle="Shop" />
-            <Breadcrumbs links={breadcrumbItems} />
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <ProductsPageContent
                 productsResponse={productsResponse}
                 categoriesResponse={categoriesResponse}

@@ -1,6 +1,5 @@
+import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
+
 export interface BreadcrumbsProps {
-    links: {
-        title: string;
-        link: string;
-    }[];
+    breadcrumbs: Breadcrumb[];
 }
