@@ -15,11 +15,11 @@ export const CartTotal = ({
     cartProducts,
     cookieProducts,
 }: CartTotalProps) => {
-    const [shipping, setShipping] = useState<ShippingType>("free");
+    const [shippingType, setShippingType] = useState<ShippingType>("free");
 
-    const onShippingChange = (shipping: ShippingType) => {
-        setShipping(shipping);
-        setCookie("shipping", shipping);
+    const onShippingTypeChange = (shipping: ShippingType) => {
+        setShippingType(shipping);
+        setCookie("shippingType", shipping);
     };
 
     for (let i = 0; i < cartProducts.length; i++) {
@@ -58,9 +58,9 @@ export const CartTotal = ({
                                         id="free-shipping"
                                         name="shipping"
                                         className={styles.customControlInput}
-                                        checked={shipping === "free"}
+                                        checked={shippingType === "free"}
                                         onChange={() =>
-                                            onShippingChange("free")
+                                            onShippingTypeChange("free")
                                         }
                                     />
                                     <label
@@ -82,9 +82,9 @@ export const CartTotal = ({
                                         id="standart-shipping"
                                         name="shipping"
                                         className={styles.customControlInput}
-                                        checked={shipping === "standart"}
+                                        checked={shippingType === "standart"}
                                         onChange={() =>
-                                            onShippingChange("standart")
+                                            onShippingTypeChange("standart")
                                         }
                                     />
                                     <label
@@ -106,9 +106,9 @@ export const CartTotal = ({
                                         id="express-shipping"
                                         name="shipping"
                                         className={styles.customControlInput}
-                                        checked={shipping === "express"}
+                                        checked={shippingType === "express"}
                                         onChange={() =>
-                                            onShippingChange("express")
+                                            onShippingTypeChange("express")
                                         }
                                     />
                                     <label
