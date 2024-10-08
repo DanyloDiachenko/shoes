@@ -16,7 +16,7 @@ export const ProductsPageContent = ({
     sizesResponse,
     colorsResponse,
     brandsResponse,
-    serverCurrency,
+    currency,
 }: ProductsPageContentProps) => {
     const [productsResponseClient, setProductsResponseClient] =
         useState<GetProductsResponse>(productsResponse);
@@ -41,21 +41,21 @@ export const ProductsPageContent = ({
         (state: RootState) => state.products.filters.brands
     );
     const price = useSelector((state: RootState) =>
-        serverCurrency === "uah"
+        currency === "uah"
             ? state.products.filters.priceUah
             : state.products.filters.priceEur
     );
 
     const fetchProducts = async () => {
         const productsResponse = await getProducts({
-            page: currentPage,
+            pageNumber: currentPage,
             limit: 9,
             sortBy: sortBy,
             categorySlugs: selectedCategories.map((category) => category.slug),
             sizeSlugs: selectedSizes.map((size) => String(size.slug)),
             colorSlug: selectedColor?.slug,
             brandSlugs: selectedBrands.map((brand) => brand.slug),
-            currency: serverCurrency,
+            currency: currency,
             priceFrom: price.min,
             priceTo: price.max,
         });
@@ -89,13 +89,13 @@ export const ProductsPageContent = ({
                         sizesResponse={sizesResponse}
                         colorsResponse={colorsResponse}
                         brandsResponse={brandsResponse}
-                        serverCurrency={serverCurrency}
+                        serverCurrency={currency}
                     />
                     {productsResponseClient.data.length ? (
                         <>
                             <ProductList
                                 productsResponse={productsResponseClient}
-                                serverCurrency={serverCurrency}
+                                serverCurrency={currency}
                             />
                         </>
                     ) : (

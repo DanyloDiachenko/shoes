@@ -1,1 +1,1 @@
-export type CurrencyType = "uah" | "eur";
+export type Currency = "uah" | "eur";

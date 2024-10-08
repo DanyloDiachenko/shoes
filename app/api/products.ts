@@ -1,23 +1,23 @@
 import { IProduct } from "@/interfaces/product.interface";
 import { GetProductsResponse } from "@/interfaces/responses";
-import { CurrencyType } from "@/types/currency.type";
+import { Currency } from "@/types/currency.type";
 import { SortProductsByType } from "@/types/sortProductsBy.type";
 
 interface GetProductsParams {
-    page?: number;
+    pageNumber?: number;
     limit?: number;
     sortBy?: SortProductsByType;
     categorySlugs?: string[];
     sizeSlugs?: string[];
     colorSlug?: string;
     brandSlugs?: string[];
-    currency: CurrencyType;
+    currency: Currency;
     priceFrom?: number;
     priceTo?: number;
 }
 
 export const getProducts = async ({
-    page = 1,
+    pageNumber = 1,
     limit = 9,
     sortBy = "mostPopular",
     categorySlugs = [],
@@ -35,7 +35,7 @@ export const getProducts = async ({
     const res = await fetch(
         `${
             process.env.NEXT_PUBLIC_API_URL
-        }/products?page=${page}&limit=${limit}&sortBy=${sortBy}&categories=${
+        }/products?page=${pageNumber}&limit=${limit}&sortBy=${sortBy}&categories=${
             categoriesQuery || ""
         }&sizes=${sizesQuery || ""}&color=${colorSlug}&brands=${
             brandsQuery || ""
