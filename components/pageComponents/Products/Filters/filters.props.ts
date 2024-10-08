@@ -7,9 +7,9 @@ import {
 import { Currency } from "@/types/currency.type";
 
 export interface FiltersProps {
-    categoriesResponse: ProductCategoryWithProductsQuantity[];
-    sizesResponse: ProductSize[];
-    colorsResponse: ProductColor[];
-    brandsResponse: ProductBrand[];
+    getCategoriesResponseServer: ProductCategoryWithProductsQuantity[];
+    getSizesResponseServer: ProductSize[];
+    getColorsResponseServer: ProductColor[];
+    getBrandsResponseServer: ProductBrand[];
     currency: Currency;
 }

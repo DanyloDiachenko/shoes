@@ -8,20 +8,20 @@ import { FiltersProps } from "./filters.props";
 import { CleanAllFilters } from "./CleanAllFilters";
 
 export const Filters = ({
-    categoriesResponse,
-    sizesResponse,
-    colorsResponse,
-    brandsResponse,
+    getBrandsResponseServer,
+    getCategoriesResponseServer,
+    getColorsResponseServer,
+    getSizesResponseServer,
     currency,
 }: FiltersProps) => {
     return (
         <aside className={styles.column}>
             <div className={styles.sidebar}>
                 <CleanAllFilters />
-                <Categories allCategories={categoriesResponse} />
-                <Size allSizes={sizesResponse} />
-                <Colors allColors={colorsResponse} />
-                <Brands allBrands={brandsResponse} />
+                <Categories allCategories={getCategoriesResponseServer} />
+                <Size allSizes={getSizesResponseServer} />
+                <Colors allColors={getColorsResponseServer} />
+                <Brands allBrands={getBrandsResponseServer} />
                 <PriceRange currency={currency} />
             </div>
         </aside>
