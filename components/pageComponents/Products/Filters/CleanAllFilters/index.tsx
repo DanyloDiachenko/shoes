@@ -10,7 +10,7 @@ import {
     setSortBy,
 } from "@/store/slices/products";
 
-export const CleanAll = () => {
+export const CleanAllFilters = () => {
     const dispatch = useDispatch();
 
     const onCleanAllClick = () => {

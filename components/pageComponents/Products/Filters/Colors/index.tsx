@@ -3,13 +3,13 @@
 import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { useState } from "react";
-import { ColorProps } from "./colour.props";
+import { ColorsProps } from "./colors.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { IProductColor } from "@/interfaces/product.interface";
+import { ProductColor } from "@/interfaces/product.interface";
 import { setColor } from "@/store/slices/products";
 
-export const Color = ({ allColors }: ColorProps) => {
+export const Colors = ({ allColors }: ColorsProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
@@ -17,11 +17,11 @@ export const Color = ({ allColors }: ColorProps) => {
         (state: RootState) => state.products.filters.color
     );
 
-    const setColorHandler = (color: IProductColor | null) => {
+    const setColorHandler = (color: ProductColor | null) => {
         dispatch(setColor(color));
     };
 
-    const onColorClick = (color: IProductColor) => {
+    const onColorClick = (color: ProductColor) => {
         if (selectedColor?.id === color.id) {
             setColorHandler(null);
         } else {
