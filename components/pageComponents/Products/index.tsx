@@ -40,7 +40,7 @@ export const ProductsPageContent = ({
     const selectedBrands = useSelector(
         (state: RootState) => state.products.filters.brands
     );
-    const price = useSelector((state: RootState) =>
+    const priceRange = useSelector((state: RootState) =>
         currency === "uah"
             ? state.products.filters.priceUah
             : state.products.filters.priceEur
@@ -56,8 +56,8 @@ export const ProductsPageContent = ({
             colorSlug: selectedColor?.slug,
             brandSlugs: selectedBrands.map((brand) => brand.slug),
             currency: currency,
-            priceFrom: price.min,
-            priceTo: price.max,
+            priceFrom: priceRange.min,
+            priceTo: priceRange.max,
         });
 
         setProductsResponseClient(productsResponse);
@@ -76,8 +76,8 @@ export const ProductsPageContent = ({
         selectedColor,
         selectedBrands,
         sortBy,
-        price.min,
-        price.max,
+        priceRange.min,
+        priceRange.max,
     ]);
 
     return (

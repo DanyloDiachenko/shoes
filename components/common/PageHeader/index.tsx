@@ -3,12 +3,7 @@ import styles from "./styles.module.scss";
 
 export const PageHeader = ({ title, subtitle }: PageHeaderProps) => {
     return (
-        <div
-            className={styles.pageHeader}
-            style={{
-                backgroundImage: "url(/images/banners/page-header-bg.png)",
-            }}
-        >
+        <div className={styles.pageHeader}>
             <div className="container">
                 <h1>
                     {title}
