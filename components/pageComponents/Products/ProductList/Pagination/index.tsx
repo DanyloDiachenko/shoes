@@ -14,6 +14,8 @@ export const Pagination = ({ totalPages }: PaginationProps) => {
         (state: RootState) => state.products.pagination.currentPage
     );
 
+    const totalPagesArray = Array.from({ length: totalPages });
+
     const onPageChange = (page: number) => {
         if (page >= 1 && page <= totalPages) {
             dispatch(setCurrentPage(page));
@@ -41,7 +43,7 @@ export const Pagination = ({ totalPages }: PaginationProps) => {
                         Prev
                     </button>
                 </li>
-                {Array.from({ length: totalPages }, (_, index) => (
+                {totalPagesArray.map((_, index) => (
                     <li
                         key={index + 1}
                         className={`${styles.pageItem} ${
