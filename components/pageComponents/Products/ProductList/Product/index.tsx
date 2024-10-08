@@ -3,11 +3,12 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
-import { FaStar, FaRegHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { getRating } from "@/helpers/getRating";
 import { ProductProps } from "./product.props";
 import { useState } from "react";
+import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const Product = ({
     mainCategory,
@@ -22,9 +23,9 @@ export const Product = ({
     images,
     rating,
     priceEur,
-    serverCurrency,
+    currency
 }: ProductProps) => {
-    const [activeImage, setActiveImage] = useState<string>(mainImage);
+    const [activeImageSrc, setActiveImageSrc] = useState<string>(mainImage);
 
     return (
         <div className={styles.product}>
@@ -46,7 +47,7 @@ export const Product = ({
                         )}
                         <Link href={`/products/${id}`}>
                             <img
-                                src={activeImage}
+                                src={activeImageSrc}
                                 alt="Product image"
                                 className={styles.image}
                             />
@@ -56,10 +57,7 @@ export const Product = ({
                 <div className={styles.columnActions}>
                     <div className={styles.action}>
                         <div className={styles.price}>
-                            {serverCurrency === "uah" ? "₴" : "€"}
-                            {serverCurrency === "uah"
-                                ? priceUah.toFixed(2)
-                                : priceEur.toFixed(2)}
+                            {getProductPrice(priceUah, priceEur, currency)}
                         </div>
                         <div className={styles.ratingsContainer}>
                             {getRating(rating || 0)}
@@ -116,14 +114,16 @@ export const Product = ({
                             {images.map((image, index) => (
                                 <div
                                     key={index}
-                                    onMouseEnter={() => setActiveImage(image)}
+                                    onMouseEnter={() =>
+                                        setActiveImageSrc(image)
+                                    }
                                     className={
-                                        activeImage === image
+                                        activeImageSrc === image
                                             ? styles.active
                                             : ""
                                     }
                                     onMouseLeave={() =>
-                                        setActiveImage(mainImage)
+                                        setActiveImageSrc(mainImage)
                                     }
                                 >
                                     <img src={image} alt="product desc" />

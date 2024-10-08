@@ -1,4 +1,4 @@
 export interface ToolboxProps {
-    total: number;
-    count: number;
+    totalProductsNumber: number;
+    showingProductsNumber: number;
 }

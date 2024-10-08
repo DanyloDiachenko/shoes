@@ -1,32 +1,32 @@
-export interface IProductCategory {
+export interface ProductCategory {
     id: string;
     title: string;
     slug: string;
 }
-export interface IProductCategoryWithProductsQuantity extends IProductCategory {
+export interface ProductCategoryWithProductsQuantity extends ProductCategory {
     productsQuantity: number;
 }
 
-export interface IProductBrand {
+export interface ProductBrand {
     id: string;
     title: string;
     slug: string;
 }
 
-export interface IProductSize {
+export interface ProductSize {
     id: string;
     title: number;
     slug: number;
 }
 
-export interface IProductColor {
+export interface ProductColor {
     id: string;
     title: string;
     slug: string;
     hexCode: string;
 }
 
-export interface IProductReview {
+export interface ProductReview {
     id: string;
     author: string;
     rating: number;
@@ -37,7 +37,7 @@ export interface IProductReview {
     unhelpfulNumber: number;
 }
 
-export interface IProduct {
+export interface Product {
     id: string;
     title: string;
     description: string;
@@ -51,11 +51,11 @@ export interface IProduct {
     images: string[];
     priceWithDiscountUah: number | null;
     priceWithDiscountEur: number | null;
-    mainCategory: IProductCategory;
-    brand: IProductBrand;
-    reviews: IProductReview[];
-    color: IProductColor;
-    sizes: IProductSize[];
-    categories: IProductCategory[];
+    mainCategory: ProductCategory;
+    brand: ProductBrand;
+    reviews: ProductReview[];
+    color: ProductColor;
+    sizes: ProductSize[];
+    categories: ProductCategory[];
     rating: number | null;
 }

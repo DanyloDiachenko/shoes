@@ -3,22 +3,24 @@ import styles from "./styles.module.scss";
 import { IoIosArrowForward } from "react-icons/io";
 import { BreadcrumbsProps } from "./breadcrumbs.props";
 
-export const Breadcrumbs = ({ links }: BreadcrumbsProps) => {
+export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
     return (
         <nav aria-label="breadcrumb" className={styles.breadcrumbs}>
             <div className={`container ${styles.container}`}>
                 <ol className={styles.breadcrumb}>
-                    {links.map((link, index) => (
+                    {breadcrumbs.map((link, index) => (
                         <span key={index}>
                             <li
                                 className={`${styles.item} ${
-                                    links.length === index + 1 ? styles.active : ""
+                                    breadcrumbs.length === index + 1
+                                        ? styles.active
+                                        : ""
                                 }`}
                                 aria-current="page"
                             >
                                 <Link href={link.link}>{link.title}</Link>
                             </li>
-                            {links.length - 1 !== index && (
+                            {breadcrumbs.length - 1 !== index && (
                                 <IoIosArrowForward />
                             )}
                         </span>

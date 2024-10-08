@@ -4,25 +4,25 @@ import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Checkbox } from "@/components/UI/Checkbox";
-import { BrandProps } from "./brand.props";
+import { BrandsProps } from "./brands.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { IProductBrand } from "@/interfaces/product.interface";
-import { setBrands } from "@/store/slices/products";
+import { ProductBrand } from "@/interfaces/product.interface";
+import { setBrands } from "@/store/slices/productsSettings";
 
-export const Brand = ({ allBrands }: BrandProps) => {
+export const Brands = ({ brands }: BrandsProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
     const selectedBrands = useSelector(
-        (state: RootState) => state.products.filters.brands
+        (state: RootState) => state.productsSettings.filters.brands
     );
 
-    const setBrandsHandler = (brands: IProductBrand[]) => {
+    const setBrandsHandler = (brands: ProductBrand[]) => {
         dispatch(setBrands(brands));
     };
 
-    const onBrandClick = (brand: IProductBrand) => {
+    const onBrandClick = (brand: ProductBrand) => {
         const exitstingBrand = selectedBrands.find(
             (selBrand) => selBrand.id === brand.id
         );
@@ -57,7 +57,7 @@ export const Brand = ({ allBrands }: BrandProps) => {
                 id="widget-4"
             >
                 <div className={styles.widgetBody}>
-                    {allBrands.map((brand) => (
+                    {brands.map((brand) => (
                         <div className={styles.item} key={brand.id}>
                             <Checkbox
                                 title={brand.title}

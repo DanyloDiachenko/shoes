@@ -1,14 +1,13 @@
 "use client";
 
 import { Select } from "@/components/UI/Select";
-import { ISelectOption } from "@/interfaces/selectOption.interface";
+import { SelectOption } from "@/interfaces/selectOption.interface";
 import { useState } from "react";
-import { ISortSelectOption } from "./sortSelectOption.interface";
 import { useDispatch } from "react-redux";
-import { setSortBy } from "@/store/slices/products";
-import { SortProductsByType } from "@/types/sortProductsBy.type";
+import { setSortBy } from "@/store/slices/productsSettings";
+import { SortProductsBy } from "@/types/sortProductsBy.type";
 
-const sortOptions: ISortSelectOption[] = [
+const sortOptions: SelectOption[] = [
     {
         label: "Most Popular",
         value: "mostPopular",
@@ -26,26 +25,24 @@ const sortOptions: ISortSelectOption[] = [
 export const SortSelect = () => {
     const dispatch = useDispatch();
 
-    const [activeOption, setActiveOption] = useState<ISortSelectOption>(
+    const [activeOption, setActiveOption] = useState<SelectOption>(
         sortOptions[0]
     );
 
-    const setSortByHandler = (optionValue: SortProductsByType) => {
+    const setSortByHandler = (optionValue: SortProductsBy) => {
         dispatch(setSortBy(optionValue));
     };
 
-    const onOptionChange = (option: ISortSelectOption) => {
+    const onOptionChange = (option: SelectOption) => {
         setActiveOption(option);
-        setSortByHandler(option.value);
+        setSortByHandler(option.value as SortProductsBy);
     };
 
     return (
         <Select
             activeOption={activeOption}
             options={sortOptions}
-            setActiveOption={(option) =>
-                onOptionChange(option as ISortSelectOption)
-            }
+            setActiveOption={(option) => onOptionChange(option as SelectOption)}
             id="sortby"
         />
     );

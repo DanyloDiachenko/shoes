@@ -11,7 +11,7 @@
         }
 
         &.active {
-            a {
+            button {
                 color: #c96;
                 background-color: transparent;
                 border-color: #ebebeb;
@@ -20,7 +20,7 @@
         }
 
         &.inactive {
-            a {
+            button {
                 border-color: transparent;
                 color: #eaeaea;
                 border-top-left-radius: 0.3rem;
@@ -64,11 +64,19 @@
 
             &.pageLinkPrev {
                 margin-right: 1.7rem;
+
+                svg {
+                    margin-right: 1rem;
+                }
             }
             &.pageLinkNext {
                 border-top-right-radius: 0.3rem;
                 border-bottom-right-radius: 0.3rem;
                 margin-left: 1.8rem;
+
+                svg {
+                    margin-left: 1rem;
+                }
             }
         }
     }

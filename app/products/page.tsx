@@ -8,9 +8,10 @@ import { getColors } from "../api/colors";
 import { getBrands } from "../api/brands";
 import { PageProps } from "@/.next/types/app/page";
 import { getServerCookie } from "@/helpers/getServerCookie";
-import { CurrencyType } from "@/types/currency.type";
+import { Currency } from "@/types/currency.type";
+import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 
-const breadcrumbItems = [
+const breadcrumbs: Breadcrumb[] = [
     {
         title: "Home",
         link: "/",
@@ -26,7 +27,7 @@ const breadcrumbItems = [
 ];
 
 const Products = async ({ searchParams }: PageProps) => {
-    const currency = getServerCookie("currency") as CurrencyType;
+    const currency = getServerCookie("currency") as Currency;
 
     const categorySlugs = searchParams.categories
         ? searchParams.categories.split(",")
@@ -38,21 +39,21 @@ const Products = async ({ searchParams }: PageProps) => {
         ? searchParams.brands.split(",")
         : undefined;
 
-    const page = Number(searchParams.page) || undefined;
+    const pageNumber = Number(searchParams.page) || undefined;
     const sortBy = searchParams.sortBy || undefined;
     const color = searchParams.color || undefined;
     const priceFrom = searchParams.priceFrom || undefined;
     const priceTo = searchParams.priceTo || undefined;
 
     const [
-        productsResponse,
-        categoriesResponse,
-        sizesResponse,
-        colorsResponse,
-        brandsResponse,
+        getProductsResponseServer,
+        getCategoriesResponseServer,
+        getSizesResponseServer,
+        getColorsResponseServer,
+        getBrandsResponseServer,
     ] = await Promise.all([
         getProducts({
-            page,
+            pageNumber,
             limit: 9,
             sortBy,
             categorySlugs,
@@ -72,14 +73,14 @@ const Products = async ({ searchParams }: PageProps) => {
     return (
         <>
             <PageHeader title="List" subtitle="Shop" />
-            <Breadcrumbs links={breadcrumbItems} />
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <ProductsPageContent
-                productsResponse={productsResponse}
-                categoriesResponse={categoriesResponse}
-                sizesResponse={sizesResponse}
-                colorsResponse={colorsResponse}
-                brandsResponse={brandsResponse}
-                serverCurrency={currency}
+                getProductsResponseServer={getProductsResponseServer}
+                getCategoriesResponseServer={getCategoriesResponseServer}
+                getSizesResponseServer={getSizesResponseServer}
+                getColorsResponseServer={getColorsResponseServer}
+                getBrandsResponseServer={getBrandsResponseServer}
+                currency={currency}
             />
         </>
     );

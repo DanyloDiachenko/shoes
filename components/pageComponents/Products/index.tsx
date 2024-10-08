@@ -11,56 +11,56 @@ import { getProducts } from "@/app/api/products";
 import styles from "./styles.module.scss";
 
 export const ProductsPageContent = ({
-    productsResponse,
-    categoriesResponse,
-    sizesResponse,
-    colorsResponse,
-    brandsResponse,
-    serverCurrency,
+    getProductsResponseServer,
+    getCategoriesResponseServer,
+    getSizesResponseServer,
+    getColorsResponseServer,
+    getBrandsResponseServer,
+    currency,
 }: ProductsPageContentProps) => {
-    const [productsResponseClient, setProductsResponseClient] =
-        useState<GetProductsResponse>(productsResponse);
+    const [getProductsResponseClient, setGetProductsResponseClient] =
+        useState<GetProductsResponse>(getProductsResponseServer);
     const [isFirstRender, setIsFirstRender] = useState(true);
 
     const currentPage = useSelector(
-        (state: RootState) => state.products.pagination.currentPage
+        (state: RootState) => state.productsSettings.pagination.currentPage
     );
     const sortBy = useSelector(
-        (state: RootState) => state.products.filters.sortBy
+        (state: RootState) => state.productsSettings.filters.sortBy
     );
     const selectedCategories = useSelector(
-        (state: RootState) => state.products.filters.categories
+        (state: RootState) => state.productsSettings.filters.categories
     );
     const selectedSizes = useSelector(
-        (state: RootState) => state.products.filters.sizes
+        (state: RootState) => state.productsSettings.filters.sizes
     );
     const selectedColor = useSelector(
-        (state: RootState) => state.products.filters.color
+        (state: RootState) => state.productsSettings.filters.color
     );
     const selectedBrands = useSelector(
-        (state: RootState) => state.products.filters.brands
+        (state: RootState) => state.productsSettings.filters.brands
     );
-    const price = useSelector((state: RootState) =>
-        serverCurrency === "uah"
-            ? state.products.filters.priceUah
-            : state.products.filters.priceEur
+    const priceRange = useSelector((state: RootState) =>
+        currency === "uah"
+            ? state.productsSettings.filters.priceUah
+            : state.productsSettings.filters.priceEur
     );
 
     const fetchProducts = async () => {
-        const productsResponse = await getProducts({
-            page: currentPage,
+        const getProductsResponse = await getProducts({
+            pageNumber: currentPage,
             limit: 9,
             sortBy: sortBy,
             categorySlugs: selectedCategories.map((category) => category.slug),
             sizeSlugs: selectedSizes.map((size) => String(size.slug)),
             colorSlug: selectedColor?.slug,
             brandSlugs: selectedBrands.map((brand) => brand.slug),
-            currency: serverCurrency,
-            priceFrom: price.min,
-            priceTo: price.max,
+            currency: currency,
+            priceFrom: priceRange.min,
+            priceTo: priceRange.max,
         });
 
-        setProductsResponseClient(productsResponse);
+        setGetProductsResponseClient(getProductsResponse);
     };
 
     useEffect(() => {
@@ -76,31 +76,37 @@ export const ProductsPageContent = ({
         selectedColor,
         selectedBrands,
         sortBy,
-        price.min,
-        price.max,
+        priceRange.min,
+        priceRange.max,
     ]);
+
+    const renderProductsOrNoResults = () => {
+        if (getProductsResponseClient.data.length) {
+            return (
+                <ProductList
+                    getProductsResponseServer={getProductsResponseClient}
+                    currency={currency}
+                />
+            );
+        } else {
+            return <h2 className={styles.notFound}>No results found</h2>;
+        }
+    };
 
     return (
         <div className="page-content">
             <div className="container">
                 <div className="row">
                     <Filters
-                        categoriesResponse={categoriesResponse}
-                        sizesResponse={sizesResponse}
-                        colorsResponse={colorsResponse}
-                        brandsResponse={brandsResponse}
-                        serverCurrency={serverCurrency}
+                        getCategoriesResponseServer={
+                            getCategoriesResponseServer
+                        }
+                        getSizesResponseServer={getSizesResponseServer}
+                        getColorsResponseServer={getColorsResponseServer}
+                        getBrandsResponseServer={getBrandsResponseServer}
+                        currency={currency}
                     />
-                    {productsResponseClient.data.length ? (
-                        <>
-                            <ProductList
-                                productsResponse={productsResponseClient}
-                                serverCurrency={serverCurrency}
-                            />
-                        </>
-                    ) : (
-                        <h2 className={styles.notFound}>No results found</h2>
-                    )}
+                    {renderProductsOrNoResults()}
                 </div>
             </div>
         </div>

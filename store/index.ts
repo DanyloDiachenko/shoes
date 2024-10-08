@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { openedPopupSlice } from "./slices/openedPopup";
-import { productsSlice } from "./slices/products";
+import { productsSettingsSlice } from "./slices/productsSettings";
 import { toogleLocalStorageSlice } from "./slices/toogleLocalStorage";
 import { productToCartSlice } from "./slices/productToCart";
 
 export const store = configureStore({
     reducer: {
         openedPopup: openedPopupSlice.reducer,
-        products: productsSlice.reducer,
+        productsSettings: productsSettingsSlice.reducer,
         toogleLocalStorage: toogleLocalStorageSlice.reducer,
         productToCart: productToCartSlice.reducer,
     },

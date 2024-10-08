@@ -1,29 +1,28 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Brand } from "./Brand";
-import { Category } from "./Category";
-import { Color } from "./Color";
-import { Price } from "./Price";
+import { Brands } from "./Brands";
+import { Categories } from "./Categories";
+import { Colors } from "./Colors";
+import { PriceRange } from "./PriceRange";
 import { Size } from "./Size";
 import styles from "./styles.module.scss";
 import { FiltersProps } from "./filters.props";
-import { CleanAll } from "./CleanAll";
+import { CleanAllFilters } from "./CleanAllFilters";
 
 export const Filters = ({
-    categoriesResponse,
-    sizesResponse,
-    colorsResponse,
-    brandsResponse,
-    serverCurrency,
+    getBrandsResponseServer,
+    getCategoriesResponseServer,
+    getColorsResponseServer,
+    getSizesResponseServer,
+    currency,
 }: FiltersProps) => {
     return (
         <aside className={styles.column}>
             <div className={styles.sidebar}>
-                <CleanAll />
-                <Category allCategories={categoriesResponse} />
-                <Size allSizes={sizesResponse} />
-                <Color allColors={colorsResponse} />
-                <Brand allBrands={brandsResponse} />
-                <Price serverCurrency={serverCurrency} />
+                <CleanAllFilters />
+                <Categories categories={getCategoriesResponseServer} />
+                <Size sizes={getSizesResponseServer} />
+                <Colors colors={getColorsResponseServer} />
+                <Brands brands={getBrandsResponseServer} />
+                <PriceRange currency={currency} />
             </div>
         </aside>
     );

@@ -1,1 +1,1 @@
-export type SortProductsByType = "mostPopular" | "mostRated" | "date";
+export type SortProductsBy = "mostPopular" | "mostRated" | "date";

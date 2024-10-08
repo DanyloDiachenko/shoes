@@ -1,5 +1,5 @@
-import { IProductSize } from "@/interfaces/product.interface";
+import { ProductSize } from "@/interfaces/product.interface";
 
 export interface SizeProps {
-    allSizes: IProductSize[];
+    sizes: ProductSize[];
 }

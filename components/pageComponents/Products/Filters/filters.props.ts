@@ -1,15 +1,15 @@
 import {
-    IProductBrand,
-    IProductCategoryWithProductsQuantity,
-    IProductColor,
-    IProductSize,
+    ProductBrand,
+    ProductCategoryWithProductsQuantity,
+    ProductColor,
+    ProductSize,
 } from "@/interfaces/product.interface";
-import { CurrencyType } from "@/types/currency.type";
+import { Currency } from "@/types/currency.type";
 
 export interface FiltersProps {
-    categoriesResponse: IProductCategoryWithProductsQuantity[];
-    sizesResponse: IProductSize[];
-    colorsResponse: IProductColor[];
-    brandsResponse: IProductBrand[];
-    serverCurrency: CurrencyType;
+    getCategoriesResponseServer: ProductCategoryWithProductsQuantity[];
+    getSizesResponseServer: ProductSize[];
+    getColorsResponseServer: ProductColor[];
+    getBrandsResponseServer: ProductBrand[];
+    currency: Currency;
 }

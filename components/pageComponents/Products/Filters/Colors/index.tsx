@@ -3,29 +3,29 @@
 import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { useState } from "react";
-import { ColorProps } from "./colour.props";
+import { ColorsProps } from "./colors.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { IProductColor } from "@/interfaces/product.interface";
-import { setColor } from "@/store/slices/products";
+import { ProductColor } from "@/interfaces/product.interface";
+import { setColor } from "@/store/slices/productsSettings";
 
-export const Color = ({ allColors }: ColorProps) => {
+export const Colors = ({ colors }: ColorsProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
     const selectedColor = useSelector(
-        (state: RootState) => state.products.filters.color
+        (state: RootState) => state.productsSettings.filters.color
     );
 
-    const setColorHandler = (color: IProductColor | null) => {
+    const setSelectedColorHandler = (color: ProductColor | null) => {
         dispatch(setColor(color));
     };
 
-    const onColorClick = (color: IProductColor) => {
+    const onColorClick = (color: ProductColor) => {
         if (selectedColor?.id === color.id) {
-            setColorHandler(null);
+            setSelectedColorHandler(null);
         } else {
-            setColorHandler(color);
+            setSelectedColorHandler(color);
         }
     };
 
@@ -51,7 +51,7 @@ export const Color = ({ allColors }: ColorProps) => {
             >
                 <div className={styles.widgetBody}>
                     <div className={styles.filterColors}>
-                        {allColors.map((color) => (
+                        {colors.map((color) => (
                             <div
                                 className={
                                     selectedColor?.id === color.id
