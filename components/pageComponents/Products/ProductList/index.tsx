@@ -11,8 +11,8 @@ export const ProductList = ({
     return (
         <div className={styles.column}>
             <Toolbox
-                total={getProductsResponseServer.total}
-                count={getProductsResponseServer.count}
+                totalProductsNumber={getProductsResponseServer.total}
+                showingProductsNumber={getProductsResponseServer.count}
             />
             <div className="products mb-3">
                 {getProductsResponseServer.data.map((product) => (
