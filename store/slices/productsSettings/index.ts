@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProductsSettingsState } from "./productsFiltersState.interface";
+import { ProductsSettingsState } from "./productsSettingsState.interface";
 import {
     ProductBrand,
     ProductCategoryWithProductsQuantity,
