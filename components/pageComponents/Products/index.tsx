@@ -11,15 +11,15 @@ import { getProducts } from "@/app/api/products";
 import styles from "./styles.module.scss";
 
 export const ProductsPageContent = ({
-    productsResponse,
-    categoriesResponse,
-    sizesResponse,
-    colorsResponse,
-    brandsResponse,
+    getProductsResponseServer,
+    getCategoriesResponseServer,
+    getSizesResponseServer,
+    getColorsResponseServer,
+    getBrandsResponseServer,
     currency,
 }: ProductsPageContentProps) => {
-    const [productsResponseClient, setProductsResponseClient] =
-        useState<GetProductsResponse>(productsResponse);
+    const [getProductsResponseClient, setGetProductsResponseClient] =
+        useState<GetProductsResponse>(getProductsResponseServer);
     const [isFirstRender, setIsFirstRender] = useState(true);
 
     const currentPage = useSelector(
@@ -60,7 +60,7 @@ export const ProductsPageContent = ({
             priceTo: priceRange.max,
         });
 
-        setProductsResponseClient(productsResponse);
+        setGetProductsResponseClient(productsResponse);
     };
 
     useEffect(() => {
@@ -85,16 +85,16 @@ export const ProductsPageContent = ({
             <div className="container">
                 <div className="row">
                     <Filters
-                        categoriesResponse={categoriesResponse}
-                        sizesResponse={sizesResponse}
-                        colorsResponse={colorsResponse}
-                        brandsResponse={brandsResponse}
-                        serverCurrency={currency}
+                        categoriesResponse={getCategoriesResponseServer}
+                        sizesResponse={getSizesResponseServer}
+                        colorsResponse={getColorsResponseServer}
+                        brandsResponse={getBrandsResponseServer}
+                        currency={currency}
                     />
-                    {productsResponseClient.data.length ? (
+                    {getProductsResponseClient.data.length ? (
                         <>
                             <ProductList
-                                productsResponse={productsResponseClient}
+                                getProductsResponse={getProductsResponseClient}
                                 currency={currency}
                             />
                         </>

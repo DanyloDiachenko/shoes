@@ -46,7 +46,7 @@ const Products = async ({ searchParams }: PageProps) => {
     const priceTo = searchParams.priceTo || undefined;
 
     const [
-        productsResponse,
+        getProductsResponseServer,
         categoriesResponse,
         sizesResponse,
         colorsResponse,
@@ -75,7 +75,7 @@ const Products = async ({ searchParams }: PageProps) => {
             <PageHeader title="List" subtitle="Shop" />
             <Breadcrumbs breadcrumbs={breadcrumbs} />
             <ProductsPageContent
-                productsResponse={productsResponse}
+                getProductsResponseServer={getProductsResponseServer}
                 categoriesResponse={categoriesResponse}
                 sizesResponse={sizesResponse}
                 colorsResponse={colorsResponse}
