@@ -47,7 +47,7 @@ export const ProductsPageContent = ({
     );
 
     const fetchProducts = async () => {
-        const productsResponse = await getProducts({
+        const getProductsResponse = await getProducts({
             pageNumber: currentPage,
             limit: 9,
             sortBy: sortBy,
@@ -60,7 +60,7 @@ export const ProductsPageContent = ({
             priceTo: priceRange.max,
         });
 
-        setGetProductsResponseClient(productsResponse);
+        setGetProductsResponseClient(getProductsResponse);
     };
 
     useEffect(() => {
