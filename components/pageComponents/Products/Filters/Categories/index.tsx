@@ -4,13 +4,13 @@ import { IoIosArrowDown } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Checkbox } from "@/components/UI/Checkbox";
-import { CategoryProps } from "./category.props";
-import { IProductCategoryWithProductsQuantity } from "@/interfaces/product.interface";
+import { CategoriesProps } from "./categories.props";
+import { ProductCategoryWithProductsQuantity } from "@/interfaces/product.interface";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { setCategories } from "@/store/slices/products";
 
-export const Category = ({ allCategories }: CategoryProps) => {
+export const Categories = ({ allCategories }: CategoriesProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
@@ -18,25 +18,23 @@ export const Category = ({ allCategories }: CategoryProps) => {
         (state: RootState) => state.products.filters.categories
     );
 
-    const setCategoriesHandler = (
-        categories: IProductCategoryWithProductsQuantity[]
+    const setSelectedCategoriesHandler = (
+        categories: ProductCategoryWithProductsQuantity[]
     ) => {
         dispatch(setCategories(categories));
     };
 
-    const onCategoryClick = (
-        category: IProductCategoryWithProductsQuantity
-    ) => {
+    const onCategoryClick = (category: ProductCategoryWithProductsQuantity) => {
         const existingCategory = selectedCategories.find(
             (cat) => cat.id === category.id
         );
 
         if (existingCategory) {
-            setCategoriesHandler(
+            setSelectedCategoriesHandler(
                 selectedCategories.filter((cat) => cat.id !== category.id)
             );
         } else {
-            setCategoriesHandler([...selectedCategories, category]);
+            setSelectedCategoriesHandler([...selectedCategories, category]);
         }
     };
 
