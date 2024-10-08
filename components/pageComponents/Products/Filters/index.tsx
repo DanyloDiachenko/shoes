@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Brands } from "./Brands";
-import { Category } from "./Category";
+import { Category } from "./Categories";
 import { Color } from "./Color";
 import { Price } from "./Price";
 import { Size } from "./Size";

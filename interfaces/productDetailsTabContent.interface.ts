@@ -1,6 +1,6 @@
 import { ProductDetailsTabType } from "@/types/productDetailsTab.type";
 
-export interface IProductDetailsTabContent {
+export interface ProductDetailsTabContent {
     key: ProductDetailsTabType;
     title: string;
     content: React.ReactNode;

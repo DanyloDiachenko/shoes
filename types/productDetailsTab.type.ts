@@ -1,4 +1,4 @@
-export type ProductDetailsTabType =
+export type ProductDetailsTab =
     | "description"
     | "additionalInfo"
     | "shippingReturns"
