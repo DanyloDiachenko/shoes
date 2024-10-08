@@ -47,10 +47,10 @@ const Products = async ({ searchParams }: PageProps) => {
 
     const [
         getProductsResponseServer,
-        categoriesResponse,
-        sizesResponse,
-        colorsResponse,
-        brandsResponse,
+        getCategoriesResponseServer,
+        getSizesResponseServer,
+        getColorsResponseServer,
+        getBrandsResponseServer,
     ] = await Promise.all([
         getProducts({
             pageNumber,
@@ -76,10 +76,10 @@ const Products = async ({ searchParams }: PageProps) => {
             <Breadcrumbs breadcrumbs={breadcrumbs} />
             <ProductsPageContent
                 getProductsResponseServer={getProductsResponseServer}
-                categoriesResponse={categoriesResponse}
-                sizesResponse={sizesResponse}
-                colorsResponse={colorsResponse}
-                brandsResponse={brandsResponse}
+                getCategoriesResponseServer={getCategoriesResponseServer}
+                getSizesResponseServer={getSizesResponseServer}
+                getColorsResponseServer={getColorsResponseServer}
+                getBrandsResponseServer={getBrandsResponseServer}
                 currency={currency}
             />
         </>
