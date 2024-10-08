@@ -2,6 +2,6 @@ import { GetProductsResponse } from "@/interfaces/responses";
 import { Currency } from "@/types/currency.type";
 
 export interface ProductListProps {
-    getProductsResponse: GetProductsResponse;
-    currency: CurrencyType;
+    getProductsResponseServer: GetProductsResponse;
+    currency: Currency;
 }

@@ -80,27 +80,33 @@ export const ProductsPageContent = ({
         priceRange.max,
     ]);
 
+    const renderProductsOrNoResults = () => {
+        if (getProductsResponseClient.data.length) {
+            return (
+                <ProductList
+                    getProductsResponseServer={getProductsResponseClient}
+                    currency={currency}
+                />
+            );
+        } else {
+            return <h2 className={styles.notFound}>No results found</h2>;
+        }
+    };
+
     return (
         <div className="page-content">
             <div className="container">
                 <div className="row">
                     <Filters
-                        categoriesResponse={getCategoriesResponseServer}
-                        sizesResponse={getSizesResponseServer}
-                        colorsResponse={getColorsResponseServer}
-                        brandsResponse={getBrandsResponseServer}
+                        getCategoriesResponseServer={
+                            getCategoriesResponseServer
+                        }
+                        getSizesResponseServer={getSizesResponseServer}
+                        getColorsResponseServer={getColorsResponseServer}
+                        getBrandsResponseServer={getBrandsResponseServer}
                         currency={currency}
                     />
-                    {getProductsResponseClient.data.length ? (
-                        <>
-                            <ProductList
-                                getProductsResponse={getProductsResponseClient}
-                                currency={currency}
-                            />
-                        </>
-                    ) : (
-                        <h2 className={styles.notFound}>No results found</h2>
-                    )}
+                    {renderProductsOrNoResults()}
                 </div>
             </div>
         </div>
