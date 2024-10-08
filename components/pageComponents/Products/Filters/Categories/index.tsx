@@ -15,7 +15,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
 
     const dispatch = useDispatch();
     const selectedCategories = useSelector(
-        (state: RootState) => state.products.filters.categories
+        (state: RootState) => state.productsSettings.filters.categories
     );
 
     const setSelectedCategoriesHandler = (
