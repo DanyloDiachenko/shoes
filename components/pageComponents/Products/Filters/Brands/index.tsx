@@ -15,7 +15,7 @@ export const Brands = ({ brands }: BrandsProps) => {
 
     const dispatch = useDispatch();
     const selectedBrands = useSelector(
-        (state: RootState) => state.products.filters.brands
+        (state: RootState) => state.productsSettings.filters.brands
     );
 
     const setBrandsHandler = (brands: ProductBrand[]) => {
