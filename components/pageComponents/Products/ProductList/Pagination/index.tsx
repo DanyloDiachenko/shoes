@@ -5,6 +5,8 @@ import { PaginationProps } from "./pagination.props";
 import styles from "./styles.module.scss";
 import { RootState } from "@/store";
 import { setCurrentPage } from "@/store/slices/products";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 export const Pagination = ({ totalPages }: PaginationProps) => {
     const dispatch = useDispatch();
@@ -12,7 +14,7 @@ export const Pagination = ({ totalPages }: PaginationProps) => {
         (state: RootState) => state.products.pagination.currentPage
     );
 
-    const handlePageChange = (page: number) => {
+    const onPageChange = (page: number) => {
         if (page >= 1 && page <= totalPages) {
             dispatch(setCurrentPage(page));
         }
@@ -26,22 +28,18 @@ export const Pagination = ({ totalPages }: PaginationProps) => {
                         currentPage === 1 ? styles.inactive : ""
                     }`}
                 >
-                    <a
+                    <button
                         className={`${styles.pageLink} ${styles.pageLinkPrev}`}
-                        href="#"
                         aria-label="Previous"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            handlePageChange(currentPage - 1);
+                        onClick={() => {
+                            onPageChange(currentPage - 1);
                         }}
                         tabIndex={currentPage === 1 ? -1 : 0}
                         aria-disabled={currentPage === 1}
                     >
-                        <span aria-hidden="true">
-                            <i className="icon-long-arrow-left"></i>
-                        </span>
+                        <FaArrowLeftLong />
                         Prev
-                    </a>
+                    </button>
                 </li>
                 {Array.from({ length: totalPages }, (_, index) => (
                     <li
@@ -53,16 +51,14 @@ export const Pagination = ({ totalPages }: PaginationProps) => {
                             currentPage === index + 1 ? "page" : undefined
                         }
                     >
-                        <a
+                        <button
                             className={styles.pageLink}
-                            href="#"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                handlePageChange(index + 1);
+                            onClick={() => {
+                                onPageChange(index + 1);
                             }}
                         >
                             {index + 1}
-                        </a>
+                        </button>
                     </li>
                 ))}
                 <li
@@ -70,22 +66,17 @@ export const Pagination = ({ totalPages }: PaginationProps) => {
                         currentPage === totalPages ? styles.inactive : ""
                     }`}
                 >
-                    <a
+                    <button
                         className={`${styles.pageLink} ${styles.pageLinkNext}`}
-                        href="#"
                         aria-label="Next"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            handlePageChange(currentPage + 1);
+                        onClick={() => {
+                            onPageChange(currentPage + 1);
                         }}
                         tabIndex={currentPage === totalPages ? -1 : 0}
                         aria-disabled={currentPage === totalPages}
                     >
-                        Next{" "}
-                        <span aria-hidden="true">
-                            <i className="icon-long-arrow-right"></i>
-                        </span>
-                    </a>
+                        Next <FaArrowRightLong />
+                    </button>
                 </li>
             </ul>
         </nav>
