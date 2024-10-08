@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import { useState } from "react";
 import InputRange, { Range } from "react-input-range";
 import { useDispatch } from "react-redux";
-import { setPriceEur, setPriceUah } from "@/store/slices/products";
+import { setPriceEur, setPriceUah } from "@/store/slices/productsSettings";
 import { PriceRangeProps } from "./priceRange.props";
 
 export const PriceRange = ({ currency }: PriceRangeProps) => {

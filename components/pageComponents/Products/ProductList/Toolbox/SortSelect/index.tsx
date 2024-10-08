@@ -4,7 +4,7 @@ import { Select } from "@/components/UI/Select";
 import { SelectOption } from "@/interfaces/selectOption.interface";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setSortBy } from "@/store/slices/products";
+import { setSortBy } from "@/store/slices/productsSettings";
 import { SortProductsBy } from "@/types/sortProductsBy.type";
 
 const sortOptions: SelectOption[] = [

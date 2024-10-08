@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IProductsState } from "./productsState.interface";
+import { ProductsSettingsState } from "./productsFiltersState.interface";
 import {
-    IProductBrand,
-    IProductCategoryWithProductsQuantity,
-    IProductColor,
-    IProductSize,
+    ProductBrand,
+    ProductCategoryWithProductsQuantity,
+    ProductColor,
+    ProductSize,
 } from "@/interfaces/product.interface";
-import { SortProductsByType } from "@/types/sortProductsBy.type";
+import { SortProductsBy } from "@/types/sortProductsBy.type";
 import { Range } from "react-input-range";
 
-const initialState: IProductsState = {
+const initialState: ProductsSettingsState = {
     pagination: {
         currentPage: 1,
         totalPages: 1,
@@ -31,8 +31,8 @@ const initialState: IProductsState = {
     },
 };
 
-export const productsSlice = createSlice({
-    name: "products",
+export const productsSettingsSlice = createSlice({
+    name: "productsSettings",
     initialState,
     reducers: {
         setCurrentPage: (state, action: PayloadAction<number>) => {
@@ -43,17 +43,17 @@ export const productsSlice = createSlice({
         },
         setCategories: (
             state,
-            action: PayloadAction<IProductCategoryWithProductsQuantity[]>
+            action: PayloadAction<ProductCategoryWithProductsQuantity[]>
         ) => {
             state.filters.categories = action.payload;
         },
-        setSizes: (state, action: PayloadAction<IProductSize[]>) => {
+        setSizes: (state, action: PayloadAction<ProductSize[]>) => {
             state.filters.sizes = action.payload;
         },
-        setColor: (state, action: PayloadAction<IProductColor | null>) => {
+        setColor: (state, action: PayloadAction<ProductColor | null>) => {
             state.filters.color = action.payload;
         },
-        setBrands: (state, action: PayloadAction<IProductBrand[]>) => {
+        setBrands: (state, action: PayloadAction<ProductBrand[]>) => {
             state.filters.brands = action.payload;
         },
         setPriceUah: (state, action: PayloadAction<Range>) => {
@@ -62,7 +62,7 @@ export const productsSlice = createSlice({
         setPriceEur: (state, action: PayloadAction<Range>) => {
             state.filters.priceEur = action.payload;
         },
-        setSortBy: (state, action: PayloadAction<SortProductsByType>) => {
+        setSortBy: (state, action: PayloadAction<SortProductsBy>) => {
             state.filters.sortBy = action.payload;
         },
     },
@@ -78,4 +78,4 @@ export const {
     setPriceEur,
     setPriceUah,
     setSortBy,
-} = productsSlice.actions;
+} = productsSettingsSlice.actions;

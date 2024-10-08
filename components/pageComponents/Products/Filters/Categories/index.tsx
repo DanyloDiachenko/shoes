@@ -8,7 +8,7 @@ import { CategoriesProps } from "./categories.props";
 import { ProductCategoryWithProductsQuantity } from "@/interfaces/product.interface";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { setCategories } from "@/store/slices/products";
+import { setCategories } from "@/store/slices/productsSettings";
 
 export const Categories = ({ categories }: CategoriesProps) => {
     const [isOpened, setIsOpened] = useState(true);

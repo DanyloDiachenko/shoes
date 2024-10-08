@@ -23,27 +23,27 @@ export const ProductsPageContent = ({
     const [isFirstRender, setIsFirstRender] = useState(true);
 
     const currentPage = useSelector(
-        (state: RootState) => state.products.pagination.currentPage
+        (state: RootState) => state.productsSettings.pagination.currentPage
     );
     const sortBy = useSelector(
-        (state: RootState) => state.products.filters.sortBy
+        (state: RootState) => state.productsSettings.filters.sortBy
     );
     const selectedCategories = useSelector(
-        (state: RootState) => state.products.filters.categories
+        (state: RootState) => state.productsSettings.filters.categories
     );
     const selectedSizes = useSelector(
-        (state: RootState) => state.products.filters.sizes
+        (state: RootState) => state.productsSettings.filters.sizes
     );
     const selectedColor = useSelector(
-        (state: RootState) => state.products.filters.color
+        (state: RootState) => state.productsSettings.filters.color
     );
     const selectedBrands = useSelector(
-        (state: RootState) => state.products.filters.brands
+        (state: RootState) => state.productsSettings.filters.brands
     );
     const priceRange = useSelector((state: RootState) =>
         currency === "uah"
-            ? state.products.filters.priceUah
-            : state.products.filters.priceEur
+            ? state.productsSettings.filters.priceUah
+            : state.productsSettings.filters.priceEur
     );
 
     const fetchProducts = async () => {

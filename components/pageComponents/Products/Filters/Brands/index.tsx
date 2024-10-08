@@ -8,7 +8,7 @@ import { BrandsProps } from "./brands.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { ProductBrand } from "@/interfaces/product.interface";
-import { setBrands } from "@/store/slices/products";
+import { setBrands } from "@/store/slices/productsSettings";
 
 export const Brands = ({ brands }: BrandsProps) => {
     const [isOpened, setIsOpened] = useState(true);

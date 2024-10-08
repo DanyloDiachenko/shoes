@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { PaginationProps } from "./pagination.props";
 import styles from "./styles.module.scss";
 import { RootState } from "@/store";
-import { setCurrentPage } from "@/store/slices/products";
+import { setCurrentPage } from "@/store/slices/productsSettings";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 export const Pagination = ({ totalPages }: PaginationProps) => {
     const dispatch = useDispatch();
     const currentPage = useSelector(
-        (state: RootState) => state.products.pagination.currentPage
+        (state: RootState) => state.productsSettings.pagination.currentPage
     );
 
     const totalPagesArray = Array.from({ length: totalPages });

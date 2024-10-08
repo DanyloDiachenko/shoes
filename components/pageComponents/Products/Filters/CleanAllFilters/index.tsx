@@ -8,7 +8,7 @@ import {
     setPriceUah,
     setSizes,
     setSortBy,
-} from "@/store/slices/products";
+} from "@/store/slices/productsSettings";
 
 export const CleanAllFilters = () => {
     const dispatch = useDispatch();

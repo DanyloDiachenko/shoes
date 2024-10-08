@@ -7,14 +7,14 @@ import { ColorsProps } from "./colors.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { ProductColor } from "@/interfaces/product.interface";
-import { setColor } from "@/store/slices/products";
+import { setColor } from "@/store/slices/productsSettings";
 
 export const Colors = ({ colors }: ColorsProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
     const selectedColor = useSelector(
-        (state: RootState) => state.products.filters.color
+        (state: RootState) => state.productsSettings.filters.color
     );
 
     const setSelectedColorHandler = (color: ProductColor | null) => {

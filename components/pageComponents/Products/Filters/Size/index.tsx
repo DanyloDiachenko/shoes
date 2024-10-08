@@ -8,14 +8,14 @@ import { SizeProps } from "./sizes.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { ProductSize } from "@/interfaces/product.interface";
-import { setSizes } from "@/store/slices/products";
+import { setSizes } from "@/store/slices/productsSettings";
 
 export const Size = ({ sizes }: SizeProps) => {
     const [isOpened, setIsOpened] = useState(true);
 
     const dispatch = useDispatch();
     const selectedSizes = useSelector(
-        (state: RootState) => state.products.filters.sizes
+        (state: RootState) => state.productsSettings.filters.sizes
     );
 
     const setSizesHandler = (sizes: ProductSize[]) => {
