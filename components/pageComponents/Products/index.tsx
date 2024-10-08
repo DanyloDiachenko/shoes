@@ -95,7 +95,7 @@ export const ProductsPageContent = ({
                         <>
                             <ProductList
                                 productsResponse={productsResponseClient}
-                                serverCurrency={currency}
+                                currency={currency}
                             />
                         </>
                     ) : (

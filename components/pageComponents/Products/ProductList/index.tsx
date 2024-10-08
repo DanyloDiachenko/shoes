@@ -6,10 +6,7 @@ import { ProductListProps } from "./productList.props";
 import styles from "./styles.module.scss";
 import { Toolbox } from "./Toolbox";
 
-export const ProductList = ({
-    productsResponse,
-    serverCurrency,
-}: ProductListProps) => {
+export const ProductList = ({ productsResponse, currency }: ProductListProps) => {
     return (
         <div className={styles.column}>
             <Toolbox
@@ -21,7 +18,7 @@ export const ProductList = ({
                     <Product
                         key={product.id}
                         {...product}
-                        serverCurrency={serverCurrency}
+                        currency={currency}
                     />
                 ))}
             </div>
