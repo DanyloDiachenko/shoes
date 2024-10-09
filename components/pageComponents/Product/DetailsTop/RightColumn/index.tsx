@@ -9,8 +9,6 @@ import { RightColumnProps } from "./rightColumn.props";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 
 export const RightColumn = ({ product }: RightColumnProps) => {
-    const cookieProducts = getCookieProductsServer() || [];
-
     return (
         <div className={styles.columnRight}>
             <div className={styles.details}>
@@ -18,7 +16,7 @@ export const RightColumn = ({ product }: RightColumnProps) => {
                 <Colors product={product} />
                 <Sizes product={product} />
                 <Quantity product={product} />
-                <Actions product={product} cookieProducts={cookieProducts} />
+                <Actions product={product} />
                 <Bottom product={product} />
             </div>
         </div>

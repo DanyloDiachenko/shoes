@@ -1,3 +1,5 @@
+"use client";
+
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
@@ -11,8 +13,12 @@ import { setProductToCart } from "@/store/slices/productToCart";
 import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
 import { toast } from "react-toastify";
 import { setCookie } from "@/helpers/setCookie";
+import { LiaCartPlusSolid } from "react-icons/lia";
 
-export const AddProductToCart = ({ cookieProducts }: AddProductToCartProps) => {
+export const AddProductToCart = ({
+    cookieProducts,
+    product,
+}: AddProductToCartProps) => {
     const dispatch = useDispatch();
     const localStorageToogler = useSelector(
         (state: RootState) => state.toogleLocalStorage.value
