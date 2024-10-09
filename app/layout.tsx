@@ -4,9 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { Noto_Sans } from "next/font/google";
 import { StoreProvider } from "@/store/StoreProvider";
 import { Footer } from "@/components/common/Footer";
-import { Product } from "@/interfaces/product.interface";
-import { getProduct } from "./api/products";
-import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { LayoutProps } from "./layout.props";
 
 const notoSans = Noto_Sans({
@@ -15,28 +12,13 @@ const notoSans = Noto_Sans({
     display: "swap",
 });
 
-const RootLayout = async ({ children }: LayoutProps) => {
-    let cartProducts: Product[] = [];
-
-    const cookieProducts = getCookieProductsServer() || [];
-
-    if (cookieProducts?.length) {
-        for (let i = 0; i < cookieProducts.length; i++) {
-            const productToCart = await getProduct(cookieProducts[i].id);
-
-            cartProducts = [...cartProducts, productToCart];
-        }
-    }
-
+const RootLayout = ({ children }: LayoutProps) => {
     return (
         <html lang="en">
             <body className={notoSans.className}>
                 <StoreProvider>
                     <div className="page-wrapper">
-                        <Header
-                            cartProducts={cartProducts}
-                            cookieProducts={cookieProducts}
-                        />
+                        <Header cartProducts={[]} />
                         <main className="main">{children}</main>
                         <Footer />
                     </div>
