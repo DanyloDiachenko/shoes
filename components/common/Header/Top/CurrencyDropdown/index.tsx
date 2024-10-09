@@ -2,22 +2,22 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CurrencyType } from "../../../../../types/currency.type";
+import { Currency } from "../../../../../types/currency.type";
 import { setCookie } from "@/helpers/setCookie";
 import { CurrencyDropdownProps } from "./currencyDropdown.props";
 import styles from "./styles.module.scss";
 import { IoIosArrowDown } from "react-icons/io";
 
-export const CurrencyDropdown = ({ serverCurrency }: CurrencyDropdownProps) => {
-    const [currency, setCurrency] = useState<CurrencyType>(serverCurrency);
+export const CurrencyDropdown = ({ currency }: CurrencyDropdownProps) => {
+    const [currencyClient, setCurrencyClient] = useState<Currency>(currency);
 
-    const onCurrencyClick = (clickedCurrency: "uah" | "eur") => {
-        if (currency === clickedCurrency) {
+    const onCurrencyClick = (clickedCurrency: Currency) => {
+        if (currencyClient === clickedCurrency) {
             return;
         }
 
         setCookie("currency", clickedCurrency);
-        setCurrency(clickedCurrency);
+        setCurrencyClient(clickedCurrency);
 
         location.reload();
     };
@@ -25,7 +25,7 @@ export const CurrencyDropdown = ({ serverCurrency }: CurrencyDropdownProps) => {
     return (
         <div className={styles.headerDropdown}>
             <Link href="#" className={styles.active}>
-                {currency}
+                {currencyClient}
                 <IoIosArrowDown />
             </Link>
             <div className={styles.headerMenu}>

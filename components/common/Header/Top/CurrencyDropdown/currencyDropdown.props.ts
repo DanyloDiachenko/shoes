@@ -1,5 +1,5 @@
-import { CurrencyType } from "../../../../../types/currency.type";
+import { Currency } from "@/types/currency.type";
 
 export interface CurrencyDropdownProps {
-    serverCurrency: CurrencyType;
+    currency: Currency;
 }
