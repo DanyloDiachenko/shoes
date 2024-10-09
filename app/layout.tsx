@@ -5,10 +5,11 @@ import { Noto_Sans } from "next/font/google";
 import { StoreProvider } from "@/store/StoreProvider";
 import { Footer } from "@/components/common/Footer";
 import { getServerCookie } from "@/helpers/getServerCookie";
-import { IProductCookie } from "@/interfaces/productCookie.interface";
-import { IProduct } from "@/interfaces/product.interface";
-import { CurrencyType } from "@/types/currency.type";
+import { ProductCookie } from "@/interfaces/productCookie.interface";
+import { Product } from "@/interfaces/product.interface";
+import { Currency } from "@/types/currency.type";
 import { getProduct } from "./api/products";
+import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 
 const notoSans = Noto_Sans({
     weight: ["200", "300", "400", "500", "600", "700", "800"],
@@ -21,14 +22,11 @@ const RootLayout = async ({
 }: Readonly<{
     children: React.ReactNode;
 }>) => {
-    const currency = getServerCookie("currency") as CurrencyType;
-    const cartCookie: string | null = getServerCookie("cart");
+    const currency = getServerCookie("currency") as Currency;
 
-    let cartProducts: IProduct[] = [];
+    let cartProducts: Product[] = [];
 
-    const cookieProducts: IProductCookie[] = cartCookie?.length
-        ? JSON.parse(cartCookie)
-        : [];
+    const cookieProducts = getCookieProductsServer() || [];
 
     if (cookieProducts?.length) {
         for (let i = 0; i < cookieProducts.length; i++) {
