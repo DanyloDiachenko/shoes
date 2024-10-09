@@ -1,6 +1,6 @@
-import { IProduct } from "@/interfaces/product.interface";
-import { CurrencyType } from "@/types/currency.type";
+import { Product } from "@/interfaces/product.interface";
+import { Currency } from "@/types/currency.type";
 
-export interface ProductSlideProps extends IProduct {
-    serverCurrency: CurrencyType;
+export interface ProductSlideProps extends Product {
+    currency: Currency;
 }

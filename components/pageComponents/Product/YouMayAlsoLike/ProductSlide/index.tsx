@@ -8,6 +8,7 @@ import styles from "./styles.module.scss";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { ProductSlideProps } from "./productSlide.props";
 import { useState } from "react";
+import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const ProductSlide = ({
     mainCategory,
@@ -19,7 +20,7 @@ export const ProductSlide = ({
     priceEur,
     reviews,
     images,
-    serverCurrency,
+    currency,
 }: ProductSlideProps) => {
     const [activeImage, setActiveImage] = useState<string>(mainImage);
 
@@ -63,9 +64,7 @@ export const ProductSlide = ({
                     <Link href={`/products/${id}`}>{title}</Link>
                 </h3>
                 <div className={styles.price}>
-                    {serverCurrency === "uah"
-                        ? `₴${priceUah.toFixed(2)}`
-                        : `€${priceEur.toFixed(2)}`}
+                    {getProductPrice(priceUah, priceEur, currency)}
                 </div>
                 <div className={styles.ratingsContainer}>
                     {getProductRating(rating || 0)}
