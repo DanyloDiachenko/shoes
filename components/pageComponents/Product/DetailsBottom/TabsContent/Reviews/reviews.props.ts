@@ -1,5 +1,5 @@
-import { IProduct } from "@/interfaces/product.interface";
+import { Product, ProductReview } from "@/interfaces/product.interface";
 
 export interface ReviewsProps {
-    reviews: IProduct["reviews"];
+    reviews: ProductReview[];
 }

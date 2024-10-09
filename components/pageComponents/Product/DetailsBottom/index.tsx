@@ -4,13 +4,13 @@ import { useState } from "react";
 import styles from "./styles.module.scss";
 import { Reviews } from "./TabsContent/Reviews";
 import { TabTitles } from "./TabTitles";
-import { ProductDetailsTabType } from "@/types/productDetailsTab.type";
-import { IProductDetailsTabContent } from "@/interfaces/productDetailsTabContent.interface";
+import { ProductDetailsTab } from "@/types/productDetailsTab.type";
+import { ProductDetailsTabContent } from "@/interfaces/productDetailsTabContent.interface";
 import { DetailsBottomProps } from "./detailsBottom.props";
 import { ShippingReturns } from "./TabsContent/ShippingReturns";
 
 export const DetailsBottom = ({ product }: DetailsBottomProps) => {
-    const tabContent: IProductDetailsTabContent[] = [
+    const tabContent: ProductDetailsTabContent[] = [
         {
             key: "description",
             title: "Description",
@@ -46,14 +46,14 @@ export const DetailsBottom = ({ product }: DetailsBottomProps) => {
     ];
 
     const [activeTab, setActiveTab] =
-        useState<ProductDetailsTabType>("description");
+        useState<ProductDetailsTab>("description");
     const [isTransitioning, setIsTransitioning] = useState(false);
 
     const activeContent = tabContent.find(
         (tab) => tab.key === activeTab
     )?.content;
 
-    const handleTabChange = (tab: ProductDetailsTabType) => {
+    const handleTabChange = (tab: ProductDetailsTab) => {
         if (tab !== activeTab) {
             setIsTransitioning(true);
 
