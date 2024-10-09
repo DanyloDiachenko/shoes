@@ -7,7 +7,6 @@ import { getCurrency } from "@/helpers/getCurrency";
 
 export const Middle = ({ cartProducts, cookieProducts }: MiddleProps) => {
     const currency = getCurrency();
-    console.log(currency);
 
     return (
         <div className={`${styles.headerMiddle} sticky-header`}>

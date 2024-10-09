@@ -2,16 +2,17 @@
 
 import { onOutsideClick } from "@/helpers/onOutsideClick";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import { LiaSearchSolid } from "react-icons/lia";
 import styles from "./search.module.scss";
 
 export const Search = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+
     const searchInputRef = useRef<HTMLInputElement>(null);
     const searchWrapperRef = useRef<HTMLDivElement>(null);
 
-    const toggleSearch = (e: React.MouseEvent) => {
+    const toggleSearch = (e: MouseEvent) => {
         e.preventDefault();
         setIsSearchOpen((prev) => !prev);
     };
