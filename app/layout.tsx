@@ -18,7 +18,7 @@ const RootLayout = ({ children }: LayoutProps) => {
             <body className={notoSans.className}>
                 <StoreProvider>
                     <div className="page-wrapper">
-                        <Header cartProducts={[]} />
+                        <Header />
                         <main className="main">{children}</main>
                         <Footer />
                     </div>

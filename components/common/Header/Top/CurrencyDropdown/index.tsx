@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { Currency } from "../../../../../types/currency.type";
 import { setCookie } from "@/helpers/setCookie";
@@ -9,23 +8,19 @@ import styles from "./styles.module.scss";
 import { IoIosArrowDown } from "react-icons/io";
 
 export const CurrencyDropdown = ({ currency }: CurrencyDropdownProps) => {
-    const [currencyClient, setCurrencyClient] = useState<Currency>(currency);
-
     const onCurrencyClick = (clickedCurrency: Currency) => {
-        if (currencyClient === clickedCurrency) {
+        if (currency === clickedCurrency) {
             return;
         }
 
         setCookie("currency", clickedCurrency);
-        setCurrencyClient(clickedCurrency);
-
         location.reload();
     };
 
     return (
         <div className={styles.headerDropdown}>
             <Link href="#" className={styles.active}>
-                {currencyClient}
+                {currency}
                 <IoIosArrowDown />
             </Link>
             <div className={styles.headerMenu}>
