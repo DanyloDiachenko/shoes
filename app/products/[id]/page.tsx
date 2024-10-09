@@ -3,6 +3,7 @@ import { getProduct, getProducts } from "@/app/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/pageComponents/Product";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
+import { getCurrency } from "@/helpers/getCurrency";
 import { getServerCookie } from "@/helpers/getServerCookie";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 import { Currency } from "@/types/currency.type";
@@ -23,7 +24,7 @@ const breadcrumbs: Breadcrumb[] = [
 ];
 
 const ProductDetails = async ({ params }: PageProps) => {
-    const currency = getServerCookie("currency") as Currency;
+    const currency = getCurrency();
     const productId = params.id;
 
     const [product, mayLikedProducts] = await Promise.all([

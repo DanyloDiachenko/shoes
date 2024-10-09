@@ -7,6 +7,7 @@ import { IProductCookie } from "@/interfaces/productCookie.interface";
 import { getProduct } from "../api/products";
 import { getServerCookie } from "@/helpers/getServerCookie";
 import { CurrencyType } from "@/types/currency.type";
+import { getCurrency } from "@/helpers/getCurrency";
 
 const breadcrumbItems = [
     {
@@ -25,7 +26,7 @@ const breadcrumbItems = [
 
 const Cart = async () => {
     const cookieProducts: IProductCookie[] = getCookieProductsServer();
-    const currency = getServerCookie("currency") as CurrencyType;
+    const currency = getCurrency();
 
     let cartProducts: IProduct[] = [];
 

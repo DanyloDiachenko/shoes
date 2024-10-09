@@ -4,9 +4,10 @@ import Link from "next/link";
 import { InfoProps } from "./info.props";
 import { getServerCookie } from "@/helpers/getServerCookie";
 import { CurrencyType } from "@/types/currency.type";
+import { getCurrency } from "@/helpers/getCurrency";
 
 export const Info = ({ product }: InfoProps) => {
-    const currency = (getServerCookie("currency") || "uah") as CurrencyType;
+    const currency = getCurrency();
 
     return (
         <>
