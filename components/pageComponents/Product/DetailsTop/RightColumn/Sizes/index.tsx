@@ -1,6 +1,6 @@
 "use client";
 
-import { ISelectOption } from "@/interfaces/selectOption.interface";
+import { SelectOption } from "@/interfaces/selectOption.interface";
 import styles from "./styles.module.scss";
 import { Select } from "@/components/UI/Select";
 import { SizesProps } from "./sizes.props";
@@ -14,7 +14,7 @@ export const Sizes = ({ product }: SizesProps) => {
         (state: RootState) => state.productToCart
     );
 
-    const setActiveOptionHandler = (option: ISelectOption) => {
+    const setActiveOptionHandler = (option: SelectOption) => {
         dispatch(
             setProductToCart({
                 ...productToCart,
@@ -23,7 +23,7 @@ export const Sizes = ({ product }: SizesProps) => {
         );
     };
 
-    const selectOptions: ISelectOption[] = product.sizes.map((size) => ({
+    const selectOptions: SelectOption[] = product.sizes.map((size) => ({
         label: String(size.title),
         value: size.id,
     }));
@@ -32,17 +32,18 @@ export const Sizes = ({ product }: SizesProps) => {
         value: "#",
     });
 
+    const activeOption =
+        selectOptions.find(
+            (option) => Number(option.label) === productToCart.size
+        ) || selectOptions[selectOptions.length - 1];
+
     return (
         <div className={styles.sizes}>
             <label htmlFor="size">Size:</label>
             <Select
                 id="size"
                 options={selectOptions}
-                activeOption={
-                    selectOptions.find(
-                        (option) => Number(option.label) === productToCart.size
-                    ) || selectOptions[selectOptions.length - 1]
-                }
+                activeOption={activeOption}
                 setActiveOption={setActiveOptionHandler}
                 className={styles.selectWrapper}
             />

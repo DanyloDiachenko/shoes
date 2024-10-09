@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import styles from "./styles.module.scss";
 import { FaExpandArrowsAlt } from "react-icons/fa";
 import { useState } from "react";

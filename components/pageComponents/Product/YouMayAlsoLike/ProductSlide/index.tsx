@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/UI/Button";
-import { getRating } from "@/helpers/getRating";
+import { getProductRating } from "@/helpers/getProductRating";
 import { FaRegHeart } from "react-icons/fa";
 import styles from "./styles.module.scss";
 import { LiaCartPlusSolid } from "react-icons/lia";
@@ -68,7 +68,7 @@ export const ProductSlide = ({
                         : `€${priceEur.toFixed(2)}`}
                 </div>
                 <div className={styles.ratingsContainer}>
-                    {getRating(rating || 0)}
+                    {getProductRating(rating || 0)}
                     <span className={styles.text}>
                         ({reviews.length} Reviews)
                     </span>

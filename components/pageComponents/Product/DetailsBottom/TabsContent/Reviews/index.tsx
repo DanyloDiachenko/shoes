@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
-import { getRating } from "@/helpers/getRating";
+import { getProductRating } from "@/helpers/getProductRating";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { ReviewsProps } from "./reviews.props";
 import { IProductReview } from "@/interfaces/product.interface";
@@ -28,7 +28,7 @@ export const Reviews = ({ reviews }: ReviewsProps) => {
                             <div className={styles.leftColumn}>
                                 <h4>{review.author}</h4>
                                 <div className={styles.ratingsContainer}>
-                                    {getRating(review.rating)}
+                                    {getProductRating(review.rating)}
                                 </div>
                                 <span className={styles.raviewDate}>
                                     {getReviewDaysAgo(review)}
