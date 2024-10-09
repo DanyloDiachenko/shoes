@@ -1,33 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
-import { LiaCartPlusSolid } from "react-icons/lia";
 import { FaRegHeart } from "react-icons/fa";
 import { StickyProductProps } from "./stickyProduct.props";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/store";
-import { useEffect, useState } from "react";
-import { ProductCookie } from "@/interfaces/productCookie.interface";
-import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
-import { ProductToCartState } from "@/store/slices/productToCart/productToCart.interface";
-import { setProductToCart } from "@/store/slices/productToCart";
-import { toast } from "react-toastify";
-import { setCookie } from "@/helpers/setCookie";
-import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
 import { Quantity } from "./Quantity";
-import { getProductPrice } from "@/helpers/getProductPrice";
 import { AddProductToCart } from "@/components/additional/AddProductToCart";
+import { getCurrency } from "@/helpers/getCurrency";
+import { Price } from "./Price";
 
 export const StickyProduct = ({
     product,
-    currency,
     cookieProducts,
 }: StickyProductProps) => {
-    const productToCart = useSelector(
-        (state: RootState) => state.productToCart
-    );
+    const currency = getCurrency();
 
     return (
         <div className={styles.stickyProduct}>
@@ -49,13 +34,7 @@ export const StickyProduct = ({
                         </h4>
                     </div>
                     <div className={styles.columnRight}>
-                        <div className={styles.price}>
-                            {getProductPrice(
-                                product.priceUah * productToCart.quantity,
-                                product.priceEur * productToCart.quantity,
-                                currency
-                            )}
-                        </div>
+                        <Price currency={currency} product={product} />
                         <Quantity product={product} />
                         <div className={styles.actions}>
                             <AddProductToCart

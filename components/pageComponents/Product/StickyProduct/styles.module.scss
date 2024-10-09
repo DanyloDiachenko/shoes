@@ -81,22 +81,6 @@
                 align-items: center;
             }
 
-            .price {
-                display: flex;
-                align-items: center;
-                flex-flow: wrap;
-                font-weight: 400;
-                font-size: 1.6rem;
-                line-height: 1.25;
-                color: #c96;
-                margin-bottom: 1.3rem;
-
-                @media (min-width: 992px) {
-                    margin-bottom: 0;
-                    margin-right: 2rem;
-                }
-            }
-
             .actions {
                 display: flex;
                 align-items: center;
