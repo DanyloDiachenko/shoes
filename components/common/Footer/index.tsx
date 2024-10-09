@@ -2,6 +2,8 @@ import { Links } from "./Links";
 import { Socials } from "./Socials";
 import styles from "./styles.module.scss";
 
+const currentYear = new Date().getFullYear();
+
 export const Footer = () => {
     return (
         <footer className={styles.footer}>
@@ -32,8 +34,8 @@ export const Footer = () => {
             <div className={styles.footerBottom}>
                 <div className={`container ${styles.bottomContainer}`}>
                     <p className={styles.footerCopyright}>
-                        Copyright © {new Date().getFullYear()} Molla Store. All
-                        Rights Reserved.
+                        Copyright © {currentYear} Molla Store. All Rights
+                        Reserved.
                     </p>
                     <figure className={styles.footerPayments}>
                         <img

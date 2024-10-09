@@ -1,10 +1,5 @@
-import { IProduct } from "@/interfaces/product.interface";
-import { IProductCookie } from "@/interfaces/productCookie.interface";
-import { CurrencyType } from "@/types/currency.type";
+import { Product } from "@/interfaces/product.interface";
 
 export interface ProductPageContentProps {
-    product: IProduct;
-    mayLikedProducts: IProduct[];
-    serverCurrency: CurrencyType;
-    cookieProducts: IProductCookie[];
+    product: Product;
 }

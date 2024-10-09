@@ -8,66 +8,6 @@ import { ProductSlide } from "./ProductSlide";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { YouMayAlsoLikeProps } from "./youMayAlsoLike.props";
 
-export const YouMayAlsoLike = ({ products, serverCurrency }: YouMayAlsoLikeProps) => {
-    const sliderSettings = {
-        dots: false,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false,
-                },
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-    };
-
-    return (
-        <>
-            <h2 className={styles.title}>You May Also Like</h2>
-            <Slider className={styles.slider} {...sliderSettings}>
-                {products.map((product, index) => (
-                    <div key={index}>
-                        <ProductSlide
-                            {...product}
-                            serverCurrency={serverCurrency}
-                        />
-                    </div>
-                ))}
-            </Slider>
-        </>
-    );
-};
-
 const SampleNextArrow = (props: any) => {
     const { className, style, onClick } = props;
 
@@ -92,5 +32,62 @@ const SamplePrevArrow = (props: any) => {
         >
             <IoIosArrowBack />
         </div>
+    );
+};
+
+const sliderSettings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+        {
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: false,
+            },
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            },
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+            },
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            },
+        },
+    ],
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+};
+
+export const YouMayAlsoLike = ({ products, currency }: YouMayAlsoLikeProps) => {
+    return (
+        <>
+            <h2 className={styles.title}>You May Also Like</h2>
+            <Slider className={styles.slider} {...sliderSettings}>
+                {products.map((product, index) => (
+                    <div key={index}>
+                        <ProductSlide {...product} currency={currency} />
+                    </div>
+                ))}
+            </Slider>
+        </>
     );
 };

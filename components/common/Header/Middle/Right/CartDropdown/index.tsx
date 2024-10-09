@@ -7,15 +7,16 @@ import { IoMdClose, IoIosArrowRoundForward } from "react-icons/io";
 import { Button } from "@/components/UI/Button";
 import { CartDropdownProps } from "./cartDropdown.props";
 import { useEffect, useState } from "react";
-import { IProduct } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/product.interface";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { getClientCookie } from "@/helpers/getClientCookie";
-import { IProductCookie } from "@/interfaces/productCookie.interface";
+import { ProductCookie } from "@/interfaces/productCookie.interface";
 import { getProduct } from "@/app/api/products";
 import { toast } from "react-toastify";
 import { setCookie } from "@/helpers/setCookie";
 import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
+import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
+import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const CartDropdown = ({
     currency,
@@ -31,9 +32,9 @@ export const CartDropdown = ({
         dispatch(toogleLocalStorage());
     };
 
-    const [products, setProducts] = useState<IProduct[]>(cartProducts);
+    const [products, setProducts] = useState<Product[]>(cartProducts);
     const [cookieProductsClient, setCookieProductsClient] =
-        useState<IProductCookie[]>(cookieProducts);
+        useState<ProductCookie[]>(cookieProducts);
 
     const getProductHandler = async (productId: string) => {
         try {
@@ -75,10 +76,7 @@ export const CartDropdown = ({
     };
 
     useEffect(() => {
-        const cookieProductsString = getClientCookie("cart") || "";
-        const cookieProducts: IProductCookie[] = cookieProductsString
-            ? JSON.parse(cookieProductsString)
-            : [];
+        const cookieProducts = getCookieProductsClient();
         setCookieProductsClient(cookieProducts);
 
         if (cookieProducts.length) {
@@ -90,7 +88,7 @@ export const CartDropdown = ({
         }
     }, [localStorageToogler]);
 
-    const getProductSize = (product: IProduct) => {
+    const getProductSize = (product: Product) => {
         const cookieProduct = cookieProductsClient.find(
             (cookieProduct) => cookieProduct.id === product.id
         );
@@ -129,10 +127,12 @@ export const CartDropdown = ({
                                                 )?.quantity
                                             }
                                         </span>{" "}
-                                        x {currency === "uah" ? "₴" : "€"}
-                                        {currency === "uah"
-                                            ? product.priceUah.toFixed(2)
-                                            : product.priceEur.toFixed(2)}
+                                        x{" "}
+                                        {getProductPrice(
+                                            product.priceUah,
+                                            product.priceEur,
+                                            currency
+                                        )}
                                     </div>
                                     <div className={styles.cartProductInfo}>
                                         <span className={styles.cartProductQty}>

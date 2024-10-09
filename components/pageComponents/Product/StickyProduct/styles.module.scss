@@ -81,26 +81,9 @@
                 align-items: center;
             }
 
-            .price {
-                display: flex;
-                align-items: center;
-                flex-flow: wrap;
-                font-weight: 400;
-                font-size: 1.6rem;
-                line-height: 1.25;
-                color: #c96;
-                margin-bottom: 1.3rem;
-
-                @media (min-width: 992px) {
-                    margin-bottom: 0;
-                    margin-right: 2rem;
-                }
-            }
-
             .actions {
                 display: flex;
                 align-items: center;
-                flex-flow: row wrap;
                 margin-bottom: 3rem;
 
                 @media (min-width: 992px) {
@@ -143,11 +126,13 @@
                     color: #c96;
                     padding-top: 1.9rem;
                     padding-bottom: 1.9rem;
+                    padding-left: 0;
+                    padding-right: 0;
+                    margin-left: 2rem;
 
                     @media (min-width: 992px) {
                         border: none;
                         font-size: 1.8rem;
-                        margin-right: 2rem;
                     }
 
                     &:hover {

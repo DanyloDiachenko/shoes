@@ -7,9 +7,8 @@ import { getSizes } from "../api/sizes";
 import { getColors } from "../api/colors";
 import { getBrands } from "../api/brands";
 import { PageProps } from "@/.next/types/app/page";
-import { getServerCookie } from "@/helpers/getServerCookie";
-import { Currency } from "@/types/currency.type";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
+import { getCurrency } from "@/helpers/getCurrency";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -27,7 +26,7 @@ const breadcrumbs: Breadcrumb[] = [
 ];
 
 const Products = async ({ searchParams }: PageProps) => {
-    const currency = getServerCookie("currency") as Currency;
+    const currency = getCurrency();
 
     const categorySlugs = searchParams.categories
         ? searchParams.categories.split(",")

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./styles.module.scss";
 import { TabTitlesProps } from "./tabTitles.props";
 
@@ -10,7 +11,7 @@ export const TabTitles = ({
         <ul className={styles.tabTitles} role="tablist">
             {tabs.map((tab) => (
                 <li className={styles.navItem} key={tab.key}>
-                    <a
+                    <Link
                         className={`${styles.navLink} ${
                             activeTab === tab.key ? styles.active : ""
                         }`}
@@ -25,7 +26,7 @@ export const TabTitles = ({
                         }}
                     >
                         {tab.title}
-                    </a>
+                    </Link>
                 </li>
             ))}
         </ul>

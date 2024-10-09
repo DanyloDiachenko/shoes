@@ -1,4 +1,4 @@
-export interface IProductToCartState {
+export interface ProductToCartState {
     quantity: number;
     size: null | number;
 }

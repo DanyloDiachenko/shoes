@@ -3,9 +3,9 @@
 import { RootState } from "@/store";
 import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { IProductToCartState } from "@/store/slices/productToCart/productToCart.interface";
+import { ProductToCartState } from "@/store/slices/productToCart/productToCart.interface";
 import { setProductToCart } from "@/store/slices/productToCart";
-import { FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import { QuantityProps } from "./quantity.props";
 
 export const Quantity = ({ product }: QuantityProps) => {
@@ -15,7 +15,7 @@ export const Quantity = ({ product }: QuantityProps) => {
         (state: RootState) => state.productToCart
     );
 
-    const setProductToCartHandler = (productToCart: IProductToCartState) => {
+    const setProductToCartHandler = (productToCart: ProductToCartState) => {
         dispatch(setProductToCart(productToCart));
     };
 

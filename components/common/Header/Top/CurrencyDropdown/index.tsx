@@ -1,24 +1,19 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { CurrencyType } from "../../../../../types/currency.type";
+import { Currency } from "../../../../../types/currency.type";
 import { setCookie } from "@/helpers/setCookie";
 import { CurrencyDropdownProps } from "./currencyDropdown.props";
 import styles from "./styles.module.scss";
 import { IoIosArrowDown } from "react-icons/io";
 
-export const CurrencyDropdown = ({ serverCurrency }: CurrencyDropdownProps) => {
-    const [currency, setCurrency] = useState<CurrencyType>(serverCurrency);
-
-    const onCurrencyClick = (clickedCurrency: "uah" | "eur") => {
+export const CurrencyDropdown = ({ currency }: CurrencyDropdownProps) => {
+    const onCurrencyClick = (clickedCurrency: Currency) => {
         if (currency === clickedCurrency) {
             return;
         }
 
         setCookie("currency", clickedCurrency);
-        setCurrency(clickedCurrency);
-
         location.reload();
     };
 

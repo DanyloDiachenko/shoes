@@ -1,6 +1,6 @@
-import { IProductSize } from "@/interfaces/product.interface";
+import { ProductSize } from "@/interfaces/product.interface";
 
-export const getSizes = async (): Promise<IProductSize[]> => {
+export const getSizes = async (): Promise<ProductSize[]> => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/sizes`, {
         cache: "no-cache",
     });

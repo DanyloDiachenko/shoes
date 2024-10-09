@@ -1,5 +1,5 @@
-import { IProduct } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/product.interface";
 
 export interface QuantityProps {
-    product: IProduct;
+    product: Product;
 }

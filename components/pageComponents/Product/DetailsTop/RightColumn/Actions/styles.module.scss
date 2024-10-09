@@ -14,34 +14,6 @@
         align-items: flex-start;
     }
 
-    .addToCart {
-        width: 100%;
-        max-width: 210px;
-        text-transform: uppercase;
-
-        @media screen and (max-width: 580px) {
-            max-width: 198px;
-            min-width: 0;
-        }
-
-        &.inactive {
-            color: #ccc;
-            border-color: #ebebeb;
-            background-color: #fafafa;
-            cursor: default;
-        }
-
-        svg {
-            margin-right: 0.5rem;
-            font-size: 2rem;
-            margin-top: -0.1rem;
-        }
-
-        span {
-            font-size: 1.4rem;
-        }
-    }
-
     .actionsWrapper {
         display: flex;
         align-items: center;

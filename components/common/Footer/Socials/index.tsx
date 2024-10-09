@@ -42,7 +42,7 @@ export const Socials = () => {
         <div className={styles.socialIcons}>
             {socials.map((social, index) => (
                 <Link
-                    href="#"
+                    href={social.link}
                     className={styles.socialIcon}
                     target="_blank"
                     title={social.title}

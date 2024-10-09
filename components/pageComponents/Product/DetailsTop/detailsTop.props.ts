@@ -1,7 +1,5 @@
-import { IProduct } from "@/interfaces/product.interface";
-import { IProductCookie } from "@/interfaces/productCookie.interface";
+import { Product } from "@/interfaces/product.interface";
 
 export interface DetailsTopProps {
-    product: IProduct;
-    cookieProducts: IProductCookie[];
+    product: Product;
 }

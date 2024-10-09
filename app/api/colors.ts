@@ -1,6 +1,6 @@
-import { IProductColor } from "@/interfaces/product.interface";
+import { ProductColor } from "@/interfaces/product.interface";
 
-export const getColors = async (): Promise<IProductColor[]> => {
+export const getColors = async (): Promise<ProductColor[]> => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/colors`, {
         cache: "no-cache",
     });

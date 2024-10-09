@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { QuantityProps } from "./quantity.props";
 import styles from "./styles.module.scss";
 import { FaMinus, FaPlus } from "react-icons/fa";

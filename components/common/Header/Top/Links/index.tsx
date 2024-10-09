@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { setOpenedPopup } from "@/store/slices/openedPopup";
-import { PopupType } from "@/types/popup.type";
+import { Popup } from "@/types/popup.type";
 import styles from "./styles.module.scss";
 import { BsTelephone } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
@@ -13,7 +13,7 @@ import { IoIosArrowDown } from "react-icons/io";
 export const Links = () => {
     const dispatch = useDispatch();
 
-    const setOpenedPopupHandler = (popupToOpen: PopupType) => {
+    const setOpenedPopupHandler = (popupToOpen: Popup) => {
         dispatch(setOpenedPopup(popupToOpen));
     };
 

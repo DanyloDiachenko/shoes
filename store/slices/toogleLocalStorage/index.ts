@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IToogleLocalStorageState } from "./tootleLocalStorage.interface";
+import { ToogleLocalStorageState } from "./tootleLocalStorage.interface";
 
-const initialState: IToogleLocalStorageState = {
+const initialState: ToogleLocalStorageState = {
     value: false,
 };
 

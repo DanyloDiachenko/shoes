@@ -1,12 +1,12 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
-import { getRating } from "@/helpers/getRating";
+import { getProductRating } from "@/helpers/getProductRating";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { ReviewsProps } from "./reviews.props";
-import { IProductReview } from "@/interfaces/product.interface";
+import { ProductReview } from "@/interfaces/product.interface";
 
 export const Reviews = ({ reviews }: ReviewsProps) => {
-    const getReviewDaysAgo = (review: IProductReview) => {
+    const getReviewDaysAgo = (review: ProductReview) => {
         const currentDate = new Date();
         const reviewDate = new Date(review.createdAt);
 
@@ -22,13 +22,13 @@ export const Reviews = ({ reviews }: ReviewsProps) => {
         <div className={styles.reviews}>
             <h3 className={styles.title}>Reviews ({reviews.length})</h3>
             {reviews.length > 0 ? (
-                reviews.map((review, index) => (
-                    <div className={styles.review}>
+                reviews.map((review) => (
+                    <div className={styles.review} key={review.id}>
                         <div className={`row ${styles.row}`}>
                             <div className={styles.leftColumn}>
                                 <h4>{review.author}</h4>
                                 <div className={styles.ratingsContainer}>
-                                    {getRating(review.rating)}
+                                    {getProductRating(review.rating)}
                                 </div>
                                 <span className={styles.raviewDate}>
                                     {getReviewDaysAgo(review)}

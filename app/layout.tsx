@@ -4,11 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Noto_Sans } from "next/font/google";
 import { StoreProvider } from "@/store/StoreProvider";
 import { Footer } from "@/components/common/Footer";
-import { getServerCookie } from "@/helpers/getServerCookie";
-import { IProductCookie } from "@/interfaces/productCookie.interface";
-import { IProduct } from "@/interfaces/product.interface";
-import { CurrencyType } from "@/types/currency.type";
-import { getProduct } from "./api/products";
+import { LayoutProps } from "./layout.props";
 
 const notoSans = Noto_Sans({
     weight: ["200", "300", "400", "500", "600", "700", "800"],
@@ -16,38 +12,13 @@ const notoSans = Noto_Sans({
     display: "swap",
 });
 
-const RootLayout = async ({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) => {
-    const currency = getServerCookie("currency") as CurrencyType;
-    const cartCookie: string | null = getServerCookie("cart");
-
-    let cartProducts: IProduct[] = [];
-
-    const cookieProducts: IProductCookie[] = cartCookie?.length
-        ? JSON.parse(cartCookie)
-        : [];
-
-    if (cookieProducts?.length) {
-        for (let i = 0; i < cookieProducts.length; i++) {
-            const productToCart = await getProduct(cookieProducts[i].id);
-
-            cartProducts = [...cartProducts, productToCart];
-        }
-    }
-
+const RootLayout = ({ children }: LayoutProps) => {
     return (
         <html lang="en">
             <body className={notoSans.className}>
                 <StoreProvider>
                     <div className="page-wrapper">
-                        <Header
-                            currency={currency}
-                            cartProducts={cartProducts}
-                            cookieProducts={cookieProducts}
-                        />
+                        <Header />
                         <main className="main">{children}</main>
                         <Footer />
                     </div>

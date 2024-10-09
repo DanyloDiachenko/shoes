@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { FaRegHeart } from "react-icons/fa";
 import { LiaCartPlusSolid } from "react-icons/lia";
-import { getRating } from "@/helpers/getRating";
+import { getProductRating } from "@/helpers/getProductRating";
 import { ProductProps } from "./product.props";
 import { useState } from "react";
 import { getProductPrice } from "@/helpers/getProductPrice";
@@ -23,7 +23,7 @@ export const Product = ({
     images,
     rating,
     priceEur,
-    currency
+    currency,
 }: ProductProps) => {
     const [activeImageSrc, setActiveImageSrc] = useState<string>(mainImage);
 
@@ -60,7 +60,7 @@ export const Product = ({
                             {getProductPrice(priceUah, priceEur, currency)}
                         </div>
                         <div className={styles.ratingsContainer}>
-                            {getRating(rating || 0)}
+                            {getProductRating(rating || 0)}
                             <span className={styles.ratingText}>
                                 ( {reviews.length} Reviews )
                             </span>
