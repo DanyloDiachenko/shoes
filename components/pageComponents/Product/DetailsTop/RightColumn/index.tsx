@@ -6,8 +6,11 @@ import { Actions } from "./Actions";
 import { Bottom } from "./Bottom";
 import { Info } from "./Info";
 import { RightColumnProps } from "./rightColumn.props";
+import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 
-export const RightColumn = ({ product, cookieProducts }: RightColumnProps) => {
+export const RightColumn = ({ product }: RightColumnProps) => {
+    const cookieProducts = getCookieProductsServer() || [];
+
     return (
         <div className={styles.columnRight}>
             <div className={styles.details}>

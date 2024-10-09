@@ -9,38 +9,38 @@ import { StickyProductProps } from "./stickyProduct.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { useEffect, useState } from "react";
-import { IProductCookie } from "@/interfaces/productCookie.interface";
+import { ProductCookie } from "@/interfaces/productCookie.interface";
 import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
-import { IProductToCartState } from "@/store/slices/productToCart/productToCart.interface";
+import { ProductToCartState } from "@/store/slices/productToCart/productToCart.interface";
 import { setProductToCart } from "@/store/slices/productToCart";
 import { toast } from "react-toastify";
 import { setCookie } from "@/helpers/setCookie";
 import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
 import { Quantity } from "./Quantity";
+import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const StickyProduct = ({
     product,
-    serverCurrency,
+    currency,
     cookieProducts,
 }: StickyProductProps) => {
     const dispatch = useDispatch();
     const localStorageToogler = useSelector(
         (state: RootState) => state.toogleLocalStorage.value
     );
+    const productToCart = useSelector(
+        (state: RootState) => state.productToCart
+    );
 
     const [cookieProductsClient, setCookieProductsClient] =
-        useState<IProductCookie[]>(cookieProducts);
+        useState<ProductCookie[]>(cookieProducts);
 
     const toogleLocalStorageHandler = () => {
         dispatch(toogleLocalStorage());
     };
-    const setProductToCartHandler = (productToCart: IProductToCartState) => {
+    const setProductToCartHandler = (productToCart: ProductToCartState) => {
         dispatch(setProductToCart(productToCart));
     };
-
-    const productToCart = useSelector(
-        (state: RootState) => state.productToCart
-    );
 
     const onAddToCartClick = () => {
         if (cookieProductsClient.find((p) => p.id === product.id)) {
@@ -53,7 +53,7 @@ export const StickyProduct = ({
             return;
         }
 
-        const newCookieProducts: IProductCookie[] = [
+        const newCookieProducts: ProductCookie[] = [
             ...cookieProductsClient,
             {
                 id: product.id,
@@ -113,10 +113,11 @@ export const StickyProduct = ({
                     </div>
                     <div className={styles.columnRight}>
                         <div className={styles.price}>
-                            {serverCurrency === "uah" ? "₴" : "€"}
-                            {serverCurrency === "uah"
-                                ? product.priceUah.toFixed(2)
-                                : product.priceEur.toFixed(2)}
+                            {getProductPrice(
+                                product.priceUah * productToCart.quantity,
+                                product.priceEur * productToCart.quantity,
+                                currency
+                            )}
                         </div>
                         <Quantity product={product} />
                         <div className={styles.actions}>

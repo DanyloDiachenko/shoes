@@ -8,7 +8,7 @@ import { ProductSlide } from "./ProductSlide";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { YouMayAlsoLikeProps } from "./youMayAlsoLike.props";
 
-export const YouMayAlsoLike = ({ products, serverCurrency }: YouMayAlsoLikeProps) => {
+export const YouMayAlsoLike = ({ products, currency }: YouMayAlsoLikeProps) => {
     const sliderSettings = {
         dots: false,
         infinite: false,
@@ -57,10 +57,7 @@ export const YouMayAlsoLike = ({ products, serverCurrency }: YouMayAlsoLikeProps
             <Slider className={styles.slider} {...sliderSettings}>
                 {products.map((product, index) => (
                     <div key={index}>
-                        <ProductSlide
-                            {...product}
-                            serverCurrency={serverCurrency}
-                        />
+                        <ProductSlide {...product} serverCurrency={currency} />
                     </div>
                 ))}
             </Slider>

@@ -1,7 +1,7 @@
-import { IProduct } from "@/interfaces/product.interface";
-import { CurrencyType } from "@/types/currency.type";
+import { Product } from "@/interfaces/product.interface";
+import { Currency } from "@/types/currency.type";
 
 export interface YouMayAlsoLikeProps {
-    products: IProduct[];
-    serverCurrency: CurrencyType;
+    products: Product[];
+    currency: Currency;
 }

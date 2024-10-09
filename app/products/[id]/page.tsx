@@ -2,11 +2,8 @@ import { PageProps } from "@/.next/types/app/products/[id]/page";
 import { getProduct, getProducts } from "@/app/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/pageComponents/Product";
-import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { getCurrency } from "@/helpers/getCurrency";
-import { getServerCookie } from "@/helpers/getServerCookie";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
-import { Currency } from "@/types/currency.type";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -66,16 +63,12 @@ const ProductDetails = async ({ params }: PageProps) => {
         ...mayLikedProductsByBrand.data,
     ]; */
 
-    const cookieProducts = getCookieProductsServer();
-
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
             <ProductPageContent
-                cookieProducts={cookieProducts}
                 product={product}
                 mayLikedProducts={mayLikedProducts}
-                currency={currency}
             />
         </>
     );
