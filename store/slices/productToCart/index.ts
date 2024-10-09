@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IProductToCartState } from "./productToCart.interface";
+import { ProductToCartState } from "./productToCart.interface";
 
-const initialState: IProductToCartState = {
+const initialState: ProductToCartState = {
     quantity: 1,
     size: null,
 };
@@ -12,7 +12,7 @@ export const productToCartSlice = createSlice({
     reducers: {
         setProductToCart: (
             state,
-            action: PayloadAction<IProductToCartState>
+            action: PayloadAction<ProductToCartState>
         ) => {
             state.quantity = action.payload.quantity;
             state.size = action.payload.size;

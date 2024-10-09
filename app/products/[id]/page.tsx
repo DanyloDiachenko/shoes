@@ -2,13 +2,12 @@ import { PageProps } from "@/.next/types/app/products/[id]/page";
 import { getProduct, getProducts } from "@/app/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/pageComponents/Product";
-import { getClientCookie } from "@/helpers/getClientCookie";
+import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { getServerCookie } from "@/helpers/getServerCookie";
-import { IProduct } from "@/interfaces/product.interface";
-import { IProductCookie } from "@/interfaces/productCookie.interface";
-import { CurrencyType } from "@/types/currency.type";
+import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
+import { Currency } from "@/types/currency.type";
 
-const breadcrumbItems = [
+const breadcrumbs: Breadcrumb[] = [
     {
         title: "Home",
         link: "/",
@@ -24,7 +23,7 @@ const breadcrumbItems = [
 ];
 
 const ProductDetails = async ({ params }: PageProps) => {
-    const currency = getServerCookie("currency") as CurrencyType;
+    const currency = getServerCookie("currency") as Currency;
     const productId = params.id;
 
     const [product, mayLikedProducts] = await Promise.all([
@@ -66,19 +65,16 @@ const ProductDetails = async ({ params }: PageProps) => {
         ...mayLikedProductsByBrand.data,
     ]; */
 
-    const cookieProductsString = getServerCookie("cart") || "";
-    const cookieProducts: IProductCookie[] = cookieProductsString
-        ? JSON.parse(cookieProductsString)
-        : [];
+    const cookieProducts = getCookieProductsServer();
 
     return (
         <>
-            <Breadcrumbs links={breadcrumbItems} />
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
             <ProductPageContent
                 cookieProducts={cookieProducts}
                 product={product}
                 mayLikedProducts={mayLikedProducts}
-                serverCurrency={currency}
+                currency={currency}
             />
         </>
     );

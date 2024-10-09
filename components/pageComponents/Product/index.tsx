@@ -7,7 +7,7 @@ import { YouMayAlsoLike } from "./YouMayAlsoLike";
 export const ProductPageContent = ({
     product,
     mayLikedProducts,
-    serverCurrency,
+    currency,
     cookieProducts,
 }: ProductPageContentProps) => {
     return (
@@ -21,13 +21,13 @@ export const ProductPageContent = ({
                     <DetailsBottom product={product} />
                     <YouMayAlsoLike
                         products={mayLikedProducts}
-                        serverCurrency={serverCurrency}
+                        serverCurrency={currency}
                     />
                 </div>
             </div>
             <StickyProduct
                 product={product}
-                serverCurrency={serverCurrency}
+                serverCurrency={currency}
                 cookieProducts={cookieProducts}
             />
         </>
