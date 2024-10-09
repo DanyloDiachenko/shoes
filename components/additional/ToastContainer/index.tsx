@@ -1,5 +1,3 @@
-"use client";
-
 import { Bounce, ToastContainer as ToastContainerLib } from "react-toastify";
 
 const TOAST_AUTO_CLOSE_MILISECONDS = 5000;
