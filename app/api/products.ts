@@ -1,12 +1,12 @@
-import { IProduct } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/product.interface";
 import { GetProductsResponse } from "@/interfaces/responses";
 import { Currency } from "@/types/currency.type";
-import { SortProductsByType } from "@/types/sortProductsBy.type";
+import { SortProductsBy } from "@/types/sortProductsBy.type";
 
 interface GetProductsParams {
     pageNumber?: number;
     limit?: number;
-    sortBy?: SortProductsByType;
+    sortBy?: SortProductsBy;
     categorySlugs?: string[];
     sizeSlugs?: string[];
     colorSlug?: string;
@@ -52,7 +52,7 @@ export const getProducts = async ({
     return data;
 };
 
-export const getProduct = async (productId: string): Promise<IProduct> => {
+export const getProduct = async (productId: string): Promise<Product> => {
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`
     );

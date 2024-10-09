@@ -1,7 +1,7 @@
-import { IProductCategoryWithProductsQuantity } from "@/interfaces/product.interface";
+import { ProductCategoryWithProductsQuantity } from "@/interfaces/product.interface";
 
 export const getCategories = async (): Promise<
-    IProductCategoryWithProductsQuantity[]
+    ProductCategoryWithProductsQuantity[]
 > => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories`, {
         cache: "no-cache",
