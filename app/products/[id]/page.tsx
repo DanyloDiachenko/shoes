@@ -2,7 +2,6 @@ import { PageProps } from "@/.next/types/app/products/[id]/page";
 import { getProduct, getProducts } from "@/app/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/pageComponents/Product";
-import { getCurrency } from "@/helpers/getCurrency";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 
 const breadcrumbs: Breadcrumb[] = [
@@ -21,13 +20,9 @@ const breadcrumbs: Breadcrumb[] = [
 ];
 
 const ProductDetails = async ({ params }: PageProps) => {
-    const currency = getCurrency();
     const productId = params.id;
 
-    const [product, mayLikedProducts] = await Promise.all([
-        getProduct(productId),
-        (await getProducts({ limit: 12, currency })).data,
-    ]);
+    const [product] = await Promise.all([getProduct(productId)]);
 
     /* const [
         mayLikedProductsByCategories,
@@ -68,7 +63,6 @@ const ProductDetails = async ({ params }: PageProps) => {
             <Breadcrumbs breadcrumbs={breadcrumbs} />
             <ProductPageContent
                 product={product}
-                mayLikedProducts={mayLikedProducts}
             />
         </>
     );

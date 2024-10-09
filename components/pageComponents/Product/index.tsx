@@ -5,13 +5,14 @@ import { ProductPageContentProps } from "./product.props";
 import { StickyProduct } from "./StickyProduct";
 import { YouMayAlsoLike } from "./YouMayAlsoLike";
 import { getCurrency } from "@/helpers/getCurrency";
+import { getProducts } from "@/app/api/products";
 
-export const ProductPageContent = ({
+export const ProductPageContent = async ({
     product,
-    mayLikedProducts,
 }: ProductPageContentProps) => {
     const currency = getCurrency();
     const cookieProducts = getCookieProductsServer() || [];
+    const mayLikedProducts = (await getProducts({ limit: 12, currency })).data;
 
     return (
         <>
