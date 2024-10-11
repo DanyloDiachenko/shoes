@@ -1,14 +1,14 @@
 import {
-    IProductBrand,
-    IProductCategory,
-    IProductColor,
+    ProductBrand,
+    ProductCategory,
+    ProductColor,
 } from "@/interfaces/product.interface";
 
 export interface IFilters {
-    categories: IProductCategory[];
+    categories: ProductCategory[];
     sizes: number[];
-    colour: IProductColor | null;
-    brands: IProductBrand[];
+    colour: ProductColor | null;
+    brands: ProductBrand[];
     priceFrom: number;
     priceTo: number;
 }
