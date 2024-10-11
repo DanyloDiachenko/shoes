@@ -1,13 +1,14 @@
 import styles from "./styles.module.scss";
 import { TableProps } from "./table.props";
-import { IProduct } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/product.interface";
 import { ProductRow } from "./ProductRow";
 import { CartDiscount } from "./CartDiscount";
 import { ClearCartButton } from "./ClearCartButton";
 import { Button } from "@/components/UI/Button";
 import Link from "next/link";
+import { getCurrency } from "@/helpers/getCurrency";
 
-const getProductPrice = (product: IProduct, currency: string) => {
+const getProductPrice = (product: Product, currency: string) => {
     return currency === "uah" ? product.priceUah : product.priceEur;
 };
 
@@ -20,7 +21,7 @@ const getProductSize = (productId: string, cookieProducts: any[]) => {
 };
 
 const calculateTotalPerProduct = (
-    product: IProduct,
+    product: Product,
     quantity: number,
     currency: string
 ) => {
@@ -29,22 +30,22 @@ const calculateTotalPerProduct = (
     return price * quantity;
 };
 
-export const Table = ({
-    cartProducts,
-    currency,
-    cookieProducts,
-}: TableProps) => {
+export const Table = ({ cartProducts, cookieProducts }: TableProps) => {
+    const currency = getCurrency();
+
+    const getCartProduct = (cookieProductId: string) => {
+        return cartProducts.find(
+            (cartProduct) => cartProduct.id === cookieProductId
+        );
+    };
+    const getSelectedSize = (cookieProductId: string) => {
+        return getProductSize(cookieProductId, cookieProducts);
+    };
+
     const processedProducts = cookieProducts
         .map((cookieProduct) => {
-            const cartProduct = cartProducts.find(
-                (cartProduct) => cartProduct.id === cookieProduct.id
-            );
-
-            const selectedSize = getProductSize(
-                cookieProduct.id,
-                cookieProducts
-            );
-
+            const cartProduct = getCartProduct(cookieProduct.id);
+            const selectedSize = getSelectedSize(cookieProduct.id);
             const quantity = cookieProduct ? cookieProduct.quantity : 1;
 
             const totalPrice = cartProduct
@@ -52,7 +53,7 @@ export const Table = ({
                 : 0;
 
             return {
-                ...(cartProduct as IProduct),
+                ...(cartProduct as Product),
                 selectedSize,
                 quantity,
                 totalPrice,

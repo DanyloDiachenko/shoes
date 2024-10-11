@@ -33,7 +33,6 @@ export const CartPageContent = ({
                 <div className="row">
                     <Table
                         cartProducts={cartProducts}
-                        currency={currency}
                         cookieProducts={cookieProductsClient}
                     />
                     <CartTotal
