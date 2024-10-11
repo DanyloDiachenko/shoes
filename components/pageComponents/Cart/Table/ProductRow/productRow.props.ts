@@ -1,4 +1,5 @@
 import { Product } from "@/interfaces/product.interface";
+import { Currency } from "@/types/currency.type";
 
 export interface ProductRowProps {
     cartProduct: Product & {
@@ -6,4 +7,5 @@ export interface ProductRowProps {
         quantity: number;
         totalPrice: number;
     };
+    currency: Currency;
 }

@@ -34,6 +34,7 @@ export const CartPageContent = ({
                     <Table
                         cartProducts={cartProducts}
                         cookieProducts={cookieProductsClient}
+                        currency={currency}
                     />
                     <CartTotal
                         currency={currency}

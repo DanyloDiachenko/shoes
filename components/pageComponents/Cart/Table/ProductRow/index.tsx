@@ -6,9 +6,7 @@ import { RemoveButton } from "./RemoveButton";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import { getCurrency } from "@/helpers/getCurrency";
 
-export const ProductRow = ({ cartProduct }: ProductRowProps) => {
-    const currency = getCurrency();
-
+export const ProductRow = ({ cartProduct, currency }: ProductRowProps) => {
     return (
         <tr className={styles.tr} key={cartProduct.id}>
             <td className={styles.productCol}>

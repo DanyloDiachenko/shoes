@@ -9,9 +9,11 @@ import Link from "next/link";
 import { getCurrency } from "@/helpers/getCurrency";
 import { getProductPrice } from "@/helpers/getProductPrice";
 
-export const Table = ({ cartProducts, cookieProducts }: TableProps) => {
-    const currency = getCurrency();
-
+export const Table = ({
+    cartProducts,
+    cookieProducts,
+    currency,
+}: TableProps) => {
     const getCartProduct = (cookieProductId: string) => {
         return cartProducts.find(
             (cartProduct) => cartProduct.id === cookieProductId
@@ -79,6 +81,7 @@ export const Table = ({ cartProducts, cookieProducts }: TableProps) => {
                                 <ProductRow
                                     key={cartProduct.id}
                                     cartProduct={cartProduct}
+                                    currency={currency}
                                 />
                             ))}
                         </tbody>
