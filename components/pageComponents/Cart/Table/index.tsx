@@ -7,28 +7,7 @@ import { ClearCartButton } from "./ClearCartButton";
 import { Button } from "@/components/UI/Button";
 import Link from "next/link";
 import { getCurrency } from "@/helpers/getCurrency";
-
-const getProductPrice = (product: Product, currency: string) => {
-    return currency === "uah" ? product.priceUah : product.priceEur;
-};
-
-const getProductSize = (productId: string, cookieProducts: any[]) => {
-    const productCookie = cookieProducts.find(
-        (cookieProduct) => cookieProduct.id === productId
-    );
-
-    return productCookie ? productCookie.size : null;
-};
-
-const calculateTotalPerProduct = (
-    product: Product,
-    quantity: number,
-    currency: string
-) => {
-    const price = getProductPrice(product, currency);
-
-    return price * quantity;
-};
+import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const Table = ({ cartProducts, cookieProducts }: TableProps) => {
     const currency = getCurrency();
@@ -38,8 +17,27 @@ export const Table = ({ cartProducts, cookieProducts }: TableProps) => {
             (cartProduct) => cartProduct.id === cookieProductId
         );
     };
+
     const getSelectedSize = (cookieProductId: string) => {
         return getProductSize(cookieProductId, cookieProducts);
+    };
+
+    const getProductSize = (productId: string, cookieProducts: any[]) => {
+        const productCookie = cookieProducts.find(
+            (cookieProduct) => cookieProduct.id === productId
+        );
+
+        return productCookie ? productCookie.size : null;
+    };
+
+    const calculateTotalPerProduct = (product: Product, quantity: number) => {
+        const price = getProductPrice(
+            product.priceUah,
+            product.priceEur,
+            currency
+        );
+
+        return Number(price) * quantity;
     };
 
     const processedProducts = cookieProducts
@@ -49,7 +47,7 @@ export const Table = ({ cartProducts, cookieProducts }: TableProps) => {
             const quantity = cookieProduct ? cookieProduct.quantity : 1;
 
             const totalPrice = cartProduct
-                ? calculateTotalPerProduct(cartProduct, quantity, currency)
+                ? calculateTotalPerProduct(cartProduct, quantity)
                 : 0;
 
             return {
@@ -81,7 +79,6 @@ export const Table = ({ cartProducts, cookieProducts }: TableProps) => {
                                 <ProductRow
                                     key={cartProduct.id}
                                     cartProduct={cartProduct}
-                                    currency={currency}
                                 />
                             ))}
                         </tbody>
