@@ -1,7 +1,6 @@
-import { IProduct } from "@/interfaces/product.interface";
-import { IProductCookie } from "@/interfaces/productCookie.interface";
+import { Product } from "@/interfaces/product.interface";
 
 export interface QuantityProps {
     quantity: number;
-    product: IProduct;
+    product: Product;
 }
