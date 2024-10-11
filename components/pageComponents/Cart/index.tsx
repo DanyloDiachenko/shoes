@@ -5,7 +5,7 @@ import { CartPageContentProps } from "./cart.props";
 import { CartTotal } from "./CartTotal";
 import { Table } from "./Table";
 import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
-import { IProductCookie } from "@/interfaces/productCookie.interface";
+import { ProductCookie } from "@/interfaces/productCookie.interface";
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
 
@@ -19,7 +19,7 @@ export const CartPageContent = ({
     );
 
     const [cookieProductsClient, setCookieProductsClient] =
-        useState<IProductCookie[]>(cookieProducts);
+        useState<ProductCookie[]>(cookieProducts);
 
     useEffect(() => {
         const cookieProductsUpdated = getCookieProductsClient();
