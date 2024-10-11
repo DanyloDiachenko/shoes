@@ -6,7 +6,6 @@ import { CartDiscount } from "./CartDiscount";
 import { ClearCartButton } from "./ClearCartButton";
 import { Button } from "@/components/UI/Button";
 import Link from "next/link";
-import { getCurrency } from "@/helpers/getCurrency";
 import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const Table = ({
@@ -39,7 +38,9 @@ export const Table = ({
             currency
         );
 
-        return Number(price) * quantity;
+        const numericPrice = Number(price.slice(1, price.length));
+
+        return Number(numericPrice) * quantity;
     };
 
     const processedProducts = cookieProducts

@@ -4,9 +4,9 @@ import { Quantity } from "./Quantity";
 import styles from "./styles.module.scss";
 import { RemoveButton } from "./RemoveButton";
 import { getProductPrice } from "@/helpers/getProductPrice";
-import { getCurrency } from "@/helpers/getCurrency";
 
 export const ProductRow = ({ cartProduct, currency }: ProductRowProps) => {
+    console.log(cartProduct);
     return (
         <tr className={styles.tr} key={cartProduct.id}>
             <td className={styles.productCol}>

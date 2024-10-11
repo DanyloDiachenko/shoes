@@ -25,6 +25,7 @@ export const CartTotal = ({
     for (let i = 0; i < cartProducts.length; i++) {
         for (let j = 0; j < cookieProducts.length; j++) {
             if (cartProducts[i].id === cookieProducts[j].id) {
+                console.log(subtotal);
                 subtotal +=
                     currency === "uah"
                         ? cartProducts[j].priceUah * cookieProducts[j].quantity
