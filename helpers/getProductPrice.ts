@@ -1,6 +1,5 @@
-import { Product } from "@/interfaces/product.interface";
 import { Currency } from "@/types/currency.type";
-import { getServerCookie } from "./getServerCookie";
+import { getCurrencyIcon } from "./getCurrencyIcon";
 
 export const getProductPrice = (
     priceUah: number,
@@ -8,6 +7,6 @@ export const getProductPrice = (
     currency: Currency
 ) => {
     return currency === "uah"
-        ? `₴${priceUah.toFixed(2)}`
-        : `€${priceEur.toFixed(2)}`;
+        ? `${getCurrencyIcon(currency)}${priceUah.toFixed(2)}`
+        : `${getCurrencyIcon(currency)}${priceEur.toFixed(2)}`;
 };
