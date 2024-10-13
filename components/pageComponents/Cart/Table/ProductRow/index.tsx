@@ -3,9 +3,10 @@ import { ProductRowProps } from "./productRow.props";
 import { Quantity } from "./Quantity";
 import styles from "./styles.module.scss";
 import { RemoveButton } from "./RemoveButton";
-import { getPrice } from "@/helpers/getPrice";
+import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const ProductRow = ({ cartProduct, currency }: ProductRowProps) => {
+    console.log(cartProduct);
     return (
         <tr className={styles.tr} key={cartProduct.id}>
             <td className={styles.productCol}>
@@ -27,7 +28,11 @@ export const ProductRow = ({ cartProduct, currency }: ProductRowProps) => {
             </td>
             <td className={styles.sizeCol}>{cartProduct.selectedSize}</td>
             <td className={styles.priceCol}>
-                {getPrice(cartProduct, currency)}
+                {getProductPrice(
+                    cartProduct.priceUah,
+                    cartProduct.priceEur,
+                    currency
+                )}
             </td>
             <td className={styles.quantityCol}>
                 <Quantity

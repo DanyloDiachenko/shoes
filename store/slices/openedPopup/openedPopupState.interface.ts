@@ -1,5 +1,5 @@
-import { PopupType } from "@/types/popup.type";
+import { Popup } from "@/types/popup.type";
 
 export interface IOpenedPopupState {
-    openedPopup: PopupType;
+    openedPopup: Popup;
 }

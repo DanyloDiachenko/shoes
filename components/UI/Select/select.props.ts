@@ -1,10 +1,9 @@
-import { ISelectOption } from "@/interfaces/selectOption.interface";
-import { ChangeEventHandler } from "react";
+import { SelectOption } from "@/interfaces/selectOption.interface";
 
 export interface SelectProps {
-    options: ISelectOption[];
-    activeOption: ISelectOption;
-    setActiveOption: (option: ISelectOption) => void;
+    options: SelectOption[];
+    activeOption: SelectOption;
+    setActiveOption: (option: SelectOption) => void;
     id: string;
     className?: string;
 }

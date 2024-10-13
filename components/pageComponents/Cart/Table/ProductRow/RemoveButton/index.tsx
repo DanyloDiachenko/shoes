@@ -23,7 +23,6 @@ export const RemoveButton = ({ cartProduct }: RemoveButtonProps) => {
             (product) => product.id !== cartProduct.id
         );
         setCookie("cart", JSON.stringify(updatedProducts));
-
         toogleLocalStorageHandler();
 
         toast.success(`Product successfully removed from cart`);

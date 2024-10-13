@@ -1,11 +1,11 @@
-import { IProduct } from "@/interfaces/product.interface";
-import { CurrencyType } from "@/types/currency.type";
+import { Product } from "@/interfaces/product.interface";
+import { Currency } from "@/types/currency.type";
 
 export interface ProductRowProps {
-    cartProduct: IProduct & {
+    cartProduct: Product & {
         selectedSize: string;
         quantity: number;
         totalPrice: number;
     };
-    currency: CurrencyType;
+    currency: Currency;
 }

@@ -16,7 +16,7 @@ export const ClearCartButton = () => {
     const onClearCartButtonClick = () => {
         setCookie("cart", "");
         toogleLocalStorageHandler();
-        
+
         toast.success("All products successfully removed from cart");
     };
 

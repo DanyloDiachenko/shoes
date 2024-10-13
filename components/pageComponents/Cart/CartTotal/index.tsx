@@ -8,13 +8,13 @@ import { ShippingType } from "@/types/shipping.type";
 import { useState } from "react";
 import { setCookie } from "@/helpers/setCookie";
 
-let subtotal = 0;
-
 export const CartTotal = ({
     currency,
     cartProducts,
     cookieProducts,
 }: CartTotalProps) => {
+    let subtotal = 0;
+
     const [shippingType, setShippingType] = useState<ShippingType>("free");
 
     const onShippingTypeChange = (shipping: ShippingType) => {

@@ -1,9 +1,9 @@
-import { IProduct } from "@/interfaces/product.interface";
-import { IProductCookie } from "@/interfaces/productCookie.interface";
-import { CurrencyType } from "@/types/currency.type";
+import { Product } from "@/interfaces/product.interface";
+import { ProductCookie } from "@/interfaces/productCookie.interface";
+import { Currency } from "@/types/currency.type";
 
 export interface CartPageContentProps {
-    cartProducts: IProduct[];
-    cookieProducts: IProductCookie[];
-    currency: CurrencyType;
+    cartProducts: Product[];
+    cookieProducts: ProductCookie[];
+    currency: Currency;
 }
