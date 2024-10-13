@@ -8,6 +8,8 @@ import { ShippingType } from "@/types/shipping.type";
 import { useState } from "react";
 import { setCookie } from "@/helpers/setCookie";
 import { Shipping } from "./Shipping";
+import Link from "next/link";
+import { shippings } from "@/data/shippings";
 
 export const CartTotal = ({
     currency,
@@ -34,6 +36,24 @@ export const CartTotal = ({
         }
     }
 
+    const getShippingPrice = () => {
+        if (shippingType === "free") {
+            return 0;
+        }
+
+        const currentShippingType = shippings.find(
+            (shipping) => shipping.value === shippingType
+        );
+
+        if (currency == "uah") {
+            return currentShippingType?.priceUah || 0;
+        }
+
+        return currentShippingType?.priceEur || 0;
+    };
+
+    const total = subtotal + getShippingPrice();
+
     return (
         <aside className={styles.column}>
             <div className={styles.summary}>
@@ -50,20 +70,26 @@ export const CartTotal = ({
                         <Shipping
                             shippingType={shippingType}
                             onShippingTypeChange={onShippingTypeChange}
+                            shippings={shippings}
+                            currency={currency}
                         />
-
                         <tr className={styles.summaryShippingEstimate}>
                             <td>
-                                Estimate for Your Country
+                                Delivery to "Your Country"
                                 <br />{" "}
-                                <a href="dashboard.html">Change address</a>
+                                <Link href="dashboard.html">
+                                    Change address
+                                </Link>
                             </td>
                             <td>&nbsp;</td>
                         </tr>
 
                         <tr className={styles.summaryTotal}>
                             <td>Total:</td>
-                            <td>$160.00</td>
+                            <td>
+                                {currency === "uah" ? "₴" : "€"}
+                                {total.toFixed(2)}
+                            </td>
                         </tr>
                     </tbody>
                 </table>
