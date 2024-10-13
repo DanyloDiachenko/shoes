@@ -32,7 +32,8 @@ export const CartDropdown = ({
         dispatch(toogleLocalStorage());
     };
 
-    const [products, setProducts] = useState<Product[]>(cartProducts);
+    const [cartProductsClient, setCartProductsClient] =
+        useState<Product[]>(cartProducts);
     const [cookieProductsClient, setCookieProductsClient] =
         useState<ProductCookie[]>(cookieProducts);
 
@@ -40,12 +41,12 @@ export const CartDropdown = ({
         try {
             const productToCart = await getProduct(productId);
 
-            const productExists = products.some(
+            const productExists = cartProductsClient.some(
                 (product) => product.id === productToCart.id
             );
 
             if (!productExists) {
-                setProducts([...products, productToCart]);
+                setCartProductsClient([...cartProductsClient, productToCart]);
             }
         } catch (error) {
             toast.error("Failed to fetch product");
@@ -53,10 +54,10 @@ export const CartDropdown = ({
     };
 
     const onRemoveProductClick = (productId: string) => {
-        const updatedProducts = products.filter(
+        const updatedProducts = cartProductsClient.filter(
             (product) => product.id !== productId
         );
-        setProducts(updatedProducts);
+        setCartProductsClient(updatedProducts);
 
         const updatedCookieProducts = cookieProductsClient
             .filter((product) => product.id !== productId)
@@ -84,7 +85,7 @@ export const CartDropdown = ({
                 getProductHandler(cookieProducts[i].id);
             }
         } else {
-            setProducts([]);
+            setCartProductsClient([]);
         }
     }, [localStorageToogler]);
 
@@ -100,15 +101,32 @@ export const CartDropdown = ({
         return productSize?.title;
     };
 
+    let subtotal = 0;
+
+    for (let i = 0; i < cartProductsClient.length; i++) {
+        for (let j = 0; j < cookieProductsClient.length; j++) {
+            if (cartProductsClient[i].id === cookieProductsClient[j].id) {
+                subtotal +=
+                    currency === "uah"
+                        ? cartProductsClient[j].priceUah *
+                          cookieProductsClient[j].quantity
+                        : cartProductsClient[j].priceEur *
+                          cookieProductsClient[j].quantity;
+            }
+        }
+    }
+
     return (
         <div className={styles.dropdown}>
             <Link href="#" className={styles.dropdownToggle} role="button">
                 <BsCart2 className={styles.cartIcon} />
-                <span className={styles.cartCount}>{products.length}</span>
+                <span className={styles.cartCount}>
+                    {cartProductsClient.length}
+                </span>
             </Link>
             <div className={styles.dropdownMenu}>
                 <div className={styles.dropdownCartProducts}>
-                    {products.map((product) => {
+                    {cartProductsClient.map((product) => {
                         return (
                             <div className={styles.product} key={product.id}>
                                 <div className={styles.productCartDetails}>
@@ -171,9 +189,7 @@ export const CartDropdown = ({
                     <span>Total</span>
                     <span className={styles.cartTotalPrice}>
                         {currency === "uah" ? "₴" : "€"}
-                        {products
-                            .reduce((acc, product) => acc + product.priceUah, 0)
-                            .toFixed(2)}
+                        {subtotal.toFixed(2)}
                     </span>
                 </div>
                 <div className={styles.dropdownCartAction}>
