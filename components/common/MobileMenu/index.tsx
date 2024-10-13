@@ -36,6 +36,7 @@ export const MobileMenu = () => {
                 className={`${styles.mobileMenuOverlay} ${
                     isOpened ? styles.active : ""
                 }`}
+                onClick={() => setMobileMenuStateHandler(false)}
             ></div>
             <div
                 className={`${styles.mobileMenuContainer} ${
