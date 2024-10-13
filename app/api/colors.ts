@@ -6,7 +6,9 @@ export const getColors = async (): Promise<ProductColor[]> => {
     });
 
     if (!res.ok) {
-        throw new Error("Failed to fetch data");
+        console.log("Failed to fetch data", res);
+
+        return [];
     }
 
     const data = await res.json();

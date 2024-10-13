@@ -8,7 +8,9 @@ export const getCategories = async (): Promise<
     });
 
     if (!res.ok) {
-        throw new Error("Failed to fetch data");
+        console.log("Failed to fetch data", res);
+
+        return [];
     }
 
     const data = await res.json();

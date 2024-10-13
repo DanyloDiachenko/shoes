@@ -2,6 +2,7 @@ import { Product } from "@/interfaces/product.interface";
 import { GetProductsResponse } from "@/interfaces/responses";
 import { Currency } from "@/types/currency.type";
 import { SortProductsBy } from "@/types/sortProductsBy.type";
+import { notFound } from "next/navigation";
 
 interface GetProductsParams {
     pageNumber?: number;
@@ -44,6 +45,8 @@ export const getProducts = async ({
     );
 
     if (!res.ok) {
+        console.log("Failed to fetch data", res);
+
         throw new Error("Failed to fetch data");
     }
 
@@ -58,7 +61,7 @@ export const getProduct = async (productId: string): Promise<Product> => {
     );
 
     if (!res.ok) {
-        throw new Error("Failed to fetch data");
+        return notFound();
     }
 
     const data = await res.json();
