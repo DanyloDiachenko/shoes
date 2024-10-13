@@ -10,6 +10,7 @@ import { setCookie } from "@/helpers/setCookie";
 import { Shipping } from "./Shipping";
 import Link from "next/link";
 import { shippings } from "@/data/shippings";
+import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
 
 export const CartTotal = ({
     currency,
@@ -63,7 +64,7 @@ export const CartTotal = ({
                         <tr className={styles.summarySubtotal}>
                             <td>Subtotal:</td>
                             <td>
-                                {currency === "uah" ? "₴" : "€"}
+                                {getCurrencyIcon(currency)}
                                 {subtotal.toFixed(2)}
                             </td>
                         </tr>
@@ -87,7 +88,7 @@ export const CartTotal = ({
                         <tr className={styles.summaryTotal}>
                             <td>Total:</td>
                             <td>
-                                {currency === "uah" ? "₴" : "€"}
+                                {getCurrencyIcon(currency)}
                                 {total.toFixed(2)}
                             </td>
                         </tr>

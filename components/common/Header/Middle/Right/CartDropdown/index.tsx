@@ -17,6 +17,7 @@ import { setCookie } from "@/helpers/setCookie";
 import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
 import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
 import { getProductPrice } from "@/helpers/getProductPrice";
+import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
 
 export const CartDropdown = ({
     currency,
@@ -188,7 +189,7 @@ export const CartDropdown = ({
                 <div className={styles.dropdownCartTotal}>
                     <span>Total</span>
                     <span className={styles.cartTotalPrice}>
-                        {currency === "uah" ? "₴" : "€"}
+                        {getCurrencyIcon(currency)}
                         {subtotal.toFixed(2)}
                     </span>
                 </div>

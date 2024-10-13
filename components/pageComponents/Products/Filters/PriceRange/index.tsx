@@ -7,6 +7,7 @@ import InputRange, { Range } from "react-input-range";
 import { useDispatch } from "react-redux";
 import { setPriceEur, setPriceUah } from "@/store/slices/productsSettings";
 import { PriceRangeProps } from "./priceRange.props";
+import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
 
 export const PriceRange = ({ currency }: PriceRangeProps) => {
     const [isOpened, setIsOpened] = useState(true);
@@ -51,9 +52,9 @@ export const PriceRange = ({ currency }: PriceRangeProps) => {
                         <div className={styles.text}>
                             Price Range:{" "}
                             <span>
-                                {currency === "uah" ? "₴" : "€"}
+                                {getCurrencyIcon(currency)}
                                 {visiblePriceRange.min} -{" "}
-                                {currency === "uah" ? "₴" : "€"}
+                                {getCurrencyIcon(currency)}
                                 {visiblePriceRange.max}
                             </span>
                         </div>
@@ -69,7 +70,7 @@ export const PriceRange = ({ currency }: PriceRangeProps) => {
                             maxValue={currency === "uah" ? 10000 : 1000}
                             step={currency === "uah" ? 100 : 5}
                             formatLabel={(price) =>
-                                `${currency === "uah" ? "₴" : "€"}${price}`
+                                `${getCurrencyIcon(currency)}${price}`
                             }
                             classNames={{
                                 track: styles.inputRangeTrack,
