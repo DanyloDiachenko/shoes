@@ -1,16 +1,13 @@
 import Link from "next/link";
 import { headerNavigation } from "@/data/headerNavigation";
 import styles from "./styles.module.scss";
-import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
+import { MobileMenuButton } from "./MobileMenuButton";
 
 export const Left = () => {
     return (
         <div className={styles.headerLeft}>
-            <button className={styles.mobileMenuToggler}>
-                <span className="sr-only">Toggle mobile menu</span>
-                <RxHamburgerMenu />
-            </button>
+            <MobileMenuButton />
             <Link href="/" className={styles.logo}>
                 <img
                     src="/images/icons/logo.png"
