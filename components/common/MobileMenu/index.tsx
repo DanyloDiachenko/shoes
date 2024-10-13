@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { setMobileMenuState } from "@/store/slices/mobileMenu";
+import { Socials } from "./Socials";
 
 export const MobileMenu = () => {
     const dispatch = useDispatch();
@@ -72,7 +73,13 @@ export const MobileMenu = () => {
                                             className={styles.menuBtn}
                                             onClick={() => onTabClick(index)}
                                         >
-                                            <IoIosArrowDown />
+                                            <IoIosArrowDown
+                                                className={
+                                                    activeTabIndex === index
+                                                        ? styles.reversed
+                                                        : ""
+                                                }
+                                            />
                                         </button>
                                     </div>
                                     <div className={styles.sublinksWrapper}>
@@ -105,40 +112,7 @@ export const MobileMenu = () => {
                             ))}
                         </ul>
                     </nav>
-                    <div className={styles.socialIcons}>
-                        <a
-                            href="#"
-                            className={styles.socialIcon}
-                            target="_blank"
-                            title="Facebook"
-                        >
-                            <i className="icon-facebook-f"></i>
-                        </a>
-                        <a
-                            href="#"
-                            className={styles.socialIcon}
-                            target="_blank"
-                            title="Twitter"
-                        >
-                            <i className="icon-twitter"></i>
-                        </a>
-                        <a
-                            href="#"
-                            className={styles.socialIcon}
-                            target="_blank"
-                            title="Instagram"
-                        >
-                            <i className="icon-instagram"></i>
-                        </a>
-                        <a
-                            href="#"
-                            className={styles.socialIcon}
-                            target="_blank"
-                            title="Youtube"
-                        >
-                            <i className="icon-youtube"></i>
-                        </a>
-                    </div>
+                    <Socials />
                 </div>
             </div>
         </>

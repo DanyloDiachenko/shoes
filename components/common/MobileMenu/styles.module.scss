@@ -109,6 +109,14 @@
                         outline: none;
                         transition: color 0.35s;
                         margin-right: 1rem;
+
+                        svg {
+                            transition: 0.3s;
+
+                            &.reversed {
+                                transform: rotate(180deg);
+                            }
+                        }
                     }
                 }
 
