@@ -23,13 +23,13 @@ export const Left = () => {
                 <ul className={styles.menu}>
                     {headerNavigation.map((item, index) => (
                         <li key={index} className={styles.linksWrapper}>
-                            <Link href={item.url} className={styles.mainLink}>
+                            <Link href={item.link} className={styles.mainLink}>
                                 {item.title} <IoIosArrowDown />
                             </Link>
                             <ul className={styles.sublinks}>
                                 {item.sublinks.map((sublink, index) => (
                                     <li key={index}>
-                                        <Link href={sublink.url}>
+                                        <Link href={sublink.link}>
                                             {sublink.title}
                                         </Link>
                                     </li>

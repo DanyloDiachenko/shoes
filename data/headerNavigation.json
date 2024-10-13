@@ -1,9 +1,9 @@
 [
     {
         "title": "Bestsellers",
-        "url": "/products",
+        "link": "/products",
         "rightImageSrc": "/images/menu/banner-2.jpg",
-        "rightImageUrl": "/products",
+        "rightImagelink": "/products",
         "rightImageTitle": "New Trends",
         "rightImageTitleStrong": "Autumn 2024",
         "subtitle": "Top Products",
@@ -11,150 +11,150 @@
         "sublinks": [
             {
                 "title": "Nike Air 110",
-                "url": "/products/test",
+                "link": "/products/test",
                 "isNew": true
             },
             {
                 "title": "Nike Air 110",
-                "url": "/products/test"
+                "link": "/products/test"
             },
             {
                 "title": "Nike Air 110",
-                "url": "/products/test"
+                "link": "/products/test"
             },
             {
                 "title": "Nike Air 110",
-                "url": "/products/test",
+                "link": "/products/test",
                 "isNew": true
             },
             {
                 "title": "Nike Air 110",
-                "url": "/products/test"
+                "link": "/products/test"
             },
             {
                 "title": "Nike Air 110",
-                "url": "/products/test"
+                "link": "/products/test"
             },
             {
                 "title": "Nike Air 110",
-                "url": "/products/test",
+                "link": "/products/test",
                 "isNew": true
             },
             {
                 "title": "Nike Air 110",
-                "url": "/products/test"
+                "link": "/products/test"
             }
         ]
     },
     {
         "title": "Category",
-        "url": "/products",
+        "link": "/products",
         "sublinks": [
             {
                 "title": "For Men",
-                "url": "/products?category=men"
+                "link": "/products?category=men"
             },
             {
                 "title": "For Woman",
-                "url": "/products?category=woman"
+                "link": "/products?category=woman"
             },
             {
                 "title": "For Kids",
-                "url": "/products?category=kids"
+                "link": "/products?category=kids"
             },
             {
                 "title": "Unisex",
-                "url": "/products?category=unisex"
+                "link": "/products?category=unisex"
             }
         ]
     },
     {
         "title": "Producer",
-        "url": "/products",
+        "link": "/products",
         "sublinks": [
             {
                 "title": "Nike",
-                "url": "/products?producer=nike"
+                "link": "/products?producer=nike"
             },
             {
                 "title": "Adidas",
-                "url": "/products?producer=adidas"
+                "link": "/products?producer=adidas"
             },
             {
                 "title": "Puma",
-                "url": "/products?producer=puma"
+                "link": "/products?producer=puma"
             },
             {
                 "title": "New Balance",
-                "url": "/products?producer=new-balance"
+                "link": "/products?producer=new-balance"
             }
         ]
     },
     {
         "title": "Size",
-        "url": "/products",
+        "link": "/products",
         "sublinks": [
             {
                 "title": "XS",
-                "url": "/products?size=xs"
+                "link": "/products?size=xs"
             },
             {
                 "title": "S",
-                "url": "/products?size=s"
+                "link": "/products?size=s"
             },
             {
                 "title": "M",
-                "url": "/products?size=m"
+                "link": "/products?size=m"
             },
             {
                 "title": "L",
-                "url": "/products?size=l"
+                "link": "/products?size=l"
             },
             {
                 "title": "XL",
-                "url": "/products?size=xl"
+                "link": "/products?size=xl"
             },
             {
                 "title": "XXL",
-                "url": "/products?size=xxl"
+                "link": "/products?size=xxl"
             }
         ]
     },
     {
         "title": "Colour",
-        "url": "/products",
+        "link": "/products",
         "sublinks": [
             {
                 "title": "Brown",
-                "url": "/products?color=brown"
+                "link": "/products?color=brown"
             },
             {
                 "title": "Yellow",
-                "url": "/products?color=yellow"
+                "link": "/products?color=yellow"
             },
             {
                 "title": "Black",
-                "url": "/products?color=black"
+                "link": "/products?color=black"
             },
             {
                 "title": "Red",
-                "url": "/products?color=red"
+                "link": "/products?color=red"
             },
             {
                 "title": "Blue",
-                "url": "/products?color=blue"
+                "link": "/products?color=blue"
             },
             {
                 "title": "Green",
-                "url": "/products?color=green"
+                "link": "/products?color=green"
             },
             {
                 "title": "Pink",
-                "url": "/products?color=pink"
+                "link": "/products?color=pink"
             },
             {
                 "title": "White",
-                "url": "/products?color=white"
+                "link": "/products?color=white"
             }
         ]
     }

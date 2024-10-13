@@ -1,0 +1,186 @@
+.mobileMenuOverlay {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(25, 25, 25, 0.25);
+    z-index: 1000;
+    transition: all 0.4s;
+    visibility: hidden;
+    opacity: 0;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.mobileMenuContainer {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    bottom: 0;
+    z-index: 1001;
+    background-color: #333;
+    width: 100%;
+    max-width: 280px;
+    overflow-y: scroll;
+    box-shadow: 0.1rem 0 0.6rem 0 rgba(51, 51, 51, 0.5);
+    will-change: transform;
+    visibility: hidden;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    transition: all 0.4s ease;
+
+    &.active {
+        visibility: visible;
+        transform: translateX(280px);
+    }
+
+    .mobileMenuWrapper {
+        position: relative;
+        padding: 4.2rem 0;
+
+        .mobileMenuClose {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            position: absolute;
+            background: none;
+            border: none;
+            top: 0.7rem;
+            right: 1rem;
+            padding: 0;
+            z-index: 9;
+            cursor: pointer;
+            font-size: 1.6rem;
+            line-height: 1;
+            color: #fff;
+            transition: color 0.35s;
+        }
+    }
+
+    .mobileNav {
+        padding: 0;
+        margin: 0 0 2.5rem;
+
+        .mobileMenu {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+                display: block;
+                position: relative;
+
+                .mainLinkWrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.08);
+
+                    .mainLink {
+                        color: white;
+                        width: 100%;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        position: relative;
+                        display: block;
+                        padding: 1rem 4.5rem 1rem 2rem;
+                    }
+
+                    .menuBtn {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        right: 1rem;
+                        width: 3rem;
+                        height: 3rem;
+                        font-size: 1.2rem;
+                        color: #fff;
+                        border-radius: 0;
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                        outline: none;
+                        transition: color 0.35s;
+                        margin-right: 1rem;
+                    }
+                }
+
+                &.active {
+                    .sublinksWrapper {
+                        grid-template-rows: 1fr;
+
+                        ul {
+                            padding: 0.7rem 0 0.9rem;
+                        }
+                    }
+
+                    .mainLink {
+                        color: #c96;
+                    }
+                }
+
+                a {
+                    padding: 1rem 4.5rem 1rem 2rem;
+                }
+
+                .sublinksWrapper {
+                    display: grid;
+                    grid-template-rows: 0fr;
+                    overflow: hidden;
+                    transition: 0.3s;
+
+                    ul {
+                        min-height: 0;
+                        margin: 0;
+                        padding: 0;
+                        transition: 0.3s;
+                        display: block;
+                        margin-bottom: 0;
+                        border-bottom: 0.1rem solid rgba(255, 255, 255, 0.08);
+
+                        a {
+                            color: rgba(255, 255, 255, 0.8);
+                            padding-top: 0.6rem;
+                            padding-bottom: 0.6rem;
+                            padding-left: 3.5rem;
+                            border-bottom: none;
+                            position: relative;
+                            display: block;
+
+                            span {
+                                position: relative;
+                            }
+
+                            .tip {
+                                background-color: #a6c76c;
+                                color: #fff;
+                                display: block;
+                                position: absolute;
+                                left: 100%;
+                                bottom: 1rem;
+                                text-align: center;
+                                font-weight: 400;
+                                font-size: 0.8rem;
+                                line-height: 1;
+                                letter-spacing: 0;
+                                padding: 0.3rem 0.1rem 0.1rem;
+                                min-width: 23px;
+                                z-index: 1;
+                                border-radius: 0;
+                                margin-left: 0.5rem;
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
