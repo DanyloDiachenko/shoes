@@ -1,5 +1,5 @@
 import Link from "next/link";
-import headerNavigation from "../../../../../data/headerNavigation.json";
+import { headerNavigation } from "@/data/headerNavigation";
 import styles from "./styles.module.scss";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";

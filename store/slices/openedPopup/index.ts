@@ -1,8 +1,8 @@
 import { Popup } from "@/types/popup.type";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IOpenedPopupState } from "./openedPopupState.interface";
+import { OpenedPopupState } from "./openedPopupState.interface";
 
-const initialState: IOpenedPopupState = {
+const initialState: OpenedPopupState = {
     openedPopup: "",
 };
 

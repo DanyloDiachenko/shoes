@@ -3,6 +3,7 @@ import { openedPopupSlice } from "./slices/openedPopup";
 import { productsSettingsSlice } from "./slices/productsSettings";
 import { toogleLocalStorageSlice } from "./slices/toogleLocalStorage";
 import { productToCartSlice } from "./slices/productToCart";
+import { mobileMenuSlice } from "./slices/mobileMenu";
 
 export const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
         productsSettings: productsSettingsSlice.reducer,
         toogleLocalStorage: toogleLocalStorageSlice.reducer,
         productToCart: productToCartSlice.reducer,
+        mobileMenu: mobileMenuSlice.reducer,
     },
 });
 

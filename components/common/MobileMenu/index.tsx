@@ -3,12 +3,24 @@
 import styles from "./styles.module.scss";
 import { IoMdClose } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
-import headerNavigation from "../../../data/headerNavigation.json";
+import { headerNavigation } from "@/data/headerNavigation";
 import { useState } from "react";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { setMobileMenuState } from "@/store/slices/mobileMenu";
 
 export const MobileMenu = () => {
+    const dispatch = useDispatch();
+    const isOpened = useSelector(
+        (state: RootState) => state.mobileMenu.isOpened
+    );
+
     const [activeTabIndex, setActiveTabIndex] = useState<number>(-1);
+
+    const setMobileMenuStateHandler = (isOpened: boolean) => {
+        dispatch(setMobileMenuState(isOpened));
+    };
 
     const onTabClick = (index: number) => {
         if (index === activeTabIndex) {
@@ -21,11 +33,20 @@ export const MobileMenu = () => {
     return (
         <>
             <div
-                className={`${styles.mobileMenuOverlay} ${styles.active}`}
+                className={`${styles.mobileMenuOverlay} ${
+                    isOpened ? styles.active : ""
+                }`}
             ></div>
-            <div className={`${styles.mobileMenuContainer} ${styles.active}`}>
+            <div
+                className={`${styles.mobileMenuContainer} ${
+                    isOpened ? styles.active : ""
+                }`}
+            >
                 <div className={styles.mobileMenuWrapper}>
-                    <button className={styles.mobileMenuClose}>
+                    <button
+                        className={styles.mobileMenuClose}
+                        onClick={() => setMobileMenuStateHandler(false)}
+                    >
                         <IoMdClose />
                     </button>
                     <nav className={styles.mobileNav}>
