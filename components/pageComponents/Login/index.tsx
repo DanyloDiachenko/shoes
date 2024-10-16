@@ -3,10 +3,9 @@ import styles from "./styles.module.scss";
 export const LoginPageComponent = () => {
     return (
         <div
-            className="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17"
+            className={styles.loginPage}
             style={{
-                backgroundImage:
-                    "url('assets/images/backgrounds/login-bg.jpg')",
+                backgroundImage: "url('/images/banners/login-bg.png')",
             }}
         >
             <div className="container">
