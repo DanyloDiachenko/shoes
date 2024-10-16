@@ -1,3 +1,4 @@
+import { FormBox } from "./FormBox";
 import styles from "./styles.module.scss";
 
 export const LoginPageComponent = () => {
@@ -9,7 +10,7 @@ export const LoginPageComponent = () => {
             }}
         >
             <div className="container">
-               {/*  */}
+                <FormBox />
             </div>
         </div>
     );
