@@ -4,27 +4,25 @@ import styles from "./styles.module.scss";
 
 export const FormBox = () => {
     return (
-        <div className="form-box">
-            <div className="form-tab">
-                <ul className="nav nav-pills nav-fill" role="tablist">
-                    <li className="nav-item">
+        <div className={styles.formBox}>
+            <div className={styles.formTab}>
+                <ul className={styles.navNavPills} role="tablist">
+                    <li className={styles.navItem}>
                         <a
-                            className="nav-link"
+                            className={styles.navLink}
                             id="signin-tab-2"
-                            data-toggle="tab"
                             href="#signin-2"
                             role="tab"
                             aria-controls="signin-2"
-                            aria-selected="false"
+                            aria-selected={false}
                         >
                             Sign In
                         </a>
                     </li>
-                    <li className="nav-item">
+                    <li className={styles.navItem}>
                         <a
-                            className="nav-link active"
+                            className={`${styles.navLink} ${styles.active}`}
                             id="register-tab-2"
-                            data-toggle="tab"
                             href="#register-2"
                             role="tab"
                             aria-controls="register-2"
