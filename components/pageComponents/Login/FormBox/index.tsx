@@ -32,15 +32,15 @@ export const FormBox = () => {
                         </a>
                     </li>
                 </ul>
-                <div className="tab-content">
+                <div className={styles.tabContent}>
                     <div
-                        className="tab-pane fade"
+                        className={styles.tabPane}
                         id="signin-2"
                         role="tabpanel"
                         aria-labelledby="signin-tab-2"
                     >
                         <form action="#">
-                            <div className="form-group">
+                            <div className={styles.formGroup}>
                                 <label htmlFor="singin-email-2">
                                     Username or email address *
                                 </label>
@@ -53,7 +53,7 @@ export const FormBox = () => {
                                 />
                             </div>
 
-                            <div className="form-group">
+                            <div className={styles.formGroup}>
                                 <label htmlFor="singin-password-2">
                                     Password *
                                 </label>
@@ -66,7 +66,7 @@ export const FormBox = () => {
                                 />
                             </div>
 
-                            <div className="form-footer">
+                            <div className={styles.formFooter}>
                                 <button
                                     type="submit"
                                     className="btn btn-outline-primary-2"
@@ -89,21 +89,21 @@ export const FormBox = () => {
                                     </label>
                                 </div>
 
-                                <a href="#" className="forgot-link">
+                                <a href="#" className={styles.forgotLink}>
                                     Forgot Your Password?
                                 </a>
                             </div>
                         </form>
-                        <div className="form-choice">
-                            <p className="text-center">or sign in with</p>
+                        <div className={styles.formChoice}>
+                            <p className={styles.textCenter}>or sign in with</p>
                             <div className="row">
-                                <div className="col-sm-6">
+                                <div className={styles.column}>
                                     <a href="#" className="btn btn-login btn-g">
                                         <i className="icon-google"></i>
                                         Login With Google
                                     </a>
                                 </div>
-                                <div className="col-sm-6">
+                                <div className={styles.column}>
                                     <a href="#" className="btn btn-login btn-f">
                                         <i className="icon-facebook-f"></i>
                                         Login With Facebook
