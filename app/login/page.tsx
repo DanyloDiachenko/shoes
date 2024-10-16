@@ -1,4 +1,5 @@
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
+import { LoginPageComponent } from "@/components/pageComponents/Login";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 
 const breadcrumbs: Breadcrumb[] = [
@@ -20,6 +21,7 @@ const Login = async () => {
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
+            <LoginPageComponent />
         </>
     );
 };
