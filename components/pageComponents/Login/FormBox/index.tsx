@@ -1,6 +1,10 @@
 "use client";
 
+import { Button } from "@/components/UI/Button";
 import styles from "./styles.module.scss";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import { Checkbox } from "@/components/UI/Checkbox";
+import Link from "next/link";
 
 export const FormBox = () => {
     return (
@@ -67,35 +71,26 @@ export const FormBox = () => {
                             </div>
 
                             <div className={styles.formFooter}>
-                                <button
+                                <Button
                                     type="submit"
-                                    className="btn btn-outline-primary-2"
+                                    colorType="btnOutlinePrimary2"
+                                    className={styles.button}
                                 >
                                     <span>LOG IN</span>
-                                    <i className="icon-long-arrow-right"></i>
-                                </button>
+                                    <IoIosArrowRoundForward />
+                                </Button>
 
-                                <div className="custom-control custom-checkbox">
-                                    <input
-                                        type="checkbox"
-                                        className="custom-control-input"
-                                        id="signin-remember-2"
-                                    />
-                                    <label
-                                        className="custom-control-label"
-                                        htmlFor="signin-remember-2"
-                                    >
-                                        Remember Me
-                                    </label>
-                                </div>
-
-                                <a href="#" className={styles.forgotLink}>
+                                <Checkbox
+                                    title="Remember Me"
+                                    id="signin-remember-2"
+                                />
+                                <Link href="#" className={styles.forgotLink}>
                                     Forgot Your Password?
-                                </a>
+                                </Link>
                             </div>
                         </form>
                         <div className={styles.formChoice}>
-                            <p className={styles.textCenter}>or sign in with</p>
+                            <p className="text-center">or sign in with</p>
                             <div className="row">
                                 <div className={styles.column}>
                                     <a href="#" className="btn btn-login btn-g">
