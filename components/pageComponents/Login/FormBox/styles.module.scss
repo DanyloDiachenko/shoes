@@ -53,5 +53,45 @@
     }
 
     .tabContent {
+        padding: 2rem 0 0;
+
+        form {
+            .formGroup {
+                margin-bottom: 1.3rem;
+
+                label {
+                    color: #666;
+                    font-weight: 300;
+                    font-size: 1.4rem;
+                    margin: 0 0 1.1rem;
+                    display: inline-block;
+                }
+
+                input {
+                    margin-bottom: 0;
+                    height: 40px;
+                    padding: 0.85rem 2rem;
+                    font-size: 1.4rem;
+                    line-height: 1.5;
+                    font-weight: 300;
+                    color: #777;
+                    background-color: #fafafa;
+                    border: 1px solid #ebebeb;
+                    border-radius: 0;
+                    transition: all 0.3s;
+                    box-shadow: none;
+                    display: block;
+                    width: 100%;
+
+                    &:focus {
+                        color: #777;
+                        background-color: #fff;
+                        border-color: #c96;
+                        box-shadow: none;
+                        outline: none;
+                    }
+                }
+            }
+        }
     }
 }
