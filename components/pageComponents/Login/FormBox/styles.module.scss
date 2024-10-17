@@ -1,0 +1,57 @@
+.formBox {
+    max-width: 575px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    padding: 2.2rem 2rem 4.4rem;
+    box-shadow: 0 3px 16px rgba(51, 51, 51, 0.1);
+
+    @media screen and (min-width: 768px) {
+        padding: 3.7rem 6rem 6.4rem;
+    }
+
+    .navPills {
+        color: #333;
+        border-bottom: 0.1rem solid #ebebeb;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+
+        .navItem {
+            margin-bottom: -0.1rem;
+            flex: 1 1 0;
+            text-align: center;
+
+            .navLink {
+                text-transform: capitalize;
+                font-weight: 400;
+                font-size: 2rem;
+                letter-spacing: -0.025em;
+                color: inherit;
+                border-bottom: 0.2rem solid transparent;
+                padding: 0.9rem 1rem;
+                background-color: transparent;
+                transition: all 0.35s ease;
+                line-height: 1.5;
+                display: block;
+
+                @media screen and (min-width: 768px) {
+                    font-size: 2.4rem;
+                }
+
+                &.active {
+                    color: inherit;
+                    border-color: #d7d7d7;
+                    border-bottom-color: #c96;
+                }
+            }
+        }
+    }
+
+    .tabContent {
+    }
+}

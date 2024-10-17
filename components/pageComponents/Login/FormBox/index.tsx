@@ -6,7 +6,7 @@ export const FormBox = () => {
     return (
         <div className={styles.formBox}>
             <div className={styles.formTab}>
-                <ul className={styles.navNavPills} role="tablist">
+                <ul className={styles.navPills} role="tablist">
                     <li className={styles.navItem}>
                         <a
                             className={styles.navLink}
@@ -113,39 +113,39 @@ export const FormBox = () => {
                         </div>
                     </div>
                     <div
-                        className="tab-pane fade show active"
+                        className={styles.tabPane}
                         id="register-2"
                         role="tabpanel"
                         aria-labelledby="register-tab-2"
                     >
                         <form action="#">
-                            <div className="form-group">
+                            <div className={styles.formGroup}>
                                 <label htmlFor="register-email-2">
                                     Your email address *
                                 </label>
                                 <input
                                     type="email"
-                                    className="form-control"
+                                    className={styles.formControl}
                                     id="register-email-2"
                                     name="register-email"
                                     required
                                 />
                             </div>
 
-                            <div className="form-group">
+                            <div className={styles.formGroup}>
                                 <label htmlFor="register-password-2">
                                     Password *
                                 </label>
                                 <input
                                     type="password"
-                                    className="form-control"
+                                    className={styles.formControl}
                                     id="register-password-2"
                                     name="register-password"
                                     required
                                 />
                             </div>
 
-                            <div className="form-footer">
+                            <div className={styles.formFooter}>
                                 <button
                                     type="submit"
                                     className="btn btn-outline-primary-2"
@@ -171,7 +171,7 @@ export const FormBox = () => {
                                 </div>
                             </div>
                         </form>
-                        <div className="form-choice">
+                        <div className={styles.formChoice}>
                             <p className="text-center">or sign in with</p>
                             <div className="row">
                                 <div className="col-sm-6">
