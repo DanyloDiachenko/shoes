@@ -26,18 +26,21 @@
             flex: 1 1 0;
             text-align: center;
 
-            .navLink {
+            .navButton {
+                width: 100%;
                 text-transform: capitalize;
                 font-weight: 400;
                 font-size: 2rem;
                 letter-spacing: -0.025em;
                 color: inherit;
+                border: none;
                 border-bottom: 0.2rem solid transparent;
                 padding: 0.9rem 1rem;
                 background-color: transparent;
                 transition: all 0.35s ease;
                 line-height: 1.5;
                 display: block;
+                cursor: pointer;
 
                 @media screen and (min-width: 768px) {
                     font-size: 2.4rem;
@@ -107,7 +110,7 @@
                     margin-top: 1rem;
                     order: 2;
                     width: 100%;
-                    min-width: 115px;
+                    min-width: 125px;
 
                     @media screen and (min-width: 768px) {
                         margin-left: 0;
@@ -143,33 +146,53 @@
                     }
                 }
             }
+        }
 
-            .formChoice {
-                color: #333;
-                font-weight: 400;
-                font-size: 1.6rem;
-                line-height: 1.5;
-                letter-spacing: -0.025em;
+        .formChoice {
+            color: #333;
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 1.5;
+            letter-spacing: -0.025em;
 
-                p {
-                    margin-bottom: 2.7rem;
+            p {
+                margin-bottom: 2.7rem;
+                text-align: center;
+            }
+
+            .column {
+                padding-right: 10px;
+                padding-left: 10px;
+                position: relative;
+                width: 100%;
+
+                @media (min-width: 576px) {
+                    -ms-flex: 0 0 50%;
+                    flex: 0 0 50%;
+                    max-width: 50%;
                 }
 
-                .column {
-                    padding-right: 10px;
-                    padding-left: 10px;
-                    position: relative;
+                @media screen and (min-width: 576px) {
+                    &:not(:last-child) {
+                        margin-bottom: 0;
+                    }
+                }
+
+                button {
                     width: 100%;
 
-                    @media (min-width: 576px) {
-                        -ms-flex: 0 0 50%;
-                        flex: 0 0 50%;
-                        max-width: 50%;
+                    &.buttonGoogle {
+                        svg {
+                            color: #cc3333;
+                            width: 26px;
+                        }
                     }
 
-                    @media screen and (min-width: 576px) {
-                        &:not(:last-child) {
-                            margin-bottom: 0;
+                    &.buttonFacebook {
+                        svg {
+                            color: #3366cc;
+                            width: 8px;
+                            margin-right: 0.7rem;
                         }
                     }
                 }

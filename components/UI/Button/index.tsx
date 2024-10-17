@@ -38,5 +38,15 @@ export const Button = ({
                 </button>
             );
         }
+        case "btnGray": {
+            return (
+                <button
+                    className={`${styles.btn} ${styles.btnGray} ${className}`}
+                    {...rest}
+                >
+                    {children}
+                </button>
+            );
+        }
     }
 };
