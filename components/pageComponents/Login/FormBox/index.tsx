@@ -7,9 +7,12 @@ import { Checkbox } from "@/components/UI/Checkbox";
 import Link from "next/link";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
 import { useState } from "react";
+import { Input } from "@/components/UI/Input";
 
 export const FormBox = () => {
     const [tab, setTab] = useState<"signIn" | "register">("signIn");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     return (
         <div className={styles.formBox}>
@@ -51,14 +54,17 @@ export const FormBox = () => {
                             <form action="#">
                                 <div className={styles.formGroup}>
                                     <label htmlFor="singin-email-2">
-                                        Username or email address *
+                                        Your email address *
                                     </label>
-                                    <input
+                                    <Input
                                         type="text"
-                                        className="form-control"
                                         id="singin-email-2"
                                         name="singin-email"
                                         required
+                                        value={email}
+                                        onChange={(e) =>
+                                            setEmail(e.target.value)
+                                        }
                                     />
                                 </div>
 
@@ -66,12 +72,15 @@ export const FormBox = () => {
                                     <label htmlFor="singin-password-2">
                                         Password *
                                     </label>
-                                    <input
+                                    <Input
                                         type="password"
-                                        className="form-control"
                                         id="singin-password-2"
                                         name="singin-password"
                                         required
+                                        value={password}
+                                        onChange={(e) =>
+                                            setPassword(e.target.value)
+                                        }
                                     />
                                 </div>
 
@@ -133,12 +142,12 @@ export const FormBox = () => {
                                     <label htmlFor="register-email-2">
                                         Your email address *
                                     </label>
-                                    <input
+                                    <Input
                                         type="email"
-                                        className={styles.formControl}
                                         id="register-email-2"
                                         name="register-email"
                                         required
+                                        value={email}
                                     />
                                 </div>
 
@@ -146,12 +155,14 @@ export const FormBox = () => {
                                     <label htmlFor="register-password-2">
                                         Password *
                                     </label>
-                                    <input
+                                    <Input
                                         type="password"
-                                        className={styles.formControl}
                                         id="register-password-2"
                                         name="register-password"
                                         required
+                                        onChange={(e) =>
+                                            setPassword(e.target.value)
+                                        }
                                     />
                                 </div>
 
@@ -164,7 +175,6 @@ export const FormBox = () => {
                                         <span>SIGN UP</span>
                                         <IoIosArrowRoundForward />
                                     </Button>
-
                                     <Checkbox
                                         title="I agree to the privacy policy *"
                                         id="register-policy-2"
