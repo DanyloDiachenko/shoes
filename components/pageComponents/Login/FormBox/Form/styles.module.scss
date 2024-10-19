@@ -1,0 +1,64 @@
+.form {
+    .formGroup {
+        margin-bottom: 1.3rem;
+
+        label {
+            color: #666;
+            font-weight: 300;
+            font-size: 1.4rem;
+            margin: 0 0 1.1rem;
+            display: inline-block;
+        }
+    }
+
+    .formFooter {
+        padding-top: 0.6rem;
+        padding-bottom: 3rem;
+        border-bottom: 0.1rem solid #ebebeb;
+        margin-bottom: 2.3rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .button {
+            margin-left: auto;
+            margin-top: 1rem;
+            order: 2;
+            width: 100%;
+            min-width: 125px;
+
+            @media screen and (min-width: 768px) {
+                margin-left: 0;
+                margin-right: 1.6rem;
+                order: -1;
+            }
+            @media screen and (min-width: 576px) {
+                width: auto;
+                margin-top: 0;
+            }
+
+            svg {
+                margin-left: 1rem;
+                font-size: 2rem;
+            }
+        }
+
+        .forgotLink {
+            order: -1;
+            width: 100%;
+            margin-bottom: 0.6rem;
+            color: inherit;
+
+            @media screen and (min-width: 768px) {
+                order: 2;
+                width: auto;
+                margin-bottom: 0;
+                margin-left: auto;
+            }
+
+            &:hover {
+                color: #c96;
+            }
+        }
+    }
+}

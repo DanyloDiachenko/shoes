@@ -2,15 +2,13 @@
 
 import { Button } from "@/components/UI/Button";
 import styles from "./styles.module.scss";
-import { IoIosArrowRoundForward } from "react-icons/io";
-import { Checkbox } from "@/components/UI/Checkbox";
-import Link from "next/link";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
 import { useState } from "react";
-import { Input } from "@/components/UI/Input";
+import { LoginTab } from "@/types/loginTab.type";
+import { Form } from "./Form";
 
 export const FormBox = () => {
-    const [tab, setTab] = useState<"signIn" | "register">("signIn");
+    const [tab, setTab] = useState<LoginTab>("signIn");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -44,168 +42,43 @@ export const FormBox = () => {
                     </li>
                 </ul>
                 <div className={styles.tabContent}>
-                    {tab === "signIn" ? (
-                        <div
-                            className={styles.tabPane}
-                            id="signin-2"
-                            role="tabpanel"
-                            aria-labelledby="signin-tab-2"
-                        >
-                            <form action="#">
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="singin-email-2">
-                                        Your email address *
-                                    </label>
-                                    <Input
-                                        type="text"
-                                        id="singin-email-2"
-                                        name="singin-email"
-                                        required
-                                        value={email}
-                                        onChange={(e) =>
-                                            setEmail(e.target.value)
-                                        }
-                                    />
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="singin-password-2">
-                                        Password *
-                                    </label>
-                                    <Input
-                                        type="password"
-                                        id="singin-password-2"
-                                        name="singin-password"
-                                        required
-                                        value={password}
-                                        onChange={(e) =>
-                                            setPassword(e.target.value)
-                                        }
-                                    />
-                                </div>
-
-                                <div className={styles.formFooter}>
+                    <div
+                        className={styles.tabPane}
+                        id="signin-2"
+                        role="tabpanel"
+                        aria-labelledby="signin-tab-2"
+                    >
+                        <Form
+                            email={email}
+                            setEmail={setEmail}
+                            password={password}
+                            setPassword={setPassword}
+                            tab={tab}
+                        />
+                        <div className={styles.formChoice}>
+                            <p>or sign in with</p>
+                            <div className="row">
+                                <div className={styles.column}>
                                     <Button
-                                        type="submit"
-                                        colorType="btnOutlinePrimary2"
-                                        className={styles.button}
+                                        colorType="btnGray"
+                                        className={styles.buttonGoogle}
                                     >
-                                        <span>LOG IN</span>
-                                        <IoIosArrowRoundForward />
+                                        <FaGoogle />
+                                        <span>Login With Google</span>
                                     </Button>
-
-                                    <Checkbox
-                                        title="Remember Me"
-                                        id="signin-remember-2"
-                                    />
-                                    <Link
-                                        href="#"
-                                        className={styles.forgotLink}
-                                    >
-                                        Forgot Your Password?
-                                    </Link>
                                 </div>
-                            </form>
-                            <div className={styles.formChoice}>
-                                <p>or sign in with</p>
-                                <div className="row">
-                                    <div className={styles.column}>
-                                        <Button
-                                            colorType="btnGray"
-                                            className={styles.buttonGoogle}
-                                        >
-                                            <FaGoogle />
-                                            <span>Login With Google</span>
-                                        </Button>
-                                    </div>
-                                    <div className={styles.column}>
-                                        <Button
-                                            colorType="btnGray"
-                                            className={styles.buttonFacebook}
-                                        >
-                                            <FaFacebookF />
-                                            <span>Login With Facebook</span>
-                                        </Button>
-                                    </div>
+                                <div className={styles.column}>
+                                    <Button
+                                        colorType="btnGray"
+                                        className={styles.buttonFacebook}
+                                    >
+                                        <FaFacebookF />
+                                        <span>Login With Facebook</span>
+                                    </Button>
                                 </div>
                             </div>
                         </div>
-                    ) : (
-                        <div
-                            className={styles.tabPane}
-                            id="register-2"
-                            role="tabpanel"
-                            aria-labelledby="register-tab-2"
-                        >
-                            <form action="#">
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="register-email-2">
-                                        Your email address *
-                                    </label>
-                                    <Input
-                                        type="email"
-                                        id="register-email-2"
-                                        name="register-email"
-                                        required
-                                        value={email}
-                                    />
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="register-password-2">
-                                        Password *
-                                    </label>
-                                    <Input
-                                        type="password"
-                                        id="register-password-2"
-                                        name="register-password"
-                                        required
-                                        onChange={(e) =>
-                                            setPassword(e.target.value)
-                                        }
-                                    />
-                                </div>
-
-                                <div className={styles.formFooter}>
-                                    <Button
-                                        type="submit"
-                                        colorType="btnOutlinePrimary2"
-                                        className={styles.button}
-                                    >
-                                        <span>SIGN UP</span>
-                                        <IoIosArrowRoundForward />
-                                    </Button>
-                                    <Checkbox
-                                        title="I agree to the privacy policy *"
-                                        id="register-policy-2"
-                                    />
-                                </div>
-                            </form>
-                            <div className={styles.formChoice}>
-                                <p>or sign in with</p>
-                                <div className="row">
-                                    <div className={styles.column}>
-                                        <Button
-                                            colorType="btnGray"
-                                            className={styles.buttonGoogle}
-                                        >
-                                            <FaGoogle />
-                                            <span>Login With Google</span>
-                                        </Button>
-                                    </div>
-                                    <div className={styles.column}>
-                                        <Button
-                                            colorType="btnGray"
-                                            className={styles.buttonFacebook}
-                                        >
-                                            <FaFacebookF />
-                                            <span>Login With Facebook</span>
-                                        </Button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                    </div>
                 </div>
             </div>
         </div>
