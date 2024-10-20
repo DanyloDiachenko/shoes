@@ -8,22 +8,23 @@ import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
+import { register } from "@/app/api/auth/register";
 
 export const Form = ({ tab }: FormProps) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const signInHandler = async () => {
-        const res = await signIn("credentials", {
+        const response = await signIn("credentials", {
             email,
             password,
             redirect: false,
         });
 
-        console.log(res);
-        if (res?.error) {
+        console.log(response);
+        if (response?.error) {
             toast.error("Invalid email or password!");
-        } else if (res?.ok) {
+        } else if (response?.ok) {
             toast.success("Logged in successfully!");
 
             setTimeout(() => {
@@ -32,20 +33,60 @@ export const Form = ({ tab }: FormProps) => {
         }
     };
 
-    const signUpHandler = () => {
-        signIn("credentials", {
-            email,
-            password,
-        });
+    const registerHandler = async () => {
+        try {
+            const response = await register({
+                email,
+                password,
+            });
+
+            if ("error" in response) {
+                const errorMessage =
+                    typeof response.message === "string"
+                        ? response.message
+                        : response.message[0];
+
+                toast.error(
+                    errorMessage.charAt(0).toUpperCase() + errorMessage.slice(1)
+                );
+            } else {
+                toast.success("Register successfully! Loginning now...");
+
+                const signInResponse = await signIn("credentials", {
+                    email,
+                    password,
+                    redirect: false,
+                });
+
+                if (signInResponse?.error) {
+                    toast.error("Something went wrong!");
+                } else if (signInResponse?.ok) {
+                    toast.success("Login successfully!");
+
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                }
+            }
+        } catch (error) {
+            console.error("Register error:", error);
+            toast.error("Try again later!");
+        }
     };
 
     const onAuthClick = (e: FormEvent) => {
         e.preventDefault();
 
+        if (email.length === 0 || password.length === 0) {
+            toast.error("Please fill all fields!");
+
+            return;
+        }
+
         if (tab === "signIn") {
             signInHandler();
         } else {
-            signUpHandler();
+            registerHandler();
         }
     };
 
