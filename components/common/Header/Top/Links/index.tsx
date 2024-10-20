@@ -1,22 +1,11 @@
-"use client";
-
 import Link from "next/link";
-import { useDispatch } from "react-redux";
-import { setOpenedPopup } from "@/store/slices/openedPopup";
-import { Popup } from "@/types/popup.type";
 import styles from "./styles.module.scss";
 import { BsTelephone } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
-import { AiOutlineUser } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
+import { LoginOrHello } from "./LoginOrHello";
 
 export const Links = () => {
-    const dispatch = useDispatch();
-
-    const setOpenedPopupHandler = (popupToOpen: Popup) => {
-        dispatch(setOpenedPopup(popupToOpen));
-    };
-
     return (
         <div className={styles.headerRight}>
             <ul className={styles.topMenu}>
@@ -53,16 +42,7 @@ export const Links = () => {
                             <Link href="contact.html">Contact Us</Link>
                         </li>
                         <li>
-                            <Link
-                                href="#"
-                                onClick={() =>
-                                    setOpenedPopupHandler("authorization")
-                                }
-                                className={styles.iconLink}
-                            >
-                                <AiOutlineUser />
-                                <span>Login</span>
-                            </Link>
+                            <LoginOrHello />
                         </li>
                     </ul>
                 </li>

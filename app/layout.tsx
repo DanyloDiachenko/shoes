@@ -14,7 +14,7 @@ const notoSans = Noto_Sans({
     display: "swap",
 });
 
-const RootLayout = ({ children }: LayoutProps) => {
+const RootLayout = async ({ children }: LayoutProps) => {
     return (
         <html lang="en">
             <body className={notoSans.className}>

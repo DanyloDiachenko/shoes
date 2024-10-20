@@ -5,13 +5,49 @@ import { Button } from "@/components/UI/Button";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Checkbox } from "@/components/UI/Checkbox";
 import Link from "next/link";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { signIn } from "next-auth/react";
+import { toast } from "react-toastify";
 
-export const Form = ({
-    tab,
-}: FormProps) => {
+export const Form = ({ tab }: FormProps) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const signInHandler = async () => {
+        const res = await signIn("credentials", {
+            email,
+            password,
+            redirect: false,
+        });
+
+        console.log(res);
+        if (res?.error) {
+            toast.error("Invalid email or password!");
+        } else if (res?.ok) {
+            toast.success("Logged in successfully!");
+
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+        }
+    };
+
+    const signUpHandler = () => {
+        signIn("credentials", {
+            email,
+            password,
+        });
+    };
+
+    const onAuthClick = (e: FormEvent) => {
+        e.preventDefault();
+
+        if (tab === "signIn") {
+            signInHandler();
+        } else {
+            signUpHandler();
+        }
+    };
 
     return (
         <form action="#" className={styles.form}>
@@ -43,6 +79,7 @@ export const Form = ({
                     type="submit"
                     colorType="btnOutlinePrimary2"
                     className={styles.button}
+                    onClick={(e) => onAuthClick(e)}
                 >
                     <span>{tab === "signIn" ? "LOG IN" : "SIGN UP"}</span>
                     <IoIosArrowRoundForward />
