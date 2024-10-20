@@ -5,14 +5,14 @@ import { Button } from "@/components/UI/Button";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Checkbox } from "@/components/UI/Checkbox";
 import Link from "next/link";
+import { useState } from "react";
 
 export const Form = ({
-    email,
-    setEmail,
-    password,
-    setPassword,
     tab,
 }: FormProps) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
     return (
         <form action="#" className={styles.form}>
             <div className={styles.formGroup}>

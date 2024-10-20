@@ -9,8 +9,6 @@ import { Form } from "./Form";
 
 export const FormBox = () => {
     const [tab, setTab] = useState<LoginTab>("signIn");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
 
     return (
         <div className={styles.formBox}>
@@ -48,13 +46,7 @@ export const FormBox = () => {
                         role="tabpanel"
                         aria-labelledby="signin-tab-2"
                     >
-                        <Form
-                            email={email}
-                            setEmail={setEmail}
-                            password={password}
-                            setPassword={setPassword}
-                            tab={tab}
-                        />
+                        <Form tab={tab} />
                         <div className={styles.formChoice}>
                             <p>or sign in with</p>
                             <div className="row">
