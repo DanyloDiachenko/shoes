@@ -29,11 +29,6 @@ export const register = async ({
     });
 
     const resJson = await res.json();
-    if (!res.ok) {
-        console.log("Failed to fetch data", resJson);
-
-        return resJson;
-    }
 
     return resJson;
 };

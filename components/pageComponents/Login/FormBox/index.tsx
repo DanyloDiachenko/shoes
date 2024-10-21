@@ -2,13 +2,18 @@
 
 import { Button } from "@/components/UI/Button";
 import styles from "./styles.module.scss";
-import { FaGoogle, FaFacebookF } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import { useState } from "react";
 import { LoginTab } from "@/types/loginTab.type";
 import { Form } from "./Form";
+import { signIn, useSession } from "next-auth/react";
 
 export const FormBox = () => {
     const [tab, setTab] = useState<LoginTab>("signIn");
+
+    const onGoogleLoginClick = () => {
+        signIn("google", { callbackUrl: "/login" });
+    };
 
     return (
         <div className={styles.formBox}>
@@ -50,24 +55,14 @@ export const FormBox = () => {
                         <div className={styles.formChoice}>
                             <p>or sign in with</p>
                             <div className="row">
-                                <div className={styles.column}>
-                                    <Button
-                                        colorType="btnGray"
-                                        className={styles.buttonGoogle}
-                                    >
-                                        <FaGoogle />
-                                        <span>Login With Google</span>
-                                    </Button>
-                                </div>
-                                <div className={styles.column}>
-                                    <Button
-                                        colorType="btnGray"
-                                        className={styles.buttonFacebook}
-                                    >
-                                        <FaFacebookF />
-                                        <span>Login With Facebook</span>
-                                    </Button>
-                                </div>
+                                <Button
+                                    colorType="btnGray"
+                                    className={styles.buttonGoogle}
+                                    onClick={onGoogleLoginClick}
+                                >
+                                    <FaGoogle />
+                                    <span>Login With Google</span>
+                                </Button>
                             </div>
                         </div>
                     </div>

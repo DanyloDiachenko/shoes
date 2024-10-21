@@ -6,7 +6,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { Checkbox } from "@/components/UI/Checkbox";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { register } from "@/app/api/auth/register";
 
@@ -21,10 +21,9 @@ export const Form = ({ tab }: FormProps) => {
             redirect: false,
         });
 
-        console.log(response);
         if (response?.error) {
-            toast.error("Invalid email or password!");
-        } else if (response?.ok) {
+            toast.error(response.error);
+        } else {
             toast.success("Logged in successfully!");
 
             setTimeout(() => {

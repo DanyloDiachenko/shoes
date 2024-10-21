@@ -70,40 +70,15 @@
                 text-align: center;
             }
 
-            .column {
-                padding-right: 10px;
-                padding-left: 10px;
-                position: relative;
-                width: 100%;
+            button {
+                width: 200px;
+                margin-left: auto;
+                margin-right: auto;
 
-                @media (min-width: 576px) {
-                    -ms-flex: 0 0 50%;
-                    flex: 0 0 50%;
-                    max-width: 50%;
-                }
-
-                @media screen and (min-width: 576px) {
-                    &:not(:last-child) {
-                        margin-bottom: 0;
-                    }
-                }
-
-                button {
-                    width: 100%;
-
-                    &.buttonGoogle {
-                        svg {
-                            color: #cc3333;
-                            width: 26px;
-                        }
-                    }
-
-                    &.buttonFacebook {
-                        svg {
-                            color: #3366cc;
-                            width: 8px;
-                            margin-right: 0.7rem;
-                        }
+                &.buttonGoogle {
+                    svg {
+                        color: #cc3333;
+                        width: 26px;
                     }
                 }
             }

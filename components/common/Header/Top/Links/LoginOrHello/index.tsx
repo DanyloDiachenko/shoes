@@ -6,7 +6,6 @@ import { getServerSession } from "next-auth";
 
 export const LoginOrHello = async () => {
     const session = await getServerSession(authOptions);
-    console.log(session);
 
     return (
         <Link href={session ? "#" : "/login"} className={styles.iconLink}>
