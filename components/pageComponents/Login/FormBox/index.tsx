@@ -6,7 +6,7 @@ import { FaGoogle } from "react-icons/fa";
 import { useState } from "react";
 import { LoginTab } from "@/types/loginTab.type";
 import { Form } from "./Form";
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 export const FormBox = () => {
     const [tab, setTab] = useState<LoginTab>("signIn");

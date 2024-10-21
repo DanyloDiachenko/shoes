@@ -6,13 +6,14 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { Checkbox } from "@/components/UI/Checkbox";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
 import { register } from "@/app/api/auth/register";
 
 export const Form = ({ tab }: FormProps) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isAgreeToPolicy, setIsAgreeToPolicy] = useState(false);
 
     const signInHandler = async () => {
         const response = await signIn("credentials", {
@@ -33,6 +34,12 @@ export const Form = ({ tab }: FormProps) => {
     };
 
     const registerHandler = async () => {
+        if (!isAgreeToPolicy) {
+            toast.error("Please agree to the policy");
+
+            return;
+        }
+
         try {
             const response = await register({
                 email,
@@ -130,6 +137,10 @@ export const Form = ({ tab }: FormProps) => {
                     <Checkbox
                         title="I agree to the privacy policy *"
                         id="register-policy-2"
+                        value={String(isAgreeToPolicy)}
+                        onChange={(e) =>
+                            setIsAgreeToPolicy(Boolean(e.target.value))
+                        }
                     />
                 )}
                 {tab === "signIn" && (
