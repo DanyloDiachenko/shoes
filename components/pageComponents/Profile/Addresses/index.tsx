@@ -1,7 +1,8 @@
+import { AddressesProps } from "./addresses.props";
 import styles from "./styles.module.scss";
 import { FaRegEdit } from "react-icons/fa";
 
-export const AddressesPageContent = () => {
+export const AddressesPageContent = ({ user }: AddressesProps) => {
     return (
         <div
             className={styles.content}
@@ -22,18 +23,24 @@ export const AddressesPageContent = () => {
                                 Billing Address
                             </h3>
                             <p>
-                                User Name
-                                <br />
-                                User Company
-                                <br />
-                                John str
-                                <br />
-                                New York, NY 10001
-                                <br />
-                                1-234-987-6543
-                                <br />
-                                yourmail@mail.com
-                                <br />
+                                {user.billingAddress ? (
+                                    <>
+                                        {user.firstName} {user.lastName}
+                                        <br />
+                                        {user.billingAddress.street} str
+                                        <br />
+                                        {user.billingAddress.city},{" "}
+                                        {user.billingAddress.country}{" "}
+                                        {user.billingAddress.postIndex}
+                                        <br />
+                                        {user.phone}
+                                        <br />
+                                        {user.email}
+                                        <br />
+                                    </>
+                                ) : (
+                                    "You have not set up this type of address yet."
+                                )}
                                 <a href="#">
                                     Edit <FaRegEdit />
                                 </a>
@@ -48,8 +55,24 @@ export const AddressesPageContent = () => {
                                 Shipping Address
                             </h3>
                             <p>
-                                You have not set up this type of address yet.
-                                <br />
+                                {user.shippingAddress ? (
+                                    <>
+                                        {user.firstName} {user.lastName}
+                                        <br />
+                                        {user.shippingAddress.street} str
+                                        <br />
+                                        {user.shippingAddress.city},{" "}
+                                        {user.shippingAddress.country}{" "}
+                                        {user.shippingAddress.postIndex}
+                                        <br />
+                                        {user.phone}
+                                        <br />
+                                        {user.email}
+                                        <br />
+                                    </>
+                                ) : (
+                                    "You have not set up this type of address yet."
+                                )}
                                 <a href="#">
                                     Edit <FaRegEdit />
                                 </a>
