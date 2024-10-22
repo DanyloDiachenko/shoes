@@ -5,9 +5,9 @@ export const AddressesPageContent = () => {
     return (
         <div
             className={styles.content}
-            id="tab-address"
+            id="tab-addresses"
             role="tabpanel"
-            aria-labelledby="tab-address-link"
+            aria-labelledby="tab-addresses-link"
         >
             <p>
                 The following addresses will be used on the checkout page by
