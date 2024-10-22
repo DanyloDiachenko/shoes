@@ -38,9 +38,8 @@ export const Bottom = ({ product }: BottomProps) => {
             <div className={styles.category}>
                 <span>Category:</span>
                 {product.categories.map((category, index) => (
-                    <span>
+                    <span key={category.id}>
                         <Link
-                            key={category.id}
                             href={`/products?categories=${category.slug}`}
                         >
                             {category.title}

@@ -51,7 +51,7 @@ export const Colors = ({ colors }: ColorsProps) => {
             >
                 <div className={styles.widgetBody}>
                     <div className={styles.filterColors}>
-                        {colors.map((color) => (
+                        {colors.map((color, index) => (
                             <div
                                 className={
                                     selectedColor?.id === color.id
@@ -60,6 +60,7 @@ export const Colors = ({ colors }: ColorsProps) => {
                                 }
                                 style={{ background: color.hexCode }}
                                 onClick={() => onColorClick(color)}
+                                key={index}
                             >
                                 <span className="sr-only">{color.title}</span>
                             </div>

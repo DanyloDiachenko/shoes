@@ -127,64 +127,57 @@ export const CartDropdown = ({
             </Link>
             <div className={styles.dropdownMenu}>
                 <div className={styles.dropdownCartProducts}>
-                    {cartProductsClient.map((product) => {
-                        return (
-                            <div className={styles.product} key={product.id}>
-                                <div className={styles.productCartDetails}>
-                                    <h4 className={styles.productTitle}>
-                                        <Link href={`/products/${product.id}`}>
-                                            {product.title}
-                                        </Link>
-                                    </h4>
-                                    <div className={styles.cartProductInfo}>
-                                        <span className={styles.cartProductQty}>
-                                            {
-                                                cookieProductsClient.find(
-                                                    (product) =>
-                                                        product.id ===
-                                                        product.id
-                                                )?.quantity
-                                            }
-                                        </span>{" "}
-                                        x{" "}
-                                        {getProductPrice(
-                                            product.priceUah,
-                                            product.priceEur,
-                                            currency
-                                        )}
-                                    </div>
-                                    <div className={styles.cartProductInfo}>
-                                        <span className={styles.cartProductQty}>
-                                            Size:
-                                        </span>{" "}
-                                        {getProductSize(product)}
-                                    </div>
-                                </div>
-                                <figure
-                                    className={styles.productImageContainer}
-                                >
-                                    <Link
-                                        href={`/products/${product.id}`}
-                                        className={styles.productImage}
-                                    >
-                                        <img
-                                            src={product.mainImage}
-                                            alt="product"
-                                        />
+                    {cartProductsClient.map((product) => (
+                        <div className={styles.product} key={product.id}>
+                            <div className={styles.productCartDetails}>
+                                <h4 className={styles.productTitle}>
+                                    <Link href={`/products/${product.id}`}>
+                                        {product.title}
                                     </Link>
-                                </figure>
-                                <button
-                                    className={styles.btnRemove}
-                                    title="Remove Product"
-                                    onClick={() =>
-                                        onRemoveProductClick(product.id)
-                                    }
-                                >
-                                    <IoMdClose />
-                                </button>
+                                </h4>
+                                <div className={styles.cartProductInfo}>
+                                    <span className={styles.cartProductQty}>
+                                        {
+                                            cookieProductsClient.find(
+                                                (product) =>
+                                                    product.id === product.id
+                                            )?.quantity
+                                        }
+                                    </span>{" "}
+                                    x{" "}
+                                    {getProductPrice(
+                                        product.priceUah,
+                                        product.priceEur,
+                                        currency
+                                    )}
+                                </div>
+                                <div className={styles.cartProductInfo}>
+                                    <span className={styles.cartProductQty}>
+                                        Size:
+                                    </span>{" "}
+                                    {getProductSize(product)}
+                                </div>
                             </div>
-                        );
-                    })}
+                            <figure className={styles.productImageContainer}>
+                                <Link
+                                    href={`/products/${product.id}`}
+                                    className={styles.productImage}
+                                >
+                                    <img
+                                        src={product.mainImage}
+                                        alt="product"
+                                    />
+                                </Link>
+                            </figure>
+                            <button
+                                className={styles.btnRemove}
+                                title="Remove Product"
+                                onClick={() => onRemoveProductClick(product.id)}
+                            >
+                                <IoMdClose />
+                            </button>
+                        </div>
+                    ))}
                 </div>
                 <div className={styles.dropdownCartTotal}>
                     <span>Total</span>
