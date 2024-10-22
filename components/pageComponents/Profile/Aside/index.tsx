@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import { usePathname } from "next/navigation";
+import { getServerPathname } from "@/helpers/getServerPathname";
 
 const navigation = [
     {
@@ -31,7 +31,7 @@ const navigation = [
 ];
 
 export const ProfileAside = () => {
-    const pathname = usePathname();
+    const pathname = getServerPathname();
 
     return (
         <aside className={styles.aside}>
@@ -39,7 +39,9 @@ export const ProfileAside = () => {
                 {navigation.map((nav, index) => (
                     <li
                         key={index}
-                        className={`${styles.navItem} ${styles.active}`}
+                        className={`${styles.navItem} ${
+                            pathname === nav.link ? styles.active : ""
+                        }`}
                     >
                         <IoIosArrowRoundForward className={styles.arrow} />
                         <a
@@ -54,60 +56,6 @@ export const ProfileAside = () => {
                         </a>
                     </li>
                 ))}
-
-                <li className={styles.navItem}>
-                    <a
-                        className={styles.navLink}
-                        id="tab-orders-link"
-                        href="#tab-orders"
-                        role="tab"
-                        aria-controls="tab-orders"
-                        aria-selected="false"
-                    >
-                        Orders
-                    </a>
-                </li>
-                <li className={styles.navItem}>
-                    <a
-                        className={styles.navItem}
-                        id="tab-downloads-link"
-                        href="#tab-downloads"
-                        role="tab"
-                        aria-controls="tab-downloads"
-                        aria-selected="false"
-                    >
-                        Downloads
-                    </a>
-                </li>
-                <li className={styles.navItem}>
-                    <a
-                        className={styles.navLink}
-                        id="tab-address-link"
-                        href="#tab-address"
-                        role="tab"
-                        aria-controls="tab-address"
-                        aria-selected="false"
-                    >
-                        Adresses
-                    </a>
-                </li>
-                <li className={styles.navItem}>
-                    <a
-                        className={styles.navLink}
-                        id="tab-account-link"
-                        href="#tab-account"
-                        role="tab"
-                        aria-controls="tab-account"
-                        aria-selected="false"
-                    >
-                        Account Details
-                    </a>
-                </li>
-                <li className={styles.navItem}>
-                    <a className={styles.navLink} href="#">
-                        Sign Out
-                    </a>
-                </li>
             </ul>
         </aside>
     );

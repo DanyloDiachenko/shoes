@@ -3,6 +3,9 @@ import type { NextRequest } from "next/server";
 
 export function middleware(req: NextRequest) {
     const currencyCookie = req.cookies.get("currency");
+    const headers = new Headers(req.headers);
+
+    headers.set("x-current-path", req.nextUrl.pathname);
 
     if (!currencyCookie) {
         const response = NextResponse.next();
@@ -19,9 +22,9 @@ export function middleware(req: NextRequest) {
         return response;
     }
 
-    return NextResponse.next();
+    return NextResponse.next({ headers });
 }
 
 export const config = {
-    matcher: ["/products/:path*", "/login"],
+    matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
