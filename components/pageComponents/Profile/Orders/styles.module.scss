@@ -1,0 +1,21 @@
+.content {
+    line-height: 2.15;
+    padding-bottom: 2rem;
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    button {
+        min-width: 123px;
+
+        span {
+            text-transform: uppercase;
+        }
+
+        svg {
+            margin-left: 1rem;
+            font-size: 2rem;
+        }
+    }
+}
