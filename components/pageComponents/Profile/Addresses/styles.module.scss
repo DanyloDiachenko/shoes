@@ -1,0 +1,58 @@
+.content {
+    line-height: 2.15;
+    padding-bottom: 2rem;
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    .column {
+        padding-right: 10px;
+        padding-left: 10px;
+        position: relative;
+        width: 100%;
+
+        @media (min-width: 992px) {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .card {
+            margin-bottom: 3rem;
+            background-color: #f9f9f9;
+            border: 0.1rem solid #ebebeb;
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-clip: border-box;
+
+            .cardBody {
+                padding: 4rem 2.8rem 2rem;
+                -ms-flex: 1 1 auto;
+                flex: 1 1 auto;
+
+                .cardTitle {
+                    letter-spacing: 0;
+                    margin-bottom: 0.5rem;
+                    font-size: 1.8rem;
+                    line-height: 1.2;
+
+                    @media screen and (min-width: 992px) {
+                        font-size: 2rem;
+                    }
+                }
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+            }
+        }
+    }
+}

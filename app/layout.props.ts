@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export interface DashboardLayoutProps {
+export interface LayoutProps {
     children: ReactNode;
 }

@@ -1,0 +1,44 @@
+.content {
+    line-height: 2.15;
+    padding-bottom: 2rem;
+
+    input {
+        margin-bottom: 1.3rem;
+
+        &:not(:focus) {
+            background-color: #f9f9f9;
+        }
+    }
+
+    .formText {
+        margin-top: -0.5rem;
+        margin-bottom: 0.6rem;
+        font-size: 85%;
+        color: #999;
+        line-height: 1.5;
+        display: block;
+        font-weight: 400;
+    }
+
+    .column {
+        position: relative;
+        width: 100%;
+        padding-right: 10px;
+        padding-left: 10px;
+
+        @media (min-width: 576px) {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    button {
+        min-width: 123px;
+
+        svg {
+            margin-left: 0.7rem;
+            font-size: 2rem;
+        }
+    }
+}
