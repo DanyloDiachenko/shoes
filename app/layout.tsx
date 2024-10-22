@@ -25,7 +25,7 @@ const RootLayout = async ({ children }: LayoutProps) => {
                             <main className="main">{children}</main>
                             <Footer />
                         </div>
-                        {/* <MobileMenu />
+                        {/* 
                     <button id="scroll-top" title="Back to Top">
                         <i className="icon-arrow-up"></i>
                     </button>
