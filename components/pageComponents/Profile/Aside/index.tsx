@@ -1,30 +1,64 @@
 import styles from "./styles.module.scss";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import { usePathname } from "next/navigation";
+
+const navigation = [
+    {
+        title: "Dashboard",
+        link: "/dashboard",
+        key: "dashboard",
+    },
+    {
+        title: "Orders",
+        link: "/dashboard/orders",
+        key: "orders",
+    },
+    {
+        title: "Addresses",
+        link: "/dashboard/addresses",
+        key: "addresses",
+    },
+    {
+        title: "Account Details",
+        link: "/dashboard/account",
+        key: "account",
+    },
+    {
+        title: "Sign Out",
+        link: "/dashboard/signout",
+        key: "signout",
+    },
+];
 
 export const ProfileAside = () => {
+    const pathname = usePathname();
+
     return (
-        <aside className="col-md-4 col-lg-3">
-            <ul
-                className="nav nav-dashboard flex-column mb-3 mb-md-0"
-                role="tablist"
-            >
-                <li className="nav-item">
-                    <a
-                        className="nav-link active"
-                        id="tab-dashboard-link"
-                        data-toggle="tab"
-                        href="#tab-dashboard"
-                        role="tab"
-                        aria-controls="tab-dashboard"
-                        aria-selected="true"
+        <aside className={styles.aside}>
+            <ul className={styles.navigation} role="tablist">
+                {navigation.map((nav, index) => (
+                    <li
+                        key={index}
+                        className={`${styles.navItem} ${styles.active}`}
                     >
-                        Dashboard
-                    </a>
-                </li>
-                <li className="nav-item">
+                        <IoIosArrowRoundForward className={styles.arrow} />
+                        <a
+                            className={styles.navLink}
+                            id={`tab-${nav.key}-link`}
+                            href={nav.link}
+                            role="tab"
+                            aria-controls={`tab-${nav.key}`}
+                            aria-selected="true"
+                        >
+                            {nav.title}
+                        </a>
+                    </li>
+                ))}
+
+                <li className={styles.navItem}>
                     <a
-                        className="nav-link"
+                        className={styles.navLink}
                         id="tab-orders-link"
-                        data-toggle="tab"
                         href="#tab-orders"
                         role="tab"
                         aria-controls="tab-orders"
@@ -33,11 +67,10 @@ export const ProfileAside = () => {
                         Orders
                     </a>
                 </li>
-                <li className="nav-item">
+                <li className={styles.navItem}>
                     <a
-                        className="nav-link"
+                        className={styles.navItem}
                         id="tab-downloads-link"
-                        data-toggle="tab"
                         href="#tab-downloads"
                         role="tab"
                         aria-controls="tab-downloads"
@@ -46,11 +79,10 @@ export const ProfileAside = () => {
                         Downloads
                     </a>
                 </li>
-                <li className="nav-item">
+                <li className={styles.navItem}>
                     <a
-                        className="nav-link"
+                        className={styles.navLink}
                         id="tab-address-link"
-                        data-toggle="tab"
                         href="#tab-address"
                         role="tab"
                         aria-controls="tab-address"
@@ -59,11 +91,10 @@ export const ProfileAside = () => {
                         Adresses
                     </a>
                 </li>
-                <li className="nav-item">
+                <li className={styles.navItem}>
                     <a
-                        className="nav-link"
+                        className={styles.navLink}
                         id="tab-account-link"
-                        data-toggle="tab"
                         href="#tab-account"
                         role="tab"
                         aria-controls="tab-account"
@@ -72,8 +103,8 @@ export const ProfileAside = () => {
                         Account Details
                     </a>
                 </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">
+                <li className={styles.navItem}>
+                    <a className={styles.navLink} href="#">
                         Sign Out
                     </a>
                 </li>

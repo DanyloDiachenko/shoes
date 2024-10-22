@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./styles.module.scss";
 
 export const DashboardPageContent = () => {
@@ -11,17 +12,20 @@ export const DashboardPageContent = () => {
             <p>
                 Hello <span className={styles.fontDark}>User</span> (not{" "}
                 <span className={styles.fontDark}>User</span>?{" "}
-                <a href="#">Log out</a>)
+                <Link href="#">Log out</Link>)
                 <br />
                 From your account dashboard you can view your{" "}
-                <a href="#tab-orders" className={styles.linkUnderline}>
+                <Link href="/dashboard/orders" className={styles.linkUnderline}>
                     recent orders
-                </a>
+                </Link>
                 , manage your{" "}
-                <a href="#tab-address">shipping and billing addresses</a>, and{" "}
-                <a href="#tab-account">
+                <Link href="/dashboard/addresses">
+                    shipping and billing addresses
+                </Link>
+                , and{" "}
+                <Link href="/dashboard/account">
                     edit your password and account details
-                </a>
+                </Link>
                 .
             </p>
         </div>
