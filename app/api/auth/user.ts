@@ -53,3 +53,47 @@ export const getProfile = async (): Promise<User> => {
 
     return resJson;
 };
+
+interface UpdateProfileBody {
+    firstName?: string;
+    lastName?: string;
+    displayName?: string;
+    phone?: string;
+    currentPassword?: string;
+    newPassword?: string;
+    confirmNewPassword?: string;
+}
+
+export const updateProfile = async ({
+    firstName,
+    lastName,
+    displayName,
+    phone,
+    currentPassword,
+    newPassword,
+    confirmNewPassword,
+}: UpdateProfileBody): Promise<User> => {
+    const token = (cookies().get("token") as RequestCookie).value;
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/update`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+            firstName,
+            lastName,
+            displayName,
+            phone,
+            currentPassword,
+            newPassword,
+            confirmNewPassword,
+        }),
+        cache: "no-cache",
+    });
+
+    const resJson = await res.json();
+
+    return resJson;
+};
