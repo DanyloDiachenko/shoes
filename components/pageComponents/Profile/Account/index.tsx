@@ -7,7 +7,6 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { AccountProps } from "./account.props";
 import { FormEvent, useState } from "react";
 import { updateProfile } from "@/app/api/auth/user";
-import { profile } from "console";
 import { toast } from "react-toastify";
 import { getClientCookie } from "@/helpers/getClientCookie";
 
@@ -30,6 +29,7 @@ export const AccountPageContent = ({ user }: AccountProps) => {
         newPassword: "",
         confirmNewPassword: "",
     });
+    console.log(fields);
 
     const onSubmit = async (e: FormEvent) => {
         e.preventDefault();
