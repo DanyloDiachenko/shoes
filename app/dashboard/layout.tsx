@@ -27,7 +27,12 @@ const breadcrumbs: Breadcrumb[] = [
 const ProfileLayout = async ({ children }: ProfileLayoutProps) => {
     const token = getServerCookie("token");
 
-    const profileResponse = await getProfile(token || "");
+    if (!token) {
+        signOut();
+        redirect("/login");
+    }
+
+    const profileResponse = await getProfile(token);
 
     if ("statusCode" in profileResponse && profileResponse.statusCode === 401) {
         signOut();
