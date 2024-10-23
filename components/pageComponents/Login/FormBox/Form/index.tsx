@@ -8,7 +8,7 @@ import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
-import { register } from "@/app/api/auth/register";
+import { register } from "@/app/api/auth/user";
 
 export const Form = ({ tab }: FormProps) => {
     const [email, setEmail] = useState("");

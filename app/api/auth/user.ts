@@ -1,28 +1,17 @@
+import {
+    SignUpBody,
+    UpdateProfileBody,
+} from "@/interfaces/requestBody/auth.interface";
+import { RegisterResponseSuccess } from "@/interfaces/responses/auth.interface";
+import { UnathorizedResponse } from "@/interfaces/responses/unathorized.interface";
 import { User } from "@/interfaces/user.inteface";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { cookies } from "next/headers";
 
-interface SignUpCredentials {
-    email: string;
-    password: string;
-}
-
-interface RegisterResponseSuccess {
-    id: string;
-    email: string;
-    token: string;
-}
-interface RegisterResponseError {
-    error: string;
-    message: string;
-    statusCode: number;
-}
-type RegisterResponse = RegisterResponseSuccess | RegisterResponseError;
-
 export const register = async ({
     email,
     password,
-}: SignUpCredentials): Promise<RegisterResponse> => {
+}: SignUpBody): Promise<RegisterResponseSuccess | ResponseError> => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/create`, {
         method: "POST",
         headers: {
@@ -37,9 +26,9 @@ export const register = async ({
     return resJson;
 };
 
-export const getProfile = async (): Promise<User> => {
-    const token = (cookies().get("token") as RequestCookie).value;
-
+export const getProfile = async (
+    token: string
+): Promise<User | UnathorizedResponse> => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/profile`, {
         method: "GET",
         headers: {
@@ -54,27 +43,18 @@ export const getProfile = async (): Promise<User> => {
     return resJson;
 };
 
-interface UpdateProfileBody {
-    firstName?: string;
-    lastName?: string;
-    displayName?: string;
-    phone?: string;
-    currentPassword?: string;
-    newPassword?: string;
-    confirmNewPassword?: string;
-}
-
-export const updateProfile = async ({
-    firstName,
-    lastName,
-    displayName,
-    phone,
-    currentPassword,
-    newPassword,
-    confirmNewPassword,
-}: UpdateProfileBody): Promise<User> => {
-    const token = (cookies().get("token") as RequestCookie).value;
-
+export const updateProfile = async (
+    token: string,
+    {
+        firstName,
+        lastName,
+        displayName,
+        phone,
+        currentPassword,
+        newPassword,
+        confirmNewPassword,
+    }: UpdateProfileBody
+): Promise<User | ResponseError> => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/update`, {
         method: "PUT",
         headers: {

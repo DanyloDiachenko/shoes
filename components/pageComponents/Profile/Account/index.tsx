@@ -5,7 +5,11 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { AccountProps } from "./account.props";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { updateProfile } from "@/app/api/auth/user";
+import { profile } from "console";
+import { toast } from "react-toastify";
+import { getClientCookie } from "@/helpers/getClientCookie";
 
 interface FormValues {
     firstName: string | null;
@@ -18,6 +22,8 @@ interface FormValues {
 }
 
 export const AccountPageContent = ({ user }: AccountProps) => {
+    const token = getClientCookie("token") as string;
+
     const [fields, setFields] = useState<FormValues>({
         ...user,
         currentPassword: "",
@@ -25,7 +31,28 @@ export const AccountPageContent = ({ user }: AccountProps) => {
         confirmNewPassword: "",
     });
 
-    const onSubmit = () => {};
+    const onSubmit = async (e: FormEvent) => {
+        e.preventDefault();
+        
+        if (fields.newPassword) {
+            if (fields.newPassword !== fields.confirmNewPassword) {
+                toast.error("New passwords do not match");
+
+                return;
+            }
+        }
+
+        const response = await updateProfile(token, {
+            firstName: fields.firstName || undefined,
+            lastName: fields.lastName || undefined,
+            displayName: fields.displayName || undefined,
+            phone: fields.phone || undefined,
+            currentPassword: fields.currentPassword || undefined,
+            newPassword: fields.newPassword || undefined,
+            confirmNewPassword: fields.confirmNewPassword || undefined,
+        });
+        console.log(response);
+    };
 
     return (
         <div
@@ -40,7 +67,6 @@ export const AccountPageContent = ({ user }: AccountProps) => {
                         <label>First Name *</label>
                         <Input
                             type="text"
-                            required
                             value={fields.firstName || ""}
                             onChange={(e) =>
                                 setFields({
@@ -55,7 +81,6 @@ export const AccountPageContent = ({ user }: AccountProps) => {
                         <label>Last Name *</label>
                         <Input
                             type="text"
-                            required
                             value={fields.lastName || ""}
                             onChange={(e) =>
                                 setFields({
@@ -69,7 +94,6 @@ export const AccountPageContent = ({ user }: AccountProps) => {
                 <label>Display Name *</label>
                 <Input
                     type="text"
-                    required
                     value={fields.displayName || ""}
                     onChange={(e) =>
                         setFields({
@@ -84,12 +108,11 @@ export const AccountPageContent = ({ user }: AccountProps) => {
                 </small>
 
                 <label>Email *</label>
-                <Input type="email" required value={user.email} disabled />
+                <Input type="email" value={user.email} disabled />
 
                 <label>Phone number *</label>
                 <Input
                     type="string"
-                    required
                     value={fields.phone || ""}
                     onChange={(e) =>
                         setFields({
@@ -102,7 +125,6 @@ export const AccountPageContent = ({ user }: AccountProps) => {
                 <label>Current password (leave blank to leave unchanged)</label>
                 <Input
                     type="password"
-                    required
                     value={fields.currentPassword || ""}
                     onChange={(e) =>
                         setFields({
@@ -115,7 +137,6 @@ export const AccountPageContent = ({ user }: AccountProps) => {
                 <label>New password (leave blank to leave unchanged)</label>
                 <Input
                     type="password"
-                    required
                     value={fields.newPassword || ""}
                     onChange={(e) =>
                         setFields({
@@ -128,7 +149,6 @@ export const AccountPageContent = ({ user }: AccountProps) => {
                 <label>Confirm new password</label>
                 <Input
                     type="password"
-                    required
                     className={styles.marginBottom}
                     value={fields.confirmNewPassword || ""}
                     onChange={(e) =>
