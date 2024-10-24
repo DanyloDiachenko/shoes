@@ -9,6 +9,7 @@ import { FormEvent, useState } from "react";
 import { updateProfile } from "@/app/api/auth/user";
 import { toast } from "react-toastify";
 import { getClientCookie } from "@/helpers/getClientCookie";
+import { getAndFormatResponseErrorMessage } from "@/helpers/getAndFormatResponseErrorMessage";
 
 interface FormValues {
     firstName: string | null;
@@ -29,11 +30,10 @@ export const AccountPageContent = ({ user }: AccountProps) => {
         newPassword: "",
         confirmNewPassword: "",
     });
-    console.log(fields);
 
     const onSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        
+
         if (fields.newPassword) {
             if (fields.newPassword !== fields.confirmNewPassword) {
                 toast.error("New passwords do not match");
@@ -49,9 +49,13 @@ export const AccountPageContent = ({ user }: AccountProps) => {
             phone: fields.phone || undefined,
             currentPassword: fields.currentPassword || undefined,
             newPassword: fields.newPassword || undefined,
-            confirmNewPassword: fields.confirmNewPassword || undefined,
         });
-        console.log(response);
+
+        if (!("error" in response)) {
+            toast.success("Your profile was successfuly updated");
+        } else {
+            toast.error(getAndFormatResponseErrorMessage(response));
+        }
     };
 
     return (

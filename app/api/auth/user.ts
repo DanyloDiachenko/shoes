@@ -43,15 +43,7 @@ export const getProfile = async (
 
 export const updateProfile = async (
     token: string,
-    {
-        firstName,
-        lastName,
-        displayName,
-        phone,
-        currentPassword,
-        newPassword,
-        confirmNewPassword,
-    }: UpdateProfileBody
+    body: UpdateProfileBody
 ): Promise<User | ResponseError> => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/update`, {
         method: "PUT",
@@ -60,13 +52,7 @@ export const updateProfile = async (
             Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-            firstName,
-            lastName,
-            displayName,
-            phone,
-            currentPassword,
-            newPassword,
-            confirmNewPassword,
+            body,
         }),
         cache: "no-cache",
     });

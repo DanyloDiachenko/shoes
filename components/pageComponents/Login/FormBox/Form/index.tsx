@@ -9,6 +9,7 @@ import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
 import { register } from "@/app/api/auth/user";
+import { getAndFormatResponseErrorMessage } from "@/helpers/getAndFormatResponseErrorMessage";
 
 export const Form = ({ tab }: FormProps) => {
     const [email, setEmail] = useState("");
@@ -49,14 +50,7 @@ export const Form = ({ tab }: FormProps) => {
             });
 
             if ("error" in response) {
-                const errorMessage =
-                    typeof response.message === "string"
-                        ? response.message
-                        : response.message[0];
-
-                toast.error(
-                    errorMessage.charAt(0).toUpperCase() + errorMessage.slice(1)
-                );
+                getAndFormatResponseErrorMessage(response);
             } else {
                 toast.success("Register successfully! Loginning now...");
 

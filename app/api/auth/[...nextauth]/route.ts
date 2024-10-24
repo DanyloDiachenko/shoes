@@ -1,3 +1,4 @@
+import { setCookie } from "@/helpers/setCookie";
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -22,11 +23,7 @@ export const authOptions: NextAuthOptions = {
                 },
             },
             async authorize(credentials) {
-                if (
-                    !credentials?.email ||
-                    !credentials?.password ||
-                    !credentials.rememberMe
-                ) {
+                if (!credentials?.email || !credentials?.password) {
                     return null;
                 }
 
@@ -38,7 +35,13 @@ export const authOptions: NextAuthOptions = {
                             headers: {
                                 "Content-Type": "application/json",
                             },
-                            body: JSON.stringify(credentials),
+                            body: JSON.stringify({
+                                ...credentials,
+                                rememberMe:
+                                    credentials.rememberMe === "true"
+                                        ? true
+                                        : false,
+                            }),
                         }
                     );
 
@@ -47,7 +50,8 @@ export const authOptions: NextAuthOptions = {
                     if (data.error) {
                         return { status: data?.status, error: data?.message };
                     }
-
+                    
+                    cookies().set("token", data.token);
                     return data;
                 } catch (error) {
                     return error;
