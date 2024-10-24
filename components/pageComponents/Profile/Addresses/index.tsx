@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { FaRegEdit } from "react-icons/fa";
 
 export const AddressesPageContent = ({ user }: AddressesProps) => {
+    console.log(user)
     return (
         <div
             className={styles.content}
