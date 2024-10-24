@@ -5,8 +5,6 @@ import {
 import { RegisterResponseSuccess } from "@/interfaces/responses/auth.interface";
 import { UnathorizedResponse } from "@/interfaces/responses/unathorized.interface";
 import { User } from "@/interfaces/user.inteface";
-import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
-import { cookies } from "next/headers";
 
 export const register = async ({
     email,

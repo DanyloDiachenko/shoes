@@ -15,13 +15,20 @@ export const authOptions: NextAuthOptions = {
                     type: "password",
                     placeholder: "Password",
                 },
+                rememberMe: {
+                    label: "Remember Me",
+                    type: "checkbox",
+                    placeholder: "Remember Me",
+                },
             },
             async authorize(credentials) {
-                if (!credentials?.email || !credentials?.password) {
+                if (
+                    !credentials?.email ||
+                    !credentials?.password ||
+                    !credentials.rememberMe
+                ) {
                     return null;
                 }
-
-                const { email, password } = credentials;
 
                 try {
                     const res = await fetch(
@@ -31,7 +38,7 @@ export const authOptions: NextAuthOptions = {
                             headers: {
                                 "Content-Type": "application/json",
                             },
-                            body: JSON.stringify({ email, password }),
+                            body: JSON.stringify(credentials),
                         }
                     );
 
@@ -48,8 +55,9 @@ export const authOptions: NextAuthOptions = {
             },
         }),
         GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+            clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env
+                .NEXT_PUBLIC_GOOGLE_CLIENT_SECRET as string,
         }),
     ],
     callbacks: {
@@ -70,14 +78,12 @@ export const authOptions: NextAuthOptions = {
                     );
 
                     const data = await res.json();
-                    cookies().set("token", data.token, {
-                        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
-                    });
+                    cookies().set("token", data.token);
 
                     if (res.ok && data?.token) {
                         token.id = data.id;
                         token.email = data.email;
-                        token.token = data.token; // Ваш JWT от бекенда
+                        token.token = data.token;
                     } else {
                         throw new Error(
                             "Failed to exchange Google token for backend JWT"
@@ -111,10 +117,9 @@ export const authOptions: NextAuthOptions = {
             return session;
         },
     },
-
-    secret: process.env.NEXTAUTH_SECRET,
+    secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
     jwt: {
-        secret: process.env.NEXTAUTH_SECRET,
+        secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
     },
     session: {
         strategy: "jwt",

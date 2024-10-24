@@ -13,12 +13,14 @@ import { register } from "@/app/api/auth/user";
 export const Form = ({ tab }: FormProps) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isAgreeToPolicy, setIsAgreeToPolicy] = useState(false);
+    const [rememberMe, setRememberMe] = useState(false);
+    const [agreeToPolicy, setAgreeToPolicy] = useState(false);
 
     const signInHandler = async () => {
         const response = await signIn("credentials", {
             email,
             password,
+            rememberMe,
             redirect: false,
         });
 
@@ -34,7 +36,7 @@ export const Form = ({ tab }: FormProps) => {
     };
 
     const registerHandler = async () => {
-        if (!isAgreeToPolicy) {
+        if (!agreeToPolicy) {
             toast.error("Please agree to the policy");
 
             return;
@@ -58,21 +60,7 @@ export const Form = ({ tab }: FormProps) => {
             } else {
                 toast.success("Register successfully! Loginning now...");
 
-                const signInResponse = await signIn("credentials", {
-                    email,
-                    password,
-                    redirect: false,
-                });
-
-                if (signInResponse?.error) {
-                    toast.error("Something went wrong!");
-                } else if (signInResponse?.ok) {
-                    toast.success("Login successfully!");
-
-                    setTimeout(() => {
-                        location.reload();
-                    }, 2000);
-                }
+                signInHandler();
             }
         } catch (error) {
             console.error("Register error:", error);
@@ -132,15 +120,18 @@ export const Form = ({ tab }: FormProps) => {
                     <IoIosArrowRoundForward />
                 </Button>
                 {tab === "signIn" ? (
-                    <Checkbox title="Remember Me" id="signin-remember-2" />
+                    <Checkbox
+                        title="Remember Me"
+                        id="signin-remember-2"
+                        value={String(rememberMe)}
+                        onChange={() => setRememberMe(!rememberMe)}
+                    />
                 ) : (
                     <Checkbox
                         title="I agree to the privacy policy *"
                         id="register-policy-2"
-                        value={String(isAgreeToPolicy)}
-                        onChange={(e) =>
-                            setIsAgreeToPolicy(Boolean(e.target.value))
-                        }
+                        value={String(agreeToPolicy)}
+                        onChange={() => setAgreeToPolicy(!agreeToPolicy)}
                     />
                 )}
                 {tab === "signIn" && (
