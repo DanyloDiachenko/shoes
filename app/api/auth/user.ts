@@ -51,9 +51,7 @@ export const updateProfile = async (
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({
-            body,
-        }),
+        body: JSON.stringify(body),
         cache: "no-cache",
     });
 

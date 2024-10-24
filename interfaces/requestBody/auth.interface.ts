@@ -5,7 +5,6 @@ export interface UpdateProfileBody {
     phone?: string;
     currentPassword?: string;
     newPassword?: string;
-    confirmNewPassword?: string;
 }
 
 export interface SignUpBody {
