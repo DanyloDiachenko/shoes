@@ -47,11 +47,12 @@ export const authOptions: NextAuthOptions = {
 
                     const data = await res.json();
 
+                    (await cookies()).set("token", data.token);
+
                     if (data.error) {
                         return { status: data?.status, error: data?.message };
                     }
-                    
-                    cookies().set("token", data.token);
+
                     return data;
                 } catch (error) {
                     return error;
@@ -82,7 +83,7 @@ export const authOptions: NextAuthOptions = {
                     );
 
                     const data = await res.json();
-                    cookies().set("token", data.token);
+                    (await cookies()).set("token", data.token);
 
                     if (res.ok && data?.token) {
                         token.id = data.id;
