@@ -1,0 +1,76 @@
+.formBox {
+  max-width: 575px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  padding: 2.2rem 2rem 4.4rem;
+  box-shadow: 0 3px 16px rgba(51, 51, 51, 0.1);
+}
+@media screen and (min-width: 768px) {
+  .formBox {
+    padding: 3.7rem 6rem 6.4rem;
+  }
+}
+.formBox .navPills {
+  color: #333;
+  border-bottom: 0.1rem solid #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.formBox .navPills .navItem {
+  margin-bottom: -0.1rem;
+  flex: 1 1 0;
+  text-align: center;
+}
+.formBox .navPills .navItem .navButton {
+  width: 100%;
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: -0.025em;
+  color: inherit;
+  border: none;
+  border-bottom: 0.2rem solid transparent;
+  padding: 0.9rem 1rem;
+  background-color: transparent;
+  transition: all 0.35s ease;
+  line-height: 1.5;
+  display: block;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .formBox .navPills .navItem .navButton {
+    font-size: 2.4rem;
+  }
+}
+.formBox .navPills .navItem .navButton.active {
+  color: inherit;
+  border-color: #d7d7d7;
+  border-bottom-color: #c96;
+}
+.formBox .tabContent {
+  padding: 2rem 0 0;
+}
+.formBox .tabContent .formChoice {
+  color: #333;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+.formBox .tabContent .formChoice p {
+  margin-bottom: 2.7rem;
+  text-align: center;
+}
+.formBox .tabContent .formChoice button {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.formBox .tabContent .formChoice button.buttonGoogle svg {
+  color: #cc3333;
+  width: 26px;
+}/*# sourceMappingURL=styles.module.css.map */

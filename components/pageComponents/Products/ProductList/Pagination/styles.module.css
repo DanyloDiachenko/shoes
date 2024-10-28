@@ -1,0 +1,74 @@
+.pagination {
+  align-items: center;
+  margin-bottom: 2rem;
+  display: flex;
+}
+.pagination .pageItem {
+  margin-left: 0.4rem;
+}
+.pagination .pageItem:first-child {
+  margin-left: 0;
+}
+.pagination .pageItem.active button {
+  color: #c96;
+  background-color: transparent;
+  border-color: #ebebeb;
+  z-index: 1;
+}
+.pagination .pageItem.inactive button {
+  border-color: transparent;
+  color: #eaeaea;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  pointer-events: none;
+  cursor: auto;
+  background-color: #fff;
+}
+.pagination .pageItem .pageLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+  height: 4rem;
+  font-weight: 400;
+  font-size: 1.4rem;
+  padding: 0 0.3rem;
+  line-height: 1;
+  color: #706f6c;
+  border-radius: 0.3rem;
+  background-color: transparent;
+  border: 0.1rem solid transparent;
+  position: relative;
+  margin-left: -1px;
+}
+.pagination .pageItem .pageLink:hover {
+  color: #c96;
+  background-color: transparent;
+  border-color: #ebebeb;
+  z-index: 1;
+}
+.pagination .pageItem .pageLink.pageLinkPrev, .pagination .pageItem .pageLink.pageLinkNext {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  min-width: 70px;
+}
+.pagination .pageItem .pageLink.pageLinkPrev {
+  margin-right: 1.7rem;
+}
+.pagination .pageItem .pageLink.pageLinkPrev svg {
+  margin-right: 1rem;
+}
+.pagination .pageItem .pageLink.pageLinkNext {
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  margin-left: 1.8rem;
+}
+.pagination .pageItem .pageLink.pageLinkNext svg {
+  margin-left: 1rem;
+}
+.pagination .total {
+  color: #cccccc;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-left: 1.2rem;
+}/*# sourceMappingURL=styles.module.css.map */

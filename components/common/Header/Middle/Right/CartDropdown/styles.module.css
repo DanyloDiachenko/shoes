@@ -1,0 +1,195 @@
+.dropdown {
+  padding-left: 2.5rem;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  position: relative;
+}
+.dropdown:hover .dropdownMenu {
+  opacity: 1;
+  padding: 2.2rem 3rem 2.5rem;
+  height: auto;
+}
+.dropdown .dropdownToggle {
+  color: #c96;
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+.dropdown .dropdownToggle .cartIcon {
+  display: inline-block;
+  margin-top: -3px;
+  width: 26px;
+  height: 26px;
+  color: #333;
+  transition: 0.3s;
+}
+.dropdown .dropdownToggle .cartIcon:hover {
+  color: #c96;
+}
+.dropdown .dropdownToggle .cartCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1;
+  margin-left: 0.4rem;
+  margin-top: 0.1rem;
+  color: #fff;
+  background-color: #c96;
+}
+.dropdown .dropdownMenu {
+  opacity: 0;
+  overflow: hidden;
+  right: -1px;
+  display: block;
+  width: 300px;
+  font-size: 1.3rem;
+  z-index: 1001;
+  border: none;
+  margin: 1px 0 0;
+  height: 0;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  box-shadow: 5px 10px 16px rgba(51, 51, 51, 0.05), -5px 10px 16px rgba(51, 51, 51, 0.05);
+  background-color: #fff;
+  transition: opacity 0.25s;
+  left: auto;
+  position: absolute;
+  top: 100%;
+  float: left;
+  min-width: 10rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+}
+.dropdown .dropdownMenu .dropdownCartProducts {
+  margin-top: -1rem;
+}
+.dropdown .dropdownMenu .dropdownCartProducts .product {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: 1.6rem 2.4rem 1.6rem 0;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid #ebebeb;
+  box-shadow: none;
+  overflow: hidden;
+  transition: box-shadow 0.35s ease;
+  background-color: #fff;
+}
+.dropdown .dropdownMenu .dropdownCartProducts .product .productCartDetails {
+  font-weight: 400;
+  max-width: 150px;
+  font-size: 1.3rem;
+  color: #999;
+  text-align: left;
+}
+.dropdown .dropdownMenu .dropdownCartProducts .product .productCartDetails .productTitle {
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: #666;
+  text-align: left;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+.dropdown .dropdownMenu .dropdownCartProducts .product .productCartDetails .productTitle a {
+  color: inherit;
+  transition: 0.3s;
+}
+.dropdown .dropdownMenu .dropdownCartProducts .product .productCartDetails .productTitle a:hover {
+  color: #c96;
+}
+.dropdown .dropdownMenu .dropdownCartProducts .product .productCartDetails .cartProductInfo {
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: #999;
+  text-align: left;
+}
+.dropdown .dropdownMenu .dropdownCartProducts .product .productImageContainer {
+  position: relative;
+  max-width: 60px;
+  margin: 0;
+  margin-left: auto;
+  display: block;
+}
+.dropdown .dropdownMenu .dropdownCartProducts .product .productImageContainer .productImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.dropdown .dropdownMenu .dropdownCartProducts .product .productImageContainer .productImage img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-style: none;
+}
+.dropdown .dropdownMenu .dropdownCartProducts .product .btnRemove {
+  position: absolute;
+  top: 50%;
+  right: -0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #cccccc;
+  font-size: 1.6rem;
+  line-height: 1;
+  text-align: center;
+  margin-top: -1.2rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transition: all 0.35s;
+  cursor: pointer;
+}
+.dropdown .dropdownMenu .dropdownCartTotal {
+  padding: 1rem 0 0.5rem;
+  display: flex;
+  align-items: flex-end;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 1.1rem;
+}
+.dropdown .dropdownMenu .dropdownCartTotal .cartTotalPrice {
+  font-size: 1.5rem;
+  margin-left: auto;
+}
+.dropdown .dropdownMenu .dropdownCartAction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 0.5rem;
+}
+.dropdown .dropdownMenu .dropdownCartAction .buttonView {
+  font-size: 1.3rem;
+  min-width: 110px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.dropdown .dropdownMenu .dropdownCartAction .buttonCheckout {
+  font-size: 1.3rem;
+  min-width: 110px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.dropdown .dropdownMenu .dropdownCartAction .buttonCheckout svg {
+  width: 20px;
+  height: auto;
+  margin-left: 1rem;
+}/*# sourceMappingURL=styles.module.css.map */

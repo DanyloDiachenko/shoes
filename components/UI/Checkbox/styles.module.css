@@ -1,0 +1,77 @@
+@charset "UTF-8";
+.customControl {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding-left: 2.7rem;
+  min-height: 1.5rem;
+}
+.customControl .customControlInput {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+}
+.customControl .customControlLabel {
+  display: inline-block;
+  position: static;
+  vertical-align: top;
+  cursor: pointer;
+  margin-top: 0.1rem;
+  margin-left: -2.6rem;
+  padding-left: 2.6rem;
+  color: #666;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.customControl .customControlLabel::before {
+  display: block;
+  position: absolute;
+  top: 0.6rem;
+  left: 0;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border: 1px solid #dadada;
+  border-radius: 0.2rem;
+  background-color: #f9f9f9;
+  width: 1.6rem;
+  height: 1.6rem;
+  pointer-events: none;
+  content: "";
+}
+.customControl .customControlLabel::after {
+  display: flex;
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.01s;
+  margin-top: 0.1rem;
+  background: no-repeat 50%/50% 50%;
+  background-image: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  content: "✔";
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-align: center;
+}
+.customControl .customControlInput:checked ~ .customControlLabel::before {
+  border-color: #333;
+  background-color: #333;
+  color: #fff;
+}
+.customControl .customControlInput:checked ~ .customControlLabel::after {
+  visibility: visible;
+  opacity: 1;
+  background-image: none;
+}/*# sourceMappingURL=styles.module.css.map */

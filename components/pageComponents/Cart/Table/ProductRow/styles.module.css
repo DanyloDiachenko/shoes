@@ -1,0 +1,102 @@
+.tr td {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  vertical-align: middle;
+  padding-left: 0;
+  padding-right: 0;
+  border-top: none;
+  border-bottom: 0.1rem solid #ebebeb;
+}
+@media screen and (max-width: 991px) {
+  .tr td.productCol {
+    padding-bottom: 0.6rem;
+  }
+}
+.tr td.productCol .product {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-right: 2rem;
+  box-shadow: none;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.35s ease;
+  background-color: #fff;
+}
+@media screen and (max-width: 991px) {
+  .tr td.productCol .product {
+    justify-content: center;
+    padding-right: 0;
+  }
+}
+.tr td.productCol .product .productMedia {
+  display: inline-block;
+  margin: 0;
+  margin-right: 2.8rem;
+  flex-shrink: 0;
+  max-width: 60px;
+  position: relative;
+  background-color: #d7d7d7;
+  overflow: hidden;
+}
+@media screen and (max-width: 767px) {
+  .tr td.productCol .product .productMedia {
+    margin-right: 1.5rem;
+  }
+}
+.tr td.productCol .product .productMedia a {
+  display: block;
+}
+.tr td.productCol .product .productTitle {
+  display: inline-block;
+  color: #333;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+@media screen and (max-width: 991px) {
+  .tr td.productCol .product .productTitle {
+    text-align: left;
+  }
+}
+.tr td.productCol .product .productTitle a {
+  color: inherit;
+}
+.tr td.productCol .product .productTitle a:hover {
+  color: #c96;
+}
+.tr td.priceCol {
+  width: 120px;
+  color: #333;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+.tr td.quantityCol {
+  width: 135px;
+}
+.tr td.totalCol {
+  width: 80px;
+  color: #c96;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+.tr td.sizeCol {
+  width: 60px;
+}
+.tr td.removeCol {
+  padding-right: 0;
+  padding-left: 0;
+  width: 38px;
+  text-align: right;
+}
+@media screen and (max-width: 991px) {
+  .tr td.removeCol {
+    position: absolute;
+    right: 1.5rem;
+    top: 0.5rem;
+    padding: 0.5rem !important;
+    width: auto !important;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

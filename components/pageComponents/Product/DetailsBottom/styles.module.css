@@ -1,0 +1,57 @@
+@charset "UTF-8";
+.tabsWrapper {
+  margin-bottom: 5rem;
+}
+.tabsWrapper .tabContent {
+  border: 0.1rem solid #dadada;
+  margin-top: -0.1rem;
+  border-radius: 0.3rem;
+}
+.tabsWrapper .tabContent .tabPanel {
+  padding: 2.7rem 3rem;
+  display: block;
+  transition: opacity 0.15s linear;
+  opacity: 0;
+}
+.tabsWrapper .tabContent .tabPanel.active {
+  opacity: 1;
+}
+.tabsWrapper .tabContent .tabPanel.transitioning {
+  opacity: 0;
+}
+.tabsWrapper .tabContent .tabPanel h3 {
+  font-weight: 400;
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.8rem;
+}
+.tabsWrapper .tabContent .tabPanel p {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #777;
+}
+.tabsWrapper .tabContent .tabPanel ul {
+  color: #333333;
+  margin-bottom: 1.5rem;
+}
+.tabsWrapper .tabContent .tabPanel ul li {
+  position: relative;
+  padding-left: 1.3rem;
+}
+.tabsWrapper .tabContent .tabPanel ul li::before {
+  content: "•";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0.2rem;
+}
+.tabsWrapper .tabContent .tabPanel a {
+  color: #333;
+  border-bottom: 0.1rem solid #b8b8b8;
+  transition: all 0.35s ease;
+  border-bottom: none;
+}
+.tabsWrapper .tabContent .tabPanel a:hover {
+  color: #c96;
+  border-bottom-color: #c96;
+}/*# sourceMappingURL=styles.module.css.map */

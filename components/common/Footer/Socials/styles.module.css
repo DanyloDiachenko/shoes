@@ -1,0 +1,35 @@
+.socialIcons {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+}
+.socialIcons a {
+  margin-right: 1rem;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  width: 4rem;
+  height: 4rem;
+  margin: 0;
+  background-color: transparent;
+  border: 0.1rem solid #e1e2e6;
+  border-radius: 50%;
+  text-decoration: none;
+  opacity: 1;
+  transition: all 0.35s ease;
+  margin-right: 1rem;
+}
+.socialIcons a:hover {
+  border-color: #c96;
+}
+.socialIcons a:last-child {
+  margin-top: 0;
+}
+.socialIcons a svg {
+  transition: 0.3s;
+}
+.socialIcons a:hover svg {
+  color: #c96;
+}/*# sourceMappingURL=styles.module.css.map */

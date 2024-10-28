@@ -1,0 +1,83 @@
+@charset "UTF-8";
+.widget {
+  margin: 0 0 2rem;
+  border-bottom: 0.1rem solid #ebebeb;
+  color: #333;
+}
+.widget .title {
+  margin-bottom: 0.7rem;
+  color: #333;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.widget .title .top {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1.3rem;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.widget .title .top svg {
+  color: #333;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.widget .widgetContentWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 0.3s;
+  overflow: hidden;
+  padding: 0;
+}
+.widget .widgetContentWrapper.opened {
+  grid-template-rows: 1fr;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+.widget .widgetContentWrapper .widgetBody {
+  min-height: 0;
+}
+.widget .widgetContentWrapper .widgetBody .filterColors {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 0.7rem;
+  padding-bottom: 0.5rem;
+}
+.widget .widgetContentWrapper .widgetBody .filterColors div {
+  position: relative;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 0.2rem solid #fff;
+  margin: 0 0.3rem 0.3rem;
+  transition: box-shadow 0.35s ease;
+  cursor: pointer;
+}
+.widget .widgetContentWrapper .widgetBody .filterColors div::after {
+  color: #fff;
+  content: "✔";
+  font-size: 1.2rem;
+  line-height: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.01s;
+  margin-top: -0.6rem;
+  margin-left: -0.5rem;
+}
+.widget .widgetContentWrapper .widgetBody .filterColors div.selected {
+  box-shadow: 0 0 0 0.1rem #cccccc;
+}
+.widget .widgetContentWrapper .widgetBody .filterColors div.selected::after {
+  visibility: visible;
+  opacity: 1;
+}/*# sourceMappingURL=styles.module.css.map */

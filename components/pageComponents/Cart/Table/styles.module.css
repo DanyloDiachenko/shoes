@@ -1,0 +1,89 @@
+.column {
+  padding-right: 10px;
+  padding-left: 10px;
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .column {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .column {
+    flex: 0 0 70%;
+    max-width: 70%;
+  }
+}
+.column .table {
+  margin-bottom: 3rem;
+  width: 100%;
+  color: #212529;
+  border-collapse: collapse;
+}
+@media screen and (max-width: 991px) {
+  .column .table {
+    border: 0.1rem solid #ebebeb;
+    width: 100%;
+    display: block;
+  }
+}
+@media screen and (max-width: 991px) {
+  .column .table thead {
+    display: none;
+  }
+}
+.column .table th {
+  border-top: none;
+  border-bottom: 0.1rem solid #ebebeb;
+  vertical-align: bottom;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #999;
+  text-align: inherit;
+}
+@media screen and (max-width: 991px) {
+  .column .table tbody,
+  .column .table tr,
+  .column .table td {
+    width: 100% !important;
+    display: block !important;
+  }
+  .column .table tr {
+    border-bottom: 0.1rem solid #ebebeb;
+    position: relative;
+    padding-top: 4.2rem;
+    padding-bottom: 4rem;
+  }
+  .column .table tr:last-child {
+    border-bottom: none;
+  }
+}
+@media screen and (max-width: 991px) {
+  .column .table tr td {
+    text-align: center;
+    padding: 0.1rem 3rem;
+    border-bottom: none;
+  }
+}
+.column .cartBottom {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 5rem;
+}
+@media screen and (max-width: 575px) {
+  .column .cartBottom {
+    flex-direction: column;
+  }
+}
+
+.notFound {
+  font-size: 2rem;
+  color: #666;
+}/*# sourceMappingURL=styles.module.css.map */

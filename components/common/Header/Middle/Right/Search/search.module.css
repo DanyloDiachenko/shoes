@@ -1,0 +1,80 @@
+.headerSearch {
+  position: relative;
+  margin: 0;
+  border: none;
+  padding: 0;
+  font-size: 0;
+  line-height: 1;
+}
+@media (max-width: 991px) {
+  .headerSearch {
+    display: none;
+  }
+}
+.headerSearch .searchToogle {
+  display: block;
+  position: relative;
+  z-index: 11;
+  padding: 0.3rem 0.2rem;
+  min-width: 2.5rem;
+  color: #333;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1;
+  text-align: center;
+}
+.headerSearch .searchToogle.active {
+  outline: none;
+  color: #c96;
+}
+.headerSearch .headerSearchWrapper {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: -1.4rem;
+  align-items: stretch;
+  z-index: 10;
+  margin-top: -20px;
+  border: 0.1rem solid #ebebeb;
+  border-radius: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+  width: 100%;
+  min-width: 270px;
+  overflow: visible;
+}
+.headerSearch .headerSearchWrapper.show {
+  display: flex;
+}
+.headerSearch .headerSearchWrapper label {
+  display: inline-block;
+  margin: 0 0 1.1rem;
+  color: #666;
+  font-weight: 300;
+  font-size: 1.4rem;
+}
+.headerSearch .headerSearchWrapper .formControl {
+  -webkit-appearance: none;
+  display: block;
+  flex: 1 1 auto;
+  -moz-appearance: none;
+       appearance: none;
+  transition: all 0.3s;
+  margin: 0;
+  outline: none;
+  outline-offset: -2px;
+  box-shadow: none;
+  border: none;
+  border-radius: 20px;
+  background-clip: padding-box;
+  background-color: #fff;
+  padding: 0.9rem 5rem 0.9rem 2.3rem;
+  width: 100%;
+  height: 38px;
+  overflow: visible;
+  color: #777;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}/*# sourceMappingURL=search.module.css.map */

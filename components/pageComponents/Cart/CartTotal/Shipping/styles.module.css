@@ -1,0 +1,92 @@
+.summaryShipping {
+  color: #333;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+.summaryShipping .td {
+  padding-top: 2rem !important;
+  padding-bottom: 1.3rem !important;
+  height: auto !important;
+  border-bottom: none !important;
+}
+
+.summaryShippingRow {
+  color: #333;
+}
+.summaryShippingRow .td {
+  height: auto !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  border-bottom: none !important;
+}
+.summaryShippingRow .td:last-child {
+  min-width: 0;
+  text-align: right;
+}
+.summaryShippingRow .td .customControl {
+  margin: 0;
+  position: relative;
+  padding-left: 2.6rem;
+  display: block;
+  min-height: 1.5rem;
+}
+.summaryShippingRow .td .customControl input {
+  box-sizing: border-box;
+  padding: 0;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  overflow: visible;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+.summaryShippingRow .td .customControl input:checked + label::before {
+  border-color: #c96;
+  background-color: #fff;
+  color: #fff;
+}
+.summaryShippingRow .td .customControl input:checked + label::after {
+  z-index: 2;
+  background-color: #c96;
+}
+.summaryShippingRow .td .customControl label {
+  color: inherit;
+  position: static;
+  margin-bottom: 0;
+  margin-top: 0.1rem;
+  font-size: 1.4rem;
+  padding-left: 2.6rem;
+  margin-left: -2.6rem;
+  vertical-align: top;
+  font-weight: 300;
+  display: inline-block;
+}
+.summaryShippingRow .td .customControl label::before {
+  top: 0.4rem;
+  background-color: #f9f9f9;
+  border-color: #dadada;
+  border-radius: 50%;
+  left: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid #dadada;
+  box-shadow: none;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  content: "";
+}
+.summaryShippingRow .td .customControl label::after {
+  border-radius: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  top: 0.9rem;
+  left: 0.5rem;
+  position: absolute;
+  display: block;
+  content: "";
+  background: no-repeat 50%/50% 50%;
+}/*# sourceMappingURL=styles.module.css.map */

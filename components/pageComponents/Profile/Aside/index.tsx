@@ -30,8 +30,8 @@ const navigation = [
     },
 ];
 
-export const ProfileAside = () => {
-    const pathname = getServerPathname();
+export const ProfileAside = async () => {
+    const pathname = await getServerPathname();
 
     return (
         <aside className={styles.aside}>

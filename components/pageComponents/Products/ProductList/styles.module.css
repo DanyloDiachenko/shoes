@@ -1,0 +1,12 @@
+.column {
+  padding-right: 10px;
+  padding-left: 10px;
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .column {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

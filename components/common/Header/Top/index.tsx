@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { getCurrency } from "@/helpers/getCurrency";
 
 export const Top = async () => {
-    const currency = getCurrency();
+    const currency = await getCurrency();
 
     return (
         <div className={styles.headerTop}>

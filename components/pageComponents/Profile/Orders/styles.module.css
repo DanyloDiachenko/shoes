@@ -1,0 +1,17 @@
+.content {
+  line-height: 2.15;
+  padding-bottom: 2rem;
+}
+.content p {
+  margin-bottom: 1rem;
+}
+.content button {
+  min-width: 123px;
+}
+.content button span {
+  text-transform: uppercase;
+}
+.content button svg {
+  margin-left: 1rem;
+  font-size: 2rem;
+}/*# sourceMappingURL=styles.module.css.map */

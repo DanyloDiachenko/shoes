@@ -1,0 +1,54 @@
+.headerDropdown {
+  position: relative;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.headerDropdown:hover .headerMenu, .headerDropdown:focus .headerMenu {
+  visibility: visible;
+  opacity: 1;
+}
+.headerDropdown .active {
+  position: relative;
+  display: inline-flex;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  padding-right: 2.2rem;
+  align-items: center;
+  text-transform: uppercase;
+  color: inherit;
+}
+.headerDropdown .active svg {
+  width: 16px;
+  margin-left: 5px;
+  margin-top: 1px;
+}
+.headerDropdown .headerMenu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 20;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  min-width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  background-color: #fff;
+  box-shadow: 2px 5px 8px rgba(51, 51, 51, 0.05), -2px 5px 8px rgba(51, 51, 51, 0.05);
+  transition: all 0.25s;
+  margin-top: 1px;
+}
+.headerDropdown .headerMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.headerDropdown .headerMenu ul li {
+  margin: 0;
+}
+.headerDropdown .headerMenu ul li a {
+  padding: 0.3rem 1.5rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  color: inherit;
+}/*# sourceMappingURL=styles.module.css.map */

@@ -1,0 +1,70 @@
+.reviews .title {
+  font-size: 1.6rem !important;
+  margin-bottom: 2.3rem !important;
+  font-weight: 500 !important;
+}
+.reviews .review {
+  padding-bottom: 1.3rem;
+  margin-bottom: 2rem;
+  border-bottom: 0.1rem solid #ebebeb;
+}
+.reviews .review h4 {
+  color: #333;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.8rem;
+}
+.reviews .review .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.reviews .review .row .leftColumn {
+  width: 120px;
+  padding-right: 2rem;
+}
+.reviews .review .row .leftColumn .ratingsContainer {
+  padding-top: 0.7rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+.reviews .review .row .leftColumn .reviewDate {
+  color: #ccc;
+}
+.reviews .review .row .mainColumn {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+}
+.reviews .review .row .mainColumn .description {
+  margin-bottom: 0.8rem;
+}
+.reviews .review .row .mainColumn .actions {
+  font-size: 1.2rem;
+  display: flex;
+}
+.reviews .review .row .mainColumn .actions a {
+  color: #777;
+  transition: all 0.35s ease;
+  margin-left: 1.6rem;
+  display: flex;
+  align-items: center;
+}
+.reviews .review .row .mainColumn .actions a:hover {
+  color: #c96;
+  box-shadow: 0 1px 0 #c96;
+}
+.reviews .review .row .mainColumn .actions a:first-child {
+  margin-left: 0;
+}
+.reviews .review .row .mainColumn .actions a svg {
+  font-size: 1.4rem;
+  margin-right: 0.6rem;
+}/*# sourceMappingURL=styles.module.css.map */

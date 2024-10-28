@@ -1,0 +1,137 @@
+.stickyProduct {
+  display: none;
+}
+@media (min-width: 992px) {
+  .stickyProduct {
+    display: block;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #fff;
+    box-shadow: -15px 0 43px rgba(51, 51, 51, 0.15);
+  }
+}
+.stickyProduct .row {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.stickyProduct .row .columnLeft {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+  width: 100%;
+}
+.stickyProduct .row .columnLeft .media {
+  position: relative;
+  display: block;
+  background-color: #d7d7d7;
+  overflow: hidden;
+  margin: 0 0 1rem;
+}
+@media (min-width: 992px) {
+  .stickyProduct .row .columnLeft .media {
+    max-width: 60px;
+    margin-right: 2rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+}
+.stickyProduct .row .columnLeft .title {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #333333;
+  margin-bottom: 0.2rem;
+}
+@media (min-width: 992px) {
+  .stickyProduct .row .columnLeft .title {
+    margin-bottom: 0;
+    letter-spacing: -0.025em;
+  }
+}
+.stickyProduct .row .columnLeft .title a {
+  color: inherit;
+}
+.stickyProduct .row .columnLeft .title a:hover {
+  color: #c96;
+}
+.stickyProduct .row .columnRight {
+  padding-right: 10px;
+  padding-left: 10px;
+  justify-content: flex-end;
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .stickyProduct .row .columnRight {
+    display: flex;
+    align-items: center;
+  }
+}
+.stickyProduct .row .columnRight .actions {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+@media (min-width: 992px) {
+  .stickyProduct .row .columnRight .actions {
+    margin-bottom: 0;
+  }
+}
+.stickyProduct .row .columnRight .actions .addToCart {
+  padding: 1rem 1.5rem;
+  max-width: 198px;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+@media (min-width: 992px) {
+  .stickyProduct .row .columnRight .actions .addToCart {
+    min-width: 200px;
+    margin-right: 2rem;
+  }
+}
+.stickyProduct .row .columnRight .actions .addToCart span {
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+}
+.stickyProduct .row .columnRight .actions .addToCart svg {
+  margin-right: 0.4rem;
+  margin-top: -0.1rem;
+}
+.stickyProduct .row .columnRight .actions .addToCart:hover svg,
+.stickyProduct .row .columnRight .actions .addToCart:hover span {
+  color: #fff;
+}
+.stickyProduct .row .columnRight .actions .addToWishlist {
+  min-width: 0;
+  font-size: 1.6rem;
+  border-left: 0.1rem dotted #e5e5e5;
+  color: #c96;
+  padding-top: 1.9rem;
+  padding-bottom: 1.9rem;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 2rem;
+}
+@media (min-width: 992px) {
+  .stickyProduct .row .columnRight .actions .addToWishlist {
+    border: none;
+    font-size: 1.8rem;
+  }
+}
+.stickyProduct .row .columnRight .actions .addToWishlist:hover {
+  color: #bf8040;
+  background: none;
+}/*# sourceMappingURL=styles.module.css.map */

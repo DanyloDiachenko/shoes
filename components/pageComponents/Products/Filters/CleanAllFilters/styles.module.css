@@ -1,0 +1,32 @@
+.widgetClean {
+  color: #333;
+  margin: 0 0 2rem;
+  border-bottom: 0.1rem solid #ebebeb;
+  display: flex;
+  align-items: center;
+  padding-top: 0.6rem;
+  padding-bottom: 2.1rem;
+}
+.widgetClean label {
+  color: inherit;
+  font-weight: 400;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  margin: 0;
+  display: inline-block;
+}
+.widgetClean button {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-left: auto;
+  text-transform: capitalize;
+  background: none;
+  color: #c96;
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.widgetClean button:hover {
+  color: #bf8040;
+}/*# sourceMappingURL=styles.module.css.map */

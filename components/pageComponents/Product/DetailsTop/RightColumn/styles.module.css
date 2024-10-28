@@ -1,0 +1,15 @@
+.columnRight {
+  padding-right: 10px;
+  padding-left: 10px;
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .columnRight {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+.columnRight .details {
+  margin-bottom: 2rem;
+}/*# sourceMappingURL=styles.module.css.map */

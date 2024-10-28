@@ -5,8 +5,8 @@ import { getCurrency } from "@/helpers/getCurrency";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import { getProductRating } from "@/helpers/getProductRating";
 
-export const Info = ({ product }: InfoProps) => {
-    const currency = getCurrency();
+export const Info = async ({ product }: InfoProps) => {
+    const currency = await getCurrency();
 
     return (
         <>

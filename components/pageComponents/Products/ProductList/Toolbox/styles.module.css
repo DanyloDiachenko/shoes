@@ -1,0 +1,58 @@
+.toolbox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .toolbox {
+    flex-direction: row;
+  }
+}
+.toolbox .toolboxLeft {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+}
+.toolbox .toolboxLeft .toolboxInfo {
+  color: #ccc;
+}
+.toolbox .toolboxLeft .toolboxInfo span {
+  color: #333;
+}
+.toolbox .toolboxRight {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .toolbox .toolboxRight {
+    margin-top: 0;
+    justify-content: flex-end;
+  }
+}
+@media screen and (min-width: 576px) {
+  .toolbox .toolboxRight {
+    flex-direction: row;
+  }
+}
+.toolbox .toolboxRight .toolboxSort {
+  display: flex;
+  align-items: center;
+}
+.toolbox .toolboxRight .toolboxSort label {
+  margin-right: 1.6rem;
+  font-weight: 400;
+  color: #333;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}/*# sourceMappingURL=styles.module.css.map */

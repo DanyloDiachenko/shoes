@@ -1,0 +1,114 @@
+.column {
+  padding-right: 10px;
+  padding-left: 10px;
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .column {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .column {
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
+}
+.column .summary {
+  margin-bottom: 3rem;
+  padding: 2.5rem 3rem 3rem;
+  border: 0.1rem dashed #d7d7d7;
+  background-color: #f9f9f9;
+  border-radius: 0.3rem;
+  margin-top: 2rem;
+}
+@media screen and (min-width: 992px) {
+  .column .summary {
+    margin-top: 0;
+  }
+}
+.column .summary .summaryTitle {
+  margin-bottom: 0;
+  font-weight: 500;
+  font-size: 1.6rem;
+  letter-spacing: 0;
+  padding-bottom: 1.7rem;
+  border-bottom: 0.1rem solid #cccccc;
+}
+.column .summary .table {
+  line-height: 1.43;
+  color: #666;
+  border: none;
+  margin-bottom: 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+.column .summary .table tbody {
+  /*  */
+}
+.column .summary .table tbody td {
+  vertical-align: middle;
+  border-top: none;
+  padding: 0;
+  height: 70px;
+  border-bottom: 0.1rem solid #ebebeb;
+}
+.column .summary .table tbody .summarySubtotal td {
+  color: #333;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+.column .summary .table tbody .summarySubtotal td:last-child {
+  min-width: 0;
+  text-align: right;
+}
+.column .summary .table tbody .summaryShippingEstimate {
+  color: #333;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+.column .summary .table tbody .summaryShippingEstimate td {
+  height: auto;
+  padding-top: 1.4rem;
+  padding-bottom: 2.3rem;
+}
+.column .summary .table tbody .summaryShippingEstimate td a {
+  margin-top: 0.6rem;
+  display: inline-block;
+  font-weight: 300;
+  color: #999;
+  font-size: 1.4rem;
+  border-bottom: 0.1rem solid #999;
+  transition: 0.35s all;
+}
+.column .summary .table tbody .summaryShippingEstimate td a:hover {
+  color: #c96;
+  border-color: #c96;
+}
+.column .summary .table tbody .summaryShippingEstimate td:last-child {
+  min-width: 0;
+  text-align: right;
+}
+.column .summary .table tbody .summaryTotal td {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #c96;
+  border-bottom: none;
+}
+.column .summary .table tbody .summaryTotal td:last-child {
+  min-width: 0;
+  text-align: right;
+}
+.column .summary .buttonProceedToCheckout {
+  width: 100%;
+}
+.column .buttonContinueShopping {
+  margin-bottom: 3rem;
+  width: 100%;
+}
+.column .buttonContinueShopping svg {
+  width: 14px;
+  margin-left: 1rem;
+}/*# sourceMappingURL=styles.module.css.map */

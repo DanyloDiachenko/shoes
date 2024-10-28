@@ -1,0 +1,17 @@
+.ratings {
+  display: inline-block;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  position: relative;
+  color: #cccccc;
+}
+.ratings svg {
+  margin-left: 0.3rem;
+}
+.ratings svg:first-child {
+  margin-left: 0;
+}
+.ratings svg.active {
+  color: #fcb941;
+}/*# sourceMappingURL=styles.module.css.map */

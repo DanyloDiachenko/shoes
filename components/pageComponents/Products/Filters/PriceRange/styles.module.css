@@ -1,0 +1,137 @@
+.widget {
+  margin: 0 0 2rem;
+  color: #333;
+}
+.widget .title {
+  margin-bottom: 0.7rem;
+  color: #333;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.widget .title .top {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1.3rem;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.widget .title .top svg {
+  color: #333;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.widget .widgetContentWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 0.3s;
+  overflow: hidden;
+  padding: 0;
+}
+.widget .widgetContentWrapper.opened {
+  grid-template-rows: 1fr;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+.widget .widgetContentWrapper .widgetBody {
+  min-height: 0;
+}
+.widget .widgetContentWrapper .widgetBody .filterPrice {
+  padding-top: 0.2rem;
+  padding-bottom: 3rem;
+}
+.widget .widgetContentWrapper .widgetBody .filterPrice .text {
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
+}
+.widget .widgetContentWrapper .widgetBody .filterPrice .text span {
+  color: #c96;
+  letter-spacing: -0.01em;
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeSlider {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: #fff;
+  border: 1px solid #555555;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  margin-left: -0.5rem;
+  margin-top: -0.65rem;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transition: 0.3s ease-out;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeSlider:active {
+  transform: scale(1.3);
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeSlider:focus {
+  box-shadow: 0 0 0 5px rgba(63, 81, 181, 0.2);
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeDisabled .inputRangeSlider {
+  background: #cccccc;
+  border: 1px solid #cccccc;
+  box-shadow: none;
+  transform: none;
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeSliderContainer {
+  transition: 0.3s ease-out;
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeLabel {
+  color: #aaaaaa;
+  transform: translateZ(0);
+  white-space: nowrap;
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeLabelMin,
+.widget .widgetContentWrapper .widgetBody .inputRangeLabelMax {
+  display: none;
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeLabelValue {
+  position: absolute;
+  top: 1rem;
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeLabelContainer {
+  left: -50%;
+  position: relative;
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-top: 10px;
+  letter-spacing: -0.01em;
+  color: #333333;
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeLabelMax .inputRangeLabelContainer {
+  left: 50%;
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeTrack {
+  background: #eeeeee;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: block;
+  height: 0.3rem;
+  position: relative;
+  transition: 0.3s ease-out;
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeDisabled .inputRangeTrack {
+  background: #eeeeee;
+}
+.widget .widgetContentWrapper .widgetBody .inputRangeTrackActive {
+  background: #333;
+  height: 3px;
+  position: absolute;
+  transition: 0.3s;
+}
+.widget .widgetContentWrapper .widgetBody .inputRange {
+  height: 1rem;
+  position: relative;
+  margin-left: 8px;
+  margin-right: 25px;
+}/*# sourceMappingURL=styles.module.css.map */

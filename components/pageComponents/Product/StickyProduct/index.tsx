@@ -8,11 +8,11 @@ import { AddProductToCart } from "@/components/additional/AddProductToCart";
 import { getCurrency } from "@/helpers/getCurrency";
 import { Price } from "./Price";
 
-export const StickyProduct = ({
+export const StickyProduct = async ({
     product,
     cookieProducts,
 }: StickyProductProps) => {
-    const currency = getCurrency();
+    const currency = await getCurrency();
 
     return (
         <div className={styles.stickyProduct}>

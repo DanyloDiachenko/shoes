@@ -1,0 +1,101 @@
+.headerRight {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  margin-left: auto;
+}
+.headerRight .topMenu {
+  margin: 0;
+  letter-spacing: -0.01em;
+  list-style: none;
+  text-transform: uppercase;
+}
+@media (max-width: 992px) {
+  .headerRight .topMenu {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+}
+.headerRight .topMenu .mobileLink {
+  display: none;
+  align-items: center;
+  padding: 0.3rem 1.5rem;
+}
+.headerRight .topMenu .mobileLink svg {
+  margin-left: 5px;
+  width: 16px;
+}
+.headerRight .topMenu .liMain {
+  position: relative;
+}
+@media (max-width: 991px) {
+  .headerRight .topMenu .liMain {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  .headerRight .topMenu .liMain .mobileLink {
+    display: flex;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+.headerRight .topMenu .links {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .headerRight .topMenu .links {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    opacity: 0;
+    z-index: 20;
+    transition: opacity 0.3s;
+    margin-top: 1px;
+    box-shadow: 2px 5px 8px rgba(51, 51, 51, 0.05), -2px 5px 8px rgba(51, 51, 51, 0.05);
+    background-color: #fff;
+    min-width: 180px;
+    height: 0;
+    overflow: hidden;
+    text-transform: capitalize;
+  }
+}
+.headerRight .topMenu .links li {
+  margin-left: 2.6rem;
+}
+@media (max-width: 991px) {
+  .headerRight .topMenu .links li {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+}
+.headerRight .topMenu .links li:first-child {
+  margin-left: 0;
+}
+@media (max-width: 991px) {
+  .headerRight .topMenu .links li:first-child {
+    margin-left: 2.6rem;
+  }
+}
+.headerRight .topMenu .links li a {
+  display: flex;
+  align-items: center;
+}
+.headerRight .topMenu .links li .iconLink svg {
+  margin-right: 6px;
+  width: 12px;
+}
+.headerRight .topMenu:hover .links {
+  opacity: 1;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  height: auto;
+}
+.headerRight .topMenu .wishlistQuantity {
+  color: #c96;
+}/*# sourceMappingURL=styles.module.css.map */

@@ -1,0 +1,80 @@
+.actions {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  margin-bottom: 3rem;
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 580px) {
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.actions .actionsWrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 4rem;
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .actions .actionsWrapper {
+    margin-left: 1rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .actions .actionsWrapper {
+    margin-left: 0;
+    margin-top: 1.5rem;
+  }
+}
+@media (max-width: 580px) {
+  .actions .actionsWrapper {
+    margin-left: 0;
+    margin-top: 1.5rem;
+  }
+}
+.actions .actionsWrapper .addToWishlist {
+  padding-top: 0;
+  padding-bottom: 0;
+  white-space: nowrap;
+  align-self: stretch;
+  line-height: 1.4;
+  font-size: 1.6rem;
+  color: #666666;
+  letter-spacing: -0.01em;
+  border: none;
+  background: none;
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .actions .actionsWrapper .addToWishlist {
+    padding-left: 0;
+    justify-content: start;
+  }
+}
+@media (max-width: 580px) {
+  .actions .actionsWrapper .addToWishlist {
+    padding-left: 0;
+    justify-content: start;
+  }
+}
+.actions .actionsWrapper .addToWishlist svg {
+  margin-top: -0.1rem;
+  color: #c96;
+  margin-right: 1rem;
+}
+.actions .actionsWrapper .addToWishlist span {
+  transition: 0.3s;
+  letter-spacing: 0.01rem;
+}
+.actions .actionsWrapper .addToWishlist:hover {
+  background: none;
+}
+.actions .actionsWrapper .addToWishlist:hover span {
+  color: #c96;
+  box-shadow: 0 1px 0 0 #c96;
+}/*# sourceMappingURL=styles.module.css.map */
