@@ -5,8 +5,8 @@ import { ActionsProps } from "./actions.props";
 import { AddProductToCart } from "@/components/additional/AddProductToCart";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 
-export const Actions = ({ product }: ActionsProps) => {
-    const cookieProducts = getCookieProductsServer() || [];
+export const Actions = async ({ product }: ActionsProps) => {
+    const cookieProducts = await getCookieProductsServer() || [];
 
     return (
         <div className={styles.actions}>

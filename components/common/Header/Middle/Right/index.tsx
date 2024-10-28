@@ -7,8 +7,8 @@ import { Product } from "@/interfaces/product.interface";
 import { getProduct } from "@/app/api/products";
 
 export const Right = async () => {
-    const currency = getCurrency();
-    const cookieProducts = getCookieProductsServer() || [];
+    const currency = await getCurrency();
+    const cookieProducts = (await getCookieProductsServer()) || [];
 
     let cartProducts: Product[] = [];
 

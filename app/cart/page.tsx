@@ -24,8 +24,9 @@ const breadcrumbs: Breadcrumb[] = [
 ];
 
 const Cart = async () => {
-    const cookieProducts: ProductCookie[] = getCookieProductsServer() || [];
-    const currency = getCurrency();
+    const cookieProducts: ProductCookie[] =
+        (await getCookieProductsServer()) || [];
+    const currency = await getCurrency();
 
     let cartProducts: Product[] = [];
 

@@ -10,8 +10,8 @@ import { getProducts } from "@/app/api/products";
 export const ProductPageContent = async ({
     product,
 }: ProductPageContentProps) => {
-    const currency = getCurrency();
-    const cookieProducts = getCookieProductsServer() || [];
+    const currency = await getCurrency();
+    const cookieProducts = (await getCookieProductsServer()) || [];
     const mayLikedProducts = (await getProducts({ limit: 12, currency })).data;
 
     return (
