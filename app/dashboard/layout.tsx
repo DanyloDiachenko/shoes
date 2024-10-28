@@ -25,7 +25,7 @@ const breadcrumbs: Breadcrumb[] = [
 ];
 
 const ProfileLayout = async ({ children }: ProfileLayoutProps) => {
-    const token = getServerCookie("token");
+    const token = await getServerCookie("token");
 
     if (!token) {
         signOut();

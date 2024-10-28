@@ -1,4 +1,4 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 import styles from "./styles.module.scss";
 import Link from "next/link";
 import { AiOutlineUser } from "react-icons/ai";

@@ -26,23 +26,24 @@ const breadcrumbs: Breadcrumb[] = [
 ];
 
 const Products = async ({ searchParams }: PageProps) => {
-    const currency = getCurrency();
+    const currency = await getCurrency();
+    const searchParamsFunc = await searchParams;
 
-    const categorySlugs = searchParams.categories
-        ? searchParams.categories.split(",")
+    const categorySlugs = searchParamsFunc.categories
+        ? searchParamsFunc.categories.split(",")
         : undefined;
-    const sizeSlugs = searchParams.sizes
-        ? searchParams.sizes.split(",")
+    const sizeSlugs = searchParamsFunc.sizes
+        ? searchParamsFunc.sizes.split(",")
         : undefined;
-    const brandSlugs = searchParams.brands
-        ? searchParams.brands.split(",")
+    const brandSlugs = searchParamsFunc.brands
+        ? searchParamsFunc.brands.split(",")
         : undefined;
 
-    const pageNumber = Number(searchParams.page) || undefined;
-    const sortBy = searchParams.sortBy || undefined;
-    const color = searchParams.color || undefined;
-    const priceFrom = searchParams.priceFrom || undefined;
-    const priceTo = searchParams.priceTo || undefined;
+    const pageNumber = Number(searchParamsFunc.page) || undefined;
+    const sortBy = searchParamsFunc.sortBy || undefined;
+    const color = searchParamsFunc.color || undefined;
+    const priceFrom = searchParamsFunc.priceFrom || undefined;
+    const priceTo = searchParamsFunc.priceTo || undefined;
 
     const [
         getProductsResponseServer,

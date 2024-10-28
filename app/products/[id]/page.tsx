@@ -20,7 +20,7 @@ const breadcrumbs: Breadcrumb[] = [
 ];
 
 const ProductDetails = async ({ params }: PageProps) => {
-    const productId = params.id;
+    const productId = (await params).id;
 
     const [product] = await Promise.all([getProduct(productId)]);
 
