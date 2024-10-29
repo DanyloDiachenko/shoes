@@ -9,10 +9,20 @@ export const Popups = () => {
 
     return (
         <>
-            <div className={styles.modalWrapper}></div>
             <div
-                className={`${openedPopup ? styles.active : ""} ${
-                    styles.modalBackdrop
+                className={`${styles.modalWrapper} ${
+                    openedPopup ? styles.active : ""
+                }`}
+                aria-hidden={openedPopup ? "false" : "true"}
+                aria-modal={openedPopup ? "true" : "false"}
+                tabIndex={-1}
+                role="dialog"
+            >
+                <div></div>
+            </div>
+            <div
+                className={` ${styles.modalBackdrop} ${
+                    openedPopup ? styles.active : ""
                 }`}
             ></div>
         </>
