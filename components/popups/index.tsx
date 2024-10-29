@@ -18,7 +18,11 @@ export const Popups = () => {
                 tabIndex={-1}
                 role="dialog"
             >
-                <div></div>
+                <div className={`${styles.modalDialog} ${openedPopup ? styles.active : ""}`}>
+                    <div className={styles.modalContent}>
+                        <div className={styles.modalBody}> </div>
+                    </div>
+                </div>
             </div>
             <div
                 className={` ${styles.modalBackdrop} ${
