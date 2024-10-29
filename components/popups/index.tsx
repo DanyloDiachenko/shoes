@@ -35,6 +35,9 @@ export const Popups = () => {
                             >
                                 <IoMdClose />
                             </button>
+                            <div className={styles.formBox}>
+                                <div className={styles.title}>Change Address</div>
+                            </div>
                         </div>
                     </div>
                 </div>
