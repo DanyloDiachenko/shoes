@@ -1,0 +1,15 @@
+.modalBackdrop {
+    opacity: 0;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    transition: opacity 0.15s linear;
+
+    &.active {
+        opacity: 0.4;
+    }
+}
