@@ -8,7 +8,7 @@ export const LoginOrHello = async () => {
     const session = await getServerSession(authOptions);
 
     return (
-        <Link href={session ? "#" : "/login"} className={styles.iconLink}>
+        <Link href={session ? "/dashboard" : "/login"} className={styles.iconLink}>
             <AiOutlineUser />
             <span>{session ? `Hello, ${session.user.email}` : "LOGIN"}</span>
         </Link>
