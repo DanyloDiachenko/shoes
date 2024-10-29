@@ -7,6 +7,7 @@ import { Footer } from "@/components/common/Footer";
 import { LayoutProps } from "./layout.props";
 import { MobileMenu } from "@/components/common/MobileMenu";
 import { SessionProvider } from "@/components/additional/SessionProvider";
+import { Popups } from "@/components/popups";
 
 const notoSans = Noto_Sans({
     weight: ["200", "300", "400", "500", "600", "700", "800"],
@@ -29,8 +30,8 @@ const RootLayout = async ({ children }: LayoutProps) => {
                     <button id="scroll-top" title="Back to Top">
                         <i className="icon-arrow-up"></i>
                     </button>
-                    
-                    <Popups /> */}
+                 */}
+                        <Popups />
                         <MobileMenu />
                     </StoreProvider>
                 </SessionProvider>

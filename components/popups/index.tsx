@@ -1,11 +1,14 @@
+"use client";
+
 import { useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 import { RootState } from "@/store";
+import { IoMdClose } from "react-icons/io";
 
 export const Popups = () => {
-    const openedPopup = useSelector(
+    const openedPopup = "changeAddress"; /* useSelector(
         (state: RootState) => state.openedPopup.openedPopup
-    );
+    ); */
 
     return (
         <>
@@ -18,9 +21,21 @@ export const Popups = () => {
                 tabIndex={-1}
                 role="dialog"
             >
-                <div className={`${styles.modalDialog} ${openedPopup ? styles.active : ""}`}>
+                <div
+                    className={`${styles.modalDialog} ${
+                        openedPopup ? styles.active : ""
+                    }`}
+                >
                     <div className={styles.modalContent}>
-                        <div className={styles.modalBody}> </div>
+                        <div className={styles.modalBody}>
+                            <button
+                                className={styles.buttonClose}
+                                data-dismiss="modal"
+                                aria-label="Close"
+                            >
+                                <IoMdClose />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
