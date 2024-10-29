@@ -31,6 +31,7 @@
         padding-left: 0px;
         overflow-x: hidden;
         overflow-y: auto;
+        opacity: 1;
     }
 
     .modalDialog {
@@ -117,6 +118,7 @@
                         padding: 0.9rem 1rem;
                         line-height: 1.5;
                         text-align: center;
+                        color: inherit;
                     }
                 }
             }
