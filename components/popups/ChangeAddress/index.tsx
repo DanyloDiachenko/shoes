@@ -11,51 +11,75 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
             <div className={styles.content}>
                 <form>
                     <div className={styles.formGroup}>
-                        <label htmlFor="singin-password-2">Password *</label>
+                        <label htmlFor="address-name">User Name</label>
                         <Input
-                            type="password"
-                            id="singin-password-2"
-                            name="singin-password"
-                            required
+                            type="text"
+                            id="address-name"
+                            name="address-name"
+                            value="User Name"
+                            disabled
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="address-phone">User Phone</label>
+                        <Input
+                            type="phone"
+                            id="address-phone"
+                            name="address-phone"
+                            value="1-234-987-6543"
+                            disabled
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="singin-password-2">User Email</label>
+                        <Input
+                            type="email"
+                            id="address-email"
+                            name="address-email"
+                            value="yourmail@mail.com"
+                            disabled
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="address-street">Street</label>
+                        <Input
+                            type="text"
+                            id="address-street"
+                            name="address-street"
                             value=""
                         />
                     </div>
                     <div className={styles.formGroup}>
-                        <label htmlFor="singin-password-2">Password *</label>
+                        <label htmlFor="address-city">City</label>
                         <Input
-                            type="password"
-                            id="singin-password-2"
-                            name="singin-password"
-                            required
+                            type="text"
+                            id="address-city"
+                            name="address-city"
                             value=""
                         />
                     </div>
                     <div className={styles.formGroup}>
-                        <label htmlFor="singin-password-2">Password *</label>
+                        <label htmlFor="address-postal-code">Postal Code</label>
                         <Input
-                            type="password"
-                            id="singin-password-2"
-                            name="singin-password"
-                            required
-                            value=""
-                        />
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="singin-password-2">Password *</label>
-                        <Input
-                            type="password"
-                            id="singin-password-2"
-                            name="singin-password"
-                            required
+                            type="text"
+                            id="address-postal-code"
+                            name="address-postal-code"
                             value=""
                         />
                     </div>
                     <div className={styles.buttons}>
-                        <Button colorType="btnGray" className={styles.cancelBtn}>
+                        <Button
+                            colorType="btnGray"
+                            className={styles.cancelBtn}
+                        >
                             <IoMdClose />
                             Discard
                         </Button>
-                        <Button colorType="btnOutlinePrimary2" type="submit" className={styles.submitBtn}>
+                        <Button
+                            colorType="btnOutlinePrimary2"
+                            type="submit"
+                            className={styles.submitBtn}
+                        >
                             Submit
                             <IoIosArrowRoundForward />
                         </Button>

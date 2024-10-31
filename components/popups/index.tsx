@@ -1,10 +1,7 @@
 "use client";
 
-import { useSelector } from "react-redux";
 import styles from "./styles.module.scss";
-import { RootState } from "@/store";
 import { IoMdClose } from "react-icons/io";
-import { Input } from "../UI/Input";
 import { ChangeAddress } from "./ChangeAddress";
 
 export const Popups = () => {
