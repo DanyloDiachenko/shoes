@@ -1,10 +1,31 @@
+"use client";
+
 import { Input } from "@/components/UI/Input";
 import { ChangeAddressProps } from "./changeAddress.props";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { IoIosArrowRoundForward, IoMdClose } from "react-icons/io";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import { getProfile } from "@/app/api/auth/user";
+import { getClientCookie } from "@/helpers/getClientCookie";
 
 export const ChangeAddress = ({}: ChangeAddressProps) => {
+    const getUserProfile = async () => {
+        const token = await getClientCookie("token");
+
+        if (!token) {
+            return;
+        }
+
+        const profile = await getProfile(token);
+        console.log(profile);
+    };
+
+    useEffect(() => {
+        getUserProfile();
+    }, []);
+
     return (
         <div className={styles.formBox}>
             <div className={styles.title}>Change Address</div>

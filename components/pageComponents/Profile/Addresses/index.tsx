@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AddressesProps } from "./addresses.props";
 import styles from "./styles.module.scss";
 import { FaRegEdit } from "react-icons/fa";
@@ -41,9 +42,9 @@ export const AddressesPageContent = ({ user }: AddressesProps) => {
                                 ) : (
                                     "You have not set up this type of address yet."
                                 )}
-                                <a href="#">
+                                <Link href="#">
                                     Edit <FaRegEdit />
-                                </a>
+                                </Link>
                             </p>
                         </div>
                     </div>
