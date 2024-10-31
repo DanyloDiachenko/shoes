@@ -1,3 +1,3 @@
 export interface ChangeAddressProps {
-    isOpened: boolean;
+    /* isOpened: boolean; */
 }

@@ -91,7 +91,6 @@ export const Form = ({ tab }: FormProps) => {
                     onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
-
             <div className={styles.formGroup}>
                 <label htmlFor="singin-password-2">Password *</label>
                 <Input

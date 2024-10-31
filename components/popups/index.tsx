@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 import { RootState } from "@/store";
 import { IoMdClose } from "react-icons/io";
+import { Input } from "../UI/Input";
+import { ChangeAddress } from "./ChangeAddress";
 
 export const Popups = () => {
     const openedPopup = "changeAddress"; /* useSelector(
@@ -35,9 +37,7 @@ export const Popups = () => {
                             >
                                 <IoMdClose />
                             </button>
-                            <div className={styles.formBox}>
-                                <div className={styles.title}>Change Address</div>
-                            </div>
+                            <ChangeAddress />
                         </div>
                     </div>
                 </div>
