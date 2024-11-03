@@ -11,6 +11,7 @@ import { getProfile } from "@/app/api/auth/user";
 import { getClientCookie } from "@/helpers/getClientCookie";
 import { User } from "@/interfaces/user.inteface";
 import { UnathorizedResponse } from "@/interfaces/responses/unathorized.interface";
+import { Address } from "@/interfaces/address.interface";
 
 interface FormValues {
     firstName: string | null;
@@ -25,7 +26,7 @@ interface FormValues {
 
 export const ChangeAddress = ({}: ChangeAddressProps) => {
     const [popupTitle, setPopupTitle] = useState<string>("");
-    const [fields, setFields] = useState<FormValues>();
+    const [fields, setFields] = useState<FormValues | null>(null);
 
     const isUserProfile = (
         profile: User | UnathorizedResponse
@@ -36,70 +37,47 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
     const getUserProfile = async () => {
         const token = getClientCookie("token");
 
-        if (!token) {
-            return;
-        }
+        if (!token) return;
 
         const profile = await getProfile(token);
 
-        if (!isUserProfile(profile)) {
-            return;
-        }
+        if (!isUserProfile(profile)) return;
+
+        const setAddressFields = (address: Address | null) => {
+            setFields({
+                firstName: profile.firstName,
+                lastName: profile.lastName,
+                phone: profile.phone,
+                email: profile.email,
+                street: address?.street || "",
+                city: address?.city || "",
+                country: address?.country || "",
+                postIndex: address?.postIndex || "",
+            });
+        };
 
         if (profile.billingAddress) {
             setPopupTitle("Change Billing Address");
-            setFields({
-                firstName: profile.firstName,
-                lastName: profile.lastName,
-                phone: profile.phone,
-                email: profile.email,
-                street: profile.billingAddress?.street,
-                city: profile.billingAddress?.city,
-                country: profile.billingAddress?.country,
-                postIndex: profile.billingAddress?.postIndex,
-            });
+            setAddressFields(profile.billingAddress);
         } else if (profile.shippingAddress) {
             setPopupTitle("Change Shipping Address");
-            setFields({
-                firstName: profile.firstName,
-                lastName: profile.lastName,
-                phone: profile.phone,
-                email: profile.email,
-                street: profile.shippingAddress?.street,
-                city: profile.shippingAddress?.city,
-                country: profile.shippingAddress?.country,
-                postIndex: profile.shippingAddress?.postIndex,
-            });
-        } else if (!profile.billingAddress) {
-            setPopupTitle("Create Billing Address");
-            setFields({
-                firstName: profile.firstName,
-                lastName: profile.lastName,
-                phone: profile.phone,
-                email: profile.email,
-                street: "",
-                city: "",
-                country: "",
-                postIndex: "",
-            });
-        } else if (!profile.shippingAddress) {
-            setPopupTitle("Create Shipping Address");
-            setFields({
-                firstName: profile.firstName,
-                lastName: profile.lastName,
-                phone: profile.phone,
-                email: profile.email,
-                street: "",
-                city: "",
-                country: "",
-                postIndex: "",
-            });
+            setAddressFields(profile.shippingAddress);
+        } else {
+            const title = profile.billingAddress
+                ? "Create Shipping Address"
+                : "Create Billing Address";
+            setPopupTitle(title);
+            setAddressFields(null);
         }
     };
 
     useEffect(() => {
         getUserProfile();
     }, []);
+
+    if (!fields) {
+        return <></>;
+    }
 
     return (
         <div className={styles.formBox}>
@@ -112,7 +90,7 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                             type="text"
                             id="address-firstName"
                             name="address-firstName"
-                            value="User First Name"
+                            value={fields?.firstName || ""}
                             disabled
                         />
                     </div>
@@ -122,7 +100,7 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                             type="text"
                             id="address-lastName"
                             name="address-lastName"
-                            value="User Last Name"
+                            value={fields.lastName || ""}
                             disabled
                         />
                     </div>
@@ -132,7 +110,7 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                             type="phone"
                             id="address-phone"
                             name="address-phone"
-                            value="1-234-987-6543"
+                            value={fields?.phone || ""}
                             disabled
                         />
                     </div>
@@ -142,7 +120,7 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                             type="email"
                             id="address-email"
                             name="address-email"
-                            value="yourmail@mail.com"
+                            value={fields.email}
                             disabled
                         />
                     </div>
@@ -152,7 +130,13 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                             type="text"
                             id="address-street"
                             name="address-street"
-                            value=""
+                            value={fields.street || ""}
+                            onChange={(e) =>
+                                setFields({
+                                    ...fields,
+                                    street: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className={styles.formGroup}>
@@ -161,7 +145,13 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                             type="text"
                             id="address-city"
                             name="address-city"
-                            value=""
+                            value={fields.city || ""}
+                            onChange={(e) =>
+                                setFields({
+                                    ...fields,
+                                    city: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className={styles.formGroup}>
@@ -170,7 +160,13 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                             type="text"
                             id="address-postal-code"
                             name="address-postal-code"
-                            value=""
+                            value={fields.postIndex || ""}
+                            onChange={(e) =>
+                                setFields({
+                                    ...fields,
+                                    postIndex: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className={styles.buttons}>

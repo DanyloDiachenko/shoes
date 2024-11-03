@@ -3,11 +3,13 @@
 import styles from "./styles.module.scss";
 import { IoMdClose } from "react-icons/io";
 import { ChangeAddress } from "./ChangeAddress";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 export const Popups = () => {
-    const openedPopup = "changeAddress"; /* useSelector(
+    const openedPopup = useSelector(
         (state: RootState) => state.openedPopup.openedPopup
-    ); */
+    );
 
     return (
         <>
