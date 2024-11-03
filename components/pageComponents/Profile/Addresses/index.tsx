@@ -54,13 +54,13 @@ export const AddressesPageContent = ({ user }: AddressesProps) => {
                                     "You have not set up this type of address yet."
                                 )}
                                 <Link
-                                    href={
-                                        user.billingAddress
-                                            ? "#change-billing-address"
-                                            : "#create-billing-address"
-                                    }
+                                    href={"#"}
                                     onClick={() =>
-                                        setOpenedPopupHandler("changeAddress")
+                                        setOpenedPopupHandler(
+                                            user.billingAddress
+                                                ? "changeBillingAddress"
+                                                : "createBillingAddress"
+                                        )
                                     }
                                     scroll={false}
                                 >
@@ -96,13 +96,13 @@ export const AddressesPageContent = ({ user }: AddressesProps) => {
                                     "You have not set up this type of address yet."
                                 )}
                                 <Link
-                                    href={
-                                        user.shippingAddress
-                                            ? "#change-shipping-address"
-                                            : "#create-shipping-address"
-                                    }
+                                    href={"#"}
                                     onClick={() =>
-                                        setOpenedPopupHandler("changeAddress")
+                                        setOpenedPopupHandler(
+                                            user.shippingAddress
+                                                ? "changeShippingAddress"
+                                                : "createShippingAddress"
+                                        )
                                     }
                                     scroll={false}
                                 >

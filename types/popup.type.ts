@@ -1,1 +1,6 @@
-export type Popup = "" | "changeAddress" | "authorization" | "newsletter";
+export type Popup =
+    | ""
+    | "createShippingAddress"
+    | "createBillingAddress"
+    | "changeShippingAddress"
+    | "changeBillingAddress";

@@ -12,7 +12,8 @@ import { User } from "@/interfaces/user.inteface";
 import { UnathorizedResponse } from "@/interfaces/responses/unathorized.interface";
 import { Address } from "@/interfaces/address.interface";
 import { closePopup as closePopupFunc } from "@/store/slices/openedPopup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 interface FormValues {
     firstName: string | null;
@@ -23,13 +24,18 @@ interface FormValues {
     city: string | null;
     country: string | null;
     postIndex: string | null;
+    homeNumber: string | null;
 }
 
 export const ChangeAddress = ({}: ChangeAddressProps) => {
+    const dispatch = useDispatch();
+
+    const openedPopup = useSelector(
+        (state: RootState) => state.openedPopup.openedPopup
+    );
+
     const [popupTitle, setPopupTitle] = useState<string>("");
     const [fields, setFields] = useState<FormValues | null>(null);
-
-    const dispatch = useDispatch();
 
     const isUserProfile = (
         profile: User | UnathorizedResponse
@@ -64,6 +70,7 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                 city: address?.city || "",
                 country: address?.country || "",
                 postIndex: address?.postIndex || "",
+                homeNumber: address?.homeNumber || "",
             });
         };
 
@@ -83,25 +90,23 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
     };
 
     useEffect(() => {
-        const urlHash = window.location.hash;
-
-        switch (urlHash) {
-            case "#create-billing-address":
+        switch (openedPopup) {
+            case "createBillingAddress":
                 setPopupTitle("Create Billing Address");
                 break;
-            case "#create-shipping-address":
+            case "createShippingAddress":
                 setPopupTitle("Create Shipping Address");
                 break;
-            case "#change-billing-address":
+            case "changeBillingAddress":
                 setPopupTitle("Change Billing Address");
                 break;
-            case "#change-shipping-address":
+            case "changeShippingAddress":
                 setPopupTitle("Change Shipping Address");
                 break;
             default:
                 setPopupTitle("");
         }
-    }, []);
+    }, [openedPopup]);
 
     useEffect(() => {
         getUserProfile();
@@ -157,16 +162,16 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                         />
                     </div>
                     <div className={styles.formGroup}>
-                        <label htmlFor="address-street">Street</label>
+                        <label htmlFor="address-country">Country</label>
                         <Input
                             type="text"
-                            id="address-street"
-                            name="address-street"
-                            value={fields.street || ""}
+                            id="address-country"
+                            name="address-country"
+                            value={fields.country || ""}
                             onChange={(e) =>
                                 setFields({
                                     ...fields,
-                                    street: e.target.value,
+                                    country: e.target.value,
                                 })
                             }
                         />
@@ -182,6 +187,36 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                                 setFields({
                                     ...fields,
                                     city: e.target.value,
+                                })
+                            }
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="address-street">Street</label>
+                        <Input
+                            type="text"
+                            id="address-street"
+                            name="address-street"
+                            value={fields.street || ""}
+                            onChange={(e) =>
+                                setFields({
+                                    ...fields,
+                                    street: e.target.value,
+                                })
+                            }
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="address-street">Home Number</label>
+                        <Input
+                            type="text"
+                            id="address-home-number"
+                            name="address-home-number"
+                            value={fields.homeNumber || ""}
+                            onChange={(e) =>
+                                setFields({
+                                    ...fields,
+                                    homeNumber: e.target.value,
                                 })
                             }
                         />
