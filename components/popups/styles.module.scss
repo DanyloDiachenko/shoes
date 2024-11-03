@@ -47,6 +47,7 @@
         width: auto;
         margin: 0.5rem;
         pointer-events: none;
+        transform: translateY(-5%);
 
         @media (min-width: 576px) {
             max-width: 500px;

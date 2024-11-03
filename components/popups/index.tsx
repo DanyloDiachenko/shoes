@@ -3,13 +3,20 @@
 import styles from "./styles.module.scss";
 import { IoMdClose } from "react-icons/io";
 import { ChangeAddress } from "./ChangeAddress";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
+import { closePopup as closePopupFunc } from "@/store/slices/openedPopup";
 
 export const Popups = () => {
+    const dispatch = useDispatch();
+
     const openedPopup = useSelector(
         (state: RootState) => state.openedPopup.openedPopup
     );
+
+    const closePopup = () => {
+        dispatch(closePopupFunc());
+    };
 
     return (
         <>
@@ -33,6 +40,7 @@ export const Popups = () => {
                                 className={styles.buttonClose}
                                 data-dismiss="modal"
                                 aria-label="Close"
+                                onClick={closePopup}
                             >
                                 <IoMdClose />
                             </button>
