@@ -6,7 +6,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    transition: opacity 0.15s linear;
+    transition: 0.15s linear;
     z-index: -1;
 
     &.active {
@@ -24,7 +24,7 @@
     height: 100%;
     overflow: hidden;
     outline: 0;
-    transition: opacity 0.15s linear;
+    transition: 0.15s linear;
     z-index: -1;
 
     &.active {
@@ -37,7 +37,7 @@
     }
 
     .modalDialog {
-        transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+        transition: 0.3s ease-out;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;

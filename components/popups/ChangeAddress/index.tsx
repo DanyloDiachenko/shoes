@@ -5,7 +5,7 @@ import { ChangeAddressProps } from "./changeAddress.props";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { IoIosArrowRoundForward, IoMdClose } from "react-icons/io";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { getProfile } from "@/app/api/auth/user";
 import { getClientCookie } from "@/helpers/getClientCookie";
 import { User } from "@/interfaces/user.inteface";
@@ -74,6 +74,12 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
         } else {
             setAddressFields(null);
         }
+    };
+
+    const onDiscardClick = (e: FormEvent) => {
+        e.preventDefault();
+
+        closePopup();
     };
 
     useEffect(() => {
@@ -199,7 +205,7 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                         <Button
                             colorType="btnGray"
                             className={styles.cancelBtn}
-                            onClick={() => closePopup()}
+                            onClick={onDiscardClick}
                         >
                             <IoMdClose />
                             Discard
