@@ -62,6 +62,7 @@ export const AddressesPageContent = ({ user }: AddressesProps) => {
                                     onClick={() =>
                                         setOpenedPopupHandler("changeAddress")
                                     }
+                                    scroll={false}
                                 >
                                     Edit <FaRegEdit />
                                 </Link>
@@ -103,6 +104,7 @@ export const AddressesPageContent = ({ user }: AddressesProps) => {
                                     onClick={() =>
                                         setOpenedPopupHandler("changeAddress")
                                     }
+                                    scroll={false}
                                 >
                                     Edit <FaRegEdit />
                                 </Link>
