@@ -1,1 +1,1 @@
-export type Popup = "" | "authorization" | "newsletter";
+export type Popup = "" | "changeAddress" | "authorization" | "newsletter";

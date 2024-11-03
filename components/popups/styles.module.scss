@@ -4,13 +4,14 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1040;
     width: 100vw;
     height: 100vh;
     transition: opacity 0.15s linear;
+    z-index: -1;
 
     &.active {
         opacity: 0.4;
+        z-index: 1040;
     }
 }
 
@@ -19,12 +20,12 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1050;
     width: 100%;
     height: 100%;
     overflow: hidden;
     outline: 0;
     transition: opacity 0.15s linear;
+    z-index: -1;
 
     &.active {
         display: block;
@@ -32,6 +33,7 @@
         overflow-x: hidden;
         overflow-y: auto;
         opacity: 1;
+        z-index: 1050;
     }
 
     .modalDialog {

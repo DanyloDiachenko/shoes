@@ -13,7 +13,10 @@ export const openedPopupSlice = createSlice({
         setOpenedPopup: (state, action: PayloadAction<Popup>) => {
             state.openedPopup = action.payload;
         },
+        closePopup: (state) => {
+            state.openedPopup = "";
+        },
     },
 });
 
-export const { setOpenedPopup } = openedPopupSlice.actions;
+export const { setOpenedPopup, closePopup } = openedPopupSlice.actions;

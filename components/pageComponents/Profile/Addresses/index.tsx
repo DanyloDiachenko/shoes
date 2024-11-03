@@ -1,9 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import { AddressesProps } from "./addresses.props";
 import styles from "./styles.module.scss";
 import { FaRegEdit } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { Popup } from "@/types/popup.type";
+import { setOpenedPopup } from "@/store/slices/openedPopup";
 
 export const AddressesPageContent = ({ user }: AddressesProps) => {
+    const dispatch = useDispatch();
+
+    const setOpenedPopupHandler = (popupToOpen: Popup) => {
+        dispatch(setOpenedPopup(popupToOpen));
+    };
+
     return (
         <div
             className={styles.content}
@@ -42,7 +53,16 @@ export const AddressesPageContent = ({ user }: AddressesProps) => {
                                 ) : (
                                     "You have not set up this type of address yet."
                                 )}
-                                <Link href="#">
+                                <Link
+                                    href={
+                                        user.billingAddress
+                                            ? "#change-billing-address"
+                                            : "#create-billing-address"
+                                    }
+                                    onClick={() =>
+                                        setOpenedPopupHandler("changeAddress")
+                                    }
+                                >
                                     Edit <FaRegEdit />
                                 </Link>
                             </p>
@@ -74,9 +94,18 @@ export const AddressesPageContent = ({ user }: AddressesProps) => {
                                 ) : (
                                     "You have not set up this type of address yet."
                                 )}
-                                <a href="#">
+                                <Link
+                                    href={
+                                        user.shippingAddress
+                                            ? "#change-shipping-address"
+                                            : "#create-shipping-address"
+                                    }
+                                    onClick={() =>
+                                        setOpenedPopupHandler("changeAddress")
+                                    }
+                                >
                                     Edit <FaRegEdit />
-                                </a>
+                                </Link>
                             </p>
                         </div>
                     </div>

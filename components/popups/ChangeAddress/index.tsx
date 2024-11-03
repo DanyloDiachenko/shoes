@@ -5,13 +5,14 @@ import { ChangeAddressProps } from "./changeAddress.props";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { IoIosArrowRoundForward, IoMdClose } from "react-icons/io";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getProfile } from "@/app/api/auth/user";
 import { getClientCookie } from "@/helpers/getClientCookie";
 import { User } from "@/interfaces/user.inteface";
 import { UnathorizedResponse } from "@/interfaces/responses/unathorized.interface";
 import { Address } from "@/interfaces/address.interface";
+import { closePopup as closePopupFunc } from "@/store/slices/openedPopup";
+import { useDispatch } from "react-redux";
 
 interface FormValues {
     firstName: string | null;
@@ -28,13 +29,23 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
     const [popupTitle, setPopupTitle] = useState<string>("");
     const [fields, setFields] = useState<FormValues | null>(null);
 
+    const dispatch = useDispatch();
+
     const isUserProfile = (
         profile: User | UnathorizedResponse
     ): profile is User => {
         return (profile as User).id !== undefined;
     };
 
+    const closePopup = () => {
+        dispatch(closePopupFunc());
+    };
+
     const getUserProfile = async () => {
+        if (fields) {
+            return;
+        }
+
         const token = getClientCookie("token");
 
         if (!token) return;
@@ -57,19 +68,34 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
         };
 
         if (profile.billingAddress) {
-            setPopupTitle("Change Billing Address");
             setAddressFields(profile.billingAddress);
         } else if (profile.shippingAddress) {
-            setPopupTitle("Change Shipping Address");
             setAddressFields(profile.shippingAddress);
         } else {
-            const title = profile.billingAddress
-                ? "Create Shipping Address"
-                : "Create Billing Address";
-            setPopupTitle(title);
             setAddressFields(null);
         }
     };
+
+    useEffect(() => {
+        const urlHash = window.location.hash;
+
+        switch (urlHash) {
+            case "#create-billing-address":
+                setPopupTitle("Create Billing Address");
+                break;
+            case "#create-shipping-address":
+                setPopupTitle("Create Shipping Address");
+                break;
+            case "#change-billing-address":
+                setPopupTitle("Change Billing Address");
+                break;
+            case "#change-shipping-address":
+                setPopupTitle("Change Shipping Address");
+                break;
+            default:
+                setPopupTitle("");
+        }
+    }, []);
 
     useEffect(() => {
         getUserProfile();
@@ -173,6 +199,7 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                         <Button
                             colorType="btnGray"
                             className={styles.cancelBtn}
+                            onClick={() => closePopup()}
                         >
                             <IoMdClose />
                             Discard
