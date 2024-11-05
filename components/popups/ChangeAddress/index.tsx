@@ -14,6 +14,10 @@ import { Address } from "@/interfaces/address.interface";
 import { closePopup as closePopupFunc } from "@/store/slices/openedPopup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
+import { createOrUpdateAddress } from "@/app/api/addresses";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 interface FormValues {
     firstName: string | null;
@@ -28,6 +32,7 @@ interface FormValues {
 }
 
 export const ChangeAddress = ({}: ChangeAddressProps) => {
+    const router = useRouter();
     const dispatch = useDispatch();
 
     const openedPopup = useSelector(
@@ -89,8 +94,75 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
         closePopup();
     };
 
+    const createBillingAddress = async () => {
+        if (
+            !fields ||
+            !fields.street?.length ||
+            !fields.city?.length ||
+            !fields.country?.length ||
+            !fields.postIndex?.length ||
+            !fields.homeNumber?.length
+        ) {
+            toast.error("Please fill all fields");
+
+            return;
+        }
+
+        const response = await createOrUpdateAddress("createBilling", {
+            street: fields.street,
+            city: fields.city,
+            country: fields.country,
+            postIndex: fields.postIndex,
+            homeNumber: fields.homeNumber,
+        });
+
+        if (response.id) {
+            toast.success("Address created successfully");
+            router.refresh();
+            revalidatePath("/dashboard/addresses");
+            closePopup();
+        }
+    };
+
+    const updateBillingAddress = async () => {
+        if (!fields) {
+            return;
+        }
+
+        const response = await createOrUpdateAddress("updateBilling", {
+            street: fields.street || undefined,
+            city: fields.city || undefined,
+            country: fields.country || undefined,
+            postIndex: fields.postIndex || undefined,
+            homeNumber: fields.homeNumber || undefined,
+        });
+
+        if (response.id) {
+            toast.success("Address updated successfully");
+            closePopup();
+            router.refresh();
+        }
+    };
+
     const onSubmitClick = (e: FormEvent) => {
         e.preventDefault();
+
+        switch (openedPopup) {
+            case "createBillingAddress":
+                createBillingAddress();
+                break;
+            case "createShippingAddress":
+                setPopupTitle("Create Shipping Address");
+                break;
+            case "updateBillingAddress":
+                updateBillingAddress();
+                break;
+            case "updateShippingAddress":
+                setPopupTitle("Change Shipping Address");
+                break;
+            default:
+                setPopupTitle("");
+        }
     };
 
     useEffect(() => {
@@ -101,10 +173,10 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
             case "createShippingAddress":
                 setPopupTitle("Create Shipping Address");
                 break;
-            case "changeBillingAddress":
+            case "updateBillingAddress":
                 setPopupTitle("Change Billing Address");
                 break;
-            case "changeShippingAddress":
+            case "updateShippingAddress":
                 setPopupTitle("Change Shipping Address");
                 break;
             default:

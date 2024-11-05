@@ -39,7 +39,8 @@ export const AddressesPageContent = ({ user }: AddressesProps) => {
                                     <>
                                         {user.firstName} {user.lastName}
                                         <br />
-                                        {user.billingAddress.street} str
+                                        {user.billingAddress.street} str,{" "}
+                                        {user.billingAddress.homeNumber}
                                         <br />
                                         {user.billingAddress.city},{" "}
                                         {user.billingAddress.country}{" "}
@@ -58,7 +59,7 @@ export const AddressesPageContent = ({ user }: AddressesProps) => {
                                     onClick={() =>
                                         setOpenedPopupHandler(
                                             user.billingAddress
-                                                ? "changeBillingAddress"
+                                                ? "updateBillingAddress"
                                                 : "createBillingAddress"
                                         )
                                     }
@@ -81,7 +82,8 @@ export const AddressesPageContent = ({ user }: AddressesProps) => {
                                     <>
                                         {user.firstName} {user.lastName}
                                         <br />
-                                        {user.shippingAddress.street} str
+                                        {user.shippingAddress.street} str,{" "}
+                                        {user.shippingAddress.homeNumber}
                                         <br />
                                         {user.shippingAddress.city},{" "}
                                         {user.shippingAddress.country}{" "}
@@ -100,7 +102,7 @@ export const AddressesPageContent = ({ user }: AddressesProps) => {
                                     onClick={() =>
                                         setOpenedPopupHandler(
                                             user.shippingAddress
-                                                ? "changeShippingAddress"
+                                                ? "updateShippingAddress"
                                                 : "createShippingAddress"
                                         )
                                     }

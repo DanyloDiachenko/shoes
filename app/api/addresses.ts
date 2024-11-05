@@ -1,4 +1,5 @@
 import { getCookie } from "@/helpers/getCookie";
+import { Address } from "@/interfaces/address.interface";
 import {
     CreateAddressBody,
     UpdateAddressBody,
@@ -8,15 +9,15 @@ export const createOrUpdateAddress = async (
     urlType:
         | "createBilling"
         | "createShipping"
-        | "changeBilling"
-        | "changeShipping",
+        | "updateBilling"
+        | "updateShipping",
     body: CreateAddressBody | UpdateAddressBody
-) => {
+): Promise<Address> => {
     const token = await getCookie("token");
 
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/addresses/${
-            urlType === "createBilling" || urlType === "changeBilling"
+            urlType === "createBilling" || urlType === "updateBilling"
                 ? "billing"
                 : "shipping"
         }`,
