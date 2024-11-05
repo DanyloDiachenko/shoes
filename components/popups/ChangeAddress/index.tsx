@@ -94,7 +94,7 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
         closePopup();
     };
 
-    const createBillingAddress = async () => {
+    const createAddress = async (type: "billing" | "shipping") => {
         if (
             !fields ||
             !fields.street?.length ||
@@ -108,37 +108,51 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
             return;
         }
 
-        const response = await createOrUpdateAddress("createBilling", {
-            street: fields.street,
-            city: fields.city,
-            country: fields.country,
-            postIndex: fields.postIndex,
-            homeNumber: fields.homeNumber,
-        });
+        const response = await createOrUpdateAddress(
+            type === "billing" ? "createBilling" : "createShipping",
+            {
+                street: fields.street,
+                city: fields.city,
+                country: fields.country,
+                postIndex: fields.postIndex,
+                homeNumber: fields.homeNumber,
+            }
+        );
 
         if (response.id) {
-            toast.success("Address created successfully");
+            toast.success(
+                `${
+                    type === "billing" ? "Billing" : "Shipping"
+                } Address created successfully`
+            );
             router.refresh();
             revalidatePath("/dashboard/addresses");
             closePopup();
         }
     };
 
-    const updateBillingAddress = async () => {
+    const updateAddress = async (type: "billing" | "shipping") => {
         if (!fields) {
             return;
         }
 
-        const response = await createOrUpdateAddress("updateBilling", {
-            street: fields.street || undefined,
-            city: fields.city || undefined,
-            country: fields.country || undefined,
-            postIndex: fields.postIndex || undefined,
-            homeNumber: fields.homeNumber || undefined,
-        });
+        const response = await createOrUpdateAddress(
+            type === "billing" ? "updateBilling" : "updateShipping",
+            {
+                street: fields.street || undefined,
+                city: fields.city || undefined,
+                country: fields.country || undefined,
+                postIndex: fields.postIndex || undefined,
+                homeNumber: fields.homeNumber || undefined,
+            }
+        );
 
         if (response.id) {
-            toast.success("Address updated successfully");
+            toast.success(
+                `${
+                    type === "billing" ? "Billing" : "Shipping"
+                } Address updated successfully`
+            );
             closePopup();
             router.refresh();
         }
@@ -149,16 +163,16 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
 
         switch (openedPopup) {
             case "createBillingAddress":
-                createBillingAddress();
+                createAddress("billing");
                 break;
             case "createShippingAddress":
-                setPopupTitle("Create Shipping Address");
+                createAddress("shipping");
                 break;
             case "updateBillingAddress":
-                updateBillingAddress();
+                updateAddress("billing");
                 break;
             case "updateShippingAddress":
-                setPopupTitle("Change Shipping Address");
+                updateAddress("shipping");
                 break;
             default:
                 setPopupTitle("");
