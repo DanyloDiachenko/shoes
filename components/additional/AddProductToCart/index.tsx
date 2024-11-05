@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 import { setCookie } from "@/helpers/setCookie";
 import { LiaCartPlusSolid } from "react-icons/lia";
 
-export const AddProductToCart = async ({
+export const AddProductToCart = ({
     cookieProducts,
     product,
 }: AddProductToCartProps) => {
