@@ -11,15 +11,20 @@ import { Shipping } from "./Shipping";
 import Link from "next/link";
 import { shippings } from "@/data/shippings";
 import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export const CartTotal = ({
     currency,
     cartProducts,
     cookieProducts,
+    user,
 }: CartTotalProps) => {
-    let subtotal = 0;
+    const router = useRouter();
 
     const [shippingType, setShippingType] = useState<ShippingType>("free");
+
+    let subtotal = 0;
 
     const onShippingTypeChange = (shipping: ShippingType) => {
         setShippingType(shipping);
@@ -53,6 +58,16 @@ export const CartTotal = ({
         return currentShippingType?.priceEur || 0;
     };
 
+    const onProceedToCheckoutClick = () => {
+        if (!user) {
+            toast.error("Please login to proceed to checkout");
+
+            return;
+        }
+
+        router.push("/checkout");
+    };
+
     const total = subtotal + getShippingPrice();
 
     return (
@@ -76,9 +91,26 @@ export const CartTotal = ({
                         />
                         <tr className={styles.summaryShippingEstimate}>
                             <td>
-                                Delivery to "Your Country"
+                                Delivery to:
+                                <br />
+                                {user?.firstName?.length &&
+                                    `${user.firstName} `}
+                                {user?.lastName?.length && `${user.lastName} `}
+                                <br />
+                                {user?.phone?.length && `${user.phone} `}
+                                <br />
+                                {user?.shippingAddress?.country &&
+                                    `${user.shippingAddress.country}, `}
+                                {user?.shippingAddress?.city &&
+                                    `${user.shippingAddress.city}, `}
+                                {user?.shippingAddress?.street &&
+                                    `${user.shippingAddress.street}, `}{" "}
+                                {user?.shippingAddress?.homeNumber &&
+                                    `${user.shippingAddress.homeNumber}, `}
+                                {user?.shippingAddress?.postIndex &&
+                                    `${user.shippingAddress.postIndex}`}
                                 <br />{" "}
-                                <Link href="dashboard.html">
+                                <Link href="/dashboard/addresses">
                                     Change address
                                 </Link>
                             </td>
@@ -97,17 +129,21 @@ export const CartTotal = ({
                 <Button
                     colorType="btnOutlinePrimary2"
                     className={styles.buttonProceedToCheckout}
+                    onClick={onProceedToCheckoutClick}
                 >
                     PROCEED TO CHECKOUT
                 </Button>
             </div>
-            <Button
-                colorType="btnOutlineDark2"
-                className={styles.buttonContinueShopping}
-            >
-                <span>CONTINUE SHOPPING</span>
-                <RxUpdate />
-            </Button>
+            <Link href={"/products"}>
+                <Button
+                    colorType="btnOutlineDark2"
+                    className={styles.buttonContinueShopping}
+                    tabIndex={-1}
+                >
+                    <span>CONTINUE SHOPPING</span>
+                    <RxUpdate />
+                </Button>
+            </Link>
         </aside>
     );
 };

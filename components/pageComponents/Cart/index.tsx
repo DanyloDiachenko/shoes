@@ -13,6 +13,7 @@ export const CartPageContent = ({
     cartProducts,
     currency,
     cookieProducts,
+    user,
 }: CartPageContentProps) => {
     const localStorageToogler = useSelector(
         (state: RootState) => state.toogleLocalStorage.value
@@ -43,6 +44,7 @@ export const CartPageContent = ({
                         currency={currency}
                         cartProducts={cartProducts}
                         cookieProducts={cookieProductsClient}
+                        user={user}
                     />
                 </div>
             </div>

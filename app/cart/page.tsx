@@ -7,6 +7,9 @@ import { ProductCookie } from "@/interfaces/productCookie.interface";
 import { getProduct } from "../api/products";
 import { getCurrency } from "@/helpers/getCurrency";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
+import { getCookie } from "@/helpers/getCookie";
+import { getProfile } from "../api/auth/user";
+import { User } from "@/interfaces/user.inteface";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -24,6 +27,9 @@ const breadcrumbs: Breadcrumb[] = [
 ];
 
 const Cart = async () => {
+    const token = await getCookie("token");
+    const user = token ? ((await getProfile(token)) as User) : null;
+
     const cookieProducts: ProductCookie[] =
         (await getCookieProductsServer()) || [];
     const currency = await getCurrency();
@@ -44,6 +50,7 @@ const Cart = async () => {
                 cartProducts={cartProducts}
                 cookieProducts={cookieProducts}
                 currency={currency}
+                user={user}
             />
         </>
     );
