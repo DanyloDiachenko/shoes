@@ -1,34 +1,9 @@
 import styles from "./styles.module.scss";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { getServerPathname } from "@/helpers/getServerPathname";
-
-const navigation = [
-    {
-        title: "Dashboard",
-        link: "/dashboard",
-        key: "dashboard",
-    },
-    {
-        title: "Orders",
-        link: "/dashboard/orders",
-        key: "orders",
-    },
-    {
-        title: "Addresses",
-        link: "/dashboard/addresses",
-        key: "addresses",
-    },
-    {
-        title: "Account Details",
-        link: "/dashboard/account",
-        key: "account",
-    },
-    {
-        title: "Sign Out",
-        link: "/dashboard/signout",
-        key: "signout",
-    },
-];
+import { navigation } from "./navigation";
+import Link from "next/link";
+import { Logout } from "./Logout";
 
 export const ProfileAside = async () => {
     const pathname = await getServerPathname();
@@ -44,18 +19,19 @@ export const ProfileAside = async () => {
                         }`}
                     >
                         <IoIosArrowRoundForward className={styles.arrow} />
-                        <a
+                        <Link
                             className={styles.navLink}
                             id={`tab-${nav.key}-link`}
                             href={nav.link}
                             role="tab"
                             aria-controls={`tab-${nav.key}`}
-                            aria-selected="true"
+                            aria-selected={pathname === nav.link ? true : false}
                         >
                             {nav.title}
-                        </a>
+                        </Link>
                     </li>
                 ))}
+                <Logout />
             </ul>
         </aside>
     );

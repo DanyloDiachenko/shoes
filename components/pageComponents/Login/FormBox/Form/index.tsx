@@ -10,8 +10,11 @@ import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
 import { register } from "@/app/api/auth/user";
 import { getAndFormatResponseErrorMessage } from "@/helpers/getAndFormatResponseErrorMessage";
+import { useRouter } from "next/navigation";
 
 export const Form = ({ tab }: FormProps) => {
+    const router = useRouter();
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
@@ -29,10 +32,8 @@ export const Form = ({ tab }: FormProps) => {
             toast.error(response.error);
         } else {
             toast.success("Logged in successfully!");
-
-            setTimeout(() => {
-                location.reload();
-            }, 2000);
+            router.refresh();
+            router.push("/dashboard");
         }
     };
 

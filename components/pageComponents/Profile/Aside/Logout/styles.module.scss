@@ -1,0 +1,29 @@
+.navItem {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.1rem solid #ebebeb;
+    gap: 5px;
+    padding: 1.4rem 0;
+
+    .arrow {
+        width: 20px;
+        height: auto;
+        display: none;
+        color: #c96;
+        margin-top: 2px;
+    }
+
+    a {
+        overflow: hidden;
+        position: relative;
+        font-weight: 300;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        color: #333;
+        display: block;
+
+        &:hover {
+            color: #c96;
+        }
+    }
+}
