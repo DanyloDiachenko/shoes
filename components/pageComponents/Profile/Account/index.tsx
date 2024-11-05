@@ -21,9 +21,7 @@ interface FormValues {
     confirmNewPassword: string;
 }
 
-export const AccountPageContent = async ({ user }: AccountProps) => {
-    const token = (await getCookie("token")) as string;
-
+export const AccountPageContent = ({ user }: AccountProps) => {
     const [fields, setFields] = useState<FormValues>({
         ...user,
         currentPassword: "",
@@ -33,6 +31,8 @@ export const AccountPageContent = async ({ user }: AccountProps) => {
 
     const onSubmit = async (e: FormEvent) => {
         e.preventDefault();
+
+        const token = (await getCookie("token")) as string;
 
         if (fields.newPassword) {
             if (fields.newPassword !== fields.confirmNewPassword) {

@@ -19,7 +19,7 @@ import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
 
-export const CartDropdown = async ({
+export const CartDropdown = ({
     currency,
     cartProducts,
     cookieProducts,
