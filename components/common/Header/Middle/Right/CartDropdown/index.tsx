@@ -19,7 +19,7 @@ import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
 
-export const CartDropdown = ({
+export const CartDropdown = async ({
     currency,
     cartProducts,
     cookieProducts,
@@ -77,8 +77,8 @@ export const CartDropdown = ({
         toast.success("Product successfully removed from cart");
     };
 
-    useEffect(() => {
-        const cookieProducts = getCookieProductsClient();
+    const setCartProductsClientHandler = async () => {
+        const cookieProducts = await getCookieProductsClient();
         setCookieProductsClient(cookieProducts);
 
         if (cookieProducts.length) {
@@ -88,6 +88,10 @@ export const CartDropdown = ({
         } else {
             setCartProductsClient([]);
         }
+    };
+
+    useEffect(() => {
+        setCartProductsClientHandler();
     }, [localStorageToogler]);
 
     const getProductSize = (product: Product) => {

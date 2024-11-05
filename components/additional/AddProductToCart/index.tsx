@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 import { setCookie } from "@/helpers/setCookie";
 import { LiaCartPlusSolid } from "react-icons/lia";
 
-export const AddProductToCart = ({
+export const AddProductToCart = async ({
     cookieProducts,
     product,
 }: AddProductToCartProps) => {
@@ -81,10 +81,14 @@ export const AddProductToCart = ({
         toast.success("Product successfully removed from cart");
     };
 
-    useEffect(() => {
-        const cookieProducts = getCookieProductsClient();
+    const getCookieProductsClientHandler = async () => {
+        const cookieProducts = await getCookieProductsClient();
 
         setCookieProductsClient(cookieProducts);
+    };
+
+    useEffect(() => {
+        getCookieProductsClientHandler();
     }, [localStorageToogler]);
 
     return (

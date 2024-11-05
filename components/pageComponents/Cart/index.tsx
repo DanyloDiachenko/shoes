@@ -21,10 +21,13 @@ export const CartPageContent = ({
     const [cookieProductsClient, setCookieProductsClient] =
         useState<ProductCookie[]>(cookieProducts);
 
-    useEffect(() => {
-        const cookieProductsUpdated = getCookieProductsClient();
-
+    const setCookieProductsClientHandler = async () => {
+        const cookieProductsUpdated = await getCookieProductsClient();
         setCookieProductsClient(cookieProductsUpdated);
+    };
+
+    useEffect(() => {
+        setCookieProductsClientHandler();
     }, [localStorageToogler]);
 
     return (

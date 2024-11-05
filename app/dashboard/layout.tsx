@@ -5,9 +5,9 @@ import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import styles from "./styles.module.scss";
 import { ProfileAside } from "@/components/pageComponents/Profile/Aside";
 import { getProfile } from "../api/auth/user";
-import { getServerCookie } from "@/helpers/getServerCookie";
 import { redirect } from "next/navigation";
 import { signOut } from "next-auth/react";
+import { getCookie } from "@/helpers/getCookie";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -25,7 +25,7 @@ const breadcrumbs: Breadcrumb[] = [
 ];
 
 const ProfileLayout = async ({ children }: ProfileLayoutProps) => {
-    const token = await getServerCookie("token");
+    const token = await getCookie("token");
 
     if (!token) {
         signOut();

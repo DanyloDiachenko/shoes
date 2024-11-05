@@ -1,8 +1,8 @@
 import { Currency } from "@/types/currency.type";
-import { getServerCookie } from "./getServerCookie";
+import { getCookie } from "./getCookie";
 
 export const getCurrency = async (): Promise<Currency> => {
-    const currency = (await getServerCookie("currency")) as Currency;
+    const currency = (await getCookie("currency")) as Currency;
 
     return currency;
 };

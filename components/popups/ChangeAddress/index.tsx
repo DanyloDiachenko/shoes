@@ -7,7 +7,7 @@ import { Button } from "@/components/UI/Button";
 import { IoIosArrowRoundForward, IoMdClose } from "react-icons/io";
 import { FormEvent, useEffect, useState } from "react";
 import { getProfile } from "@/app/api/auth/user";
-import { getClientCookie } from "@/helpers/getClientCookie";
+import { getCookie } from "@/helpers/getCookie";
 import { User } from "@/interfaces/user.inteface";
 import { UnathorizedResponse } from "@/interfaces/responses/unathorized.interface";
 import { Address } from "@/interfaces/address.interface";
@@ -52,7 +52,7 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
             return;
         }
 
-        const token = getClientCookie("token");
+        const token = await getCookie("token");
 
         if (!token) return;
 
@@ -87,6 +87,10 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
         e.preventDefault();
 
         closePopup();
+    };
+
+    const onSubmitClick = (e: FormEvent) => {
+        e.preventDefault();
     };
 
     useEffect(() => {
@@ -249,6 +253,7 @@ export const ChangeAddress = ({}: ChangeAddressProps) => {
                             colorType="btnOutlinePrimary2"
                             type="submit"
                             className={styles.submitBtn}
+                            onClick={onSubmitClick}
                         >
                             Submit
                             <IoIosArrowRoundForward />

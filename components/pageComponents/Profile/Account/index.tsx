@@ -8,8 +8,8 @@ import { AccountProps } from "./account.props";
 import { FormEvent, useState } from "react";
 import { updateProfile } from "@/app/api/auth/user";
 import { toast } from "react-toastify";
-import { getClientCookie } from "@/helpers/getClientCookie";
 import { getAndFormatResponseErrorMessage } from "@/helpers/getAndFormatResponseErrorMessage";
+import { getCookie } from "@/helpers/getCookie";
 
 interface FormValues {
     firstName: string | null;
@@ -21,8 +21,8 @@ interface FormValues {
     confirmNewPassword: string;
 }
 
-export const AccountPageContent = ({ user }: AccountProps) => {
-    const token = getClientCookie("token") as string;
+export const AccountPageContent = async ({ user }: AccountProps) => {
+    const token = (await getCookie("token")) as string;
 
     const [fields, setFields] = useState<FormValues>({
         ...user,

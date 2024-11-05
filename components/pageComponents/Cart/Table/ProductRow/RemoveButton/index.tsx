@@ -16,8 +16,8 @@ export const RemoveButton = ({ cartProduct }: RemoveButtonProps) => {
         dispatch(toogleLocalStorage());
     };
 
-    const onRemoveButtonClick = () => {
-        const cookieProducts = getCookieProductsClient();
+    const onRemoveButtonClick = async () => {
+        const cookieProducts = await getCookieProductsClient();
 
         const updatedProducts = cookieProducts.filter(
             (product) => product.id !== cartProduct.id

@@ -1,4 +1,4 @@
-import { getClientCookie } from "@/helpers/getClientCookie";
+import { getCookie } from "@/helpers/getCookie";
 import {
     CreateAddressBody,
     UpdateAddressBody,
@@ -12,7 +12,7 @@ export const createOrUpdateAddress = async (
         | "changeShipping",
     body: CreateAddressBody | UpdateAddressBody
 ) => {
-    const token = getClientCookie("token");
+    const token = await getCookie("token");
 
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/addresses/${

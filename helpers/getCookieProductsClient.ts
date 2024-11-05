@@ -1,8 +1,8 @@
 import { ProductCookie } from "@/interfaces/productCookie.interface";
-import { getClientCookie } from "./getClientCookie";
+import { getCookie } from "./getCookie";
 
-export const getCookieProductsClient = (): ProductCookie[] => {
-    const cookieProductsString = getClientCookie("cart") || "";
+export const getCookieProductsClient = async (): Promise<ProductCookie[]> => {
+    const cookieProductsString = (await getCookie("cart")) || "";
     const cookieProducts: ProductCookie[] = cookieProductsString
         ? JSON.parse(cookieProductsString)
         : [];

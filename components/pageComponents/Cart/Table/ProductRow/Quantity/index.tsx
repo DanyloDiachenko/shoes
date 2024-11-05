@@ -17,8 +17,8 @@ export const Quantity = ({ quantity, product }: QuantityProps) => {
         dispatch(toogleLocalStorage());
     };
 
-    const onQuantityChange = (type: "increment" | "decrement") => {
-        const updatedProducts = cookieProducts.map((cookieProduct) => {
+    const onQuantityChange = async (type: "increment" | "decrement") => {
+        const updatedProducts = (await cookieProducts).map((cookieProduct) => {
             if (cookieProduct.id === product.id) {
                 return {
                     ...cookieProduct,
