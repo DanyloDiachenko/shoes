@@ -26,6 +26,7 @@ export const Product = ({
     rating,
     priceEur,
     currency,
+    brand,
 }: ProductProps) => {
     const [activeImageSrc, setActiveImageSrc] = useState<string>(mainImage);
 
