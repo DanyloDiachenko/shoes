@@ -41,12 +41,6 @@ export const ChangeAddress = () => {
         return (profile as User).id !== undefined;
     };
 
-    const onDiscardClick = (e: FormEvent) => {
-        e.preventDefault;
-
-        dispatch(closePopupFunc());
-    };
-
     const getUserProfile = async () => {
         const token = await getCookie("token");
         if (!token || fields) return;
@@ -79,13 +73,13 @@ export const ChangeAddress = () => {
     ) => {
         if (
             !fields ||
-            !fields.street ||
-            !fields.city ||
-            !fields.country ||
-            !fields.postIndex ||
-            !fields.homeNumber
+            !fields.street?.length ||
+            !fields.city?.length ||
+            !fields.country?.length ||
+            !fields.postIndex?.length ||
+            !fields.homeNumber?.length
         ) {
-            toast.error("Please fill all fields");
+            toast.error("Please fill all possible fields");
 
             return;
         }
@@ -125,6 +119,12 @@ export const ChangeAddress = () => {
         const action = openedPopup.includes("create") ? "create" : "update";
 
         handleSubmit(type, action);
+    };
+
+    const onDiscardClick = (e: FormEvent) => {
+        e.preventDefault();
+
+        dispatch(closePopupFunc());
     };
 
     useEffect(() => {

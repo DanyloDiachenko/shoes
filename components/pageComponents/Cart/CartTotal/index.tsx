@@ -13,6 +13,7 @@ import { shippings } from "@/data/shippings";
 import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { DeliveryTo } from "./DeliveryTo";
 
 export const CartTotal = ({
     currency,
@@ -90,33 +91,9 @@ export const CartTotal = ({
                             currency={currency}
                         />
                         <tr className={styles.summaryShippingEstimate}>
-                            <td>
-                                Delivery to:
-                                <br />
-                                {user?.firstName?.length &&
-                                    `${user.firstName} `}
-                                {user?.lastName?.length && `${user.lastName} `}
-                                <br />
-                                {user?.phone?.length && `${user.phone} `}
-                                <br />
-                                {user?.shippingAddress?.country &&
-                                    `${user.shippingAddress.country}, `}
-                                {user?.shippingAddress?.city &&
-                                    `${user.shippingAddress.city}, `}
-                                {user?.shippingAddress?.street &&
-                                    `${user.shippingAddress.street}, `}{" "}
-                                {user?.shippingAddress?.homeNumber &&
-                                    `${user.shippingAddress.homeNumber}, `}
-                                {user?.shippingAddress?.postIndex &&
-                                    `${user.shippingAddress.postIndex}`}
-                                <br />{" "}
-                                <Link href="/dashboard/addresses">
-                                    Change address
-                                </Link>
-                            </td>
+                            <DeliveryTo user={user} />
                             <td>&nbsp;</td>
                         </tr>
-
                         <tr className={styles.summaryTotal}>
                             <td>Total:</td>
                             <td>

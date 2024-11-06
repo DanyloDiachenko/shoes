@@ -1,3 +1,5 @@
+"use client";
+
 import { Input } from "@/components/UI/Input";
 import styles from "./styles.module.scss";
 import { FormProps } from "./form.props";
@@ -11,6 +13,7 @@ import { toast } from "react-toastify";
 import { register } from "@/app/api/auth/user";
 import { getAndFormatResponseErrorMessage } from "@/helpers/getAndFormatResponseErrorMessage";
 import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export const Form = ({ tab }: FormProps) => {
     const router = useRouter();
@@ -32,8 +35,11 @@ export const Form = ({ tab }: FormProps) => {
             toast.error(response.error);
         } else {
             toast.success("Logged in successfully!");
-            router.refresh();
-            router.push("/dashboard");
+            router.push("/dashboard/account");
+
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
         }
     };
 

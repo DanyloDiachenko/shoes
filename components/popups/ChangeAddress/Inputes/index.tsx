@@ -10,7 +10,7 @@ export const Inputes = ({ fields, onFieldChange }: InputesProps) => {
             {inputFields.map((field, index) => (
                 <div key={index} className={styles.formGroup}>
                     <label htmlFor={`address-${field.name}`}>
-                        {field.label}
+                        {field.label} {!field.disabled && "*"}
                     </label>
                     <Input
                         type="text"
