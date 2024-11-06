@@ -40,6 +40,7 @@
             border-bottom: 0.1rem solid #ebebeb;
             gap: 5px;
             padding: 1.4rem 0;
+            gap: 0;
 
             &.active {
                 a {
@@ -47,16 +48,21 @@
                 }
 
                 .arrow {
-                    display: block;
+                    width: 20px;
+                    opacity: 1;
+                    padding-left: 0;
                 }
             }
 
             .arrow {
                 width: 20px;
-                height: auto;
-                display: none;
+                height: 20px;
+                opacity: 0;
+                width: 0;
                 color: #c96;
                 margin-top: 2px;
+                transition: 0.3s;
+                margin-right: 0.5rem;
             }
 
             a {

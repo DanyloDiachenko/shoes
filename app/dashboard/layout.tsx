@@ -8,6 +8,7 @@ import { getProfile } from "../api/auth/user";
 import { redirect } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { getCookie } from "@/helpers/getCookie";
+import { getServerPathname } from "@/helpers/getServerPathname";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -26,6 +27,7 @@ const breadcrumbs: Breadcrumb[] = [
 
 const ProfileLayout = async ({ children }: ProfileLayoutProps) => {
     const token = await getCookie("token");
+    const pathname = (await getServerPathname()) as string;
 
     if (!token) {
         signOut();
@@ -46,7 +48,7 @@ const ProfileLayout = async ({ children }: ProfileLayoutProps) => {
             <div className="page-content">
                 <div className="container">
                     <div className="row">
-                        <ProfileAside />
+                        <ProfileAside serverPathname={pathname} />
                         <div className={styles.mainColumn}>{children}</div>
                     </div>
                 </div>

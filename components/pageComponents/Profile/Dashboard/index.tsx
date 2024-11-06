@@ -12,16 +12,27 @@ export const DashboardPageContent = ({ user }: DashboardProps) => {
             aria-labelledby="tab-dashboard-link"
         >
             <p>
-                Hello,{" "}
-                <span className={styles.fontDark}>
-                    {user.firstName}
-                    {user.lastName && ` ${user.lastName}`}
-                </span>{" "}
-                (not{" "}
-                <span className={styles.fontDark}>
-                    {user.firstName}
-                    {user.lastName && ` ${user.lastName}`}
-                </span>
+                {user.firstName && user.lastName ? (
+                    <>
+                        Hello,{" "}
+                        <span className={styles.fontDark}>
+                            {user.firstName}
+                            {user.lastName && ` ${user.lastName}`}
+                        </span>{" "}
+                        (not{" "}
+                        <span className={styles.fontDark}>
+                            {user.firstName}
+                            {user.lastName && ` ${user.lastName}`}
+                        </span>
+                    </>
+                ) : (
+                    <>
+                        Hello,{" "}
+                        <span className={styles.fontDark}>{user.email}</span>{" "}
+                        <>{"("}not </>
+                        <span className={styles.fontDark}>{user.email}</span>
+                    </>
+                )}
                 ? <Logout />)
                 <br />
                 From your account dashboard you can view your{" "}

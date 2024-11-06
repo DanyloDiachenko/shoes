@@ -1,12 +1,15 @@
+"use client";
+
 import styles from "./styles.module.scss";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import { getServerPathname } from "@/helpers/getServerPathname";
 import { navigation } from "./navigation";
 import Link from "next/link";
 import { Logout } from "./Logout";
+import { AsideProps } from "./aside.props";
+import { useState } from "react";
 
-export const ProfileAside = async () => {
-    const pathname = await getServerPathname();
+export const ProfileAside = ({ serverPathname }: AsideProps) => {
+    const [pathname, setPathname] = useState(serverPathname);
 
     return (
         <aside className={styles.aside}>
@@ -26,6 +29,7 @@ export const ProfileAside = async () => {
                             role="tab"
                             aria-controls={`tab-${nav.key}`}
                             aria-selected={pathname === nav.link ? true : false}
+                            onClick={() => setPathname(nav.link)}
                         >
                             {nav.title}
                         </Link>
