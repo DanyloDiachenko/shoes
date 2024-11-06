@@ -9,6 +9,8 @@ import { getProductRating } from "@/helpers/getProductRating";
 import { ProductProps } from "./product.props";
 import { useState } from "react";
 import { getProductPrice } from "@/helpers/getProductPrice";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 export const Product = ({
     mainCategory,
@@ -93,14 +95,12 @@ export const Product = ({
                                     key={category.id}
                                     className={styles.category}
                                 >
-                                    <Link
-                                        href={`/products?categories=${category.slug}`}
-                                    >
+                                    <span>
                                         {category.title +
                                             (index === categories.length - 1
                                                 ? ""
                                                 : ", ")}
-                                    </Link>
+                                    </span>
                                 </div>
                             ))}
                         </div>

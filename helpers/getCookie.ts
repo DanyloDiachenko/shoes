@@ -1,5 +1,3 @@
-import dynamic from "next/dynamic";
-
 export const getCookie = async (name: string) => {
     if (typeof document === "undefined") {
         const { cookies } = await import("next/headers");
