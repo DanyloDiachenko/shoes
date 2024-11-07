@@ -1,16 +1,17 @@
-.formControl {
-    margin-bottom: 0;
-    height: 40px;
+.textarea {
     padding: 0.85rem 2rem;
     font-size: 1.4rem;
     line-height: 1.5;
     background-color: #fafafa;
     border: 1px solid #ebebeb;
     border-radius: 0;
+    margin-bottom: 2rem;
     transition: all 0.3s;
     box-shadow: none;
     display: block;
     width: 100%;
+    overflow: auto;
+    resize: vertical;
     font-family: inherit;
 
     &::placeholder {

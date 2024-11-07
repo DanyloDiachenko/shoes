@@ -1,0 +1,67 @@
+.column {
+    padding-right: 10px;
+    padding-left: 10px;
+    position: relative;
+    width: 100%;
+
+    @media (min-width: 992px) {
+        -ms-flex: 0 0 75%;
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    @media screen and (min-width: 992px) {
+        -ms-flex: 0 70%;
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+
+    .title {
+        font-weight: 500;
+        font-size: 1.6rem;
+        letter-spacing: 0;
+        margin-top: 2.2rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .col {
+        position: relative;
+        width: 100%;
+        padding-right: 10px;
+        padding-left: 10px;
+
+        @media (min-width: 576px) {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    label {
+        margin-bottom: 0.2rem;
+        color: #666;
+        font-weight: 300;
+        font-size: 1.4rem;
+        margin: 0 0 1.1rem;
+
+        &.textareaLabel {
+            margin-top: 1rem;
+        }
+    }
+
+    input {
+        margin-bottom: 1.3rem;
+    }
+
+    .checkbox {
+        label {
+            color: #333;
+        }
+    }
+
+    .textarea {
+        min-height: 150px;
+        margin-bottom: 1.3rem;
+        padding-top: 1.1rem;
+        padding-bottom: 1.1rem;
+    }
+}
