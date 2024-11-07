@@ -65,7 +65,12 @@ export const CartTotal = ({
 
             return;
         }
+        if (!cartProducts.length) {
+            toast.error("Please add some products to cart");
 
+            return;
+        }
+        
         router.push("/checkout");
     };
 
