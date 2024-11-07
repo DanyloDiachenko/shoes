@@ -23,7 +23,7 @@ const Checkout = () => {
         <>
             <PageHeader title="Checkout" subtitle="Shop" />
             <Breadcrumbs breadcrumbs={breadcrumbs} />
-            <CheckoutPageComponent />;
+            <CheckoutPageComponent />
         </>
     );
 };

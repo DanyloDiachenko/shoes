@@ -1,0 +1,48 @@
+.discount {
+    position: relative;
+    max-width: 340px;
+    margin-bottom: 0.5rem;
+
+    input {
+        background-color: transparent;
+        border-radius: 0.3rem;
+        border: 0.1rem dashed #d7d7d7;
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+        margin-bottom: 1.3rem;
+
+        &.focused {
+            border-color: #c96;
+            outline: none;
+        }
+    }
+
+    .label {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+        font-weight: 400;
+        transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        opacity: 1;
+        transition: all 0.3s;
+        margin-bottom: 0.2rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #666;
+        font-size: 1.4rem;
+        margin: 0 0 1.1rem;
+
+        &.focused {
+            opacity: 0;
+        }
+
+        span {
+            color: #c96;
+        }
+    }
+}
