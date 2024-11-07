@@ -13,7 +13,6 @@ import { toast } from "react-toastify";
 import { register } from "@/app/api/auth/user";
 import { getAndFormatResponseErrorMessage } from "@/helpers/getAndFormatResponseErrorMessage";
 import { useRouter } from "next/navigation";
-import { revalidatePath } from "next/cache";
 
 export const Form = ({ tab }: FormProps) => {
     const router = useRouter();

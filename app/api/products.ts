@@ -40,8 +40,7 @@ export const getProducts = async ({
             categoriesQuery || ""
         }&sizes=${sizesQuery || ""}&color=${colorSlug}&brands=${
             brandsQuery || ""
-        }&currency=${currency}&priceFrom=${priceFrom}&priceTo=${priceTo}`,
-        { cache: "no-cache" }
+        }&currency=${currency}&priceFrom=${priceFrom}&priceTo=${priceTo}`
     );
 
     if (!res.ok) {

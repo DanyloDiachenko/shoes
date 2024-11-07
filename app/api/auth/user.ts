@@ -16,7 +16,6 @@ export const register = async ({
             "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
-        cache: "no-cache",
     });
 
     const resJson = await res.json();
@@ -33,7 +32,6 @@ export const getProfile = async (
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
         },
-        cache: "no-cache",
     });
 
     const resJson = await res.json();
@@ -52,7 +50,6 @@ export const updateProfile = async (
             Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(body),
-        cache: "no-cache",
     });
 
     const resJson = await res.json();

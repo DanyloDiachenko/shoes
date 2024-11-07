@@ -1,9 +1,7 @@
 import { ProductSize } from "@/interfaces/product.interface";
 
 export const getSizes = async (): Promise<ProductSize[]> => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/sizes`, {
-        cache: "no-cache",
-    });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/sizes`, {});
 
     if (!res.ok) {
         console.log("Failed to fetch data", res);
