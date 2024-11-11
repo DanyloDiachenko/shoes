@@ -45,8 +45,8 @@ export const Aside = () => {
                         </tr>
                     </tbody>
                 </table>
-                <div className={styles.accordionSummary} id="accordion-payment">
-                    <div className={styles.cart}>
+                <div className={styles.accordion} id="accordion-payment">
+                    <div className={styles.card}>
                         <div className={styles.cardHeader} id="heading-1">
                             <h2 className={styles.cardTitle}>
                                 <Link
@@ -62,8 +62,37 @@ export const Aside = () => {
                         </div>
                         <div
                             id="collapse-1"
-                            className="collapse show"
+                            className={styles.collapse}
                             aria-labelledby="heading-1"
+                            aria-expanded="true"
+                            data-parent="#accordion-payment"
+                        >
+                            <div className={styles.cardBody}>
+                                Make your payment directly into our bank
+                                account. Please use your Order ID as the payment
+                                reference. Your order will not be shipped until
+                                the funds have cleared in our account.
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.card}>
+                        <div className={styles.cardHeader} id="heading-2">
+                            <h2 className={styles.cardTitle}>
+                                <Link
+                                    role="button"
+                                    data-toggle="collapse"
+                                    href="#collapse-2"
+                                    aria-expanded="false"
+                                    aria-controls="collapse-2"
+                                >
+                                    Direct bank transfer
+                                </Link>
+                            </h2>
+                        </div>
+                        <div
+                            id="collapse-2"
+                            className={styles.collapse}
+                            aria-labelledby="heading-2"
                             aria-expanded="false"
                             data-parent="#accordion-payment"
                         >
@@ -76,12 +105,9 @@ export const Aside = () => {
                         </div>
                     </div>
                 </div>
-                <Button
-                    type="submit"
-                    colorType="btnPrimary"
-                >
+                <Button type="submit" colorType="btnPrimary">
                     <span>Place Order</span>
-                </button>
+                </Button>
             </div>
         </aside>
     );

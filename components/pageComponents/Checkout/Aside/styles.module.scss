@@ -1,0 +1,161 @@
+.column {
+    padding-right: 10px;
+    padding-left: 10px;
+    position: relative;
+    width: 100%;
+
+    @media (min-width: 992px) {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    @media screen and (min-width: 992px) {
+        -ms-flex: 0 0 30%;
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+
+    .summary {
+        padding: 2.5rem 3rem 3rem;
+        border: 0.1rem dashed #d7d7d7;
+        background-color: #f9f9f9;
+        border-radius: 0.3rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+
+        .title {
+            font-weight: 500;
+            font-size: 1.6rem;
+            letter-spacing: 0;
+            padding-bottom: 1.7rem;
+            border-bottom: 0.1rem solid #cccccc;
+            margin-bottom: 2.1rem;
+        }
+    }
+
+    .table {
+        line-height: 1.43;
+        color: #666;
+        border: none;
+        margin-bottom: 0;
+
+        a {
+            color: inherit;
+
+            &:hover,
+            &:focus {
+                color: #c96;
+            }
+        }
+
+        thead th,
+        .subtotal td {
+            color: #333;
+            font-weight: 400;
+            font-size: 1.6rem;
+        }
+
+        thead th {
+            border-bottom: none;
+            padding: 0 0 0.3rem;
+        }
+
+        tbody td {
+            padding: 0;
+            height: 70px;
+            border-bottom: 0.1rem solid #ebebeb;
+        }
+
+        thead th,
+        tbody td {
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        thead th:last-child,
+        tbody td:last-child {
+            text-align: right;
+            min-width: 100px;
+        }
+
+        .total td {
+            font-weight: 400;
+            font-size: 1.6rem;
+            color: #c96;
+            border-bottom: none;
+        }
+    }
+
+    .accordion {
+        margin-bottom: 3.2rem;
+
+        .card {
+            color: #999;
+            font-weight: 300;
+            font-size: 1.2rem;
+            line-height: 1.67;
+            border: none;
+            background-color: transparent;
+
+            .cardTitle {
+                font-weight: 300;
+                font-size: 1.4rem;
+                color: #333;
+                letter-spacing: 0;
+
+                a {
+                    position: relative;
+                    color: inherit;
+                    padding: 0.7rem 0 0.7rem 3rem;
+                }
+
+                a:hover,
+                a:focus {
+                    color: #c96;
+
+                    &:before {
+                        position: absolute;
+                        display: inline-block;
+                        content: "";
+                        width: 1.6rem;
+                        height: 1.6rem;
+                        border-radius: 50%;
+                        border: 0.1rem solid #c96;
+                        right: auto;
+                        left: 0;
+                        top: 0.7rem;
+                        transform: translateY(0);
+                        -ms-transform: translateY(0);
+                    }
+
+                    &:after {
+                        content: "";
+                        display: block;
+                        width: 0.6rem;
+                        height: 0.6rem;
+                        position: absolute;
+                        left: 0.5rem;
+                        top: 1.2rem;
+                        border-radius: 50%;
+                        background-color: #c96;
+                        visibility: visible;
+                        opacity: 1;
+                        transition: all 0.3s;
+                    }
+
+                    &.collapsed:before {
+                        border-color: #dadada;
+                    }
+                    &.collapsed:after {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+            }
+
+            .cardBody {
+                padding: 0.4rem 0 0.8rem 3rem;
+            }
+        }
+    }
+}
