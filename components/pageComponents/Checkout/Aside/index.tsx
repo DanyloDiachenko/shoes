@@ -103,9 +103,14 @@ export const Aside = () => {
                         </div>
                     ))}
                 </div>
-                <Button type="submit" colorType="btnPrimary">
+                <Button
+                    type="submit"
+                    colorType="btnOutlinePrimary2"
+                    className={styles.buttonSubmit}
+                >
                     <span>Place Order</span>
                 </Button>
+                * add icons
             </div>
         </aside>
     );
