@@ -1,8 +1,24 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
+import { act, useState } from "react";
+import { payments } from "./payments";
 
 export const Aside = () => {
+    const [activeAccordionId, setActiveAccordionId] = useState<number | null>(
+        0
+    );
+
+    const onAccordionClick = (index: number) => {
+        if (activeAccordionId === index) {
+            setActiveAccordionId(null);
+        } else {
+            setActiveAccordionId(index);
+        }
+    };
+
     return (
         <aside className={styles.column}>
             <div className={styles.summary}>
@@ -46,64 +62,46 @@ export const Aside = () => {
                     </tbody>
                 </table>
                 <div className={styles.accordion} id="accordion-payment">
-                    <div className={styles.card}>
-                        <div className={styles.cardHeader} id="heading-1">
-                            <h2 className={styles.cardTitle}>
-                                <Link
-                                    role="button"
-                                    data-toggle="collapse"
-                                    href="#collapse-1"
-                                    aria-expanded="true"
-                                    aria-controls="collapse-1"
-                                >
-                                    Direct bank transfer
-                                </Link>
-                            </h2>
-                        </div>
+                    {payments.map((payment, index) => (
                         <div
-                            id="collapse-1"
-                            className={styles.collapse}
-                            aria-labelledby="heading-1"
-                            aria-expanded="true"
-                            data-parent="#accordion-payment"
+                            className={`${styles.card} ${
+                                index === activeAccordionId ? styles.active : ""
+                            }`}
+                            key={index}
                         >
-                            <div className={styles.cardBody}>
-                                Make your payment directly into our bank
-                                account. Please use your Order ID as the payment
-                                reference. Your order will not be shipped until
-                                the funds have cleared in our account.
+                            <div
+                                className={styles.cardHeader}
+                                id={`heading-${index}`}
+                            >
+                                <h2 className={styles.cardTitle}>
+                                    <Link
+                                        role="button"
+                                        data-toggle="collapse"
+                                        href={`#collapse-${index}`}
+                                        aria-expanded={
+                                            index === activeAccordionId
+                                        }
+                                        aria-controls={`collapse-${index}`}
+                                        onClick={() => onAccordionClick(index)}
+                                        scroll={false}
+                                    >
+                                        {payment.title}
+                                    </Link>
+                                </h2>
+                            </div>
+                            <div
+                                id={`collapse-${index}`}
+                                className={styles.cardBodyWrapper}
+                                aria-labelledby={`heading-${index}`}
+                                aria-expanded={index === activeAccordionId}
+                                data-parent="#accordion-payment"
+                            >
+                                <div className={styles.cardBody}>
+                                    {payment.description}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className={styles.card}>
-                        <div className={styles.cardHeader} id="heading-2">
-                            <h2 className={styles.cardTitle}>
-                                <Link
-                                    role="button"
-                                    data-toggle="collapse"
-                                    href="#collapse-2"
-                                    aria-expanded="false"
-                                    aria-controls="collapse-2"
-                                >
-                                    Direct bank transfer
-                                </Link>
-                            </h2>
-                        </div>
-                        <div
-                            id="collapse-2"
-                            className={styles.collapse}
-                            aria-labelledby="heading-2"
-                            aria-expanded="false"
-                            data-parent="#accordion-payment"
-                        >
-                            <div className={styles.cardBody}>
-                                Make your payment directly into our bank
-                                account. Please use your Order ID as the payment
-                                reference. Your order will not be shipped until
-                                the funds have cleared in our account.
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
                 <Button type="submit" colorType="btnPrimary">
                     <span>Place Order</span>
