@@ -1,9 +1,13 @@
+import Link from "next/link";
+import styles from "./styles.module.scss";
+import { Button } from "@/components/UI/Button";
+
 export const Aside = () => {
     return (
-        <aside className="col-lg-3">
-            <div className="summary">
-                <h3 className="summary-title">Your Order</h3>
-                <table className="table table-summary">
+        <aside className={styles.column}>
+            <div className={styles.summary}>
+                <h3 className={styles.title}>Your Order</h3>
+                <table className={styles.table}>
                     <thead>
                         <tr>
                             <th>Product</th>
@@ -13,19 +17,21 @@ export const Aside = () => {
                     <tbody>
                         <tr>
                             <td>
-                                <a href="#">
+                                <Link href="#">
                                     Beige knitted elastic runner shoes
-                                </a>
+                                </Link>
                             </td>
                             <td>$84.00</td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#">Blue utility pinafore denimdress</a>
+                                <Link href="#">
+                                    Blue utility pinafore denimdress
+                                </Link>
                             </td>
                             <td>$76,00</td>
                         </tr>
-                        <tr className="summary-subtotal">
+                        <tr className={styles.subtotal}>
                             <td>Subtotal:</td>
                             <td>$160.00</td>
                         </tr>
@@ -33,17 +39,17 @@ export const Aside = () => {
                             <td>Shipping:</td>
                             <td>Free shipping</td>
                         </tr>
-                        <tr className="summary-total">
+                        <tr className={styles.total}>
                             <td>Total:</td>
                             <td>$160.00</td>
                         </tr>
                     </tbody>
                 </table>
-                <div className="accordion-summary" id="accordion-payment">
-                    <div className="card">
-                        <div className="card-header" id="heading-1">
-                            <h2 className="card-title">
-                                <a
+                <div className={styles.accordionSummary} id="accordion-payment">
+                    <div className={styles.cart}>
+                        <div className={styles.cardHeader} id="heading-1">
+                            <h2 className={styles.cardTitle}>
+                                <Link
                                     role="button"
                                     data-toggle="collapse"
                                     href="#collapse-1"
@@ -51,16 +57,17 @@ export const Aside = () => {
                                     aria-controls="collapse-1"
                                 >
                                     Direct bank transfer
-                                </a>
+                                </Link>
                             </h2>
                         </div>
                         <div
                             id="collapse-1"
                             className="collapse show"
                             aria-labelledby="heading-1"
+                            aria-expanded="false"
                             data-parent="#accordion-payment"
                         >
-                            <div className="card-body">
+                            <div className={styles.cardBody}>
                                 Make your payment directly into our bank
                                 account. Please use your Order ID as the payment
                                 reference. Your order will not be shipped until
@@ -68,136 +75,12 @@ export const Aside = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card">
-                        <div className="card-header" id="heading-2">
-                            <h2 className="card-title">
-                                <a
-                                    className="collapsed"
-                                    role="button"
-                                    data-toggle="collapse"
-                                    href="#collapse-2"
-                                    aria-expanded="false"
-                                    aria-controls="collapse-2"
-                                >
-                                    Check payments
-                                </a>
-                            </h2>
-                        </div>
-                        <div
-                            id="collapse-2"
-                            className="collapse"
-                            aria-labelledby="heading-2"
-                            data-parent="#accordion-payment"
-                        >
-                            <div className="card-body">
-                                Ipsum dolor sit amet, consectetuer adipiscing
-                                elit. Donec odio. Quisque volutpat mattis eros.
-                                Nullam malesuada erat ut turpis.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-header" id="heading-3">
-                            <h2 className="card-title">
-                                <a
-                                    className="collapsed"
-                                    role="button"
-                                    data-toggle="collapse"
-                                    href="#collapse-3"
-                                    aria-expanded="false"
-                                    aria-controls="collapse-3"
-                                >
-                                    Cash on delivery
-                                </a>
-                            </h2>
-                        </div>
-                        <div
-                            id="collapse-3"
-                            className="collapse"
-                            aria-labelledby="heading-3"
-                            data-parent="#accordion-payment"
-                        >
-                            <div className="card-body">
-                                Quisque volutpat mattis eros. Lorem ipsum dolor
-                                sit amet, consectetuer adipiscing elit. Donec
-                                odio. Quisque volutpat mattis eros.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-header" id="heading-4">
-                            <h2 className="card-title">
-                                <a
-                                    className="collapsed"
-                                    role="button"
-                                    data-toggle="collapse"
-                                    href="#collapse-4"
-                                    aria-expanded="false"
-                                    aria-controls="collapse-4"
-                                >
-                                    PayPal{" "}
-                                    <small className="float-right paypal-link">
-                                        What is PayPal?
-                                    </small>
-                                </a>
-                            </h2>
-                        </div>
-                        <div
-                            id="collapse-4"
-                            className="collapse"
-                            aria-labelledby="heading-4"
-                            data-parent="#accordion-payment"
-                        >
-                            <div className="card-body">
-                                Nullam malesuada erat ut turpis. Suspendisse
-                                urna nibh, viverra non, semper suscipit, posuere
-                                a, pede. Donec nec justo eget felis facilisis
-                                fermentum.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-header" id="heading-5">
-                            <h2 className="card-title">
-                                <a
-                                    className="collapsed"
-                                    role="button"
-                                    data-toggle="collapse"
-                                    href="#collapse-5"
-                                    aria-expanded="false"
-                                    aria-controls="collapse-5"
-                                >
-                                    Credit Card (Stripe)
-                                    <img
-                                        src="assets/images/payments-summary.png"
-                                        alt="payments cards"
-                                    />
-                                </a>
-                            </h2>
-                        </div>
-                        <div
-                            id="collapse-5"
-                            className="collapse"
-                            aria-labelledby="heading-5"
-                            data-parent="#accordion-payment"
-                        >
-                            <div className="card-body">
-                                {" "}
-                                Donec nec justo eget felis facilisis
-                                fermentum.Lorem ipsum dolor sit amet,
-                                consectetuer adipiscing elit. Donec odio.
-                                Quisque volutpat mattis eros. Lorem ipsum dolor
-                                sit ame.
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <button
+                <Button
                     type="submit"
-                    className="btn btn-outline-primary-2 btn-order btn-block"
+                    colorType="btnPrimary"
                 >
-                    <span className="btn-text">Place Order</span>
-                    <span className="btn-hover-text">Proceed to Checkout</span>
+                    <span>Place Order</span>
                 </button>
             </div>
         </aside>
