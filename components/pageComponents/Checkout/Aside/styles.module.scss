@@ -87,8 +87,6 @@
     }
 
     .accordion {
-        margin-bottom: 3.2rem;
-
         .card {
             color: #999;
             font-weight: 300;
@@ -196,7 +194,12 @@
         }
     }
 
+    .payments {
+        margin-top: 0.5rem;
+    }
+
     .buttonSubmit {
+        margin-top: 3.2rem;
         width: 100%;
     }
 }

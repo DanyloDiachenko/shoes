@@ -103,6 +103,13 @@ export const Aside = () => {
                         </div>
                     ))}
                 </div>
+                <img
+                    src="/images/icons/payments.png"
+                    alt="Payment methods"
+                    width="272"
+                    height="20"
+                    className={styles.payments}
+                />
                 <Button
                     type="submit"
                     colorType="btnOutlinePrimary2"
@@ -110,7 +117,6 @@ export const Aside = () => {
                 >
                     <span>Place Order</span>
                 </Button>
-                * add icons
             </div>
         </aside>
     );
