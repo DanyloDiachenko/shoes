@@ -1,32 +1,28 @@
 interface Payment {
     title: string;
+    value: string;
     description: string;
 }
 
 export const payments: Payment[] = [
     {
-        title: "Direct bank transfer",
-        description:
-            "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
+        title: "PayPal",
+        value: "payPal",
+        description: "Transfer money using PayPal",
     },
     {
-        title: "Credit Card (Stripe)",
-        description:
-            "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
+        title: "Credit Card",
+        value: "creditCard",
+        description: "Make your payment directly into our bank account",
     },
     {
-        title: "Direct bank transfer",
-        description:
-            "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
+        value: "Apple Pay",
+        title: "Apple Pay",
+        description: "Transfer money using Apple Pay",
     },
     {
-        title: "Credit Card (Stripe)",
-        description:
-            "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
-    },
-    {
-        title: "Credit Card (Stripe)",
-        description:
-            "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
+        title: "Google Pay",
+        value: "googlePay",
+        description: "Transfer money using Google Pay",
     },
 ];
