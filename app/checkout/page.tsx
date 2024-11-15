@@ -42,6 +42,10 @@ const Checkout = async () => {
     }
 
     const cookieProducts = (await getCookieProductsServer()) || [];
+    if (!cookieProducts.length) {
+        redirect("/products");
+    }
+
     const currency = await getCurrency();
     let products: Product[] = [];
 
