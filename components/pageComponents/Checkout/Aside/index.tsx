@@ -28,106 +28,149 @@ export const Aside = ({
             (cookieProduct) => cookieProduct.id === product.id
         ) as CookieProduct;
 
-        return product.priceUah * cookieProduct?.quantity;
+        return currency === "uah"
+            ? product.priceUah * cookieProduct.quantity
+            : product.priceEur * cookieProduct.quantity;
+    };
+
+    const getSubtotalPrice = () => {
+        return products.reduce((acc, product) => {
+            return acc + getProductPrice(product);
+        }, 0);
+    };
+
+    const getShippingPrice = () => {
+        return 0;
+    };
+
+    const getTotalPrice = () => {
+        return getSubtotalPrice() + getShippingPrice();
     };
 
     return (
         <aside className={styles.column}>
             <div className={styles.summary}>
                 <h3 className={styles.title}>Your Order</h3>
-                <table className={styles.table}>
-                    <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {products.map((product, index) => (
-                            <tr key={index}>
-                                <td>
-                                    <Link href={`/products/${product.id}`}>
-                                        {product.title}
-                                    </Link>
-                                </td>
-                                <td>{getCurrencyIcon(currency)}</td>
-                            </tr>
-                        ))}
+                {products.length ? (
+                    <>
+                        <table className={styles.table}>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {products.map((product, index) => (
+                                    <tr key={index}>
+                                        <td>
+                                            <Link
+                                                href={`/products/${product.id}`}
+                                            >
+                                                {product.title}
+                                            </Link>
+                                        </td>
+                                        <td>
+                                            {getCurrencyIcon(currency)}
+                                            {getProductPrice(product).toFixed(
+                                                2
+                                            )}
+                                        </td>
+                                    </tr>
+                                ))}
 
-                        <tr className={styles.subtotal}>
-                            <td>Subtotal:</td>
-                            <td>$160.00</td>
-                        </tr>
-                        <tr>
-                            <td>Shipping:</td>
-                            <td>Free shipping</td>
-                        </tr>
-                        <tr className={styles.total}>
-                            <td>Total:</td>
-                            <td>$160.00</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div className={styles.accordion} id="accordion-payment">
-                    {payments.map((payment, index) => (
+                                <tr className={styles.subtotal}>
+                                    <td>Subtotal:</td>
+                                    <td>
+                                        {getCurrencyIcon(currency)}
+                                        {getSubtotalPrice().toFixed(2)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Shipping:</td>
+                                    <td>Free shipping</td>
+                                </tr>
+                                <tr className={styles.total}>
+                                    <td>Total:</td>
+                                    <td>
+                                        {getCurrencyIcon(currency)}
+                                        {getTotalPrice().toFixed(2)}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <div
-                            className={`${styles.card} ${
-                                payment.value === paymentMethod
-                                    ? styles.active
-                                    : ""
-                            }`}
-                            key={index}
+                            className={styles.accordion}
+                            id="accordion-payment"
                         >
-                            <div
-                                className={styles.cardHeader}
-                                id={`heading-${index}`}
-                            >
-                                <h2 className={styles.cardTitle}>
-                                    <Link
-                                        role="button"
-                                        data-toggle="collapse"
-                                        href={`#collapse-${index}`}
+                            {payments.map((payment, index) => (
+                                <div
+                                    className={`${styles.card} ${
+                                        payment.value === paymentMethod
+                                            ? styles.active
+                                            : ""
+                                    }`}
+                                    key={index}
+                                >
+                                    <div
+                                        className={styles.cardHeader}
+                                        id={`heading-${index}`}
+                                    >
+                                        <h2 className={styles.cardTitle}>
+                                            <Link
+                                                role="button"
+                                                data-toggle="collapse"
+                                                href={`#collapse-${index}`}
+                                                aria-expanded={
+                                                    payment.value ===
+                                                    paymentMethod
+                                                }
+                                                aria-controls={`collapse-${index}`}
+                                                onClick={() =>
+                                                    onAccordionClick(
+                                                        payment.value
+                                                    )
+                                                }
+                                                scroll={false}
+                                            >
+                                                {payment.title}
+                                            </Link>
+                                        </h2>
+                                    </div>
+                                    <div
+                                        id={`collapse-${index}`}
+                                        className={styles.cardBodyWrapper}
+                                        aria-labelledby={`heading-${index}`}
                                         aria-expanded={
                                             payment.value === paymentMethod
                                         }
-                                        aria-controls={`collapse-${index}`}
-                                        onClick={() =>
-                                            onAccordionClick(payment.value)
-                                        }
-                                        scroll={false}
+                                        data-parent="#accordion-payment"
                                     >
-                                        {payment.title}
-                                    </Link>
-                                </h2>
-                            </div>
-                            <div
-                                id={`collapse-${index}`}
-                                className={styles.cardBodyWrapper}
-                                aria-labelledby={`heading-${index}`}
-                                aria-expanded={payment.value === paymentMethod}
-                                data-parent="#accordion-payment"
-                            >
-                                <div className={styles.cardBody}>
-                                    {payment.description}
+                                        <div className={styles.cardBody}>
+                                            {payment.description}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-                <img
-                    src="/images/icons/payments.png"
-                    alt="Payment methods"
-                    width="272"
-                    height="20"
-                    className={styles.payments}
-                />
-                <Button
-                    type="submit"
-                    colorType="btnOutlinePrimary2"
-                    className={styles.buttonSubmit}
-                >
-                    <span>Place Order</span>
-                </Button>
+                        <img
+                            src="/images/icons/payments.png"
+                            alt="Payment methods"
+                            width="272"
+                            height="20"
+                            className={styles.payments}
+                        />
+                        <Button
+                            type="submit"
+                            colorType="btnOutlinePrimary2"
+                            className={styles.buttonSubmit}
+                        >
+                            <span>Place Order</span>
+                        </Button>
+                    </>
+                ) : (
+                    <div className={styles.noProducts}>No products in cart</div>
+                )}
             </div>
         </aside>
     );
