@@ -16,8 +16,8 @@ export const payments: Payment[] = [
         description: "Make your payment directly into our bank account",
     },
     {
-        value: "Apple Pay",
         title: "Apple Pay",
+        value: "applePay",
         description: "Transfer money using Apple Pay",
     },
     {
