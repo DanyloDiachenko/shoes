@@ -2,12 +2,10 @@
 
 import { Input } from "@/components/UI/Input";
 import styles from "./styles.module.scss";
-import { Checkbox } from "@/components/UI/Checkbox";
 import { Textarea } from "@/components/UI/Textarea";
 import { FormProps } from "./form.props";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { Popup } from "@/types/popup.type";
 import { setOpenedPopup } from "@/store/slices/openedPopup";
 
 export const Form = ({ user }: FormProps) => {
