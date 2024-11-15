@@ -6,10 +6,12 @@ import { ChangeAddress } from "./ChangeAddress";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { closePopup as closePopupFunc } from "@/store/slices/openedPopup";
+import { useRef } from "react";
+import { onOutsideClick } from "@/helpers/onOutsideClick";
 
 export const Popups = () => {
     const dispatch = useDispatch();
-
+    const popupRef = useRef<HTMLDivElement | null>(null);
     const openedPopup = useSelector(
         (state: RootState) => state.openedPopup.openedPopup
     );
@@ -17,6 +19,8 @@ export const Popups = () => {
     const closePopup = () => {
         dispatch(closePopupFunc());
     };
+
+    onOutsideClick(popupRef, closePopup);
 
     return (
         <>
@@ -33,6 +37,7 @@ export const Popups = () => {
                     className={`${styles.modalDialog} ${
                         openedPopup ? styles.active : ""
                     }`}
+                    ref={popupRef}
                 >
                     <div className={styles.modalContent}>
                         <div className={styles.modalBody}>
