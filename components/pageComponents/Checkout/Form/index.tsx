@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { setOpenedPopup } from "@/store/slices/openedPopup";
 
-export const Form = ({ user }: FormProps) => {
+export const Form = ({ user, orderNotes, setOrerNotes }: FormProps) => {
     const dispatch = useDispatch();
 
     const setOpenedPopupHandler = () => {
@@ -97,6 +97,8 @@ export const Form = ({ user }: FormProps) => {
                 rows={4}
                 placeholder="Notes about your order, e.g. special notes for delivery"
                 className={styles.textarea}
+                value={orderNotes}
+                onChange={(e) => setOrerNotes(e.target.value)}
             />
         </div>
     );

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
-import { act, useState } from "react";
+import { useState } from "react";
 import { payments } from "./payments";
 
 export const Aside = () => {
