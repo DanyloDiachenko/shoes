@@ -5,10 +5,24 @@ import styles from "./styles.module.scss";
 import { Checkbox } from "@/components/UI/Checkbox";
 import { Textarea } from "@/components/UI/Textarea";
 import { FormProps } from "./form.props";
-import { useState } from "react";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { Popup } from "@/types/popup.type";
+import { setOpenedPopup } from "@/store/slices/openedPopup";
 
 export const Form = ({ user }: FormProps) => {
+    const dispatch = useDispatch();
+
+    const setOpenedPopupHandler = () => {
+        dispatch(
+            setOpenedPopup(
+                user.shippingAddress
+                    ? "updateShippingAddress"
+                    : "createShippingAddress"
+            )
+        );
+    };
+
     return (
         <div className={styles.column}>
             <h2 className={styles.title}>Shipping Details</h2>
@@ -69,7 +83,14 @@ export const Form = ({ user }: FormProps) => {
             <Input type="phone" disabled value={user.phone || ""} />
             <label>Email address *</label>
             <Input type="email" disabled value={user.email || ""} />
-            <Link href="#" className={styles.link}>Ship to a different address?</Link>
+            <Link
+                href="#"
+                className={styles.link}
+                onClick={setOpenedPopupHandler}
+                scroll={false}
+            >
+                Ship to a different address?
+            </Link>
             <label className={styles.textareaLabel}>
                 Order notes (optional)
             </label>
