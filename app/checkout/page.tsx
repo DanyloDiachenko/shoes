@@ -7,6 +7,9 @@ import { redirect } from "next/navigation";
 import { getProfile } from "../api/auth/user";
 import { signOut } from "next-auth/react";
 import { User } from "@/interfaces/user.inteface";
+import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
+import { getProduct } from "../api/products";
+import { Product } from "@/interfaces/product.interface";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -37,11 +40,25 @@ const Checkout = async () => {
         redirect("/login");
     }
 
+    const cookieProducts = (await getCookieProductsServer()) || [];
+
+    let products: Product[] = [];
+
+    for (let i = 0; i < cookieProducts.length; i++) {
+        const productToCart = await getProduct(cookieProducts[i].id);
+
+        products = [...products, productToCart];
+    }
+
     return (
         <>
             <PageHeader title="Checkout" subtitle="Shop" />
             <Breadcrumbs breadcrumbs={breadcrumbs} />
-            <CheckoutPageComponent user={profileResponse as User} />
+            <CheckoutPageComponent
+                user={profileResponse as User}
+                products={products}
+                cookieProducts={cookieProducts}
+            />
         </>
     );
 };

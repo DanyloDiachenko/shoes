@@ -7,7 +7,11 @@ import { Coupon } from "./Coupon";
 import { Form } from "./Form";
 import { Payment } from "@/types/payment.type";
 
-export const CheckoutPageComponent = ({ user }: CheckoutProps) => {
+export const CheckoutPageComponent = ({
+    user,
+    cookieProducts,
+    products,
+}: CheckoutProps) => {
     const [orderNotes, setOrderNotes] = useState("");
     const [paymentMethod, setPaymentMethod] = useState<Payment | null>(null);
 
@@ -25,6 +29,8 @@ export const CheckoutPageComponent = ({ user }: CheckoutProps) => {
                         <Aside
                             paymentMethod={paymentMethod}
                             setPaymentMethod={setPaymentMethod}
+                            products={products}
+                            cookieProducts={cookieProducts}
                         />
                     </div>
                 </form>
