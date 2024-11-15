@@ -10,6 +10,7 @@ import { User } from "@/interfaces/user.inteface";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { getProduct } from "../api/products";
 import { Product } from "@/interfaces/product.interface";
+import { getCurrency } from "@/helpers/getCurrency";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -41,7 +42,7 @@ const Checkout = async () => {
     }
 
     const cookieProducts = (await getCookieProductsServer()) || [];
-
+    const currency = await getCurrency();
     let products: Product[] = [];
 
     for (let i = 0; i < cookieProducts.length; i++) {
@@ -58,6 +59,7 @@ const Checkout = async () => {
                 user={profileResponse as User}
                 products={products}
                 cookieProducts={cookieProducts}
+                currency={currency}
             />
         </>
     );

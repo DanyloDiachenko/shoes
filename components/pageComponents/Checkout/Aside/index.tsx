@@ -1,14 +1,20 @@
-"use client";
 
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
-import { useState } from "react";
 import { payments } from "./payments";
 import { AsideProps } from "./aside.props";
 import { Payment } from "@/types/payment.type";
+import { getCurrency } from "@/helpers/getCurrency";
+import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
 
-export const Aside = ({ paymentMethod, setPaymentMethod }: AsideProps) => {
+export const Aside = ({
+    paymentMethod,
+    setPaymentMethod,
+    products,
+    cookieProducts,
+    currency,
+}: AsideProps) => {
     const onAccordionClick = (paymentMethodValue: Payment) => {
         if (paymentMethod === paymentMethodValue) {
             setPaymentMethod(null);
@@ -29,22 +35,17 @@ export const Aside = ({ paymentMethod, setPaymentMethod }: AsideProps) => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <Link href="#">
-                                    Beige knitted elastic runner shoes
-                                </Link>
-                            </td>
-                            <td>$84.00</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <Link href="#">
-                                    Blue utility pinafore denimdress
-                                </Link>
-                            </td>
-                            <td>$76,00</td>
-                        </tr>
+                        {products.map((product, index) => (
+                            <tr key={index}>
+                                <td>
+                                    <Link href={`/products/${product.id}`}>
+                                        {product.title}
+                                    </Link>
+                                </td>
+                                <td></td>
+                            </tr>
+                        ))}
+
                         <tr className={styles.subtotal}>
                             <td>Subtotal:</td>
                             <td>$160.00</td>
