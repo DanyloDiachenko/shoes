@@ -1,12 +1,12 @@
-
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { payments } from "./payments";
 import { AsideProps } from "./aside.props";
 import { Payment } from "@/types/payment.type";
-import { getCurrency } from "@/helpers/getCurrency";
 import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
+import { Product } from "@/interfaces/product.interface";
+import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 
 export const Aside = ({
     paymentMethod,
@@ -21,6 +21,14 @@ export const Aside = ({
         } else {
             setPaymentMethod(paymentMethodValue);
         }
+    };
+
+    const getProductPrice = (product: Product) => {
+        const cookieProduct = cookieProducts.find(
+            (cookieProduct) => cookieProduct.id === product.id
+        ) as CookieProduct;
+
+        return product.priceUah * cookieProduct?.quantity;
     };
 
     return (
@@ -42,7 +50,7 @@ export const Aside = ({
                                         {product.title}
                                     </Link>
                                 </td>
-                                <td></td>
+                                <td>{getCurrencyIcon(currency)}</td>
                             </tr>
                         ))}
 

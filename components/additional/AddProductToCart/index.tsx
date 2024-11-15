@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { RootState } from "@/store";
 import { useEffect, useState } from "react";
-import { ProductCookie } from "@/interfaces/productCookie.interface";
+import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 import { AddProductToCartProps } from "./addProductToCart.props";
 import { ProductToCartState } from "@/store/slices/productToCart/productToCart.interface";
 import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
@@ -28,7 +28,7 @@ export const AddProductToCart = ({
     );
 
     const [cookieProductsClient, setCookieProductsClient] =
-        useState<ProductCookie[]>(cookieProducts);
+        useState<CookieProduct[]>(cookieProducts);
 
     const toogleLocalStorageHandler = () => {
         dispatch(toogleLocalStorage());
@@ -48,7 +48,7 @@ export const AddProductToCart = ({
             return;
         }
 
-        const newCookieProducts: ProductCookie[] = [
+        const newCookieProducts: CookieProduct[] = [
             ...cookieProducts,
             {
                 id: product.id,
@@ -98,7 +98,7 @@ export const AddProductToCart = ({
             /* className={`${styles.addToCart} ${styles.inactive}`} */
             onClick={
                 cookieProductsClient.find(
-                    (productCookie) => productCookie.id === product.id
+                    (CookieProduct) => cookieProduct.id === product.id
                 )
                     ? onRemoveProductClick
                     : onAddToCartClick
@@ -107,7 +107,7 @@ export const AddProductToCart = ({
             <LiaCartPlusSolid />
             <span>
                 {cookieProductsClient.find(
-                    (productCookie) => productCookie.id === product.id
+                    (CookieProduct) => cookieProduct.id === product.id
                 )
                     ? "Remove from cart"
                     : "Add to cart"}

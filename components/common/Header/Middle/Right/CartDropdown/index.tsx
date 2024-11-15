@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { Product } from "@/interfaces/product.interface";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { ProductCookie } from "@/interfaces/productCookie.interface";
+import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 import { getProduct } from "@/app/api/products";
 import { toast } from "react-toastify";
 import { setCookie } from "@/helpers/setCookie";
@@ -36,7 +36,7 @@ export const CartDropdown = ({
     const [cartProductsClient, setCartProductsClient] =
         useState<Product[]>(cartProducts);
     const [cookieProductsClient, setCookieProductsClient] =
-        useState<ProductCookie[]>(cookieProducts);
+        useState<CookieProduct[]>(cookieProducts);
 
     const getProductHandler = async (productId: string) => {
         try {

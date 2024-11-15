@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/common/PageHeader";
 import { CartPageContent } from "@/components/pageComponents/Cart";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { Product } from "@/interfaces/product.interface";
-import { ProductCookie } from "@/interfaces/productCookie.interface";
+import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 import { getProduct } from "../api/products";
 import { getCurrency } from "@/helpers/getCurrency";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
@@ -30,7 +30,7 @@ const Cart = async () => {
     const token = await getCookie("token");
     const user = token ? ((await getProfile(token)) as User) : null;
 
-    const cookieProducts: ProductCookie[] =
+    const cookieProducts: CookieProduct[] =
         (await getCookieProductsServer()) || [];
     const currency = await getCurrency();
 

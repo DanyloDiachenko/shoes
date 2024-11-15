@@ -24,11 +24,11 @@ export const Table = ({
     };
 
     const getProductSize = (productId: string, cookieProducts: any[]) => {
-        const productCookie = cookieProducts.find(
+        const CookieProduct = cookieProducts.find(
             (cookieProduct) => cookieProduct.id === productId
         );
 
-        return productCookie ? productCookie.size : null;
+        return CookieProduct ? cookieProduct.size : null;
     };
 
     const calculateTotalPerProduct = (product: Product, quantity: number) => {

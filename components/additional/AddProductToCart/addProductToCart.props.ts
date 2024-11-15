@@ -1,7 +1,7 @@
 import { Product } from "@/interfaces/product.interface";
-import { ProductCookie } from "@/interfaces/productCookie.interface";
+import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 
 export interface AddProductToCartProps {
-    cookieProducts: ProductCookie[];
+    cookieProducts: CookieProduct[];
     product: Product;
 }

@@ -5,7 +5,7 @@ import { CartPageContentProps } from "./cart.props";
 import { CartTotal } from "./CartTotal";
 import { Table } from "./Table";
 import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
-import { ProductCookie } from "@/interfaces/productCookie.interface";
+import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
 
@@ -20,7 +20,7 @@ export const CartPageContent = ({
     );
 
     const [cookieProductsClient, setCookieProductsClient] =
-        useState<ProductCookie[]>(cookieProducts);
+        useState<CookieProduct[]>(cookieProducts);
 
     const setCookieProductsClientHandler = async () => {
         const cookieProductsUpdated = await getCookieProductsClient();

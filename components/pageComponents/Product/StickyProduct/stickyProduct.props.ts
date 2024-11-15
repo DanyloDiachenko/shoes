@@ -1,7 +1,7 @@
 import { Product } from "@/interfaces/product.interface";
-import { ProductCookie } from "@/interfaces/productCookie.interface";
+import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 
 export interface StickyProductProps {
     product: Product;
-    cookieProducts: ProductCookie[];
+    cookieProducts: CookieProduct[];
 }
