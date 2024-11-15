@@ -98,7 +98,7 @@ export const AddProductToCart = ({
             /* className={`${styles.addToCart} ${styles.inactive}`} */
             onClick={
                 cookieProductsClient.find(
-                    (CookieProduct) => cookieProduct.id === product.id
+                    (cookieProduct) => cookieProduct.id === product.id
                 )
                     ? onRemoveProductClick
                     : onAddToCartClick
@@ -107,7 +107,7 @@ export const AddProductToCart = ({
             <LiaCartPlusSolid />
             <span>
                 {cookieProductsClient.find(
-                    (CookieProduct) => cookieProduct.id === product.id
+                    (cookieProduct) => cookieProduct.id === product.id
                 )
                     ? "Remove from cart"
                     : "Add to cart"}

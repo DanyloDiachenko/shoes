@@ -7,6 +7,7 @@ import { Payment } from "@/types/payment.type";
 import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
 import { Product } from "@/interfaces/product.interface";
 import { CookieProduct } from "@/interfaces/cookieProduct.interface";
+import { shippings } from "@/data/shippings";
 
 export const Aside = ({
     paymentMethod,
@@ -14,6 +15,7 @@ export const Aside = ({
     products,
     cookieProducts,
     currency,
+    shippingType,
 }: AsideProps) => {
     const onAccordionClick = (paymentMethodValue: Payment) => {
         if (paymentMethod === paymentMethodValue) {
@@ -40,11 +42,31 @@ export const Aside = ({
     };
 
     const getShippingPrice = () => {
-        return 0;
+        if (shippingType === "free") {
+            return 0;
+        }
+
+        const currentShippingType = shippings.find(
+            (shipping) => shipping.value === shippingType
+        );
+
+        if (currency == "uah") {
+            return currentShippingType?.priceUah || 0;
+        }
+
+        return currentShippingType?.priceEur || 0;
     };
 
     const getTotalPrice = () => {
         return getSubtotalPrice() + getShippingPrice();
+    };
+
+    const getShippingTitle = () => {
+        const currentShippingType = shippings.find(
+            (shipping) => shipping.value === shippingType
+        );
+
+        return currentShippingType?.title;
     };
 
     return (
@@ -82,7 +104,11 @@ export const Aside = ({
                         </tr>
                         <tr>
                             <td>Shipping:</td>
-                            <td>Free shipping</td>
+                            <td>
+                                {getShippingTitle()},{" "}
+                                {getCurrencyIcon(currency)}
+                                {getShippingPrice().toFixed(2)}
+                            </td>
                         </tr>
                         <tr className={styles.total}>
                             <td>Total:</td>
@@ -110,7 +136,6 @@ export const Aside = ({
                                 <h2 className={styles.cardTitle}>
                                     <Link
                                         role="button"
-                                        data-toggle="collapse"
                                         href={`#collapse-${index}`}
                                         aria-expanded={
                                             payment.value === paymentMethod

@@ -70,7 +70,7 @@ export const CartTotal = ({
 
             return;
         }
-        
+
         router.push("/checkout");
     };
 

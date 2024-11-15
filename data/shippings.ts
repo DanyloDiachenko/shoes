@@ -2,7 +2,7 @@ import { Shipping } from "@/interfaces/shipping.interface";
 
 export const shippings: Shipping[] = [
     {
-        title: "Free Shipping",
+        title: "Free",
         value: "free",
         priceUah: 0,
         priceEur: 0,

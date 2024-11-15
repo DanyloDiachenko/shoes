@@ -12,6 +12,7 @@ export const CheckoutPageComponent = ({
     cookieProducts,
     products,
     currency,
+    shippingType,
 }: CheckoutProps) => {
     const [orderNotes, setOrderNotes] = useState("");
     const [paymentMethod, setPaymentMethod] = useState<Payment | null>(null);
@@ -33,6 +34,7 @@ export const CheckoutPageComponent = ({
                             products={products}
                             cookieProducts={cookieProducts}
                             currency={currency}
+                            shippingType={shippingType}
                         />
                     </div>
                 </form>

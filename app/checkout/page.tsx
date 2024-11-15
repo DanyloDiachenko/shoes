@@ -11,6 +11,7 @@ import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { getProduct } from "../api/products";
 import { Product } from "@/interfaces/product.interface";
 import { getCurrency } from "@/helpers/getCurrency";
+import { ShippingType } from "@/types/shipping.type";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -48,6 +49,7 @@ const Checkout = async () => {
 
     const currency = await getCurrency();
     let products: Product[] = [];
+    const shippingType = (await getCookie("shippingType")) as ShippingType;
 
     for (let i = 0; i < cookieProducts.length; i++) {
         const productToCart = await getProduct(cookieProducts[i].id);
@@ -64,6 +66,7 @@ const Checkout = async () => {
                 products={products}
                 cookieProducts={cookieProducts}
                 currency={currency}
+                shippingType={shippingType}
             />
         </>
     );
