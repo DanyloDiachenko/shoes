@@ -5,17 +5,15 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { useState } from "react";
 import { payments } from "./payments";
+import { AsideProps } from "./aside.props";
+import { Payment } from "@/types/payment.type";
 
-export const Aside = () => {
-    const [activeAccordionId, setActiveAccordionId] = useState<number | null>(
-        0
-    );
-
-    const onAccordionClick = (index: number) => {
-        if (activeAccordionId === index) {
-            setActiveAccordionId(null);
+export const Aside = ({ paymentMethod, setPaymentMethod }: AsideProps) => {
+    const onAccordionClick = (paymentMethodValue: Payment) => {
+        if (paymentMethod === paymentMethodValue) {
+            setPaymentMethod(null);
         } else {
-            setActiveAccordionId(index);
+            setPaymentMethod(paymentMethodValue);
         }
     };
 
@@ -65,7 +63,9 @@ export const Aside = () => {
                     {payments.map((payment, index) => (
                         <div
                             className={`${styles.card} ${
-                                index === activeAccordionId ? styles.active : ""
+                                payment.value === paymentMethod
+                                    ? styles.active
+                                    : ""
                             }`}
                             key={index}
                         >
@@ -79,10 +79,12 @@ export const Aside = () => {
                                         data-toggle="collapse"
                                         href={`#collapse-${index}`}
                                         aria-expanded={
-                                            index === activeAccordionId
+                                            payment.value === paymentMethod
                                         }
                                         aria-controls={`collapse-${index}`}
-                                        onClick={() => onAccordionClick(index)}
+                                        onClick={() =>
+                                            onAccordionClick(payment.value)
+                                        }
                                         scroll={false}
                                     >
                                         {payment.title}
@@ -93,7 +95,7 @@ export const Aside = () => {
                                 id={`collapse-${index}`}
                                 className={styles.cardBodyWrapper}
                                 aria-labelledby={`heading-${index}`}
-                                aria-expanded={index === activeAccordionId}
+                                aria-expanded={payment.value === paymentMethod}
                                 data-parent="#accordion-payment"
                             >
                                 <div className={styles.cardBody}>

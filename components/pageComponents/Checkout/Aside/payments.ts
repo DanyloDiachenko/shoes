@@ -1,10 +1,12 @@
-interface Payment {
+import { Payment } from "@/types/payment.type";
+
+export interface PaymentI {
     title: string;
-    value: string;
+    value: Payment;
     description: string;
 }
 
-export const payments: Payment[] = [
+export const payments: PaymentI[] = [
     {
         title: "PayPal",
         value: "payPal",
