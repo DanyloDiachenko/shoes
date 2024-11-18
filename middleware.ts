@@ -3,8 +3,6 @@ import type { NextRequest } from "next/server";
 
 export function middleware(req: NextRequest) {
     const currencyCookie = req.cookies.get("currency");
-    console.log("Existing currency cookie:", currencyCookie);
-
     const headers = new Headers(req.headers);
     headers.set("x-current-path", req.nextUrl.pathname);
 
@@ -24,8 +22,6 @@ export function middleware(req: NextRequest) {
                         1000
             ),
         });
-
-        console.log("New cookie set:", response.cookies.get("currency"));
 
         return response;
     }
