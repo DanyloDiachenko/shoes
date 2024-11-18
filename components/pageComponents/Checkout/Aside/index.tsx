@@ -16,6 +16,7 @@ export const Aside = ({
     cookieProducts,
     currency,
     shippingType,
+    onPlaceOrderClick,
 }: AsideProps) => {
     const onAccordionClick = (paymentMethodValue: Payment) => {
         if (paymentMethod === paymentMethodValue) {
@@ -175,6 +176,7 @@ export const Aside = ({
                     type="submit"
                     colorType="btnOutlinePrimary2"
                     className={styles.buttonSubmit}
+                    onClick={onPlaceOrderClick}
                 >
                     <span>Place Order</span>
                 </Button>
