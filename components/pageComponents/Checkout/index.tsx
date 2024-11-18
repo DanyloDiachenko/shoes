@@ -6,7 +6,6 @@ import { CheckoutProps } from "./checkout.props";
 import { Form } from "./Form";
 import { Payment } from "@/types/payment.type";
 import { toast } from "react-toastify";
-import { ShippingType } from "@/types/shipping.type";
 import { createOrder } from "@/app/api/orders";
 
 export const CheckoutPageComponent = ({
@@ -60,6 +59,10 @@ export const CheckoutPageComponent = ({
             shippingType !== "standart"
         ) {
             toast.error("Please choose correct shipping type");
+        }
+        if (!paymentMethod) {
+            toast.error("Please choose payment method");
+            return;
         }
 
         const body = {
