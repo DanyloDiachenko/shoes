@@ -47,9 +47,14 @@ export const authOptions: NextAuthOptions = {
                     (await cookies()).set({
                         name: "token",
                         value: data.token,
-                        expires: Number(
-                            process.env.NEXT_PUBLIC_TOKEN_EXPIRES_IN_SECONDS ||
-                                31536000
+                        expires: new Date().setTime(
+                            new Date().getTime() +
+                                Number(
+                                    process.env
+                                        .NEXT_PUBLIC_TOKEN_EXPIRES_IN_SECONDS ||
+                                        31536000
+                                ) *
+                                    1000
                         ),
                         path: "/",
                     });
@@ -91,9 +96,14 @@ export const authOptions: NextAuthOptions = {
                     (await cookies()).set({
                         name: "token",
                         value: data.token,
-                        expires: Number(
-                            process.env.NEXT_PUBLIC_TOKEN_EXPIRES_IN_SECONDS ||
-                                31536000
+                        expires: new Date().setTime(
+                            new Date().getTime() +
+                                Number(
+                                    process.env
+                                        .NEXT_PUBLIC_TOKEN_EXPIRES_IN_SECONDS ||
+                                        31536000
+                                ) *
+                                    1000
                         ),
                         path: "/",
                     });
