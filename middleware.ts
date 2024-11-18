@@ -15,9 +15,6 @@ export function middleware(req: NextRequest) {
             name: "currency",
             value: "uah",
             path: "/",
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "lax",
             expires: new Date().setTime(
                 new Date().getTime() +
                     Number(

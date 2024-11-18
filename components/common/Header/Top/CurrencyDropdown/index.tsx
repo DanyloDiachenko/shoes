@@ -8,33 +8,32 @@ import styles from "./styles.module.scss";
 import { IoIosArrowDown } from "react-icons/io";
 
 export const CurrencyDropdown = ({ currency }: CurrencyDropdownProps) => {
-    const onCurrencyClick = async (clickedCurrency: Currency) => {
+    const onCurrencyClick = (clickedCurrency: Currency) => {
         if (currency === clickedCurrency) {
             return;
         }
-        console.log(clickedCurrency);
 
         setCookie("currency", clickedCurrency);
-        /* location.reload(); */
+        location.reload();
     };
 
     return (
         <div className={styles.headerDropdown}>
-            <div className={styles.active}>
+            <Link href="#" className={styles.active}>
                 {currency}
                 <IoIosArrowDown />
-            </div>
+            </Link>
             <div className={styles.headerMenu}>
                 <ul>
                     <li>
-                        <button onClick={() => onCurrencyClick("uah")}>
+                        <Link href="#" onClick={() => onCurrencyClick("uah")}>
                             UAH
-                        </button>
+                        </Link>
                     </li>
                     <li>
-                        <button onClick={() => onCurrencyClick("eur")}>
+                        <Link href="#" onClick={() => onCurrencyClick("eur")}>
                             EUR
-                        </button>
+                        </Link>
                     </li>
                 </ul>
             </div>
