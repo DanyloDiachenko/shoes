@@ -1,6 +1,4 @@
-import { setCookie } from "@/helpers/setCookie";
 import { NextAuthOptions } from "next-auth";
-import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import { cookies } from "next/headers";
@@ -46,8 +44,15 @@ export const authOptions: NextAuthOptions = {
                     );
 
                     const data = await res.json();
-
-                    (await cookies()).set("token", data.token);
+                    (await cookies()).set({
+                        name: "token",
+                        value: data.token,
+                        expires: Number(
+                            process.env.NEXT_PUBLIC_TOKEN_EXPIRES_IN_SECONDS ||
+                                31536000
+                        ),
+                        path: "/",
+                    });
 
                     if (data.error) {
                         return { status: data?.status, error: data?.message };
@@ -83,7 +88,15 @@ export const authOptions: NextAuthOptions = {
                     );
 
                     const data = await res.json();
-                    (await cookies()).set("token", data.token);
+                    (await cookies()).set({
+                        name: "token",
+                        value: data.token,
+                        expires: Number(
+                            process.env.NEXT_PUBLIC_TOKEN_EXPIRES_IN_SECONDS ||
+                                31536000
+                        ),
+                        path: "/",
+                    });
 
                     if (res.ok && data?.token) {
                         token.id = data.id;
