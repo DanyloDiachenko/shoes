@@ -1,3 +1,5 @@
+"use client";
+
 import SlickSlider from "react-slick";
 import styles from "./styles.module.scss";
 
