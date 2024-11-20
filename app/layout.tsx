@@ -1,6 +1,8 @@
 import { Header } from "@/components/common/Header";
 import "./globals.scss";
 import "react-toastify/dist/ReactToastify.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { Noto_Sans } from "next/font/google";
 import { StoreProvider } from "@/store/StoreProvider";
 import { Footer } from "@/components/common/Footer";
