@@ -10,7 +10,7 @@ export const Slider = () => {
         <div className="container">
             <SlickSlider className={styles.slider}>
                 <div className={styles.slide}>
-                    <figure className={styles.image}>
+                    <figure className={styles.figure}>
                         <picture>
                             <source
                                 media="(max-width: 480px)"
@@ -27,10 +27,9 @@ export const Slider = () => {
                         <h3 className={styles.subtitle}>
                             Deals and Promotions
                         </h3>
-                        <h1 className={styles.text}>
+                        <h1 className={styles.title}>
                             Sneakers & Athletic Shoes
                         </h1>
-
                         <div className={styles.price}>from $9.99</div>
                         <Link href="/products">
                             <Button colorType="btnPrimary">
