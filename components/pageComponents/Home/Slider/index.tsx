@@ -14,10 +14,10 @@ export const Slider = () => {
                         <picture>
                             <source
                                 media="(max-width: 480px)"
-                                srcSet="/media/banners/slider-1.png"
+                                srcSet="/images/banners/slider-1.png"
                             />
                             <img
-                                src="/media/banners/slider-1.png"
+                                src="/images/banners/slider-1.png"
                                 alt="Image Desc"
                             />
                         </picture>
