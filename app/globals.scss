@@ -83,7 +83,6 @@ body {
     margin-right: auto;
     margin-left: auto;
 
-    
     @media screen and (min-width: 1280px) {
         max-width: 1200px;
     }
@@ -232,9 +231,11 @@ a {
     flex-wrap: wrap;
 }
 
-.slick-list {
-    margin: 0 -10px;
-}
-.slick-slide > div {
-    padding: 0 10px;
+.may-like-slider {
+    .slick-list {
+        margin: 0 -10px;
+    }
+    .slick-slide > div {
+        padding: 0 10px;
+    }
 }

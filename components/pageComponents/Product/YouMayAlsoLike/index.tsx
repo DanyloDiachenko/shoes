@@ -79,7 +79,7 @@ export const YouMayAlsoLike = ({ products, currency }: YouMayAlsoLikeProps) => {
     return (
         <>
             <h2 className={styles.title}>You May Also Like</h2>
-            <Slider className={styles.slider} {...sliderSettings}>
+            <Slider className={`${styles.slider} may-like-slider`} {...sliderSettings}>
                 {products.map((product, index) => (
                     <div key={index}>
                         <ProductSlide {...product} currency={currency} />
