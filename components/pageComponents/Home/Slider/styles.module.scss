@@ -1,5 +1,7 @@
 .slider {
     .slide {
+        position: relative;
+
         .figure {
             position: relative;
             margin: 0 0 1rem;
@@ -9,9 +11,14 @@
                 display: block;
                 content: "";
                 width: 100%;
+
+                @media screen and (max-width: 479px) {
+                    padding-top: 83.3333333333%;
+                }
             }
 
             picture {
+                height: 100%;
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -20,9 +27,9 @@
 
                 img {
                     display: block;
-                    width: 100%;
+                    width: auto;
                     max-width: none;
-                    height: auto;
+                    height: 100%;
                 }
             }
         }
@@ -117,9 +124,13 @@
 
             a {
                 button {
-                    min-width: 170px;
                     border-radius: 3rem;
                     border: none;
+
+                    @media (max-width: 576px) {
+                        padding: 0.65rem 1rem;
+                        min-width: 90px;
+                    }
                 }
             }
         }

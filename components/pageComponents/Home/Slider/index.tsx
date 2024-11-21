@@ -51,10 +51,10 @@ export const Slider = () => {
                         <picture>
                             <source
                                 media="(max-width: 480px)"
-                                srcSet="/images/banners/slider-1.png"
+                                srcSet="/images/banners/slider-2.png"
                             />
                             <img
-                                src="/images/banners/slider-1.png"
+                                src="/images/banners/slider-2.png"
                                 alt="Image Desc"
                             />
                         </picture>
@@ -80,10 +80,10 @@ export const Slider = () => {
                         <picture>
                             <source
                                 media="(max-width: 480px)"
-                                srcSet="/images/banners/slider-1.png"
+                                srcSet="/images/banners/slider-3.png"
                             />
                             <img
-                                src="/images/banners/slider-1.png"
+                                src="/images/banners/slider-3.png"
                                 alt="Image Desc"
                             />
                         </picture>
