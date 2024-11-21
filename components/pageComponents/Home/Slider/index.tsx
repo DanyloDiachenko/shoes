@@ -22,7 +22,6 @@ export const Slider = () => {
                             />
                         </picture>
                     </figure>
-
                     <div className={styles.content}>
                         <h3 className={styles.subtitle}>
                             Deals and Promotions
@@ -32,7 +31,7 @@ export const Slider = () => {
                         </h1>
                         <div className={styles.price}>from $9.99</div>
                         <Link href="/products">
-                            <Button colorType="btnPrimary">
+                            <Button colorType="btnOutlinePrimary2">
                                 <span>SHOP NOW</span>
                                 <i className="icon-long-arrow-right"></i>
                             </Button>

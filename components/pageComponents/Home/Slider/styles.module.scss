@@ -76,6 +76,7 @@
                 margin-bottom: 0.2rem;
                 text-indent: -0.2rem;
                 font-size: 3rem;
+                color: #fff;
 
                 @media screen and (min-width: 576px) {
                     font-size: 3.6rem;
@@ -115,13 +116,10 @@
             }
 
             a {
-                &:hover {
-                    color: #fff;
-                }
-
                 button {
                     min-width: 170px;
                     border-radius: 3rem;
+                    border: none;
                 }
             }
         }
