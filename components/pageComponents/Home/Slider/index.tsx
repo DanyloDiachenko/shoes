@@ -5,24 +5,37 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import Link from "next/link";
 
+/* const Dots = () => {
+    return (
+        <div className={styles.dots}>
+            <button role="button">
+                <span>a</span>
+                <span>a</span>
+                <span>a</span>
+            </button>
+        </div>
+    );
+}; */
+
 export const Slider = () => {
     return (
         <div className="container">
             <SlickSlider
-                className={styles.slider}
+                className={`${styles.slider} main-slider`}
                 slidesToShow={1}
                 dots={true}
                 dotsClass={styles.dots}
                 infinite={true}
                 speed={400}
                 centerPadding={undefined}
+                /* appendDots={() => <Dots />} */
             >
                 <div className={styles.slide}>
                     <figure className={styles.figure}>
                         <picture>
                             <source
                                 media="(max-width: 480px)"
-                                srcSet="/images/banners/slider-1.png"
+                                srcSet="/images/banners/slide-1-480w.png"
                             />
                             <img
                                 src="/images/banners/slider-1.png"
@@ -51,7 +64,7 @@ export const Slider = () => {
                         <picture>
                             <source
                                 media="(max-width: 480px)"
-                                srcSet="/images/banners/slider-2.png"
+                                srcSet="/images/banners/slide-2-480w.png"
                             />
                             <img
                                 src="/images/banners/slider-2.png"
@@ -80,7 +93,7 @@ export const Slider = () => {
                         <picture>
                             <source
                                 media="(max-width: 480px)"
-                                srcSet="/images/banners/slider-3.png"
+                                srcSet="/images/banners/slide-3-480w.png"
                             />
                             <img
                                 src="/images/banners/slider-3.png"

@@ -239,3 +239,24 @@ a {
         padding: 0 10px;
     }
 }
+
+.main-slider {
+    ul {
+        li {
+            &.slick-active {
+                button {
+                    width: 18px;
+                    border-color: #f8f8f8;
+                    background: #f8f8f8;
+                }
+
+                button {
+                    &:hover {
+                        background: #fff;
+                        border-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
