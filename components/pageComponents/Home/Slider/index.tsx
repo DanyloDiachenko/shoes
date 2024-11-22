@@ -4,18 +4,49 @@ import SlickSlider from "react-slick";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import Link from "next/link";
+import { Slide } from "./slide.interface";
 
-/* const Dots = () => {
-    return (
-        <div className={styles.dots}>
-            <button role="button">
-                <span>a</span>
-                <span>a</span>
-                <span>a</span>
-            </button>
-        </div>
-    );
-}; */
+const slides: Slide[] = [
+    {
+        subtitle: "",
+        title: "",
+        priceText: "",
+        button: {
+            title: "",
+            url: "",
+        },
+        imageSrcs: {
+            main: "",
+            adaptive: "",
+        },
+    },
+    {
+        subtitle: "",
+        title: "",
+        priceText: "",
+        button: {
+            title: "",
+            url: "",
+        },
+        imageSrcs: {
+            main: "",
+            adaptive: "",
+        },
+    },
+    {
+        subtitle: "",
+        title: "",
+        priceText: "",
+        button: {
+            title: "",
+            url: "",
+        },
+        imageSrcs: {
+            main: "",
+            adaptive: "",
+        },
+    },
+];
 
 export const Slider = () => {
     return (
@@ -35,35 +66,6 @@ export const Slider = () => {
                         <picture>
                             <source
                                 media="(max-width: 480px)"
-                                srcSet="/images/banners/slide-1-480w.png"
-                            />
-                            <img
-                                src="/images/banners/slider-1.png"
-                                alt="Image Desc"
-                            />
-                        </picture>
-                    </figure>
-                    <div className={styles.content}>
-                        <h3 className={styles.subtitle}>
-                            Deals and Promotions
-                        </h3>
-                        <h1 className={styles.title}>
-                            Sneakers & Athletic Shoes
-                        </h1>
-                        <div className={styles.price}>from $9.99</div>
-                        <Link href="/products">
-                            <Button colorType="btnOutlinePrimary2">
-                                <span>SHOP NOW</span>
-                                <i className="icon-long-arrow-right"></i>
-                            </Button>
-                        </Link>
-                    </div>
-                </div>
-                <div className={styles.slide}>
-                    <figure className={styles.figure}>
-                        <picture>
-                            <source
-                                media="(max-width: 480px)"
                                 srcSet="/images/banners/slide-2-480w.png"
                             />
                             <img
@@ -73,13 +75,11 @@ export const Slider = () => {
                         </picture>
                     </figure>
                     <div className={styles.content}>
-                        <h3 className={styles.subtitle}>
-                            Deals and Promotions
-                        </h3>
+                        <h3 className={styles.subtitle}>Trending Now</h3>
                         <h1 className={styles.title}>
-                            Sneakers & Athletic Shoes
+                            This Week's Most Wanted
                         </h1>
-                        <div className={styles.price}>from $9.99</div>
+                        <div className={styles.price}>from $49.99</div>
                         <Link href="/products">
                             <Button colorType="btnOutlinePrimary2">
                                 <span>SHOP NOW</span>
@@ -105,10 +105,8 @@ export const Slider = () => {
                         <h3 className={styles.subtitle}>
                             Deals and Promotions
                         </h3>
-                        <h1 className={styles.title}>
-                            Sneakers & Athletic Shoes
-                        </h1>
-                        <div className={styles.price}>from $9.99</div>
+                        <h1 className={styles.title}>Can’t-miss Clearance:</h1>
+                        <div className={styles.price}>starting at 60% off</div>
                         <Link href="/products">
                             <Button colorType="btnOutlinePrimary2">
                                 <span>SHOP NOW</span>
