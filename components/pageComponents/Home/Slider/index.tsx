@@ -8,16 +8,16 @@ import { Slide } from "./slide.interface";
 
 const slides: Slide[] = [
     {
-        subtitle: "",
-        title: "",
-        priceText: "",
+        subtitle: "Deals and Promotions",
+        title: "Sneakers & Athletic Shoes",
+        priceText: "from $9.99",
         button: {
-            title: "",
-            url: "",
+            title: "SHOP NOW",
+            url: "/products",
         },
         imageSrcs: {
-            main: "",
-            adaptive: "",
+            main: "/images/banners/slider-1.png",
+            adaptive: "/images/banners/slide-1-480w.png",
         },
     },
     {
