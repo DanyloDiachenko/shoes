@@ -3,25 +3,25 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { SlideProps } from "./slide.props";
 
-export const SLide = ({}: SlideProps) => {
+export const SLide = ({ slide }: SlideProps) => {
     return (
         <div className={styles.slide}>
             <figure className={styles.figure}>
                 <picture>
                     <source
                         media="(max-width: 480px)"
-                        srcSet="/images/banners/slide-1-480w.png"
+                        srcSet={slide.imageSrcs.adaptive}
                     />
-                    <img src="/images/banners/slider-1.png" alt="Image Desc" />
+                    <img src={slide.imageSrcs.main} alt="Image Desc" />
                 </picture>
             </figure>
             <div className={styles.content}>
-                <h3 className={styles.subtitle}>Deals and Promotions</h3>
-                <h1 className={styles.title}>Sneakers & Athletic Shoes</h1>
-                <div className={styles.price}>from $9.99</div>
-                <Link href="/products">
+                <h3 className={styles.subtitle}>{slide.subtitle}</h3>
+                <h1 className={styles.title}>{slide.title}</h1>
+                <div className={styles.price}>{slide.priceText}</div>
+                <Link href={slide.button.link}>
                     <Button colorType="btnOutlinePrimary2">
-                        <span>SHOP NOW</span>
+                        <span>{slide.button.title}</span>
                         <i className="icon-long-arrow-right"></i>
                     </Button>
                 </Link>

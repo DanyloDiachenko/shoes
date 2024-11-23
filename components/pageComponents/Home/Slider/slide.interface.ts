@@ -4,10 +4,10 @@ export interface Slide {
     priceText: string;
     button: {
         title: string;
-        url: string;
+        link: string;
     };
     imageSrcs: {
         main: string;
         adaptive: string;
-    }
+    };
 }
