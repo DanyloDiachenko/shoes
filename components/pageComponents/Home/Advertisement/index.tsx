@@ -1,5 +1,6 @@
 import { Button } from "@/components/UI/Button";
 import styles from "./advertisement.module.scss";
+import Link from "next/link";
 
 export const Advertisement = () => {
     return (
@@ -9,20 +10,20 @@ export const Advertisement = () => {
                     <div className="row">
                         <div className={styles.column}>
                             <div className={styles.banner}>
-                                <a href="">
+                                <Link href="" className={styles.bannerLink}>
                                     <img
                                         src="/images/banners/advertisement-1.png"
                                         alt="Banner"
                                     />
-                                </a>
+                                </Link>
                                 <div className={styles.bannerContent}>
                                     <h4>
-                                        <a href="">New Arrivals</a>
+                                        <Link href="">New Arrivals</Link>
                                     </h4>
                                     <h3>
-                                        <a href="">
+                                        <Link href="">
                                             Sneakers &<br /> Athletic Shoes
-                                        </a>
+                                        </Link>
                                     </h3>
                                     <Button colorType="btnWhite">
                                         Discover Now
