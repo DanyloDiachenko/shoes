@@ -63,4 +63,13 @@
             background-color: #f5f6f9;
         }
     }
+    &.btnWhite {
+        color: #fff;
+        background-color: transparent;
+        border-color: #fff;
+
+        &:hover {
+            background-color: #c96;
+        }
+    }
 }
