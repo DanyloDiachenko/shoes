@@ -73,4 +73,15 @@
             border-color: #c96;
         }
     }
+    &.btnGrayPrimary {
+        color: #333;
+        background-color: transparent;
+        border-color: #959595;
+
+        &:hover {
+            color: #fff;
+            background-color: #c96;
+            border-color: #c96;
+        }
+    }
 }

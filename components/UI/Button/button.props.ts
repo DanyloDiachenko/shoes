@@ -5,6 +5,12 @@ export interface ButtonProps
         ButtonHTMLAttributes<HTMLButtonElement>,
         HTMLButtonElement
     > {
-    colorType: "btnPrimary" | "btnOutlinePrimary2" | "btnOutlineDark2" | "btnGray" | "btnWhite";
+    colorType:
+        | "btnPrimary"
+        | "btnOutlinePrimary2"
+        | "btnOutlineDark2"
+        | "btnGray"
+        | "btnWhite"
+        | "btnGrayPrimary";
     children: ReactNode;
 }
