@@ -21,130 +21,171 @@
             flex: 0 0 50%;
             max-width: 50%;
         }
+    }
+}
 
-        .banner {
-            background-color: #e6e6e6;
+.rightColumn {
+    padding-right: 10px;
+    padding-left: 10px;
+    position: relative;
+    width: 100%;
+
+    @media (min-width: 992px) {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+    @media (min-width: 576px) {
+        display: none;
+    }
+    @media (min-width: 992px) {
+        display: block;
+    }
+}
+
+.banner {
+    background-color: #e6e6e6;
+    display: block;
+    position: relative;
+    margin-bottom: 2rem;
+
+    &:hover {
+        &:hover .bannerLink:after,
+        &:focus .bannerLink:after {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    .bannerLink {
+        position: relative;
+        display: block;
+        outline: none;
+
+        &::after {
+            content: "";
             display: block;
-            position: relative;
-            margin-bottom: 2rem;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(51, 51, 51, 0.25);
+            z-index: 1;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
 
-            &:hover {
-                &:hover .bannerLink:after,
-                &:focus .bannerLink:after {
-                    visibility: visible;
-                    opacity: 1;
-                }
+        img {
+            display: block;
+            max-width: none;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .bannerContent {
+        display: inline-block;
+        position: absolute;
+        padding-top: 0.4rem;
+        top: 50%;
+        z-index: 2;
+        transform: translateY(-50%);
+        left: auto;
+        right: 25px;
+
+        h4 {
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.6rem;
+            color: #ebebeb;
+            font-size: 1.6rem;
+            line-height: 1.2;
+
+            a {
+                color: inherit;
+            }
+        }
+
+        h3 {
+            font-weight: 600;
+            font-size: 2.4rem;
+            line-height: 1.25;
+            margin-bottom: 0.1rem;
+            letter-spacing: -0.01em;
+            color: #fff;
+
+            a {
+                color: #fff;
+            }
+        }
+
+        button {
+            min-width: 110px;
+            margin-top: 1.4rem;
+            padding: 0.8rem 2rem;
+            font-size: 1.4rem;
+            line-height: 1;
+            text-transform: uppercase;
+            border-radius: 3rem;
+        }
+    }
+
+    .bannerText {
+        color: #333;
+        font-weight: 300;
+        font-size: 2.4rem;
+        line-height: 1.25;
+        letter-spacing: -0.025em;
+
+        a {
+            color: inherit;
+        }
+    }
+
+    &.bannerLight {
+        .bannerLink {
+            &::after {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .bannerContent {
+            left: 30px;
+        }
+
+        h4 {
+            color: #666;
+        }
+
+        h3 {
+            color: #333333;
+
+            a {
+                color: inherit;
+            }
+        }
+    }
+
+    &.bannerLarge {
+        .bannerContent {
+            left: 2.5rem;
+            top: auto;
+            bottom: 40px;
+            transform: translateY(0);
+
+            @media screen and (min-width: 768px) {
+                left: 5rem;
             }
 
-            .bannerLink {
-                position: relative;
-                position: relative;
-                display: block;
-                outline: none;
+            h4,
+            h3,
+            .bannerText {
+                color: #fff;
 
-                &::after {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    top: 0;
-                    bottom: 0;
-                    background-color: rgba(51, 51, 51, 0.25);
-                    z-index: 1;
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: all 0.4s ease;
-                }
-
-                img {
-                    display: block;
-                    max-width: none;
-                    width: 100%;
-                    height: auto;
-                }
-            }
-
-            .bannerContent {
-                display: inline-block;
-                position: absolute;
-                padding-top: 0.4rem;
-                top: 50%;
-                z-index: 2;
-                transform: translateY(-50%);
-                left: auto;
-                right: 25px;
-
-                h4 {
-                    font-weight: 300;
-                    letter-spacing: -0.01em;
-                    margin-bottom: 0.6rem;
-                    color: #ebebeb;
-                    font-size: 1.6rem;
-                    line-height: 1.2;
-
-                    a {
-                        color: inherit;
-                    }
-                }
-
-                h3 {
-                    font-weight: 600;
-                    font-size: 2.4rem;
-                    line-height: 1.25;
-                    margin-bottom: 0.1rem;
-                    letter-spacing: -0.01em;
-                    color: #fff;
-
-                    a {
-                        color: #fff;
-                    }
-                }
-
-                button {
-                    min-width: 110px;
-                    margin-top: 1.4rem;
-                    padding: 0.8rem 2rem;
-                    font-size: 1.4rem;
-                    line-height: 1;
-                    text-transform: uppercase;
-                    border-radius: 3rem;
-                }
-            }
-
-            &.bannerLight {
-                .bannerLink {
-                    &::after {
-                        background-color: rgba(255, 255, 255, 0.3);
-                    }
-                }
-
-                .bannerContent {
-                    left: 30px;
-                }
-
-                h4 {
-                    color: #666;
-                }
-
-                h3 {
-                    color: #333333;
-
-                    a {
-                        color: inherit;
-                    }
-                }
-
-                .bannerText {
-                    color: #333;
-                    font-weight: 300;
-                    font-size: 2.4rem;
-                    line-height: 1.25;
-                    letter-spacing: -0.025em;
-
-                    a {
-                        color: inherit;
-                    }
+                a {
+                    color: inherit;
                 }
             }
         }

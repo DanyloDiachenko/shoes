@@ -10,20 +10,16 @@ export const Advertisement = () => {
                     <div className="row">
                         <div className={styles.column}>
                             <div className={styles.banner}>
-                                <Link href="" className={styles.bannerLink}>
+                                <Link href="#" className={styles.bannerLink}>
                                     <img
                                         src="/images/banners/advertisement-1.png"
                                         alt="Banner"
                                     />
                                 </Link>
                                 <div className={styles.bannerContent}>
-                                    <h4>
-                                        <Link href="">New Arrivals</Link>
-                                    </h4>
+                                    <h4>New Arrivals</h4>
                                     <h3>
-                                        <Link href="">
-                                            Sneakers &<br /> Athletic Shoes
-                                        </Link>
+                                        Sneakers &<br /> Athletic Shoes
                                     </h3>
                                     <Button colorType="btnWhite">
                                         Discover Now
@@ -35,32 +31,50 @@ export const Advertisement = () => {
                             <div
                                 className={`${styles.banner} ${styles.bannerLight}`}
                             >
-                                <Link href="" className={styles.bannerLink}>
+                                <Link href="#" className={styles.bannerLink}>
                                     <img
                                         src="/images/banners/advertisement-2.png"
                                         alt="Banner"
                                     />
                                 </Link>
                                 <div className={styles.bannerContent}>
-                                    <h4>
-                                        <Link href="">Clearance</Link>
-                                    </h4>
-                                    <h3>
-                                        <Link href="">Sandals</Link>
-                                    </h3>
+                                    <h4>Clearance</h4>
+                                    <h3>Sandals</h3>
                                     <div className={styles.bannerText}>
-                                        <Link href="#">up to 70% off</Link>
+                                        up to 70% off
                                     </div>
-                                    <Button colorType="btnGrayPrimary">
-                                        Shop now
-                                    </Button>
+                                    <Link href="#">
+                                        <Button colorType="btnGrayPrimary">
+                                            Shop now
+                                        </Button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className={styles.bannerLarge}></div>
                 </div>
-                <div className={styles.rightColumn}></div>
+                <div className={styles.rightColumn}>
+                    <div className={`${styles.banner} ${styles.bannerLarge}`}>
+                        <Link href="#" className={styles.bannerLink}>
+                            <img
+                                src="/images/banners/advertisement-3.png"
+                                alt="Banner"
+                            />
+                        </Link>
+                        <div className={styles.bannerContent}>
+                            <h4>On Sale</h4>
+                            <h3>
+                                Amazing <br /> Lace Up Boots
+                            </h3>
+                            <div className={styles.bannerText}>from $39.00</div>
+                            <Link href="#">
+                                <Button colorType="btnWhite">
+                                    Discover Now
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
