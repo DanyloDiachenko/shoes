@@ -32,7 +32,7 @@ export const Advertisement = () => {
                             </div>
                         </div>
                         <div className={styles.column}>
-                            <div className={styles.banner}>
+                            <div className={`${styles.banner} ${styles.bannerLight}`}>
                                 <Link href="" className={styles.bannerLink}>
                                     <img
                                         src="/images/banners/advertisement-1.png"
