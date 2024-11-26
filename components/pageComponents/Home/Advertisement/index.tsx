@@ -35,7 +35,7 @@ export const Advertisement = () => {
                             <div className={`${styles.banner} ${styles.bannerLight}`}>
                                 <Link href="" className={styles.bannerLink}>
                                     <img
-                                        src="/images/banners/advertisement-1.png"
+                                        src="/images/banners/advertisement-2.png"
                                         alt="Banner"
                                     />
                                 </Link>
