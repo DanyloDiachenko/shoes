@@ -55,7 +55,7 @@ export const Advertisement = () => {
                     <div
                         className={`${styles.banner} ${styles.bannerLarge} ${styles.bannerBottom}`}
                     >
-                        <Link href="#">
+                        <Link href="#" className={styles.bannerLink}>
                             <img
                                 src="/images/banners/advertisement-4.png"
                                 alt="Banner"
