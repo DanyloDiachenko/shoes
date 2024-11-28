@@ -1,0 +1,70 @@
+.services {
+    padding-top: 0.45rem;
+    padding-bottom: 3rem;
+
+    .column {
+        padding-right: 10px;
+        padding-left: 10px;
+        position: relative;
+        width: 100%;
+
+        @media (min-width: 576px) {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        @media (min-width: 992px) {
+            -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+
+        .iconBox {
+            padding-left: 0.5rem;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            margin-bottom: 0;
+            color: #777;
+            font-weight: 300;
+            font-size: 1.6rem;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 4rem;
+            }
+            @media screen and (min-width: 768px) {
+                margin-bottom: 0;
+            }
+
+            .icon {
+                font-size: 4rem;
+                display: inline-block;
+                line-height: 0;
+                min-width: 7rem;
+                text-align: center;
+                margin-bottom: 0;
+                color: #c96;
+            }
+        }
+
+        .content {
+            .title {
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 1.6rem;
+                letter-spacing: -0.01em;
+                margin-top: 0.2rem;
+                margin-bottom: 0;
+                color: #333333;
+            }
+
+            p {
+                letter-spacing: -0.01em;
+            }
+        }
+    }
+}
