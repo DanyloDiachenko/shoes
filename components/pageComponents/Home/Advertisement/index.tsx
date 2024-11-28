@@ -52,6 +52,31 @@ export const Advertisement = () => {
                             </div>
                         </div>
                     </div>
+                    <div
+                        className={`${styles.banner} ${styles.bannerLarge} ${styles.bannerBottom}`}
+                    >
+                        <Link href="#">
+                            <img
+                                src="/images/banners/advertisement-4.png"
+                                alt="Banner"
+                            />
+                        </Link>
+                        <div className={styles.bannerContent}>
+                            <h4 className="banner-subtitle text-white">
+                                On Sale
+                            </h4>
+                            <h3>
+                                Amazing <br />
+                                Lace Up Boots
+                            </h3>
+                            <div className={styles.bannerText}>from $39.00</div>
+                            <Link href="#">
+                                <Button colorType="btnWhite">
+                                    Discover Now
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
                 <div className={styles.rightColumn}>
                     <div className={`${styles.banner} ${styles.bannerLarge}`}>
