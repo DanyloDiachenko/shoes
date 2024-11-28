@@ -11,7 +11,7 @@ export const slides: Slide[] = [
         },
         imageSrcs: {
             main: "/images/banners/slider-1.png",
-            adaptive: "/images/banners/slide-1-480w.png",
+            adaptive: "/images/banners/slider-1-480w.png",
         },
     },
     {
@@ -24,7 +24,7 @@ export const slides: Slide[] = [
         },
         imageSrcs: {
             main: "/images/banners/slider-2.png",
-            adaptive: "/images/banners/slide-2-480w.png",
+            adaptive: "/images/banners/slider-2-480w.png",
         },
     },
     {
@@ -37,7 +37,7 @@ export const slides: Slide[] = [
         },
         imageSrcs: {
             main: "/images/banners/slider-3.png",
-            adaptive: "/images/banners/slide-3-480w.png",
+            adaptive: "/images/banners/slider-3-480w.png",
         },
     },
 ];
