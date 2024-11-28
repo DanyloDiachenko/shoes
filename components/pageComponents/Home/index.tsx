@@ -1,4 +1,5 @@
 import { Advertisement } from "./Advertisement";
+import { Services } from "./Services";
 import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
 
@@ -7,6 +8,7 @@ export const HomePageComponent = () => {
         <>
             <Slider />
             <Advertisement />
+            <Services />
         </>
     );
 };
