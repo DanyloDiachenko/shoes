@@ -1,3 +1,5 @@
+'use client';
+
 import { getProductRating } from "@/helpers/getProductRating";
 import styles from "./styles.module.scss";
 import Slider from "react-slick";
@@ -79,7 +81,6 @@ export const NewArrivals = () => {
             <div className="container">
                 <div className={styles.heading}>
                     <h2 className={styles.title}>New Arrivals</h2>
-
                     <ul className={styles.nav} role="tablist">
                         <li className={styles.navItem}>
                             <Link
