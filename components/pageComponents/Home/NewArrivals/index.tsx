@@ -97,7 +97,6 @@ export const NewArrivals = () => {
                             <Link
                                 className={styles.navLink}
                                 id="new-women-link"
-                                data-toggle="tab"
                                 href="#new-women-tab"
                                 role="tab"
                                 aria-controls="new-women-tab"
@@ -110,7 +109,6 @@ export const NewArrivals = () => {
                             <Link
                                 className={styles.navLink}
                                 id="new-men-link"
-                                data-toggle="tab"
                                 href="#new-men-tab"
                                 role="tab"
                                 aria-controls="new-men-tab"
@@ -168,63 +166,55 @@ export const NewArrivals = () => {
                                         <Link href="#">Men’s</Link>,
                                         <Link href="#">Boots</Link>
                                     </div>
-                                    <h3 className="product-title">
-                                        <a href="product.html">
+                                    <h3 className={styles.title}>
+                                        <Link href="product.html">
                                             The North Face Back-To-Berkeley
                                             Remtlz Mesh
-                                        </a>
+                                        </Link>
                                     </h3>
-                                    <div className="product-price">
-                                        <span className="new-price">
+                                    <div className={styles.price}>
+                                        <span className={styles.newPrice}>
                                             Now $50.00
                                         </span>
-                                        <span className="old-price">
+                                        <span className={styles.oldPrice}>
                                             $84.00
                                         </span>
                                     </div>
                                 </div>
 
-                                <div className="product-footer">
-                                    <div className="ratings-container">
+                                <div className={styles.footer}>
+                                    <div className={styles.ratingsContainer}>
                                         {getProductRating(4)}
-                                        <span className="ratings-text">
+                                        <span className={styles.ratingsText}>
                                             ( 4 Reviews )
                                         </span>
                                     </div>
 
-                                    <div className="product-nav product-nav-dots">
-                                        <a
+                                    <div className={styles.productNav}>
+                                        <Link
                                             href="#"
-                                            className="active"
+                                            className={styles.active}
                                             style={{ background: "#5f554b" }}
                                         >
                                             <span className="sr-only">
                                                 Color name
                                             </span>
-                                        </a>
-                                        <a
-                                            href="#"
-                                            style={{ background: "#806f55" }}
-                                        >
-                                            <span className="sr-only">
-                                                Color name
-                                            </span>
-                                        </a>
+                                        </Link>
                                     </div>
 
-                                    <div className="product-action">
-                                        <a
+                                    <div className={styles.action}>
+                                        <Link
                                             href="#"
-                                            className="btn-product btn-cart"
+                                            className={styles.product}
                                         >
                                             <span>add to cart</span>
-                                        </a>
-                                        <a
+                                        </Link>
+                                        <Link
                                             href="popup/quickView.html"
-                                            className="btn-product btn-quickview"
+                                            className={styles.product}
                                         >
                                             <span>quick view</span>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
