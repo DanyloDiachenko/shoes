@@ -1,30 +1,76 @@
 import { getProductRating } from "@/helpers/getProductRating";
 import styles from "./styles.module.scss";
+import Slider from "react-slick";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-/* data-owl-options='{
-                                    "nav": false, 
-                                    "dots": true,
-                                    "margin": 0,
-                                    "loop": false,
-                                    "responsive": {
-                                        "0": {
-                                            "items":2
-                                        },
-                                        "480": {
-                                            "items":2
-                                        },
-                                        "768": {
-                                            "items":3
-                                        },
-                                        "992": {
-                                            "items":4
-                                        },
-                                        "1200": {
-                                            "items":4,
-                                            "nav": true
-                                        }
-                                    }
-                                }' */
+const SampleNextArrow = (props: any) => {
+    const { className, style, onClick } = props;
+
+    return (
+        <div
+            className={`${className} ${styles.arrowNext}`}
+            style={{ ...style }}
+            onClick={onClick}
+        >
+            <IoIosArrowForward />
+        </div>
+    );
+};
+
+const SamplePrevArrow = (props: any) => {
+    const { className, style, onClick } = props;
+
+    return (
+        <div
+            className={`${className} ${styles.arrowPrev}`}
+            style={{ ...style }}
+            onClick={onClick}
+        >
+            <IoIosArrowBack />
+        </div>
+    );
+};
+
+const sliderSettings = {
+    arrows: false,
+    dots: true,
+    infinite: false,
+    responsive: [
+        {
+            breakpoint: 0,
+            settings: {
+                slidesToShow: 2,
+            },
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 2,
+            },
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 3,
+            },
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 4,
+            },
+        },
+        {
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 4,
+                arrows: true,
+            },
+        },
+    ],
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+};
 
 export const NewArrivals = () => {
     return (
@@ -86,33 +132,9 @@ export const NewArrivals = () => {
                         role="tabpanel"
                         aria-labelledby="new-all-link"
                     >
-                        <div
-                            className="owl-carousel owl-simple carousel-equal-height"
-                            data-toggle="owl"
-                            data-owl-options='{
-                                    "nav": false, 
-                                    "dots": true,
-                                    "margin": 0,
-                                    "loop": false,
-                                    "responsive": {
-                                        "0": {
-                                            "items":2
-                                        },
-                                        "480": {
-                                            "items":2
-                                        },
-                                        "768": {
-                                            "items":3
-                                        },
-                                        "992": {
-                                            "items":4
-                                        },
-                                        "1200": {
-                                            "items":4,
-                                            "nav": true
-                                        }
-                                    }
-                                }'
+                        <Slider
+                            className={`${styles.slider} may-like-slider`}
+                            {...sliderSettings}
                         >
                             <div className="product product-3 text-center">
                                 <figure className="product-media">
@@ -205,9 +227,10 @@ export const NewArrivals = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </Slider>
                     </div>
-                    <div
+                </div>
+                {/* <div
                         className="tab-pane tab-pane-shadow p-0 fade"
                         id="new-women-tab"
                         role="tabpanel"
@@ -241,8 +264,7 @@ export const NewArrivals = () => {
                                     }
                                 }'
                         ></div>
-                    </div>
-                </div>
+                    </div> */}
             </div>
         </div>
     );
