@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { getProductRating } from "@/helpers/getProductRating";
 import styles from "./styles.module.scss";
@@ -121,107 +121,90 @@ export const NewArrivals = () => {
                     </ul>
                 </div>
 
-                <div className={styles.tabContent}>
-                    <div
-                        className={styles.tabPane}
-                        id="new-all-tab"
-                        role="tabpanel"
-                        aria-labelledby="new-all-link"
-                    >
-                        <Slider
-                            className={`${styles.slider} new-arrivals-slider`}
-                            {...sliderSettings}
-                        >
-                            <div className={styles.product}>
-                                <figure className={styles.media}>
-                                    <span
-                                        className={`${styles.label} ${styles.labelPrimary}`}
-                                    >
-                                        Sale
-                                    </span>
-                                    <span
-                                        className={`${styles.label} ${styles.labelSale}`}
-                                    >
-                                        30% off
-                                    </span>
-                                    <Link href="product.html">
-                                        <img
-                                            src="assets/images/demos/demo-10/products/product-1.jpg"
-                                            alt="Product image"
-                                            className="product-image"
-                                        />
-                                    </Link>
-
-                                    <div className="product-action-vertical">
-                                        <Link
-                                            href="#"
-                                            className="btn-product-icon btn-wishlist btn-expandable"
-                                        >
-                                            <span>add to wishlist</span>
-                                        </Link>
-                                    </div>
-                                </figure>
-
-                                <div className={styles.body}>
-                                    <div className={styles.category}>
-                                        <Link href="#">Men’s</Link>,
-                                        <Link href="#">Boots</Link>
-                                    </div>
-                                    <h3 className={styles.title}>
-                                        <Link href="product.html">
-                                            The North Face Back-To-Berkeley
-                                            Remtlz Mesh
-                                        </Link>
-                                    </h3>
-                                    <div className={styles.price}>
-                                        <span className={styles.newPrice}>
-                                            Now $50.00
-                                        </span>
-                                        <span className={styles.oldPrice}>
-                                            $84.00
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div className={styles.footer}>
-                                    <div className={styles.ratingsContainer}>
-                                        {getProductRating(4)}
-                                        <span className={styles.ratingsText}>
-                                            ( 4 Reviews )
-                                        </span>
-                                    </div>
-
-                                    <div className={styles.productNav}>
-                                        <Link
-                                            href="#"
-                                            className={styles.active}
-                                            style={{ background: "#5f554b" }}
-                                        >
-                                            <span className="sr-only">
-                                                Color name
-                                            </span>
-                                        </Link>
-                                    </div>
-
-                                    <div className={styles.action}>
-                                        <Link
-                                            href="#"
-                                            className={styles.product}
-                                        >
-                                            <span>add to cart</span>
-                                        </Link>
-                                        <Link
-                                            href="popup/quickView.html"
-                                            className={styles.product}
-                                        >
-                                            <span>quick view</span>
-                                        </Link>
-                                    </div>
-                                </div>
+                <Slider
+                    className={`${styles.slider} new-arrivals-slider`}
+                    aria-labelledby="new-all-link"
+                    {...sliderSettings}
+                >
+                    <div className={styles.product}>
+                        <figure className={styles.media}>
+                            <span
+                                className={`${styles.label} ${styles.labelPrimary}`}
+                            >
+                                Sale
+                            </span>
+                            <span
+                                className={`${styles.label} ${styles.labelSale}`}
+                            >
+                                30% off
+                            </span>
+                            <Link href="product.html" className={styles.productLink}>
+                                <img
+                                    src="assets/images/demos/demo-10/products/product-1.jpg"
+                                    alt="Product image"
+                                    className="product-image"
+                                />
+                            </Link>
+                            <div className={styles.actionVertical}>
+                                <Link
+                                    href="#"
+                                    className="btn-product-icon btn-wishlist btn-expandable"
+                                >
+                                    <span>add to wishlist</span>
+                                </Link>
                             </div>
-                        </Slider>
+                        </figure>
+
+                        <div className={styles.body}>
+                            <div className={styles.category}>
+                                <Link href="#">Men’s</Link>,
+                                <Link href="#">Boots</Link>
+                            </div>
+                            <h3 className={styles.title}>
+                                <Link href="product.html">
+                                    The North Face Back-To-Berkeley Remtlz Mesh
+                                </Link>
+                            </h3>
+                            <div className={styles.price}>
+                                <span className={styles.newPrice}>
+                                    Now $50.00
+                                </span>
+                                <span className={styles.oldPrice}>$84.00</span>
+                            </div>
+                        </div>
+
+                        <div className={styles.footer}>
+                            <div className={styles.ratingsContainer}>
+                                {getProductRating(4)}
+                                <span className={styles.ratingsText}>
+                                    ( 4 Reviews )
+                                </span>
+                            </div>
+
+                            <div className={styles.productNav}>
+                                <Link
+                                    href="#"
+                                    className={styles.active}
+                                    style={{ background: "#5f554b" }}
+                                >
+                                    <span className="sr-only">Color name</span>
+                                </Link>
+                            </div>
+
+                            <div className={styles.action}>
+                                <Link href="#" className={styles.product}>
+                                    <span>add to cart</span>
+                                </Link>
+                                <Link
+                                    href="popup/quickView.html"
+                                    className={styles.product}
+                                >
+                                    <span>quick view</span>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </Slider>
                 {/* <div
                         className="tab-pane tab-pane-shadow p-0 fade"
                         id="new-women-tab"
