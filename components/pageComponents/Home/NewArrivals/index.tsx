@@ -2,6 +2,7 @@ import { getProductRating } from "@/helpers/getProductRating";
 import styles from "./styles.module.scss";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Link from "next/link";
 
 const SampleNextArrow = (props: any) => {
     const { className, style, onClick } = props;
@@ -74,31 +75,27 @@ const sliderSettings = {
 
 export const NewArrivals = () => {
     return (
-        <div className="bg-light pt-5 pb-10 mb-3">
+        <div className={styles.newArrivals}>
             <div className="container">
-                <div className="heading heading-center mb-3">
-                    <h2 className="title-lg">New Arrivals</h2>
+                <div className={styles.heading}>
+                    <h2 className={styles.title}>New Arrivals</h2>
 
-                    <ul
-                        className="nav nav-pills justify-content-center"
-                        role="tablist"
-                    >
-                        <li className="nav-item">
-                            <a
-                                className="nav-link active"
+                    <ul className={styles.nav} role="tablist">
+                        <li className={styles.navItem}>
+                            <Link
+                                className={`${styles.navLink} ${styles.active}`}
                                 id="new-all-link"
-                                data-toggle="tab"
                                 href="#new-all-tab"
                                 role="tab"
                                 aria-controls="new-all-tab"
                                 aria-selected="true"
                             >
                                 All
-                            </a>
+                            </Link>
                         </li>
-                        <li className="nav-item">
-                            <a
-                                className="nav-link"
+                        <li className={styles.navItem}>
+                            <Link
+                                className={styles.navLink}
                                 id="new-women-link"
                                 data-toggle="tab"
                                 href="#new-women-tab"
@@ -107,11 +104,11 @@ export const NewArrivals = () => {
                                 aria-selected="false"
                             >
                                 Women's
-                            </a>
+                            </Link>
                         </li>
-                        <li className="nav-item">
-                            <a
-                                className="nav-link"
+                        <li className={styles.navItem}>
+                            <Link
+                                className={styles.navLink}
                                 id="new-men-link"
                                 data-toggle="tab"
                                 href="#new-men-tab"
@@ -120,52 +117,56 @@ export const NewArrivals = () => {
                                 aria-selected="false"
                             >
                                 Men's
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
 
-                <div className="tab-content tab-content-carousel">
+                <div className={styles.tabContent}>
                     <div
-                        className="tab-pane tab-pane-shadow p-0 fade show active"
+                        className={styles.tabPane}
                         id="new-all-tab"
                         role="tabpanel"
                         aria-labelledby="new-all-link"
                     >
                         <Slider
-                            className={`${styles.slider} may-like-slider`}
+                            className={`${styles.slider} new-arrivals-slider`}
                             {...sliderSettings}
                         >
-                            <div className="product product-3 text-center">
-                                <figure className="product-media">
-                                    <span className="product-label label-primary">
+                            <div className={styles.product}>
+                                <figure className={styles.media}>
+                                    <span
+                                        className={`${styles.label} ${styles.labelPrimary}`}
+                                    >
                                         Sale
                                     </span>
-                                    <span className="product-label label-sale">
+                                    <span
+                                        className={`${styles.label} ${styles.labelSale}`}
+                                    >
                                         30% off
                                     </span>
-                                    <a href="product.html">
+                                    <Link href="product.html">
                                         <img
                                             src="assets/images/demos/demo-10/products/product-1.jpg"
                                             alt="Product image"
                                             className="product-image"
                                         />
-                                    </a>
+                                    </Link>
 
                                     <div className="product-action-vertical">
-                                        <a
+                                        <Link
                                             href="#"
                                             className="btn-product-icon btn-wishlist btn-expandable"
                                         >
                                             <span>add to wishlist</span>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </figure>
 
-                                <div className="product-body">
-                                    <div className="product-cat">
-                                        <a href="#">Men’s</a>,
-                                        <a href="#">Boots</a>
+                                <div className={styles.body}>
+                                    <div className={styles.category}>
+                                        <Link href="#">Men’s</Link>,
+                                        <Link href="#">Boots</Link>
                                     </div>
                                     <h3 className="product-title">
                                         <a href="product.html">
