@@ -97,6 +97,32 @@
                         height: auto;
                     }
                 }
+
+                .label {
+                    position: absolute;
+                    z-index: 1;
+                    top: 2rem;
+                    left: 2rem;
+                    font-weight: 400;
+                    font-size: 1.3rem;
+                    line-height: 1.6rem;
+                    letter-spacing: -0.01em;
+                    padding: 0.5rem 0.9rem;
+                    min-width: 45px;
+                    text-align: center;
+                    color: #333333;
+                    background-color: #fff;
+
+                    &.labelPrimary {
+                        background-color: #c96;
+                        color: #fff;
+                    }
+                    &.labelSale {
+                        color: #fff;
+                        background-color: #ef837b;
+                        top: 5rem;
+                    }
+                }
             }
         }
     }
