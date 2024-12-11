@@ -124,7 +124,7 @@ export const NewArrivals = () => {
                 </div>
 
                 <Slider
-                    className={`${styles.slider} new-arrivals-slider`}
+                    className={`new-arrivals-slider`}
                     aria-labelledby="new-all-link"
                     {...sliderSettings}
                 >
@@ -145,7 +145,7 @@ export const NewArrivals = () => {
                                 className={styles.productLink}
                             >
                                 <img
-                                    src="assets/images/demos/demo-10/products/product-1.jpg"
+                                    src="https://nike.in.ua/image/cache/catalog/image/cache/catalog/image/catalog/image/nike/airmax/plus-tn/S-56201/32241-375x467.webp"
                                     alt="Product image"
                                     className="product-image"
                                 />
@@ -186,7 +186,6 @@ export const NewArrivals = () => {
                                 )}
                             </div>
                         </div>
-
                         <div className={styles.footer}>
                             <div className={styles.ratingsContainer}>
                                 {getProductRating(4)}
@@ -198,14 +197,13 @@ export const NewArrivals = () => {
                             <div className={styles.productNav}>
                                 <Link
                                     href="#"
-                                    className={styles.active}
+                                    className={styles.color}
                                     style={{ background: "#5f554b" }}
                                 >
                                     <span className="sr-only">Color name</span>
                                 </Link>
                             </div>
-
-                            <div className={styles.action}>
+                            <div className={styles.actions}>
                                 <Link href="#" className={styles.product}>
                                     <span>add to cart</span>
                                 </Link>
