@@ -154,6 +154,15 @@
                     }
                 }
             }
+
+            .body {
+                transform: translateY(0px);
+                padding-bottom: 1.8rem;
+                transition: transform 0.35s ease;
+                padding: 1.6rem 1rem 0;
+                background-color: #fff;
+                position: relative;
+            }
         }
     }
 }

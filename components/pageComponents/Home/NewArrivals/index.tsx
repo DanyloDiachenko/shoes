@@ -5,6 +5,8 @@ import styles from "./styles.module.scss";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
+import { LiaCartPlusSolid } from "react-icons/lia";
+import { FaRegHeart } from "react-icons/fa";
 
 const SampleNextArrow = (props: any) => {
     const { className, style, onClick } = props;
@@ -138,23 +140,23 @@ export const NewArrivals = () => {
                             >
                                 30% off
                             </span>
-                            <Link href="product.html" className={styles.productLink}>
+                            <Link
+                                href="product.html"
+                                className={styles.productLink}
+                            >
                                 <img
                                     src="assets/images/demos/demo-10/products/product-1.jpg"
                                     alt="Product image"
                                     className="product-image"
                                 />
                             </Link>
-                            <div className={styles.actionVertical}>
-                                <Link
-                                    href="#"
-                                    className="btn-product-icon btn-wishlist btn-expandable"
-                                >
-                                    
+                            <div className={styles.actionvertical}>
+                                <Link href={`/products/`}>
+                                    <FaRegHeart />
+                                    <span className="sr-only">add to wishlist</span>
                                 </Link>
                             </div>
                         </figure>
-
                         <div className={styles.body}>
                             <div className={styles.category}>
                                 <Link href="#">Men’s</Link>,
