@@ -150,7 +150,7 @@ export const NewArrivals = () => {
                                     href="#"
                                     className="btn-product-icon btn-wishlist btn-expandable"
                                 >
-                                    <span>add to wishlist</span>
+                                    
                                 </Link>
                             </div>
                         </figure>
