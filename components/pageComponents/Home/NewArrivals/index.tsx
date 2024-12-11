@@ -148,7 +148,7 @@ export const NewArrivals = () => {
                         </figure>
                         <div className={styles.body}>
                             <div className={styles.category}>
-                                <Link href="#">Men’s</Link>,
+                                <Link href="#">Men’s</Link>,{" "}
                                 <Link href="#">Boots</Link>
                             </div>
                             <h3 className={styles.title}>

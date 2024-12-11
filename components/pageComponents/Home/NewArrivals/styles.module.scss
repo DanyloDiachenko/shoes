@@ -191,6 +191,11 @@
                 a {
                     transition: all 0.35s ease;
                     color: inherit;
+
+                    &:hover {
+                        color: #c96;
+                        box-shadow: 0 1px 0 #c96;
+                    }
                 }
             }
 
@@ -206,6 +211,11 @@
                     box-shadow: none;
                     transition: all 0.3s;
                     color: inherit;
+
+                    &:hover {
+                        color: #c96;
+                        box-shadow: 0 1px 0 #c96;
+                    }
                 }
             }
 
@@ -336,6 +346,15 @@
                 visibility: visible;
                 opacity: 1;
                 transform: translateX(0);
+            }
+
+            .body {
+                transform: translateY(-114px);
+            }
+
+            .footer {
+                visibility: visible;
+                transform: translateY(0px);
             }
         }
     }
