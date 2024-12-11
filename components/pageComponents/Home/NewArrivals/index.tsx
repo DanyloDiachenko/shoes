@@ -153,7 +153,9 @@ export const NewArrivals = () => {
                             <div className={styles.actionvertical}>
                                 <Link href={`/products/`}>
                                     <FaRegHeart />
-                                    <span className="sr-only">add to wishlist</span>
+                                    <span className="sr-only">
+                                        add to wishlist
+                                    </span>
                                 </Link>
                             </div>
                         </figure>
@@ -168,10 +170,20 @@ export const NewArrivals = () => {
                                 </Link>
                             </h3>
                             <div className={styles.price}>
-                                <span className={styles.newPrice}>
-                                    Now $50.00
-                                </span>
-                                <span className={styles.oldPrice}>$84.00</span>
+                                {true ? (
+                                    <>
+                                        <span className={styles.newPrice}>
+                                            Now $50.00
+                                        </span>
+                                        <span className={styles.oldPrice}>
+                                            $84.00
+                                        </span>
+                                    </>
+                                ) : (
+                                    <span className={styles.outPrice}>
+                                        $54.99
+                                    </span>
+                                )}
                             </div>
                         </div>
 
