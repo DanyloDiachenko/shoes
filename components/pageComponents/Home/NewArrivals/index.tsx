@@ -113,7 +113,7 @@ export const NewArrivals = () => {
                     </ul>
                 </div>
                 <Slider
-                    className={`new-arrivals-slider`}
+                    className={`${styles.slider} new-arrivals-slider`}
                     aria-labelledby="new-all-link"
                     {...sliderSettings}
                 >
