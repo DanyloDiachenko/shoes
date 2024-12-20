@@ -7,6 +7,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { FaRegHeart } from "react-icons/fa";
+import { LiaBinocularsSolid } from "react-icons/lia";
 
 const SampleNextArrow = (props: any) => {
     const { className, style, onClick } = props;
@@ -199,6 +200,7 @@ export const NewArrivals = () => {
                                     href="popup/quickView.html"
                                     className={styles.product}
                                 >
+                                    <LiaBinocularsSolid />
                                     <span>quick view</span>
                                 </Link>
                             </div>
