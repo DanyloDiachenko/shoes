@@ -328,6 +328,11 @@
                         font-size: 1.3rem;
                         letter-spacing: -0.01em;
                         transition: all 0.35s ease;
+                        margin-left: 1rem;
+
+                        &:hover {
+                            box-shadow: 0 1px 0 #c96;
+                        }
                     }
                 }
             }

@@ -192,6 +192,7 @@ export const NewArrivals = () => {
                             </div>
                             <div className={styles.actions}>
                                 <Link href="#" className={styles.product}>
+                                    <LiaCartPlusSolid />
                                     <span>add to cart</span>
                                 </Link>
                                 <Link
