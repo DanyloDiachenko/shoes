@@ -62,6 +62,12 @@ const sliderSettings = {
                 slidesToShow: 3,
             },
         },
+        {
+            breakpoint: 1280,
+            settings: {
+                arrows: false,
+            },
+        },
     ],
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
