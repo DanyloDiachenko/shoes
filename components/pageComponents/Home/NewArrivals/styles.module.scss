@@ -68,10 +68,6 @@
         border-left: 0.1rem solid #eeeeee;
         text-align: center;
 
-        &:not(:first-child) {
-            border-left: 0.1rem solid #eeeeee;
-        }
-
         .media {
             position: relative;
             display: block;
@@ -99,6 +95,9 @@
                     display: block;
                     width: 100%;
                     height: auto;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    background: #fff;
                 }
             }
 
@@ -360,6 +359,89 @@
             .footer {
                 visibility: visible;
                 transform: translateY(0px);
+            }
+        }
+    }
+}
+
+.arrowNext,
+.arrowPrev {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    color: #ccc;
+    font-size: 30px;
+
+    &:hover {
+        svg {
+            color: #c96;
+        }
+    }
+
+    &.arrowNext {
+        right: -50px;
+
+        @media (max-width: 1280px) {
+            right: 0;
+        }
+    }
+    &.arrowPrev {
+        left: -50px;
+
+        @media (max-width: 1280px) {
+            left: 0;
+        }
+    }
+
+    &::before {
+        display: none;
+    }
+
+    svg {
+        transition: 0.35s ease;
+    }
+}
+
+.dots {
+    bottom: -6rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    line-height: 0;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+
+    li {
+        display: inline-block;
+        zoom: 1;
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        user-select: none;
+
+        button {
+            width: 8px;
+            height: 8px;
+            margin: 5px 6px;
+            border: 0.1rem solid #d7d7d7;
+            background: transparent;
+            display: block;
+            -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+            transition: all 0.3s ease;
+            border-radius: 30px;
+            font-size: 0;
+            cursor: pointer;
+
+            &:hover {
+                background: #ccc;
+                border-color: #ccc;
             }
         }
     }

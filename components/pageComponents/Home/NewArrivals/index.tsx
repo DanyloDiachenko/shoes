@@ -42,6 +42,7 @@ const sliderSettings = {
     dots: true,
     infinite: false,
     slidesToShow: 4,
+    dotsClass: styles.dots,
     responsive: [
         {
             breakpoint: 0,
