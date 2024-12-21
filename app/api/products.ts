@@ -1,5 +1,5 @@
 import { Product } from "@/interfaces/product.interface";
-import { GetProductsResponse } from "@/interfaces/responses";
+import { GetProductsResponse } from "@/interfaces/responses/products.interface";
 import { Currency } from "@/types/currency.type";
 import { SortProductsBy } from "@/types/sortProductsBy.type";
 import { notFound } from "next/navigation";
