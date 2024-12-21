@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { getProductRating } from "@/helpers/getProductRating";
 import { FaRegHeart } from "react-icons/fa";
+import { LiaBinocularsSolid, LiaCartPlusSolid } from "react-icons/lia";
 
 export const TopSellingProducts = () => {
     return (
@@ -135,14 +136,18 @@ export const TopSellingProducts = () => {
                                             className={styles.addToCart}
                                             title="Add to cart"
                                         >
-                                            <span>add to cart</span>
+                                            <LiaCartPlusSolid />
+                                            <span className="sr-only">
+                                                add to cart
+                                            </span>
                                         </Link>
                                         <Link
                                             href="#"
                                             className={styles.quickView}
                                             title="Quick view"
                                         >
-                                            <span>quick view</span>
+                                            <LiaBinocularsSolid />
+                                            <span className="sr-only"></span>
                                         </Link>
                                     </div>
                                 </div>
