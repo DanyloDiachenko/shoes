@@ -86,7 +86,7 @@ export const TopSellingProducts = () => {
                                 </figure>
                                 <div className={styles.productBody}>
                                     <div className={styles.productCategories}>
-                                        <Link href="#">Men’s</Link>,
+                                        <Link href="#">Men’s</Link>,{" "}
                                         <Link href="#">Sneakers</Link>
                                     </div>
                                     <h3 className={styles.productTitle}>
