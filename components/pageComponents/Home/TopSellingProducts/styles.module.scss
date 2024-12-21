@@ -50,4 +50,58 @@
             }
         }
     }
+
+    .tabContent {
+        .tabPane {
+            display: block;
+
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+
+                .column {
+                    padding-left: 0;
+                    padding-right: 0;
+                    display: flex;
+                    align-items: stretch;
+                    border-right: 0.1rem solid #eee;
+                    width: 100%;
+                    position: relative;
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                    -ms-flex: 0 0 50%;
+
+                    @media (min-width: 768px) {
+                        -ms-flex: 0 0 33.333333%;
+                        flex: 0 0 33.333333%;
+                        max-width: 33.333333%;
+                    }
+                    @media (min-width: 992px) {
+                        -ms-flex: 0 0 25%;
+                        flex: 0 0 25%;
+                        max-width: 25%;
+                    }
+                    @media screen and (min-width: 1200px) {
+                        -ms-flex: 0 0 20%;
+                        flex: 0 0 20%;
+                        max-width: 20%;
+                    }
+
+                    .product {
+                        margin-bottom: 0;
+                        border-bottom: 0.1rem solid #eee;
+                        width: 100%;
+                        position: relative;
+                        overflow: hidden;
+                        background-color: #fff;
+                        transition: box-shadow 0.35s ease;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .moreContainer {
+    }
 }
