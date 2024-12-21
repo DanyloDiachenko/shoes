@@ -1,32 +1,62 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
+import { CategoriesProps } from "./categories.props";
+import { CustomCategory } from "./customCategory.interface";
 
-export const Categories = () => {
+export const Categories = ({ categories }: CategoriesProps) => {
+    const customCategories: CustomCategory[] = [
+        {
+            title: "Women's",
+            link: "/products?categories=women",
+            productsQuantity:
+                categories.find((category) => category.title === "Women")
+                    ?.productsQuantity || 0,
+            image: "/images/banners/category-women.png",
+        },
+        {
+            title: "Men's",
+            link: "/products?categories=men",
+            productsQuantity:
+                categories.find((category) => category.title === "Men")
+                    ?.productsQuantity || 0,
+            image: "/images/banners/category-men.png",
+        },
+        {
+            title: "Kid's",
+            link: "/products?categories=kids",
+            productsQuantity:
+                categories.find((category) => category.title === "Kids")
+                    ?.productsQuantity || 0,
+            image: "/images/banners/category-kids.png",
+        },
+    ];
+
     return (
         <div className={`${styles.categories} container`}>
             <div className={`${styles.row} row`}>
-                <div className={styles.column}>
-                    <div className={styles.banner}>
-                        <Link href="#">
-                            <img
-                                src="/images/banners/category-women.png"
-                                alt="Banner"
-                            />
-                        </Link>
-                        <div className={styles.bannerContent}>
-                            <h3 className={styles.bannerTitle}>Women's</h3>
-                            <h4 className={styles.bannerSubtitle}>
-                                125 Products
-                            </h4>
-                            <Link
-                                href="category.html"
-                                className={styles.bannerLink}
-                            >
-                                SHOP NOW
+                {customCategories.map((category, index) => (
+                    <div className={styles.column} key={index}>
+                        <div className={styles.banner}>
+                            <Link href="#">
+                                <img src={category.image} alt="Banner" />
                             </Link>
+                            <div className={styles.bannerContent}>
+                                <h3 className={styles.bannerTitle}>
+                                    {category.title}
+                                </h3>
+                                <h4 className={styles.bannerSubtitle}>
+                                    {category.productsQuantity} Products
+                                </h4>
+                                <Link
+                                    href={category.link}
+                                    className={styles.bannerLink}
+                                >
+                                    SHOP NOW
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
+                ))}
             </div>
         </div>
     );
