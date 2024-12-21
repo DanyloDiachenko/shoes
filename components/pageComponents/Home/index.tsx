@@ -15,6 +15,7 @@ export const HomePageComponent = ({ categories }: HomeProps) => {
             <Services />
             <NewArrivals />
             <Categories categories={categories} />
+            <div className={styles.marginBottom}></div>
             <TopSellingProducts />
         </>
     );
