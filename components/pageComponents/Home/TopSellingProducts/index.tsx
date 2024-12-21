@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { getProductRating } from "@/helpers/getProductRating";
+import { FaRegHeart } from "react-icons/fa";
 
 export const TopSellingProducts = () => {
     return (
@@ -61,7 +62,9 @@ export const TopSellingProducts = () => {
                                     <span className={styles.productLabel}>
                                         Sale
                                     </span>
-                                    <span className={styles.productLabel}>
+                                    <span
+                                        className={`${styles.productLabel} ${styles.sale}`}
+                                    >
                                         30% off
                                     </span>
                                     <Link href={`/products/`}>
@@ -71,17 +74,13 @@ export const TopSellingProducts = () => {
                                             className={styles.productImage}
                                         />
                                     </Link>
-                                    <div
-                                        className={styles.productActionVertical}
-                                    >
-                                        <Button
-                                            colorType="btnOutlinePrimary2"
-                                            className={styles.addToWishlist}
-                                        >
+                                    <div className={styles.actionVertical}>
+                                        <Link href={`/products/`}>
+                                            <FaRegHeart />
                                             <span className="sr-only">
                                                 add to wishlist
                                             </span>
-                                        </Button>
+                                        </Link>
                                     </div>
                                 </figure>
                                 <div className={styles.productBody}>
@@ -94,14 +93,20 @@ export const TopSellingProducts = () => {
                                             ASICS Tiger Gel-Lyte MT
                                         </Link>
                                     </h3>
-                                    <div className={styles.productPrice}>
-                                        <span className={styles.newPrice}>
+                                    {true ? (
+                                        <div className={styles.productPrice}>
+                                            <span className={styles.newPrice}>
+                                                Now $77.99
+                                            </span>
+                                            <span className={styles.oldPrice}>
+                                                $130.00
+                                            </span>
+                                        </div>
+                                    ) : (
+                                        <div className={styles.productPrice}>
                                             Now $77.99
-                                        </span>
-                                        <span className={styles.oldPrice}>
-                                            $130.00
-                                        </span>
-                                    </div>
+                                        </div>
+                                    )}
                                 </div>
                                 <div className={styles.productFooter}>
                                     <div className={styles.ratingsContainer}>
