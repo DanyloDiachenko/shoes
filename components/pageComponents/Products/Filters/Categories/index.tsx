@@ -17,6 +17,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
     const selectedCategories = useSelector(
         (state: RootState) => state.productsSettings.filters.categories
     );
+    console.log(selectedCategories);
 
     const setSelectedCategoriesHandler = (
         categories: ProductCategoryWithProductsQuantity[]
