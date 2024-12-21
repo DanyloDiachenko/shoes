@@ -4,6 +4,7 @@ import { Button } from "@/components/UI/Button";
 import { getProductRating } from "@/helpers/getProductRating";
 import { FaRegHeart } from "react-icons/fa";
 import { LiaBinocularsSolid, LiaCartPlusSolid } from "react-icons/lia";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 export const TopSellingProducts = () => {
     return (
@@ -160,7 +161,7 @@ export const TopSellingProducts = () => {
                 <Link href="/products">
                     <Button colorType="btnOutlinePrimary2">
                         <span>View more products</span>
-                        <i className="icon-long-arrow-right"></i>
+                        <FaArrowRightLong />
                     </Button>
                 </Link>
             </div>
