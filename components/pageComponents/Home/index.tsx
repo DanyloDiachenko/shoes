@@ -5,6 +5,7 @@ import { NewArrivals } from "./NewArrivals";
 import { Services } from "./Services";
 import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
+import { TopSellingProducts } from "./TopSellingProducts";
 
 export const HomePageComponent = ({ categories }: HomeProps) => {
     return (
@@ -14,6 +15,7 @@ export const HomePageComponent = ({ categories }: HomeProps) => {
             <Services />
             <NewArrivals />
             <Categories categories={categories} />
+            <TopSellingProducts />
         </>
     );
 };

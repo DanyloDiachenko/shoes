@@ -1,31 +1,30 @@
+import Link from "next/link";
+import styles from "./styles.module.scss";
+import { Button } from "@/components/UI/Button";
+import { getProductRating } from "@/helpers/getProductRating";
+
 export const TopSellingProducts = () => {
     return (
-        <div className="container">
-            <div className="heading heading-center mb-3">
-                <h2 className="title-lg mb-2">Top Selling Products</h2>
-
-                <ul
-                    className="nav nav-pills justify-content-center"
-                    role="tablist"
-                >
-                    <li className="nav-item">
-                        <a
-                            className="nav-link active"
+        <div className={`${styles.topSellingProducts} container`}>
+            <div className={styles.heading}>
+                <h2 className={styles.title}>Top Selling Products</h2>
+                <ul className={styles.nav} role="tablist">
+                    <li className={styles.navItem}>
+                        <Link
+                            className={`${styles.navLink} ${styles.active}`}
                             id="top-all-link"
-                            data-toggle="tab"
                             href="#top-all-tab"
                             role="tab"
                             aria-controls="top-all-tab"
-                            aria-selected="true"
+                            aria-selected={true}
                         >
                             All
-                        </a>
+                        </Link>
                     </li>
-                    <li className="nav-item">
+                    <li className={styles.navItem}>
                         <a
-                            className="nav-link"
+                            className={styles.navLink}
                             id="top-women-link"
-                            data-toggle="tab"
                             href="#top-women-tab"
                             role="tab"
                             aria-controls="top-women-tab"
@@ -34,11 +33,10 @@ export const TopSellingProducts = () => {
                             Women's
                         </a>
                     </li>
-                    <li className="nav-item">
+                    <li className={styles.navItem}>
                         <a
-                            className="nav-link"
+                            className={styles.navLink}
                             id="top-men-link"
-                            data-toggle="tab"
                             href="#top-men-tab"
                             role="tab"
                             aria-controls="top-men-tab"
@@ -49,75 +47,83 @@ export const TopSellingProducts = () => {
                     </li>
                 </ul>
             </div>
-            <div className="tab-content">
+            <div className={styles.tabContent}>
                 <div
-                    className="tab-pane p-0 fade show active"
+                    className={styles.tabPane}
                     id="top-all-tab"
                     role="tabpanel"
                     aria-labelledby="top-all-link"
                 >
-                    <div className="products just-action-icons-sm">
+                    <div className={styles.products}>
                         <div className="row">
-                            <div className="col-6 col-md-4 col-lg-3 col-xl-5col">
-                                <div className="product product-3 text-center">
-                                    <figure className="product-media">
-                                        <span className="product-label label-primary">
+                            <div className={styles.column}>
+                                <div className={styles.product}>
+                                    <figure className={styles.productMedia}>
+                                        <span className={styles.productLabel}>
                                             Sale
                                         </span>
-                                        <span className="product-label label-sale">
+                                        <span className={styles.productLabel}>
                                             30% off
                                         </span>
-                                        <a href="product.html">
+                                        <Link href={`/products/`}>
                                             <img
-                                                src="assets/images/demos/demo-10/products/product-5.jpg"
+                                                src="https://nike.in.ua/image/cache/catalog/image/cache/catalog/image/catalog/image/nike/airmax/plus-tn/S-56201/32241-375x467.webp"
                                                 alt="Product image"
-                                                className="product-image"
+                                                className={styles.productImage}
                                             />
-                                        </a>
-                                        <div className="product-action-vertical">
-                                            <a
-                                                href="#"
-                                                className="btn-product-icon btn-wishlist btn-expandable"
+                                        </Link>
+                                        <div
+                                            className={
+                                                styles.productActionVertical
+                                            }
+                                        >
+                                            <Button
+                                                colorType="btnOutlinePrimary2"
+                                                className={styles.addToWishlist}
                                             >
-                                                <span>add to wishlist</span>
-                                            </a>
+                                                <span className="sr-only">
+                                                    add to wishlist
+                                                </span>
+                                            </Button>
                                         </div>
                                     </figure>
-                                    <div className="product-body">
-                                        <div className="product-cat">
-                                            <a href="#">Men’s</a>,
-                                            <a href="#">Sneakers</a>
+                                    <div className={styles.productBody}>
+                                        <div
+                                            className={styles.productCategories}
+                                        >
+                                            <Link href="#">Men’s</Link>,
+                                            <Link href="#">Sneakers</Link>
                                         </div>
-                                        <h3 className="product-title">
-                                            <a href="product.html">
+                                        <h3 className={styles.productTitle}>
+                                            <Link href={`/products/${1}`}>
                                                 ASICS Tiger Gel-Lyte MT
-                                            </a>
+                                            </Link>
                                         </h3>
-                                        <div className="product-price">
-                                            <span className="new-price">
+                                        <div className={styles.productPrice}>
+                                            <span className={styles.newPrice}>
                                                 Now $77.99
                                             </span>
-                                            <span className="old-price">
+                                            <span className={styles.oldPrice}>
                                                 $130.00
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="product-footer">
-                                        <div className="ratings-container">
-                                            <div className="ratings">
-                                                <div
-                                                    className="ratings-val"
-                                                    style={{ width: "60%" }}
-                                                ></div>
+                                    <div className={styles.productFooter}>
+                                        <div
+                                            className={styles.ratingsContainer}
+                                        >
+                                            <div className={styles.ratings}>
+                                                {getProductRating(4)}
                                             </div>
-                                            <span className="ratings-text">
+                                            <span
+                                                className={styles.ratingsText}
+                                            >
                                                 ( 4 Reviews )
                                             </span>
                                         </div>
-                                        <div className="product-nav product-nav-dots">
-                                            <a
+                                        <div className={styles.productNav}>
+                                            <Link
                                                 href="#"
-                                                className="active"
                                                 style={{
                                                     background: "#af5f23",
                                                 }}
@@ -125,44 +131,23 @@ export const TopSellingProducts = () => {
                                                 <span className="sr-only">
                                                     Color name
                                                 </span>
-                                            </a>
-                                            <a
-                                                href="#"
-                                                style={{
-                                                    background: "#806f55",
-                                                }}
-                                            >
-                                                <span className="sr-only">
-                                                    Color name
-                                                </span>
-                                            </a>
-                                            <a
-                                                href="#"
-                                                style={{
-                                                    background: "#333333",
-                                                }}
-                                            >
-                                                <span className="sr-only">
-                                                    Color name
-                                                </span>
-                                            </a>
+                                            </Link>
                                         </div>
-
-                                        <div className="product-action">
-                                            <a
-                                                href="#"
-                                                className="btn-product btn-cart"
+                                        <div className={styles.productAction}>
+                                            <Link
+                                                href={`/products/1`}
+                                                className={styles.addToCart}
                                                 title="Add to cart"
                                             >
                                                 <span>add to cart</span>
-                                            </a>
-                                            <a
-                                                href="popup/quickView.html"
-                                                className="btn-product btn-quickview"
+                                            </Link>
+                                            <Link
+                                                href="#"
+                                                className={styles.quickView}
                                                 title="Quick view"
                                             >
                                                 <span>quick view</span>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -171,14 +156,13 @@ export const TopSellingProducts = () => {
                     </div>
                 </div>
             </div>
-            <div className="more-container text-center mt-5">
-                <a
-                    href="category.html"
-                    className="btn btn-outline-lightgray btn-more btn-round"
-                >
-                    <span>View more products</span>
-                    <i className="icon-long-arrow-right"></i>
-                </a>
+            <div className={styles.moreContainer}>
+                <Link href="/products">
+                    <Button colorType="btnOutlinePrimary2">
+                        <span>View more products</span>
+                        <i className="icon-long-arrow-right"></i>
+                    </Button>
+                </Link>
             </div>
         </div>
     );
