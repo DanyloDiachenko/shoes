@@ -7,4 +7,5 @@ const Home = async () => {
     return <HomePageComponent categories={categories} />;
 };
 
+// eslint-disable-next-line import/no-default-export
 export default Home;
