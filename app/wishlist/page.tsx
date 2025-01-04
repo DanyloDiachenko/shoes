@@ -1,5 +1,5 @@
 const Wishlist = () => {
     return (
-        
+       <></> 
     )
 }
