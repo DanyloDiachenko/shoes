@@ -71,6 +71,16 @@
                     max-width: 50%;
                     -ms-flex: 0 0 50%;
 
+                    @media screen and (min-width: 576px) {
+                        &:nth-child(2n) {
+                            border-right-width: 0;
+                        }
+                    }
+                    @media screen and (min-width: 768px) {
+                        &:nth-child(2n) {
+                            border-right-width: 0.1rem;
+                        }
+                    }
                     @media screen and (min-width: 1200px) {
                         &:nth-child(5n) {
                             border-right-width: 0;
