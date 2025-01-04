@@ -70,6 +70,7 @@
                     flex: 0 0 50%;
                     max-width: 50%;
                     -ms-flex: 0 0 50%;
+
                     @media screen and (min-width: 576px) {
                         &:nth-child(2n) {
                             border-right-width: 0;
