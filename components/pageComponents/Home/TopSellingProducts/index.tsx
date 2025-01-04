@@ -29,7 +29,7 @@ export const TopSellingProducts = () => {
                             href="#top-women-tab"
                             role="tab"
                             aria-controls="top-women-tab"
-                            aria-selected="false"
+                            aria-selected={false}
                         >
                             Women's
                         </Link>
@@ -41,7 +41,7 @@ export const TopSellingProducts = () => {
                             href="#top-men-tab"
                             role="tab"
                             aria-controls="top-men-tab"
-                            aria-selected="false"
+                            aria-selected={false}
                         >
                             Men's
                         </Link>
