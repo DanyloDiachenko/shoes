@@ -25,7 +25,7 @@ export const TopSellingProducts = () => {
                         </Link>
                     </li>
                     <li className={styles.navItem}>
-                        <a
+                        <Link
                             className={styles.navLink}
                             id="top-women-link"
                             href="#top-women-tab"
@@ -34,10 +34,10 @@ export const TopSellingProducts = () => {
                             aria-selected="false"
                         >
                             Women's
-                        </a>
+                        </Link>
                     </li>
                     <li className={styles.navItem}>
-                        <a
+                        <Link
                             className={styles.navLink}
                             id="top-men-link"
                             href="#top-men-tab"
@@ -46,7 +46,7 @@ export const TopSellingProducts = () => {
                             aria-selected="false"
                         >
                             Men's
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
@@ -58,9 +58,7 @@ export const TopSellingProducts = () => {
                     aria-labelledby="top-all-link"
                 >
                     <div className={`${styles.row} row`}>
-                        <div className={styles.column}>
-                            {/*  */}
-                        </div>
+                        <div className={styles.column}>{/*  */}</div>
                     </div>
                 </div>
             </div>
