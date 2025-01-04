@@ -1,9 +1,6 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
-import { getProductRating } from "@/helpers/getProductRating";
-import { FaRegHeart } from "react-icons/fa";
-import { LiaBinocularsSolid, LiaCartPlusSolid } from "react-icons/lia";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 export const TopSellingProducts = () => {
