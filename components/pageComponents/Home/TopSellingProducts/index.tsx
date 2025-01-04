@@ -59,6 +59,27 @@ export const TopSellingProducts = () => {
                         <div className={styles.column}>
                             <Product />
                         </div>
+                        <div className={styles.column}>
+                            <Product />
+                        </div>
+                        <div className={styles.column}>
+                            <Product />
+                        </div>
+                        <div className={styles.column}>
+                            <Product />
+                        </div>
+                        <div className={styles.column}>
+                            <Product />
+                        </div>
+                        <div className={styles.column}>
+                            <Product />
+                        </div>
+                        <div className={styles.column}>
+                            <Product />
+                        </div>
+                        <div className={styles.column}>
+                            <Product />
+                        </div>
                     </div>
                 </div>
             </div>
