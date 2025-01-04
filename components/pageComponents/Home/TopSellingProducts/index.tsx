@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Product } from "./Product";
 
 export const TopSellingProducts = () => {
     return (
@@ -55,7 +56,9 @@ export const TopSellingProducts = () => {
                     aria-labelledby="top-all-link"
                 >
                     <div className={`${styles.row} row`}>
-                        <div className={styles.column}>{/*  */}</div>
+                        <div className={styles.column}>
+                            <Product />
+                        </div>
                     </div>
                 </div>
             </div>
