@@ -71,6 +71,12 @@
                     max-width: 50%;
                     -ms-flex: 0 0 50%;
 
+                    @media screen and (min-width: 1200px) {
+                        &:nth-child(5n) {
+                            border-right-width: 0;
+                        }
+                    }
+
                     @media (min-width: 768px) {
                         -ms-flex: 0 0 33.333333%;
                         flex: 0 0 33.333333%;
