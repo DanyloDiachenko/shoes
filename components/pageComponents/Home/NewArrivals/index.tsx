@@ -1,5 +1,3 @@
-"use client";
-
 import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
 import Link from "next/link";

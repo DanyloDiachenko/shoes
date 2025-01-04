@@ -1,11 +1,8 @@
-import { LiaCartPlusSolid } from "react-icons/lia";
-import { FaRegHeart } from "react-icons/fa";
-import { LiaBinocularsSolid } from "react-icons/lia";
+"use client";
+
 import SlickSlider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { getProductRating } from "@/helpers/getProductRating";
 import styles from "./styles.module.scss";
-import Link from "next/link";
 import { Product } from "./Product";
 
 const SampleNextArrow = (props: any) => {
