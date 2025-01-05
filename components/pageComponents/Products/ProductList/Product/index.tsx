@@ -9,7 +9,6 @@ import { getProductRating } from "@/helpers/getProductRating";
 import { ProductProps } from "./product.props";
 import { useState } from "react";
 import { getProductPrice } from "@/helpers/getProductPrice";
-import { setCookie } from "@/helpers/setCookie";
 import { addProductToWishlist } from "@/helpers/addProductToWishlist";
 
 export const Product = ({
