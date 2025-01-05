@@ -136,6 +136,10 @@
                         outline: none;
                         transition: all 0.35s;
                         cursor: pointer;
+
+                        &:hover {
+                            color: #333;
+                        }
                     }
                 }
             }

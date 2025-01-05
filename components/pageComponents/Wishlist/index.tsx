@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
+import { IoMdClose } from "react-icons/io";
 
 export const WishlistPageComponent = () => {
     return (
@@ -50,7 +51,7 @@ export const WishlistPageComponent = () => {
                             </td>
                             <td className={styles.removeCol}>
                                 <button className={styles.removeButton}>
-                                    icon
+                                    <IoMdClose />
                                 </button>
                             </td>
                         </tr>
