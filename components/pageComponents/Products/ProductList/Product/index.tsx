@@ -9,8 +9,8 @@ import { getProductRating } from "@/helpers/getProductRating";
 import { ProductProps } from "./product.props";
 import { useState } from "react";
 import { getProductPrice } from "@/helpers/getProductPrice";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store";
+import { setCookie } from "@/helpers/setCookie";
+import { addProductToWishlist } from "@/helpers/addProductToWishlist";
 
 export const Product = ({
     mainCategory,
@@ -87,6 +87,7 @@ export const Product = ({
                             className={styles.addToWishlist}
                             title="Add to wishlist"
                             colorType="btnOutlinePrimary2"
+                            onClick={() => addProductToWishlist(id)}
                         >
                             <FaRegHeart />
                         </Button>

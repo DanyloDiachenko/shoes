@@ -23,7 +23,7 @@ export const Links = () => {
                         </li>
                         <li>
                             <Link
-                                href="wishlist.html"
+                                href="/wishlist"
                                 className={styles.iconLink}
                             >
                                 <FaRegHeart />
@@ -36,10 +36,10 @@ export const Links = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="about.html">About Us</Link>
+                            <Link href="/about">About Us</Link>
                         </li>
                         <li>
-                            <Link href="contact.html">Contact Us</Link>
+                            <Link href="/contact">Contact Us</Link>
                         </li>
                         <li>
                             <LoginOrHello />
