@@ -1,0 +1,39 @@
+.table {
+    margin-bottom: 3rem;
+    width: 100%;
+    border-collapse: collapse;
+    color: #212529;
+
+    @media screen and (max-width: 991px) {
+        border: 0.1rem solid #ebebeb;
+        width: 100%;
+        display: block;
+    }
+
+    thead {
+        @media screen and (max-width: 991px) {
+            display: none;
+        }
+
+        tr {
+            th {
+                border-top: none;
+                border-bottom: 0.1rem solid #ebebeb;
+                vertical-align: bottom;
+                padding-top: 1.4rem;
+                padding-bottom: 1.4rem;
+                font-weight: 400;
+                font-size: 1.4rem;
+                line-height: 1.5;
+                color: #999;
+            }
+        }
+    }
+
+    tbody {
+        @media screen and (max-width: 991px) {
+            width: 100%;
+            display: block;
+        }
+    }
+}
