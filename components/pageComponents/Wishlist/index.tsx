@@ -42,7 +42,7 @@ export const WishlistPageComponent = () => {
                             </td>
                             <td className={styles.actionCol}>
                                 <Button
-                                    colorType="btnPrimary"
+                                    colorType="btnOutlinePrimary2"
                                     className={styles.button}
                                 >
                                     icon Add to Cart
