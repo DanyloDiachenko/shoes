@@ -1,5 +1,6 @@
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { PageHeader } from "@/components/common/PageHeader";
+import { WishlistPageComponent } from "@/components/pageComponents/Wishlist";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 
 const breadcrumbs: Breadcrumb[] = [
@@ -22,6 +23,7 @@ const Wishlist = () => {
         <>
             <PageHeader title="Wishlist" subtitle="Shop" />
             <Breadcrumbs breadcrumbs={breadcrumbs} />
+            <WishlistPageComponent />
         </>
     );
 };
