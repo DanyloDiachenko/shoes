@@ -1,11 +1,15 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { BsTelephone } from "react-icons/bs";
-import { FaRegHeart } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { LoginOrHello } from "./LoginOrHello";
+import { Wishlist } from "./Wishlist";
+import { getCookie } from "@/helpers/getCookie";
 
-export const Links = () => {
+export const Links = async () => {
+    const wishlistIdsString = await getCookie("wishlistIds");
+    const wishlistIds: string[] = wishlistIdsString ? JSON.parse(wishlistIdsString) : [];
+
     return (
         <div className={styles.headerRight}>
             <ul className={styles.topMenu}>
@@ -22,18 +26,7 @@ export const Links = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link
-                                href="/wishlist"
-                                className={styles.iconLink}
-                            >
-                                <FaRegHeart />
-                                <span>
-                                    Wishlist{" "}
-                                    <span className={styles.wishlistQuantity}>
-                                        (3)
-                                    </span>
-                                </span>
-                            </Link>
+                            <Wishlist wishlistIdsServer={wishlistIds} />
                         </li>
                         <li>
                             <Link href="/about">About Us</Link>
