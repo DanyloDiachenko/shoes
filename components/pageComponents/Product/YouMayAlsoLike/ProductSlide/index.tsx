@@ -21,6 +21,8 @@ export const ProductSlide = ({
     reviews,
     images,
     currency,
+    priceWithDiscountEur,
+    priceWithDiscountUah,
 }: ProductSlideProps) => {
     const [activeImage, setActiveImage] = useState<string>(mainImage);
 
@@ -64,7 +66,13 @@ export const ProductSlide = ({
                     <Link href={`/products/${id}`}>{title}</Link>
                 </h3>
                 <div className={styles.price}>
-                    {getProductPrice(priceUah, priceEur, currency)}
+                    {getProductPrice(
+                        priceUah,
+                        priceEur,
+                        priceWithDiscountUah,
+                        priceWithDiscountEur,
+                        currency
+                    )}
                 </div>
                 <div className={styles.ratingsContainer}>
                     {getProductRating(rating || 0)}

@@ -16,6 +16,8 @@ export const Price = ({ currency, product }: PriceProps) => {
             {getProductPrice(
                 product.priceUah * productToCart.quantity,
                 product.priceEur * productToCart.quantity,
+                product.priceWithDiscountUah && product.priceWithDiscountUah * productToCart.quantity || null,
+                product.priceWithDiscountEur && product.priceWithDiscountEur * productToCart.quantity || null,
                 currency
             )}
         </div>

@@ -28,6 +28,8 @@ export const Product = ({
     priceEur,
     currency,
     brand,
+    priceWithDiscountEur,
+    priceWithDiscountUah,
 }: ProductProps) => {
     const dispatch = useDispatch();
 
@@ -72,7 +74,13 @@ export const Product = ({
                 <div className={styles.columnActions}>
                     <div className={styles.action}>
                         <div className={styles.price}>
-                            {getProductPrice(priceUah, priceEur, currency)}
+                            {getProductPrice(
+                                priceUah,
+                                priceEur,
+                                priceWithDiscountUah,
+                                priceWithDiscountEur,
+                                currency
+                            )}
                         </div>
                         <div className={styles.ratingsContainer}>
                             {getProductRating(rating || 0)}

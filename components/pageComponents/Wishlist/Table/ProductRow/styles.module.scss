@@ -96,28 +96,12 @@
             color: #333;
             font-weight: 500;
             font-size: 1.6rem;
-
-            .currentPrice {
-                color: #ef837b;
-                margin-right: 0.8rem;
-            }
-            .previousPrice {
-                color: #cccccc;
-                text-decoration: line-through;
-            }
         }
 
         &.stockCol {
             width: 160px;
             font-weight: 400;
             font-size: 1.6rem;
-
-            .inStock {
-                color: #a6c76c;
-            }
-            .outOfStock {
-                color: #ef837b;
-            }
         }
 
         &.actionCol {

@@ -32,15 +32,16 @@ export const Table = ({
     };
 
     const calculateTotalPerProduct = (product: Product, quantity: number) => {
-        const price = getProductPrice(
-            product.priceUah,
-            product.priceEur,
-            currency
-        );
+        const pricePerProductUah = product.priceWithDiscountUah
+            ? product.priceWithDiscountUah
+            : product.priceUah;
+        const pricePerProductEur = product.priceWithDiscountEur
+            ? product.priceWithDiscountEur
+            : product.priceEur;
+        const pricePerProduct =
+            currency === "uah" ? pricePerProductUah : pricePerProductEur;
 
-        const numericPrice = Number(price.slice(1, price.length));
-
-        return Number(numericPrice) * quantity;
+        return pricePerProduct * quantity;
     };
 
     const processedProducts = cookieProducts
