@@ -26,7 +26,28 @@ export const ProductRow = ({
                 </div>
             </td>
             <td className={styles.priceCol}>
-                {getProductPrice(product.priceUah, product.priceEur, currency)}
+                {product.priceWithDiscountUah &&
+                    product.priceWithDiscountEur && (
+                        <span className={styles.currentPrice}>
+                            Now{" "}
+                            {getProductPrice(
+                                product.priceWithDiscountUah,
+                                product.priceWithDiscountEur,
+                                currency
+                            )}
+                        </span>
+                    )}
+                <span
+                    className={`${
+                        product.priceWithDiscountUah ? styles.previousPrice : ""
+                    }`}
+                >
+                    {getProductPrice(
+                        product.priceUah,
+                        product.priceEur,
+                        currency
+                    )}
+                </span>
             </td>
             <td className={styles.stockCol}>
                 <span
