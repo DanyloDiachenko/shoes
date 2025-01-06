@@ -10,7 +10,7 @@ const breadcrumbs: Breadcrumb[] = [
     },
     {
         title: "Shop",
-        link: "/shop",
+        link: "/products",
     },
     {
         title: "Wishlist",

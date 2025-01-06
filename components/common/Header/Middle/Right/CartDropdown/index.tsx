@@ -152,6 +152,8 @@ export const CartDropdown = ({
                                     {getProductPrice(
                                         product.priceUah,
                                         product.priceEur,
+                                        product.priceWithDiscountUah,
+                                        product.priceWithDiscountEur,
                                         currency
                                     )}
                                 </div>

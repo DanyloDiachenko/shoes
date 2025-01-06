@@ -21,7 +21,13 @@ export const Info = async ({ product }: InfoProps) => {
                 </Link>
             </div>
             <div className={styles.price}>
-                {getProductPrice(product.priceUah, product.priceEur, currency)}
+                {getProductPrice(
+                    product.priceUah,
+                    product.priceEur,
+                    product.priceWithDiscountUah,
+                    product.priceWithDiscountEur,
+                    currency
+                )}
             </div>
             <div className={styles.description}>
                 <p>{product.description}</p>
