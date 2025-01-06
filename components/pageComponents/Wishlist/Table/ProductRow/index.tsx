@@ -4,12 +4,13 @@ import { Button } from "@/components/UI/Button";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { IoMdClose } from "react-icons/io";
 import { ProductRowProps } from "./productRow.props";
-import { getCurrency } from "@/helpers/getCurrency";
 import { getProductPrice } from "@/helpers/getProductPrice";
 
-export const ProductRow = async ({ product }: ProductRowProps) => {
-    const currency = await getCurrency();
-
+export const ProductRow = ({
+    product,
+    onProductRemoveClick,
+    currency,
+}: ProductRowProps) => {
     return (
         <tr className={styles.productRow}>
             <td className={styles.productCol}>
@@ -19,7 +20,6 @@ export const ProductRow = async ({ product }: ProductRowProps) => {
                             <img src={product.mainImage} alt="Product image" />
                         </Link>
                     </figure>
-
                     <h3 className={styles.productTitle}>
                         <Link href="#">{product.title}</Link>
                     </h3>
@@ -50,7 +50,10 @@ export const ProductRow = async ({ product }: ProductRowProps) => {
                 </Link>
             </td>
             <td className={styles.removeCol}>
-                <button className={styles.removeButton}>
+                <button
+                    className={styles.removeButton}
+                    onClick={() => onProductRemoveClick(product.id)}
+                >
                     <IoMdClose />
                 </button>
             </td>

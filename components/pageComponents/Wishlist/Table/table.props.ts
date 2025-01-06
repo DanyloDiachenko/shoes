@@ -1,8 +1,7 @@
 import { Product } from "@/interfaces/product.interface";
 import { Currency } from "@/types/currency.type";
 
-export interface ProductRowProps {
-    product: Product;
-    onProductRemoveClick: (productId: string) => void;
+export interface TableProps {
+    wishlistProductsServer: Product[];
     currency: Currency;
 }

@@ -18,6 +18,7 @@ export const Wishlist = ({ wishlistIdsServer }: WishlistProps) => {
 
     const updateWishlistIds = async () => {
         const wishlistIdsString = await getCookie("wishlistIds");
+        console.log(wishlistIdsString);
         const wishlistIds: string[] = wishlistIdsString
             ? JSON.parse(wishlistIdsString)
             : [];

@@ -1,20 +1,31 @@
+"use client";
+
 import styles from "./styles.module.scss";
 import { ProductRow } from "./ProductRow";
-import { getServerCookie } from "@/helpers/getServerCookie";
 import { Product } from "@/interfaces/product.interface";
-import { getProduct } from "@/app/api/products";
+import { TableProps } from "./table.props";
+import { useState } from "react";
+import { setCookie } from "@/helpers/setCookie";
+import { toast } from "react-toastify";
 
-export const Table = async () => {
-    const wishlistIdsString = await getServerCookie("wishlistIds");
-    const wishlistIds = wishlistIdsString ? JSON.parse(wishlistIdsString) : [];
+export const Table = ({ wishlistProductsServer, currency }: TableProps) => {
+    const [wishlistProducts, setWishlistProducts] = useState<Product[]>(
+        wishlistProductsServer
+    );
 
-    let products: Product[] = [];
+    const onProductRemoveClick = (productId: string) => {
+        const filteredProducts = wishlistProducts.filter(
+            (wishlistProduct) => wishlistProduct.id !== productId
+        );
 
-    for (let id = 0; id < wishlistIds.length; id++) {
-        const product = await getProduct(wishlistIds[id]);
+        setWishlistProducts(filteredProducts);
+        setCookie(
+            "wishlistIds",
+            JSON.stringify(filteredProducts.map((product) => product.id))
+        );
 
-        products.push(product);
-    }
+        toast.success("Product removed from wishlist");
+    };
 
     return (
         <table className={styles.table}>
@@ -28,13 +39,14 @@ export const Table = async () => {
                 </tr>
             </thead>
             <tbody>
-                {products.map((product) => (
-                    <ProductRow key={product.id} product={product} />
+                {wishlistProducts.map((wishlistProduct) => (
+                    <ProductRow
+                        key={wishlistProduct.id}
+                        product={wishlistProduct}
+                        currency={currency}
+                        onProductRemoveClick={onProductRemoveClick}
+                    />
                 ))}
-                {/* <ProductRow />
-                <ProductRow />
-                <ProductRow />
-                <ProductRow /> */}
             </tbody>
         </table>
     );
