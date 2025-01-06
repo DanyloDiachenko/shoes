@@ -27,27 +27,35 @@ export const Table = ({ wishlistProductsServer, currency }: TableProps) => {
         toast.success("Product removed from wishlist");
     };
 
-    return (
-        <table className={styles.table}>
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Stock Status</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {wishlistProducts.map((wishlistProduct) => (
-                    <ProductRow
-                        key={wishlistProduct.id}
-                        product={wishlistProduct}
-                        currency={currency}
-                        onProductRemoveClick={onProductRemoveClick}
-                    />
-                ))}
-            </tbody>
-        </table>
-    );
+    const renderTableOrNothing = () => {
+        if (wishlistProducts.length === 0) {
+            return <h2 className={styles.nothing}>No results found</h2>;
+        } else {
+            return (
+                <table className={styles.table}>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Stock Status</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {wishlistProducts.map((wishlistProduct) => (
+                            <ProductRow
+                                key={wishlistProduct.id}
+                                product={wishlistProduct}
+                                currency={currency}
+                                onProductRemoveClick={onProductRemoveClick}
+                            />
+                        ))}
+                    </tbody>
+                </table>
+            );
+        }
+    };
+
+    return <>{renderTableOrNothing()}</>;
 };
