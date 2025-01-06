@@ -32,12 +32,11 @@ export const Table = ({
     };
 
     const calculateTotalPerProduct = (product: Product, quantity: number) => {
-        const pricePerProductUah = product.priceWithDiscountUah
-            ? product.priceWithDiscountUah
-            : product.priceUah;
-        const pricePerProductEur = product.priceWithDiscountEur
-            ? product.priceWithDiscountEur
-            : product.priceEur;
+        const pricePerProductUah =
+            product.priceWithDiscountUah ?? product.priceUah ?? 0;
+        const pricePerProductEur =
+            product.priceWithDiscountEur ?? product.priceEur ?? 0;
+
         const pricePerProduct =
             currency === "uah" ? pricePerProductUah : pricePerProductEur;
 
