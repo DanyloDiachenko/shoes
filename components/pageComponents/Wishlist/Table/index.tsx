@@ -1,11 +1,21 @@
-import Link from "next/link";
 import styles from "./styles.module.scss";
-import { Button } from "@/components/UI/Button";
-import { LiaCartPlusSolid } from "react-icons/lia";
-import { IoMdClose } from "react-icons/io";
 import { ProductRow } from "./ProductRow";
+import { getServerCookie } from "@/helpers/getServerCookie";
+import { Product } from "@/interfaces/product.interface";
+import { getProduct } from "@/app/api/products";
 
-export const Table = () => {
+export const Table = async () => {
+    const wishlistIdsString = await getServerCookie("wishlistIds");
+    const wishlistIds = wishlistIdsString ? JSON.parse(wishlistIdsString) : [];
+
+    let products: Product[] = [];
+
+    for (let id = 0; id < wishlistIds.length; id++) {
+        const product = await getProduct(wishlistIds[id]);
+
+        products.push(product);
+    }
+
     return (
         <table className={styles.table}>
             <thead>
@@ -18,10 +28,13 @@ export const Table = () => {
                 </tr>
             </thead>
             <tbody>
+                {products.map((product) => (
+                    <ProductRow key={product.id} product={product} />
+                ))}
+                {/* <ProductRow />
                 <ProductRow />
                 <ProductRow />
-                <ProductRow />
-                <ProductRow />
+                <ProductRow /> */}
             </tbody>
         </table>
     );
