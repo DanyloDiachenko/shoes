@@ -30,6 +30,8 @@ export const ProductRow = ({ cartProduct, currency }: ProductRowProps) => {
                 {getProductPrice(
                     cartProduct.priceUah,
                     cartProduct.priceEur,
+                    cartProduct.priceWithDiscountUah,
+                    cartProduct.priceWithDiscountEur,
                     currency
                 )}
             </td>

@@ -35,10 +35,21 @@ export const CartTotal = ({
     for (let i = 0; i < cartProducts.length; i++) {
         for (let j = 0; j < cookieProducts.length; j++) {
             if (cartProducts[i].id === cookieProducts[j].id) {
-                subtotal +=
+                const pricePerProductUah =
+                    cartProducts[j].priceWithDiscountUah ??
+                    cartProducts[j].priceUah ??
+                    0;
+                const pricePerProductEur =
+                    cartProducts[j].priceWithDiscountEur ??
+                    cartProducts[j].priceEur ??
+                    0;
+
+                const pricePerProduct =
                     currency === "uah"
-                        ? cartProducts[j].priceUah * cookieProducts[j].quantity
-                        : cartProducts[j].priceEur * cookieProducts[j].quantity;
+                        ? pricePerProductUah
+                        : pricePerProductEur;
+
+                subtotal += pricePerProduct * cookieProducts[j].quantity;
             }
         }
     }
