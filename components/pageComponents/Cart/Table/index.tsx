@@ -33,9 +33,13 @@ export const Table = ({
 
     const calculateTotalPerProduct = (product: Product, quantity: number) => {
         const pricePerProductUah =
-            product.priceWithDiscountUah ?? product.priceUah ?? 0;
+            product.priceWithDiscountUah !== 0
+                ? product.priceWithDiscountUah
+                : product.priceUah;
         const pricePerProductEur =
-            product.priceWithDiscountEur ?? product.priceEur ?? 0;
+            product.priceWithDiscountEur !== 0
+                ? product.priceWithDiscountEur
+                : product.priceEur;
 
         const pricePerProduct =
             currency === "uah" ? pricePerProductUah : pricePerProductEur;

@@ -36,13 +36,15 @@ export const CartTotal = ({
         for (let j = 0; j < cookieProducts.length; j++) {
             if (cartProducts[i].id === cookieProducts[j].id) {
                 const pricePerProductUah =
-                    cartProducts[j].priceWithDiscountUah ??
-                    cartProducts[j].priceUah ??
-                    0;
+                    cartProducts[j].priceWithDiscountUah !== 0
+                        ? cartProducts[j].priceWithDiscountUah
+                        : cartProducts[j].priceUah;
+
                 const pricePerProductEur =
-                    cartProducts[j].priceWithDiscountEur ??
-                    cartProducts[j].priceEur ??
-                    0;
+                    cartProducts[j].priceWithDiscountEur !== 0
+                        ? cartProducts[j].priceWithDiscountEur
+                        : cartProducts[j].priceEur;
+
 
                 const pricePerProduct =
                     currency === "uah"
