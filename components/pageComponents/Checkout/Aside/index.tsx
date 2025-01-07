@@ -31,9 +31,18 @@ export const Aside = ({
             (cookieProduct) => cookieProduct.id === product.id
         ) as CookieProduct;
 
+        const productPriceUah =
+            product.priceWithDiscountUah !== 0
+                ? product.priceWithDiscountUah
+                : product.priceUah;
+        const productPriceEur =
+            product.priceWithDiscountEur !== 0
+                ? product.priceWithDiscountEur
+                : product.priceEur;
+
         return currency === "uah"
-            ? product.priceUah * cookieProduct.quantity
-            : product.priceEur * cookieProduct.quantity;
+            ? productPriceUah * cookieProduct.quantity
+            : productPriceEur * cookieProduct.quantity;
     };
 
     const getSubtotalPrice = () => {

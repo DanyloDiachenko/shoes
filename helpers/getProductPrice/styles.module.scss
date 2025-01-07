@@ -1,8 +1,13 @@
+.previousPrice {
+    color: #cccccc;
+    text-decoration: line-through;
+}
+
 .currentPrice {
     color: #ef837b;
     margin-right: 0.8rem;
 }
-.previousPrice {
-    color: #cccccc;
-    text-decoration: line-through;
+
+.price {
+    color: inherit;
 }

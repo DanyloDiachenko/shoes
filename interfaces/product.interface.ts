@@ -49,8 +49,8 @@ export interface Product {
     additionalInformation: string;
     purchasedNumber: 10;
     images: string[];
-    priceWithDiscountUah: number | null;
-    priceWithDiscountEur: number | null;
+    priceWithDiscountUah: number;
+    priceWithDiscountEur: number;
     mainCategory: ProductCategory;
     brand: ProductBrand;
     reviews: ProductReview[];

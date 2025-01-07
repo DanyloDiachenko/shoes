@@ -15,28 +15,30 @@ const printPriceWithCurrency = (
 export const getProductPrice = (
     priceUah: number,
     priceEur: number,
-    priceWithDiscountUah: number | null,
-    priceWithDiscountEur: number | null,
+    priceWithDiscountUah: number,
+    priceWithDiscountEur: number,
     currency: Currency
 ) => {
     return (
         <>
-            {priceWithDiscountUah && priceWithDiscountEur && (
-                <span className={styles.currentPrice}>
-                    {printPriceWithCurrency(
-                        priceWithDiscountUah,
-                        priceWithDiscountEur,
-                        currency
-                    )}
+            {priceWithDiscountEur !== 0 && priceWithDiscountUah !== 0 ? (
+                <>
+                    <span className={styles.currentPrice}>
+                        {printPriceWithCurrency(
+                            priceWithDiscountUah,
+                            priceWithDiscountEur,
+                            currency
+                        )}
+                    </span>
+                    <span className={styles.previousPrice}>
+                        {printPriceWithCurrency(priceUah, priceEur, currency)}
+                    </span>
+                </>
+            ) : (
+                <span className={styles.price}>
+                    {printPriceWithCurrency(priceUah, priceEur, currency)}
                 </span>
             )}
-            <span
-                className={`${
-                    priceWithDiscountUah ? styles.previousPrice : ""
-                }`}
-            >
-                {printPriceWithCurrency(priceUah, priceEur, currency)}
-            </span>
         </>
     );
 };
