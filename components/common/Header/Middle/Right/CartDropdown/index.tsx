@@ -111,12 +111,19 @@ export const CartDropdown = ({
     for (let i = 0; i < cartProductsClient.length; i++) {
         for (let j = 0; j < cookieProductsClient.length; j++) {
             if (cartProductsClient[i].id === cookieProductsClient[j].id) {
+                const productPriceUah =
+                    cartProductsClient[i].priceWithDiscountUah !== 0
+                        ? cartProductsClient[i].priceWithDiscountUah
+                        : cartProductsClient[i].priceUah;
+                const productPriceEur =
+                    cartProductsClient[i].priceWithDiscountEur !== 0
+                        ? cartProductsClient[i].priceWithDiscountEur
+                        : cartProductsClient[i].priceEur;
+
                 subtotal +=
                     currency === "uah"
-                        ? cartProductsClient[j].priceUah *
-                          cookieProductsClient[j].quantity
-                        : cartProductsClient[j].priceEur *
-                          cookieProductsClient[j].quantity;
+                        ? productPriceUah * cookieProductsClient[j].quantity
+                        : productPriceEur * cookieProductsClient[j].quantity;
             }
         }
     }
@@ -143,8 +150,9 @@ export const CartDropdown = ({
                                     <span className={styles.cartProductQty}>
                                         {
                                             cookieProductsClient.find(
-                                                (product) =>
-                                                    product.id === product.id
+                                                (cookieProduct) =>
+                                                    cookieProduct.id ===
+                                                    product.id
                                             )?.quantity
                                         }
                                     </span>{" "}
