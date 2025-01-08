@@ -33,9 +33,9 @@ export const MobileMenu = () => {
         }
     };
 
-    const getNavigationWrapper = async () => {
+    (async () => {
         setNavigation(await getNavigation());
-    };
+    })();
 
     return (
         <>
