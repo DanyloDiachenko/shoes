@@ -3,7 +3,7 @@
 import styles from "./styles.module.scss";
 import { IoMdClose } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
-import { headerNavigation } from "@/data/headerNavigation";
+/* import { headerNavigation } from "@/data/headerNavigation"; */
 import { useState } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,7 +53,7 @@ export const MobileMenu = () => {
                     </button>
                     <nav className={styles.mobileNav}>
                         <ul className={styles.mobileMenu}>
-                            {headerNavigation.map((headerNavItem, index) => (
+                            {/* {headerNavigation.map((headerNavItem, index) => (
                                 <li
                                     className={
                                         activeTabIndex === index
@@ -109,7 +109,7 @@ export const MobileMenu = () => {
                                         </ul>
                                     </div>
                                 </li>
-                            ))}
+                            ))} */}
                         </ul>
                     </nav>
                     <Socials />
