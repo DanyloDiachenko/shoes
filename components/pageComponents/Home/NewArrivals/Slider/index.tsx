@@ -71,6 +71,8 @@ const sliderSettings = {
 };
 
 export const Slider = ({ activeTabSlug, products }: SliderProps) => {
+    console.log(products);
+
     return (
         <SlickSlider
             className={`${styles.slider} new-arrivals-slider`}

@@ -1,23 +1,9 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { TabsProps } from "./tabs.props";
+import { tabs } from "./tabs";
 
-const tabs = [
-    {
-        title: "All",
-        slug: "all",
-    },
-    {
-        title: "Women's",
-        slug: "women",
-    },
-    {
-        title: "Men's",
-        slug: "men",
-    },
-];
-
-export const Tabs = ({ activeTabSlug, setActiveTabSlug }: TabsProps) => {
+export const Tabs = ({ activeTabSlug, onSetActiveTabClick }: TabsProps) => {
     return (
         <ul className={styles.nav} role="tablist">
             {tabs.map((tab, index) => (
@@ -32,7 +18,7 @@ export const Tabs = ({ activeTabSlug, setActiveTabSlug }: TabsProps) => {
                         aria-controls={`new-${activeTabSlug}-tab`}
                         aria-selected={activeTabSlug === tab.slug}
                         scroll={false}
-                        onClick={() => setActiveTabSlug(tab.slug)}
+                        onClick={() => onSetActiveTabClick(tab.slug)}
                     >
                         {tab.title}
                     </Link>

@@ -1,4 +1,6 @@
+import { TabSlug } from "../tabSlug.type";
+
 export interface TabsProps {
     activeTabSlug: string;
-    setActiveTabSlug: (slug: string) => void;
+    onSetActiveTabClick: (slug: TabSlug) => void;
 }
