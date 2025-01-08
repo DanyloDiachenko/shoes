@@ -12,7 +12,7 @@ export const ProductPageContent = async ({
 }: ProductPageContentProps) => {
     const currency = await getCurrency();
     const cookieProducts = (await getCookieProductsServer()) || [];
-    const mayLikedProducts = (await getProducts({ limit: 12, currency })).data;
+    const mayLikedProducts = (await getProducts({ limit: 12 })).data;
 
     return (
         <>

@@ -4,6 +4,7 @@ import SlickSlider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { Product } from "./Product";
+import { SliderProps } from "./slider.props";
 
 const SampleNextArrow = (props: any) => {
     const { className, style, onClick } = props;
@@ -69,11 +70,13 @@ const sliderSettings = {
     prevArrow: <SamplePrevArrow />,
 };
 
-export const Slider = () => {
+export const Slider = ({ activeTabSlug, products }: SliderProps) => {
+    console.log(products);
+
     return (
         <SlickSlider
             className={`${styles.slider} new-arrivals-slider`}
-            aria-labelledby="new-all-link"
+            aria-labelledby={`new-${activeTabSlug}-link`}
             {...sliderSettings}
         >
             <Product />

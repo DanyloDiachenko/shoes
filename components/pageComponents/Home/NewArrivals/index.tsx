@@ -1,53 +1,58 @@
+"use client";
+
+import { useState } from "react";
+import { NewArrivalsProps } from "./newArrivals.props";
 import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
-import Link from "next/link";
+import { Tabs } from "./Tabs";
+import { TabSlug } from "./tabSlug.type";
 
-export const NewArrivals = () => {
+export const NewArrivals = ({ products }: NewArrivalsProps) => {
+    const [activeTabSlug, setActiveTabSlug] = useState<TabSlug>("all");
+
+    const filterProducts = (tabSlug: string) => {
+        switch (tabSlug) {
+            case "all": {
+                return products;
+            }
+            case "men": {
+                return products.filter((product) =>
+                    product.categories.find(
+                        (category) => category.slug === "men"
+                    )
+                );
+            }
+            case "women": {
+                return products.filter((product) =>
+                    product.categories.find(
+                        (category) => category.slug === "women"
+                    )
+                );
+            }
+            default: {
+                return products;
+            }
+        }
+    };
+
+    const onSetActiveTabClick = (slug: TabSlug) => {
+        setActiveTabSlug(slug);
+    };
+
     return (
         <div className={styles.newArrivals}>
             <div className="container">
                 <div className={styles.heading}>
                     <h2 className={styles.title}>New Arrivals</h2>
-                    <ul className={styles.nav} role="tablist">
-                        <li className={styles.navItem}>
-                            <Link
-                                className={`${styles.navLink} ${styles.active}`}
-                                id="new-all-link"
-                                href="#new-all-tab"
-                                role="tab"
-                                aria-controls="new-all-tab"
-                                aria-selected="true"
-                            >
-                                All
-                            </Link>
-                        </li>
-                        <li className={styles.navItem}>
-                            <Link
-                                className={styles.navLink}
-                                id="new-women-link"
-                                href="#new-women-tab"
-                                role="tab"
-                                aria-controls="new-women-tab"
-                                aria-selected="false"
-                            >
-                                Women's
-                            </Link>
-                        </li>
-                        <li className={styles.navItem}>
-                            <Link
-                                className={styles.navLink}
-                                id="new-men-link"
-                                href="#new-men-tab"
-                                role="tab"
-                                aria-controls="new-men-tab"
-                                aria-selected="false"
-                            >
-                                Men's
-                            </Link>
-                        </li>
-                    </ul>
+                    <Tabs
+                        activeTabSlug={activeTabSlug}
+                        onSetActiveTabClick={onSetActiveTabClick}
+                    />
                 </div>
-                <Slider />
+                <Slider
+                    activeTabSlug={activeTabSlug}
+                    products={filterProducts(activeTabSlug)}
+                />
             </div>
         </div>
     );
