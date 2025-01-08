@@ -10,14 +10,16 @@ import { setMobileMenuState } from "@/store/slices/mobileMenu";
 import { Socials } from "./Socials";
 import { getNavigation } from "@/helpers/getNavigation";
 import Link from "next/link";
+import { NavigationItem } from "@/interfaces/navigationItem";
 
-export const MobileMenu = async () => {
+export const MobileMenu = () => {
     const dispatch = useDispatch();
     const isOpened = useSelector(
         (state: RootState) => state.mobileMenu.isOpened
     );
 
     const [activeTabIndex, setActiveTabIndex] = useState<number>(-1);
+    const [navigation, setNavigation] = useState<NavigationItem[]>([]);
 
     const setMobileMenuStateHandler = (isOpened: boolean) => {
         dispatch(setMobileMenuState(isOpened));
@@ -31,7 +33,9 @@ export const MobileMenu = async () => {
         }
     };
 
-    const navigation = await getNavigation();
+    const getNavigationWrapper = async () => {
+        setNavigation(await getNavigation());
+    };
 
     return (
         <>
