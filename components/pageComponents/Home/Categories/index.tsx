@@ -5,7 +5,6 @@ import { getCategories } from "@/app/api/categories";
 
 export const Categories = async () => {
     const categories = await getCategories();
-    console.log(categories);
 
     const customCategories: CustomCategory[] = [
         {
