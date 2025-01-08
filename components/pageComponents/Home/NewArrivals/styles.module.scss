@@ -18,44 +18,5 @@
                 font-size: 3rem;
             }
         }
-
-        .nav {
-            justify-content: center;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            padding-left: 0;
-            margin-bottom: 0;
-            list-style: none;
-
-            .navItem {
-                .navLink {
-                    font-size: 1.4rem;
-                    font-weight: 400;
-                    line-height: 1.5;
-                    letter-spacing: -0.01em;
-                    padding: 0.45rem 1rem;
-                    border-radius: 0;
-                    text-align: center;
-                    text-transform: uppercase;
-                    border: none;
-                    border-bottom: 0.1rem solid transparent;
-                    background-color: transparent;
-                    transition: all 0.35s ease;
-                    display: block;
-                    color: #777;
-
-                    &:hover {
-                        color: #c96;
-                    }
-
-                    &.active {
-                        color: #c96;
-                        border-bottom-color: #c96;
-                    }
-                }
-            }
-        }
     }
 }

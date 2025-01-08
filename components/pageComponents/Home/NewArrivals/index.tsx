@@ -1,52 +1,23 @@
+"use client";
+
+import { useState } from "react";
 import { NewArrivalsProps } from "./newArrivals.props";
 import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
-import Link from "next/link";
+import { Tabs } from "./Tabs";
 
 export const NewArrivals = ({ products }: NewArrivalsProps) => {
+    const [activeTabSlug, setActiveTabSlug] = useState("all");
+
     return (
         <div className={styles.newArrivals}>
             <div className="container">
                 <div className={styles.heading}>
                     <h2 className={styles.title}>New Arrivals</h2>
-                    <ul className={styles.nav} role="tablist">
-                        <li className={styles.navItem}>
-                            <Link
-                                className={`${styles.navLink} ${styles.active}`}
-                                id="new-all-link"
-                                href="#new-all-tab"
-                                role="tab"
-                                aria-controls="new-all-tab"
-                                aria-selected="true"
-                            >
-                                All
-                            </Link>
-                        </li>
-                        <li className={styles.navItem}>
-                            <Link
-                                className={styles.navLink}
-                                id="new-women-link"
-                                href="#new-women-tab"
-                                role="tab"
-                                aria-controls="new-women-tab"
-                                aria-selected="false"
-                            >
-                                Women's
-                            </Link>
-                        </li>
-                        <li className={styles.navItem}>
-                            <Link
-                                className={styles.navLink}
-                                id="new-men-link"
-                                href="#new-men-tab"
-                                role="tab"
-                                aria-controls="new-men-tab"
-                                aria-selected="false"
-                            >
-                                Men's
-                            </Link>
-                        </li>
-                    </ul>
+                    <Tabs
+                        activeTabSlug={activeTabSlug}
+                        setActiveTabSlug={setActiveTabSlug}
+                    />
                 </div>
                 <Slider />
             </div>
