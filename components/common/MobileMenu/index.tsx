@@ -3,15 +3,15 @@
 import styles from "./styles.module.scss";
 import { IoMdClose } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
-/* import { headerNavigation } from "@/data/headerNavigation"; */
 import { useState } from "react";
-import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { setMobileMenuState } from "@/store/slices/mobileMenu";
 import { Socials } from "./Socials";
+import { getNavigation } from "@/helpers/getNavigation";
+import Link from "next/link";
 
-export const MobileMenu = () => {
+export const MobileMenu = async () => {
     const dispatch = useDispatch();
     const isOpened = useSelector(
         (state: RootState) => state.mobileMenu.isOpened
@@ -30,6 +30,8 @@ export const MobileMenu = () => {
             setActiveTabIndex(index);
         }
     };
+
+    const navigation = await getNavigation();
 
     return (
         <>
@@ -53,7 +55,7 @@ export const MobileMenu = () => {
                     </button>
                     <nav className={styles.mobileNav}>
                         <ul className={styles.mobileMenu}>
-                            {/* {headerNavigation.map((headerNavItem, index) => (
+                            {navigation.map((navigationItem, index) => (
                                 <li
                                     className={
                                         activeTabIndex === index
@@ -64,10 +66,10 @@ export const MobileMenu = () => {
                                 >
                                     <div className={styles.mainLinkWrapper}>
                                         <Link
-                                            href={headerNavItem.link}
+                                            href={navigationItem.link}
                                             className={styles.mainLink}
                                         >
-                                            {headerNavItem.title}
+                                            {navigationItem.title}
                                         </Link>
                                         <button
                                             className={styles.menuBtn}
@@ -84,7 +86,7 @@ export const MobileMenu = () => {
                                     </div>
                                     <div className={styles.sublinksWrapper}>
                                         <ul>
-                                            {headerNavItem.sublinks.map(
+                                            {navigationItem.sublinks.map(
                                                 (sublink, index) => (
                                                     <li key={index}>
                                                         <Link
@@ -92,15 +94,6 @@ export const MobileMenu = () => {
                                                         >
                                                             <span>
                                                                 {sublink.title}
-                                                                {sublink.isNew && (
-                                                                    <span
-                                                                        className={
-                                                                            styles.tip
-                                                                        }
-                                                                    >
-                                                                        new
-                                                                    </span>
-                                                                )}
                                                             </span>
                                                         </Link>
                                                     </li>
@@ -109,7 +102,7 @@ export const MobileMenu = () => {
                                         </ul>
                                     </div>
                                 </li>
-                            ))} */}
+                            ))}
                         </ul>
                     </nav>
                     <Socials />
