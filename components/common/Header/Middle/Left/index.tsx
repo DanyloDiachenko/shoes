@@ -37,6 +37,115 @@ export const Left = async () => {
     sizes = await getSizes();
     colors = await getColors();
 
+    export const headerNavigation: HeaderNavigationItem[] = [
+        {
+            title: "Bestsellers",
+            link: "/products",
+            sublinks: bestsellers.map((product) => ({
+                title: product.title,
+                link: `/products/${product.id}`,
+            })),
+        },
+        {
+            title: "Category",
+            link: "/products",
+            sublinks: categories.map((category) => ({
+                title: category.title,
+                link: `/products?categories=${category.slug}`,
+            })),
+        },
+        {
+            title: "Producer",
+            link: "/products",
+            sublinks: [
+                {
+                    title: "Nike",
+                    link: "/products?producer=nike",
+                },
+                {
+                    title: "Adidas",
+                    link: "/products?producer=adidas",
+                },
+                {
+                    title: "Puma",
+                    link: "/products?producer=puma",
+                },
+                {
+                    title: "New Balance",
+                    link: "/products?producer=new-balance",
+                },
+            ],
+        },
+        {
+            title: "Size",
+            link: "/products",
+            sublinks: [
+                {
+                    title: "XS",
+                    link: "/products?size=xs",
+                },
+                {
+                    title: "S",
+                    link: "/products?size=s",
+                },
+                {
+                    title: "M",
+                    link: "/products?size=m",
+                },
+                {
+                    title: "L",
+                    link: "/products?size=l",
+                },
+                {
+                    title: "XL",
+                    link: "/products?size=xl",
+                },
+                {
+                    title: "XXL",
+                    link: "/products?size=xxl",
+                },
+            ],
+        },
+        {
+            title: "Colour",
+            link: "/products",
+            sublinks: [
+                {
+                    title: "Brown",
+                    link: "/products?color=brown",
+                },
+                {
+                    title: "Yellow",
+                    link: "/products?color=yellow",
+                },
+                {
+                    title: "Black",
+                    link: "/products?color=black",
+                },
+                {
+                    title: "Red",
+                    link: "/products?color=red",
+                },
+                {
+                    title: "Blue",
+                    link: "/products?color=blue",
+                },
+                {
+                    title: "Green",
+                    link: "/products?color=green",
+                },
+                {
+                    title: "Pink",
+                    link: "/products?color=pink",
+                },
+                {
+                    title: "White",
+                    link: "/products?color=white",
+                },
+            ],
+        },
+    ];
+
     return (
         <div className={styles.headerLeft}>
             <MobileMenuButton />
