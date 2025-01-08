@@ -8,12 +8,14 @@ import {
     Product,
     ProductBrand,
     ProductCategory,
+    ProductColor,
     ProductSize,
 } from "@/interfaces/product.interface";
 import { getProducts } from "@/app/api/products";
 import { getCurrency } from "@/helpers/getCurrency";
 import { getBrands } from "@/app/api/brands";
 import { getSizes } from "@/app/api/sizes";
+import { getColors } from "@/app/api/colors";
 
 export const Left = async () => {
     const currency = await getCurrency();
@@ -22,20 +24,18 @@ export const Left = async () => {
     let categories: ProductCategory[] = [];
     let brands: ProductBrand[] = [];
     let sizes: ProductSize[] = [];
+    let colors: ProductColor[] = [];
+
     bestsellers = (
         await getProducts({
-            pageNumber: 1,
-            limit: 8,
-            sortBy: "mostPopular",
             categorySlugs: ["bestsellers"],
-            sizeSlugs: undefined,
-            colorSlug: undefined,
             currency,
         })
     ).data;
     categories = await getCategories();
     brands = await getBrands();
     sizes = await getSizes();
+    colors = await getColors();
 
     return (
         <div className={styles.headerLeft}>
