@@ -1,9 +1,12 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
-import { CategoriesProps } from "./categories.props";
 import { CustomCategory } from "./customCategory.interface";
+import { getCategories } from "@/app/api/categories";
 
-export const Categories = ({ categories }: CategoriesProps) => {
+export const Categories = async () => {
+    const categories = await getCategories();
+    console.log(categories);
+
     const customCategories: CustomCategory[] = [
         {
             title: "Women's",
