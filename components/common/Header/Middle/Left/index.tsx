@@ -3,8 +3,40 @@ import { headerNavigation } from "@/data/headerNavigation";
 import styles from "./styles.module.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import { MobileMenuButton } from "./MobileMenuButton";
+import { getCategories } from "@/app/api/categories";
+import {
+    Product,
+    ProductBrand,
+    ProductCategory,
+    ProductSize,
+} from "@/interfaces/product.interface";
+import { getProducts } from "@/app/api/products";
+import { getCurrency } from "@/helpers/getCurrency";
+import { getBrands } from "@/app/api/brands";
+import { getSizes } from "@/app/api/sizes";
 
-export const Left = () => {
+export const Left = async () => {
+    const currency = await getCurrency();
+
+    let bestsellers: Product[] = [];
+    let categories: ProductCategory[] = [];
+    let brands: ProductBrand[] = [];
+    let sizes: ProductSize[] = [];
+    bestsellers = (
+        await getProducts({
+            pageNumber: 1,
+            limit: 8,
+            sortBy: "mostPopular",
+            categorySlugs: ["bestsellers"],
+            sizeSlugs: undefined,
+            colorSlug: undefined,
+            currency,
+        })
+    ).data;
+    categories = await getCategories();
+    brands = await getBrands();
+    sizes = await getSizes();
+
     return (
         <div className={styles.headerLeft}>
             <MobileMenuButton />
