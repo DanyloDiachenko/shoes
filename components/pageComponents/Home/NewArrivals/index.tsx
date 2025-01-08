@@ -19,7 +19,7 @@ export const NewArrivals = ({ products }: NewArrivalsProps) => {
                         setActiveTabSlug={setActiveTabSlug}
                     />
                 </div>
-                <Slider />
+                <Slider activeTabSlug={activeTabSlug} products={products} />
             </div>
         </div>
     );
