@@ -55,26 +55,12 @@ export const Left = async () => {
             })),
         },
         {
-            title: "Producer",
+            title: "Brands",
             link: "/products",
-            sublinks: [
-                {
-                    title: "Nike",
-                    link: "/products?producer=nike",
-                },
-                {
-                    title: "Adidas",
-                    link: "/products?producer=adidas",
-                },
-                {
-                    title: "Puma",
-                    link: "/products?producer=puma",
-                },
-                {
-                    title: "New Balance",
-                    link: "/products?producer=new-balance",
-                },
-            ],
+            sublinks: brands.map((brand) => ({
+                title: brand.title,
+                link: `/products?brands=${brand.slug}`,
+            })),
         },
         {
             title: "Size",
