@@ -8,14 +8,15 @@ import styles from "./styles.module.scss";
 import { TopSellingProducts } from "./TopSellingProducts";
 
 export const HomePageComponent = async () => {
-    const newArrivals = getProducts({ currency });
+    const newArrivalProducts = (await getProducts({ categorySlugs: ["new"] }))
+        .data;
 
     return (
         <>
             <Slider />
             <Advertisement />
             <Services />
-            <NewArrivals />
+            <NewArrivals products={newArrivalProducts} />
             <Categories />
             <div className={styles.marginBottom}></div>
             <TopSellingProducts />

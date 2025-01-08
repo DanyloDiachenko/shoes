@@ -1,8 +1,9 @@
+import { NewArrivalsProps } from "./newArrivals.props";
 import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
 import Link from "next/link";
 
-export const NewArrivals = () => {
+export const NewArrivals = ({ products }: NewArrivalsProps) => {
     return (
         <div className={styles.newArrivals}>
             <div className="container">
