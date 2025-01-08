@@ -3,7 +3,7 @@
 import styles from "./styles.module.scss";
 import { IoMdClose } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { setMobileMenuState } from "@/store/slices/mobileMenu";
@@ -33,9 +33,9 @@ export const MobileMenu = () => {
         }
     };
 
-    (async () => {
-        setNavigation(await getNavigation());
-    })();
+    useEffect(() => {
+        getNavigation().then((data) => setNavigation(data));
+    }, []);
 
     return (
         <>
