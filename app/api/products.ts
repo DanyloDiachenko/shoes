@@ -1,3 +1,4 @@
+import { getCurrency } from "@/helpers/getCurrency";
 import { Product } from "@/interfaces/product.interface";
 import { GetProductsResponse } from "@/interfaces/responses/products.interface";
 import { Currency } from "@/types/currency.type";
@@ -12,7 +13,6 @@ interface GetProductsParams {
     sizeSlugs?: string[];
     colorSlug?: string;
     brandSlugs?: string[];
-    currency: Currency;
     priceFrom?: number;
     priceTo?: number;
 }
@@ -25,10 +25,10 @@ export const getProducts = async ({
     sizeSlugs = [],
     colorSlug = "",
     brandSlugs = [],
-    currency,
     priceFrom = 0,
     priceTo = 100000,
 }: GetProductsParams): Promise<GetProductsResponse> => {
+    const currency = await getCurrency();
     const categoriesQuery = categorySlugs.join(",");
     const sizesQuery = sizeSlugs.join(",");
     const brandsQuery = brandSlugs.join(",");

@@ -55,7 +55,6 @@ export const ProductsPageContent = ({
             sizeSlugs: selectedSizes.map((size) => String(size.slug)),
             colorSlug: selectedColor?.slug,
             brandSlugs: selectedBrands.map((brand) => brand.slug),
-            currency: currency,
             priceFrom: priceRange.min,
             priceTo: priceRange.max,
         });

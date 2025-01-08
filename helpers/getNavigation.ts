@@ -5,7 +5,6 @@ import {
     ProductSize,
     ProductColor,
 } from "@/interfaces/product.interface";
-import { getCurrency } from "./getCurrency";
 import { getProducts } from "@/app/api/products";
 import { getCategories } from "@/app/api/categories";
 import { getBrands } from "@/app/api/brands";
@@ -14,8 +13,6 @@ import { getColors } from "@/app/api/colors";
 import { NavigationItem } from "@/interfaces/navigationItem";
 
 export const getNavigation = async (): Promise<NavigationItem[]> => {
-    const currency = await getCurrency();
-
     let bestsellers: Product[] = [];
     let categories: ProductCategory[] = [];
     let brands: ProductBrand[] = [];
@@ -25,7 +22,6 @@ export const getNavigation = async (): Promise<NavigationItem[]> => {
     bestsellers = (
         await getProducts({
             categorySlugs: ["bestsellers"],
-            currency,
         })
     ).data;
     categories = await getCategories();
