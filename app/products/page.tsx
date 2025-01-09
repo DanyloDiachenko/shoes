@@ -60,7 +60,6 @@ const Products = async ({ searchParams }: PageProps) => {
             sizeSlugs,
             colorSlug: color,
             brandSlugs,
-            currency,
             priceFrom,
             priceTo,
         }),

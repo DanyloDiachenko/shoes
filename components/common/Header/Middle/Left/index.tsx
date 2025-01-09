@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { headerNavigation } from "@/data/headerNavigation";
 import styles from "./styles.module.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import { MobileMenuButton } from "./MobileMenuButton";
+import { getNavigation } from "@/helpers/getNavigation";
 
-export const Left = () => {
+export const Left = async () => {
+    const navigation = await getNavigation();
+
     return (
         <div className={styles.headerLeft}>
             <MobileMenuButton />
@@ -18,7 +20,7 @@ export const Left = () => {
             </Link>
             <nav className={styles.mainNav}>
                 <ul className={styles.menu}>
-                    {headerNavigation.map((item, index) => (
+                    {navigation.map((item, index) => (
                         <li key={index} className={styles.linksWrapper}>
                             <Link href={item.link} className={styles.mainLink}>
                                 {item.title} <IoIosArrowDown />

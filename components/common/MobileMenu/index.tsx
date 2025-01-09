@@ -3,13 +3,14 @@
 import styles from "./styles.module.scss";
 import { IoMdClose } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
-import { headerNavigation } from "@/data/headerNavigation";
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { setMobileMenuState } from "@/store/slices/mobileMenu";
 import { Socials } from "./Socials";
+import { getNavigation } from "@/helpers/getNavigation";
+import Link from "next/link";
+import { NavigationItem } from "@/interfaces/navigationItem";
 
 export const MobileMenu = () => {
     const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export const MobileMenu = () => {
     );
 
     const [activeTabIndex, setActiveTabIndex] = useState<number>(-1);
+    const [navigation, setNavigation] = useState<NavigationItem[]>([]);
 
     const setMobileMenuStateHandler = (isOpened: boolean) => {
         dispatch(setMobileMenuState(isOpened));
@@ -30,6 +32,10 @@ export const MobileMenu = () => {
             setActiveTabIndex(index);
         }
     };
+
+    useEffect(() => {
+        getNavigation().then((data) => setNavigation(data));
+    }, []);
 
     return (
         <>
@@ -53,7 +59,7 @@ export const MobileMenu = () => {
                     </button>
                     <nav className={styles.mobileNav}>
                         <ul className={styles.mobileMenu}>
-                            {headerNavigation.map((headerNavItem, index) => (
+                            {navigation.map((navigationItem, index) => (
                                 <li
                                     className={
                                         activeTabIndex === index
@@ -64,10 +70,10 @@ export const MobileMenu = () => {
                                 >
                                     <div className={styles.mainLinkWrapper}>
                                         <Link
-                                            href={headerNavItem.link}
+                                            href={navigationItem.link}
                                             className={styles.mainLink}
                                         >
-                                            {headerNavItem.title}
+                                            {navigationItem.title}
                                         </Link>
                                         <button
                                             className={styles.menuBtn}
@@ -84,7 +90,7 @@ export const MobileMenu = () => {
                                     </div>
                                     <div className={styles.sublinksWrapper}>
                                         <ul>
-                                            {headerNavItem.sublinks.map(
+                                            {navigationItem.sublinks.map(
                                                 (sublink, index) => (
                                                     <li key={index}>
                                                         <Link
@@ -92,15 +98,6 @@ export const MobileMenu = () => {
                                                         >
                                                             <span>
                                                                 {sublink.title}
-                                                                {sublink.isNew && (
-                                                                    <span
-                                                                        className={
-                                                                            styles.tip
-                                                                        }
-                                                                    >
-                                                                        new
-                                                                    </span>
-                                                                )}
                                                             </span>
                                                         </Link>
                                                     </li>
