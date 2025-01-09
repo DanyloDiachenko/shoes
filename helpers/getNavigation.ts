@@ -13,21 +13,15 @@ import { getColors } from "@/app/api/colors";
 import { NavigationItem } from "@/interfaces/navigationItem";
 
 export const getNavigation = async (): Promise<NavigationItem[]> => {
-    let bestsellers: Product[] = [];
-    let categories: ProductCategory[] = [];
-    let brands: ProductBrand[] = [];
-    let sizes: ProductSize[] = [];
-    let colors: ProductColor[] = [];
-
-    bestsellers = (
+    let bestsellers = (
         await getProducts({
             categorySlugs: ["bestsellers"],
         })
     ).data;
-    categories = await getCategories();
-    brands = await getBrands();
-    sizes = await getSizes();
-    colors = await getColors();
+    let categories = await getCategories();
+    let brands = await getBrands();
+    let sizes = await getSizes();
+    let colors = await getColors();
 
     return [
         {
