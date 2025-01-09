@@ -70,7 +70,7 @@ const sliderSettings = {
     prevArrow: <SamplePrevArrow />,
 };
 
-export const Slider = ({ activeTabSlug, products }: SliderProps) => {
+export const Slider = ({ activeTabSlug, products, currency }: SliderProps) => {
     console.log(products);
 
     return (
@@ -80,7 +80,7 @@ export const Slider = ({ activeTabSlug, products }: SliderProps) => {
             {...sliderSettings}
         >
             {products.map((product, index) => (
-                <Product key={index} {...product} />
+                <Product key={index} {...product} currency={currency} />
             ))}
         </SlickSlider>
     );

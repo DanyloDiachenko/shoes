@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getProductRating } from "@/helpers/getProductRating";
 import { FaRegHeart } from "react-icons/fa";
 import { ProductProps } from "./product.props";
+import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const Product = ({
     id,
@@ -18,6 +19,7 @@ export const Product = ({
     reviews,
     rating,
     color,
+    currency,
 }: ProductProps) => {
     return (
         <div className={styles.product}>
@@ -25,9 +27,25 @@ export const Product = ({
                 <span className={`${styles.label} ${styles.labelPrimary}`}>
                     {mainCategory.title}
                 </span>
-                <span className={`${styles.label} ${styles.labelSale}`}>
-                    30% off
-                </span>
+                {priceWithDiscountEur && priceWithDiscountUah ? (
+                    <span className={`${styles.label} ${styles.labelSale}`}>
+                        {currency === "uah"
+                            ? `${
+                                  100 -
+                                  Math.round(
+                                      (priceWithDiscountUah * 100) / priceUah
+                                  )
+                              }% off`
+                            : `${
+                                  100 -
+                                  Math.round(
+                                      (priceWithDiscountEur * 100) / priceEur
+                                  )
+                              }% off`}
+                    </span>
+                ) : (
+                    ""
+                )}
                 <Link href="product.html" className={styles.productLink}>
                     <img
                         src={mainImage}
@@ -45,15 +63,12 @@ export const Product = ({
             <div className={styles.body}>
                 <div className={styles.category}>
                     {categories.map((category, index) => (
-                        <>
-                            <Link
-                                key={index}
-                                href={`/products/${category.slug}`}
-                            >
+                        <span key={index}>
+                            <Link href={`/products/${category.slug}`}>
                                 {category.title}
                             </Link>
                             {index < categories.length - 1 && ", "}
-                        </>
+                        </span>
                     ))}
                 </div>
                 <h3 className={styles.title}>
@@ -65,13 +80,12 @@ export const Product = ({
                     </Link>
                 </h3>
                 <div className={styles.price}>
-                    {true ? (
-                        <>
-                            <span className={styles.newPrice}>Now $50.00</span>
-                            <span className={styles.oldPrice}>$84.00</span>
-                        </>
-                    ) : (
-                        <span className={styles.outPrice}>$54.99</span>
+                    {getProductPrice(
+                        priceUah,
+                        priceEur,
+                        priceWithDiscountUah,
+                        priceWithDiscountEur,
+                        currency
                     )}
                 </div>
             </div>
@@ -82,7 +96,6 @@ export const Product = ({
                         ( {reviews.length} Reviews )
                     </span>
                 </div>
-
                 <div className={styles.productNav}>
                     <Link
                         href="#"
