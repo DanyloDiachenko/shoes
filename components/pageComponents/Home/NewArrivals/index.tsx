@@ -10,7 +10,7 @@ import { TabSlug } from "./tabSlug.type";
 export const NewArrivals = ({ products }: NewArrivalsProps) => {
     const [activeTabSlug, setActiveTabSlug] = useState<TabSlug>("all");
 
-    const filterProducts = (tabSlug: string) => {
+    const filterProducts = (tabSlug: TabSlug) => {
         switch (tabSlug) {
             case "all": {
                 return products;
