@@ -3,26 +3,58 @@ import styles from "./styles.module.scss";
 import Link from "next/link";
 import { getProductRating } from "@/helpers/getProductRating";
 import { FaRegHeart } from "react-icons/fa";
+import { ProductProps } from "./product.props";
+import { getProductPrice } from "@/helpers/getProductPrice";
 
-export const Product = () => {
+export const Product = ({
+    id,
+    title,
+    priceEur,
+    priceUah,
+    priceWithDiscountEur,
+    priceWithDiscountUah,
+    mainImage,
+    mainCategory,
+    categories,
+    reviews,
+    rating,
+    color,
+    currency,
+}: ProductProps) => {
     return (
         <div className={styles.product}>
             <figure className={styles.media}>
                 <span className={`${styles.label} ${styles.labelPrimary}`}>
-                    Sale
+                    {mainCategory.title}
                 </span>
-                <span className={`${styles.label} ${styles.labelSale}`}>
-                    30% off
-                </span>
+                {priceWithDiscountEur && priceWithDiscountUah ? (
+                    <span className={`${styles.label} ${styles.labelSale}`}>
+                        {currency === "uah"
+                            ? `${
+                                  100 -
+                                  Math.round(
+                                      (priceWithDiscountUah * 100) / priceUah
+                                  )
+                              }% off`
+                            : `${
+                                  100 -
+                                  Math.round(
+                                      (priceWithDiscountEur * 100) / priceEur
+                                  )
+                              }% off`}
+                    </span>
+                ) : (
+                    ""
+                )}
                 <Link href="product.html" className={styles.productLink}>
                     <img
-                        src="https://nike.in.ua/image/cache/catalog/image/cache/catalog/image/catalog/image/nike/airmax/plus-tn/S-56201/32241-375x467.webp"
+                        src={mainImage}
                         alt="Product image"
                         className="product-image"
                     />
                 </Link>
                 <div className={styles.actionVertical}>
-                    <Link href={`/products/`}>
+                    <Link href={`/products/${id}`}>
                         <FaRegHeart />
                         <span className="sr-only">add to wishlist</span>
                     </Link>
@@ -30,41 +62,51 @@ export const Product = () => {
             </figure>
             <div className={styles.body}>
                 <div className={styles.category}>
-                    <Link href="#">Men’s</Link>, <Link href="#">Boots</Link>
+                    {categories.map((category, index) => (
+                        <span key={index}>
+                            <Link href={`/products/${category.slug}`}>
+                                {category.title}
+                            </Link>
+                            {index < categories.length - 1 && ", "}
+                        </span>
+                    ))}
                 </div>
                 <h3 className={styles.title}>
-                    <Link href="product.html">
-                        The North Face Back-To-Berkeley Remtlz Mesh
+                    <Link
+                        href={`/products/${id}`}
+                        className={styles.productLink}
+                    >
+                        {title}
                     </Link>
                 </h3>
                 <div className={styles.price}>
-                    {true ? (
-                        <>
-                            <span className={styles.newPrice}>Now $50.00</span>
-                            <span className={styles.oldPrice}>$84.00</span>
-                        </>
-                    ) : (
-                        <span className={styles.outPrice}>$54.99</span>
+                    {getProductPrice(
+                        priceUah,
+                        priceEur,
+                        priceWithDiscountUah,
+                        priceWithDiscountEur,
+                        currency
                     )}
                 </div>
             </div>
             <div className={styles.footer}>
                 <div className={styles.ratingsContainer}>
-                    {getProductRating(4)}
-                    <span className={styles.ratingsText}>( 4 Reviews )</span>
+                    {getProductRating(rating)}
+                    <span className={styles.ratingsText}>
+                        ( {reviews.length} Reviews )
+                    </span>
                 </div>
-
                 <div className={styles.productNav}>
                     <Link
                         href="#"
                         className={styles.color}
-                        style={{ background: "#5f554b" }}
+                        style={{ background: color.hexCode }}
                     >
-                        <span className="sr-only">Color name</span>
+                        <span className="sr-only">{color.title}</span>
                     </Link>
                 </div>
                 <div className={styles.actions}>
-                    <Link href="#" className={styles.product}>
+                    <Link href={`/products/${id}`} className={styles.product}>
                         <LiaCartPlusSolid />
                         <span>add to cart</span>
                     </Link>

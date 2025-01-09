@@ -6,37 +6,46 @@ import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
 import { Tabs } from "./Tabs";
 import { TabSlug } from "./tabSlug.type";
+import { Product } from "@/interfaces/product.interface";
 
-export const NewArrivals = ({ products }: NewArrivalsProps) => {
+export const NewArrivals = ({ products, currency }: NewArrivalsProps) => {
     const [activeTabSlug, setActiveTabSlug] = useState<TabSlug>("all");
+    const [productsToShow, setProductsToShow] = useState<Product[]>(products);
 
     const filterProducts = (tabSlug: TabSlug) => {
         switch (tabSlug) {
             case "all": {
-                return products;
+                setProductsToShow(products);
+                break;
             }
             case "men": {
-                return products.filter((product) =>
+                const menProducts = products.filter((product) =>
                     product.categories.find(
                         (category) => category.slug === "men"
                     )
                 );
+                setProductsToShow(menProducts);
+                break;
             }
             case "women": {
-                return products.filter((product) =>
+                const womenProducts = products.filter((product) =>
                     product.categories.find(
                         (category) => category.slug === "women"
                     )
                 );
+                setProductsToShow(womenProducts);
+                break;
             }
             default: {
-                return products;
+                setProductsToShow(products);
+                break;
             }
         }
     };
 
     const onSetActiveTabClick = (slug: TabSlug) => {
         setActiveTabSlug(slug);
+        filterProducts(slug);
     };
 
     return (
@@ -51,7 +60,8 @@ export const NewArrivals = ({ products }: NewArrivalsProps) => {
                 </div>
                 <Slider
                     activeTabSlug={activeTabSlug}
-                    products={filterProducts(activeTabSlug)}
+                    products={productsToShow}
+                    currency={currency}
                 />
             </div>
         </div>

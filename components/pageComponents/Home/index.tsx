@@ -6,18 +6,19 @@ import { Services } from "./Services";
 import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
 import { TopSellingProducts } from "./TopSellingProducts";
+import { getCurrency } from "@/helpers/getCurrency";
 
 export const HomePageComponent = async () => {
-    const newArrivalProducts = (await getProducts({ /* categorySlugs: ["new"]  */}))
+    const newArrivalProducts = (await getProducts({ categorySlugs: ["new"] }))
         .data;
-    console.log(newArrivalProducts);
+    const currency = await getCurrency();
 
     return (
         <>
             <Slider />
             <Advertisement />
             <Services />
-            <NewArrivals products={newArrivalProducts} />
+            <NewArrivals products={newArrivalProducts} currency={currency} />
             <Categories />
             <div className={styles.marginBottom}></div>
             <TopSellingProducts />
