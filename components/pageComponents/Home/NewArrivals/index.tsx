@@ -16,6 +16,7 @@ export const NewArrivals = ({ products, currency }: NewArrivalsProps) => {
         switch (tabSlug) {
             case "all": {
                 setProductsToShow(products);
+                break;
             }
             case "men": {
                 const menProducts = products.filter((product) =>
@@ -24,6 +25,7 @@ export const NewArrivals = ({ products, currency }: NewArrivalsProps) => {
                     )
                 );
                 setProductsToShow(menProducts);
+                break;
             }
             case "women": {
                 const womenProducts = products.filter((product) =>
@@ -32,9 +34,11 @@ export const NewArrivals = ({ products, currency }: NewArrivalsProps) => {
                     )
                 );
                 setProductsToShow(womenProducts);
+                break;
             }
             default: {
-                return products;
+                setProductsToShow(products);
+                break;
             }
         }
     };
