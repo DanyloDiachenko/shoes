@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
 import { TopSellingProducts } from "./TopSellingProducts";
 
 export const HomePageComponent = async () => {
-    const newArrivalProducts = (await getProducts({ /* categorySlugs: ["new"]  */}))
+    const newArrivalProducts = (await getProducts({ categorySlugs: ["new"] }))
         .data;
     console.log(newArrivalProducts);
 
