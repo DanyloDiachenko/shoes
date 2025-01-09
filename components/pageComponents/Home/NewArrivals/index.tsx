@@ -8,33 +8,36 @@ import { Tabs } from "./Tabs";
 import { TabSlug } from "./tabSlug.type";
 import { Product } from "@/interfaces/product.interface";
 
-export const NewArrivals = ({
-    newArrivalProductsAll,
-    newArrivalProductsMen,
-    newArrivalProductsWomen,
-    currency,
-}: NewArrivalsProps) => {
+export const NewArrivals = ({ products, currency }: NewArrivalsProps) => {
     const [activeTabSlug, setActiveTabSlug] = useState<TabSlug>("all");
-    const [productsToShow, setProductsToShow] = useState<Product[]>(
-        newArrivalProductsAll
-    );
+    const [productsToShow, setProductsToShow] = useState<Product[]>(products);
 
     const filterProducts = (tabSlug: TabSlug) => {
         switch (tabSlug) {
             case "all": {
-                setProductsToShow(newArrivalProductsAll);
+                setProductsToShow(products);
                 break;
             }
             case "men": {
-                setProductsToShow(newArrivalProductsMen);
+                const menProducts = products.filter((product) =>
+                    product.categories.find(
+                        (category) => category.slug === "men"
+                    )
+                );
+                setProductsToShow(menProducts);
                 break;
             }
             case "women": {
-                setProductsToShow(newArrivalProductsWomen);
+                const womenProducts = products.filter((product) =>
+                    product.categories.find(
+                        (category) => category.slug === "women"
+                    )
+                );
+                setProductsToShow(womenProducts);
                 break;
             }
             default: {
-                setProductsToShow(newArrivalProductsAll);
+                setProductsToShow(products);
                 break;
             }
         }
