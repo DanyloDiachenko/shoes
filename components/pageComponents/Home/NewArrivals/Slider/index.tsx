@@ -79,17 +79,9 @@ export const Slider = ({ activeTabSlug, products }: SliderProps) => {
             aria-labelledby={`new-${activeTabSlug}-link`}
             {...sliderSettings}
         >
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
+            {products.map((product, index) => (
+                <Product key={index} {...product} />
+            ))}
         </SlickSlider>
     );
 };
