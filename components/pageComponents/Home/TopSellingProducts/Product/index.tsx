@@ -44,15 +44,15 @@ export const Product = ({
                 ) : (
                     ""
                 )}
-                <Link href={`/products/`}>
+                <Link href={`/products/${id}`}>
                     <img
-                        src="https://nike.in.ua/image/cache/catalog/image/cache/catalog/image/catalog/image/nike/airmax/plus-tn/S-56201/32241-375x467.webp"
+                        src={mainImage}
                         alt="Product image"
                         className={styles.productImage}
                     />
                 </Link>
                 <div className={styles.actionVertical}>
-                    <Link href={`/products/`}>
+                    <Link href={`/products/${id}`}>
                         <FaRegHeart />
                         <span className="sr-only">add to wishlist</span>
                     </Link>
@@ -60,7 +60,17 @@ export const Product = ({
             </figure>
             <div className={styles.productBody}>
                 <div className={styles.productCategories}>
-                    <Link href="#">Men’s</Link>, <Link href="#">Sneakers</Link>
+                    {categories.map((category) => (
+                        <>
+                            <Link
+                                key={category.id}
+                                href={`/products?categories=${category.slug}`}
+                            >
+                                {category.title}
+                            </Link>
+                            {categories.length > 1 && ", "}
+                        </>
+                    ))}
                 </div>
                 <h3 className={styles.productTitle}>
                     <Link href={`/products/${1}`}>ASICS Tiger Gel-Lyte MT</Link>
