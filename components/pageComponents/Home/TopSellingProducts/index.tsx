@@ -11,7 +11,10 @@ import { TabSlug } from "../NewArrivals/tabSlug.type";
 import { Product } from "@/interfaces/product.interface";
 import { TopSellingProductsProps } from "./topSellingProducts.props";
 
-export const TopSellingProducts = ({ products }: TopSellingProductsProps) => {
+export const TopSellingProducts = ({
+    products,
+    currency,
+}: TopSellingProductsProps) => {
     const [activeTabSlug, setActiveTabSlug] = useState<TabSlug>("all");
     const [productsToShow, setProductsToShow] = useState<Product[]>(products);
 
@@ -70,7 +73,7 @@ export const TopSellingProducts = ({ products }: TopSellingProductsProps) => {
                     <div className={`${styles.row} row`}>
                         {productsToShow.map((product, index) => (
                             <div key={index} className={styles.column}>
-                                <ProductCart {...product} />
+                                <ProductCart {...product} currency={currency} />
                             </div>
                         ))}
                     </div>

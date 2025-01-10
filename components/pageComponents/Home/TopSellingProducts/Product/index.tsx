@@ -17,14 +17,33 @@ export const Product = ({
     priceWithDiscountUah,
     reviews,
     color,
+    currency,
 }: ProductProps) => {
     return (
         <div className={styles.product}>
             <figure className={styles.productMedia}>
-                <span className={styles.productLabel}>Sale</span>
-                <span className={`${styles.productLabel} ${styles.sale}`}>
-                    30% off
+                <span className={styles.productLabel}>
+                    {mainCategory.title}
                 </span>
+                {priceWithDiscountEur && priceWithDiscountUah ? (
+                    <span className={`${styles.label} ${styles.labelSale}`}>
+                        {currency === "uah"
+                            ? `${
+                                  100 -
+                                  Math.round(
+                                      (priceWithDiscountUah * 100) / priceUah
+                                  )
+                              }% off`
+                            : `${
+                                  100 -
+                                  Math.round(
+                                      (priceWithDiscountEur * 100) / priceEur
+                                  )
+                              }% off`}
+                    </span>
+                ) : (
+                    ""
+                )}
                 <Link href={`/products/`}>
                     <img
                         src="https://nike.in.ua/image/cache/catalog/image/cache/catalog/image/catalog/image/nike/airmax/plus-tn/S-56201/32241-375x467.webp"

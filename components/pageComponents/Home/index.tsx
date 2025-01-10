@@ -25,7 +25,10 @@ export const HomePageComponent = async () => {
             <NewArrivals products={newArrivalProducts} currency={currency} />
             <Categories />
             <div className={styles.marginBottom}></div>
-            <TopSellingProducts products={topSellingProducts} />
+            <TopSellingProducts
+                products={topSellingProducts}
+                currency={currency}
+            />
         </>
     );
 };
