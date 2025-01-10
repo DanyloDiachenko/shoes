@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { Product as ProductCart } from "./Product";
+import { Product as ProductCard } from "./Product";
 import { Tabs } from "../Tabs";
 import { useState } from "react";
 import { TabSlug } from "../Tabs/tabSlug.type";
@@ -73,7 +73,7 @@ export const TopSellingProducts = ({
                     <div className={`${styles.row} row`}>
                         {productsToShow.map((product, index) => (
                             <div key={index} className={styles.column}>
-                                <ProductCart {...product} currency={currency} />
+                                <ProductCard {...product} currency={currency} />
                             </div>
                         ))}
                     </div>
