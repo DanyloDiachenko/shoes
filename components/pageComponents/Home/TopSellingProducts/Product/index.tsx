@@ -62,8 +62,8 @@ export const Product = ({
             </figure>
             <div className={styles.productBody}>
                 <div className={styles.productCategories}>
-                    {categories.map((category) => (
-                        <>
+                    {categories.map((category, index) => (
+                        <span key={index}>
                             <Link
                                 key={category.id}
                                 href={`/products?categories=${category.slug}`}
@@ -71,7 +71,7 @@ export const Product = ({
                                 {category.title}
                             </Link>
                             {categories.length > 1 && ", "}
-                        </>
+                        </span>
                     ))}
                 </div>
                 <h3 className={styles.productTitle}>
