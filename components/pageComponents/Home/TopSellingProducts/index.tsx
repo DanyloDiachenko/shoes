@@ -7,7 +7,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { Product as ProductCart } from "./Product";
 import { Tabs } from "../Tabs";
 import { useState } from "react";
-import { TabSlug } from "../NewArrivals/tabSlug.type";
+import { TabSlug } from "../Tabs/tabSlug.type";
 import { Product } from "@/interfaces/product.interface";
 import { TopSellingProductsProps } from "./topSellingProducts.props";
 
