@@ -1,52 +1,64 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { Product } from "./Product";
+import { Product as ProductCart } from "./Product";
+import { Tabs } from "../Tabs";
+import { useState } from "react";
+import { TabSlug } from "../NewArrivals/tabSlug.type";
+import { Product } from "@/interfaces/product.interface";
+import { TopSellingProductsProps } from "./topSellingProducts.props";
 
-export const TopSellingProducts = () => {
+export const TopSellingProducts = ({ products }: TopSellingProductsProps) => {
+    const [activeTabSlug, setActiveTabSlug] = useState<TabSlug>("all");
+    const [productsToShow, setProductsToShow] = useState<Product[]>(products);
+
+    const filterProducts = (tabSlug: TabSlug) => {
+        switch (tabSlug) {
+            case "all": {
+                setProductsToShow(products);
+                break;
+            }
+            case "men": {
+                const menProducts = products.filter((product) =>
+                    product.categories.find(
+                        (category) => category.slug === "men"
+                    )
+                );
+                setProductsToShow(menProducts);
+                break;
+            }
+            case "women": {
+                const womenProducts = products.filter((product) =>
+                    product.categories.find(
+                        (category) => category.slug === "women"
+                    )
+                );
+                setProductsToShow(womenProducts);
+                break;
+            }
+            default: {
+                setProductsToShow(products);
+                break;
+            }
+        }
+    };
+
+    const onSetActiveTabClick = (slug: TabSlug) => {
+        setActiveTabSlug(slug);
+        filterProducts(slug);
+    };
+
     return (
         <div className={`${styles.topSellingProducts} container`}>
             <div className={styles.heading}>
                 <h2 className={styles.title}>Top Selling Products</h2>
-                <ul className={styles.nav} role="tablist">
-                    <li className={styles.navItem}>
-                        <Link
-                            className={`${styles.navLink} ${styles.active}`}
-                            id="top-all-link"
-                            href="#top-all-tab"
-                            role="tab"
-                            aria-controls="top-all-tab"
-                            aria-selected={true}
-                        >
-                            All
-                        </Link>
-                    </li>
-                    <li className={styles.navItem}>
-                        <Link
-                            className={styles.navLink}
-                            id="top-women-link"
-                            href="#top-women-tab"
-                            role="tab"
-                            aria-controls="top-women-tab"
-                            aria-selected={false}
-                        >
-                            Women's
-                        </Link>
-                    </li>
-                    <li className={styles.navItem}>
-                        <Link
-                            className={styles.navLink}
-                            id="top-men-link"
-                            href="#top-men-tab"
-                            role="tab"
-                            aria-controls="top-men-tab"
-                            aria-selected={false}
-                        >
-                            Men's
-                        </Link>
-                    </li>
-                </ul>
+                <Tabs
+                    activeTabSlug={activeTabSlug}
+                    onSetActiveTabClick={onSetActiveTabClick}
+                />
             </div>
             <div className={styles.tabContent}>
                 <div
@@ -56,36 +68,11 @@ export const TopSellingProducts = () => {
                     aria-labelledby="top-all-link"
                 >
                     <div className={`${styles.row} row`}>
-                        <div className={styles.column}>
-                            <Product />
-                        </div>
-                        <div className={styles.column}>
-                            <Product />
-                        </div>
-                        <div className={styles.column}>
-                            <Product />
-                        </div>
-                        <div className={styles.column}>
-                            <Product />
-                        </div>
-                        <div className={styles.column}>
-                            <Product />
-                        </div>
-                        <div className={styles.column}>
-                            <Product />
-                        </div>
-                        <div className={styles.column}>
-                            <Product />
-                        </div>
-                        <div className={styles.column}>
-                            <Product />
-                        </div>
-                        <div className={styles.column}>
-                            <Product />
-                        </div>
-                        <div className={styles.column}>
-                            <Product />
-                        </div>
+                        {productsToShow.map((product, index) => (
+                            <div key={index} className={styles.column}>
+                                <ProductCart product={product} />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

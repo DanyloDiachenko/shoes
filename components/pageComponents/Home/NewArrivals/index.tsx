@@ -4,7 +4,7 @@ import { useState } from "react";
 import { NewArrivalsProps } from "./newArrivals.props";
 import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
-import { Tabs } from "./Tabs";
+import { Tabs } from "../Tabs";
 import { TabSlug } from "./tabSlug.type";
 import { Product } from "@/interfaces/product.interface";
 
