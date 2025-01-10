@@ -1,4 +1,4 @@
-import { TabSlug } from "../tabSlug.type";
+import { TabSlug } from "../NewArrivals/tabSlug.type";
 
 export interface TabsProps {
     activeTabSlug: TabSlug;
