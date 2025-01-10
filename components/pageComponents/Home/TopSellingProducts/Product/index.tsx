@@ -4,6 +4,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { getProductRating } from "@/helpers/getProductRating";
 import { LiaBinocularsSolid, LiaCartPlusSolid } from "react-icons/lia";
 import { ProductProps } from "./product.props";
+import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const Product = ({
     id,
@@ -17,6 +18,7 @@ export const Product = ({
     priceWithDiscountUah,
     reviews,
     color,
+    rating,
     currency,
 }: ProductProps) => {
     return (
@@ -73,35 +75,40 @@ export const Product = ({
                     ))}
                 </div>
                 <h3 className={styles.productTitle}>
-                    <Link href={`/products/${1}`}>ASICS Tiger Gel-Lyte MT</Link>
+                    <Link href={`/products/${id}`}>{title}</Link>
                 </h3>
-                {true ? (
-                    <div className={styles.productPrice}>
-                        <span className={styles.newPrice}>Now $77.99</span>
-                        <span className={styles.oldPrice}>$130.00</span>
-                    </div>
-                ) : (
-                    <div className={styles.productPrice}>Now $77.99</div>
-                )}
+                <div className={styles.productPrice}>
+                    {getProductPrice(
+                        priceUah,
+                        priceEur,
+                        priceWithDiscountUah,
+                        priceWithDiscountEur,
+                        currency
+                    )}
+                </div>
             </div>
             <div className={styles.productFooter}>
                 <div className={styles.ratingsContainer}>
-                    <div className={styles.ratings}>{getProductRating(4)}</div>
-                    <span className={styles.ratingsText}>( 4 Reviews )</span>
+                    <div className={styles.ratings}>
+                        {getProductRating(rating)}
+                    </div>
+                    <span className={styles.ratingsText}>
+                        ( {reviews.length} Reviews )
+                    </span>
                 </div>
                 <div className={styles.productNav}>
                     <Link
                         href="#"
                         style={{
-                            background: "#af5f23",
+                            background: color.hexCode,
                         }}
                     >
-                        <span className="sr-only">Color name</span>
+                        <span className="sr-only">{color.title}</span>
                     </Link>
                 </div>
                 <div className={styles.productAction}>
                     <Link
-                        href={`/products/1`}
+                        href={`/products/${id}`}
                         className={styles.addToCart}
                         title="Add to cart"
                     >
