@@ -3,8 +3,21 @@ import styles from "./styles.module.scss";
 import { FaRegHeart } from "react-icons/fa";
 import { getProductRating } from "@/helpers/getProductRating";
 import { LiaBinocularsSolid, LiaCartPlusSolid } from "react-icons/lia";
+import { ProductProps } from "./product.props";
 
-export const Product = () => {
+export const Product = ({
+    id,
+    title,
+    mainCategory,
+    mainImage,
+    categories,
+    priceEur,
+    priceUah,
+    priceWithDiscountEur,
+    priceWithDiscountUah,
+    reviews,
+    color,
+}: ProductProps) => {
     return (
         <div className={styles.product}>
             <figure className={styles.productMedia}>
