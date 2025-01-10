@@ -1,7 +1,6 @@
 import { Product } from "@/interfaces/product.interface";
 import { Currency } from "@/types/currency.type";
 
-export interface TopSellingProductsProps {
-    products: Product[];
+export interface ProductProps extends Product {
     currency: Currency;
 }

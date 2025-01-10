@@ -6,21 +6,29 @@ import { Services } from "./Services";
 import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
 import { TopSellingProducts } from "./TopSellingProducts";
+import { getCurrency } from "@/helpers/getCurrency";
 
 export const HomePageComponent = async () => {
-    const newArrivalProducts = (await getProducts({ /* categorySlugs: ["new"]  */}))
+    const currency = await getCurrency();
+
+    const newArrivalProducts = (await getProducts({ categorySlugs: ["new"] }))
         .data;
-    console.log(newArrivalProducts);
+    const topSellingProducts = (
+        await getProducts({ categorySlugs: ["bestsellers"] })
+    ).data;
 
     return (
         <>
             <Slider />
             <Advertisement />
             <Services />
-            <NewArrivals products={newArrivalProducts} />
+            <NewArrivals products={newArrivalProducts} currency={currency} />
             <Categories />
             <div className={styles.marginBottom}></div>
-            <TopSellingProducts />
+            <TopSellingProducts
+                products={topSellingProducts}
+                currency={currency}
+            />
         </>
     );
 };

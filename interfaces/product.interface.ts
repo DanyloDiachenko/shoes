@@ -57,5 +57,5 @@ export interface Product {
     color: ProductColor;
     sizes: ProductSize[];
     categories: ProductCategory[];
-    rating: number | null;
+    rating: number;
 }

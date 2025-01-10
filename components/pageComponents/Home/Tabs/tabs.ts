@@ -1,4 +1,4 @@
-import { TabSlug } from "../tabSlug.type";
+import { TabSlug } from "./tabSlug.type";
 
 interface Tab {
     title: string;

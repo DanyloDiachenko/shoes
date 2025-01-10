@@ -70,24 +70,16 @@ const sliderSettings = {
     prevArrow: <SamplePrevArrow />,
 };
 
-export const Slider = ({ activeTabSlug, products }: SliderProps) => {
+export const Slider = ({ activeTabSlug, products, currency }: SliderProps) => {
     return (
         <SlickSlider
             className={`${styles.slider} new-arrivals-slider`}
             aria-labelledby={`new-${activeTabSlug}-link`}
             {...sliderSettings}
         >
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
+            {products.map((product, index) => (
+                <Product key={index} {...product} currency={currency} />
+            ))}
         </SlickSlider>
     );
 };
