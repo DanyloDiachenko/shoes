@@ -4,3 +4,5 @@
 4. code review responses & interfaces
 5. NewArrivals & top selling products code review & gettings products from API
 6. on remove product update cart header
+7. quick view popup
+8. add product to liked

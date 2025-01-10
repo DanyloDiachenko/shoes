@@ -9,9 +9,13 @@ import { TopSellingProducts } from "./TopSellingProducts";
 import { getCurrency } from "@/helpers/getCurrency";
 
 export const HomePageComponent = async () => {
+    const currency = await getCurrency();
+
     const newArrivalProducts = (await getProducts({ categorySlugs: ["new"] }))
         .data;
-    const currency = await getCurrency();
+    const topSellingProducts = (
+        await getProducts({ categorySlugs: ["bestsellers"] })
+    ).data;
 
     return (
         <>
@@ -21,7 +25,10 @@ export const HomePageComponent = async () => {
             <NewArrivals products={newArrivalProducts} currency={currency} />
             <Categories />
             <div className={styles.marginBottom}></div>
-            <TopSellingProducts />
+            <TopSellingProducts
+                products={topSellingProducts}
+                currency={currency}
+            />
         </>
     );
 };
