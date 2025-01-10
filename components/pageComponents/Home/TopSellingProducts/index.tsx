@@ -70,7 +70,7 @@ export const TopSellingProducts = ({ products }: TopSellingProductsProps) => {
                     <div className={`${styles.row} row`}>
                         {productsToShow.map((product, index) => (
                             <div key={index} className={styles.column}>
-                                <ProductCart product={product} />
+                                <ProductCart {...product} />
                             </div>
                         ))}
                     </div>
