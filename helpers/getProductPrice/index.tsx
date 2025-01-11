@@ -12,7 +12,6 @@ const printPriceWithCurrency = (
         : `${getCurrencyIcon(currency)}${priceEur.toFixed(2)}`;
 };
 
-
 export const getProductPrice = (
     priceUah: number,
     priceEur: number,
