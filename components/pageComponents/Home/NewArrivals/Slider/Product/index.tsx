@@ -47,7 +47,7 @@ export const Product = ({
                 ) : (
                     ""
                 )}
-                <Link href="product.html" className={styles.productLink}>
+                <Link href={`/products/${id}`} className={styles.productLink}>
                     <Image
                         src={mainImage}
                         alt="Product image"
@@ -101,7 +101,7 @@ export const Product = ({
                 </div>
                 <div className={styles.productNav}>
                     <Link
-                        href="#"
+                        href={`/products?color=${color.slug}`}
                         className={styles.color}
                         style={{ background: color.hexCode }}
                     >
