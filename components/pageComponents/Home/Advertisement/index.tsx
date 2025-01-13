@@ -1,6 +1,7 @@
 import { Button } from "@/components/UI/Button";
 import styles from "./advertisement.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 export const Advertisement = () => {
     return (
@@ -11,9 +12,11 @@ export const Advertisement = () => {
                         <div className={styles.column}>
                             <div className={styles.banner}>
                                 <Link href="#" className={styles.bannerLink}>
-                                    <img
+                                    <Image
                                         src="/images/banners/advertisement-1.png"
                                         alt="Banner"
+                                        width={376}
+                                        height={250}
                                     />
                                 </Link>
                                 <div className={styles.bannerContent}>
@@ -32,9 +35,11 @@ export const Advertisement = () => {
                                 className={`${styles.banner} ${styles.bannerLight}`}
                             >
                                 <Link href="#" className={styles.bannerLink}>
-                                    <img
+                                    <Image
                                         src="/images/banners/advertisement-2.png"
                                         alt="Banner"
+                                        width={376}
+                                        height={250}
                                     />
                                 </Link>
                                 <div className={styles.bannerContent}>
@@ -56,9 +61,11 @@ export const Advertisement = () => {
                         className={`${styles.banner} ${styles.bannerLarge} ${styles.bannerBottom}`}
                     >
                         <Link href="#" className={styles.bannerLink}>
-                            <img
+                            <Image
                                 src="/images/banners/advertisement-4.png"
                                 alt="Banner"
+                                width={772}
+                                height={250}
                             />
                         </Link>
                         <div className={styles.bannerContent}>
@@ -70,9 +77,7 @@ export const Advertisement = () => {
                                 up to 30% off
                             </div>
                             <Link href="#">
-                                <Button colorType="btnWhite">
-                                    Shop Now
-                                </Button>
+                                <Button colorType="btnWhite">Shop Now</Button>
                             </Link>
                         </div>
                     </div>
@@ -80,9 +85,11 @@ export const Advertisement = () => {
                 <div className={styles.rightColumn}>
                     <div className={`${styles.banner} ${styles.bannerLarge}`}>
                         <Link href="#" className={styles.bannerLink}>
-                            <img
+                            <Image
                                 src="/images/banners/advertisement-3.png"
                                 alt="Banner"
+                                width={376}
+                                height={520}
                             />
                         </Link>
                         <div className={styles.bannerContent}>
