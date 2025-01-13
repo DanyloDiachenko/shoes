@@ -2,26 +2,33 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { SlideProps } from "./slide.props";
+import Image from "next/image";
 
-export const SLide = ({ slide }: SlideProps) => {
+export const SLide = ({
+    imageSrcs,
+    button,
+    subtitle,
+    title,
+    priceText,
+}: SlideProps) => {
     return (
         <div className={styles.slide}>
             <figure className={styles.figure}>
                 <picture>
                     <source
                         media="(max-width: 480px)"
-                        srcSet={slide.imageSrcs.adaptive}
+                        srcSet={imageSrcs.adaptive}
                     />
-                    <img src={slide.imageSrcs.main} alt="Image Desc" />
+                    <Image src={imageSrcs.main} alt={title} />
                 </picture>
             </figure>
             <div className={styles.content}>
-                <h3 className={styles.subtitle}>{slide.subtitle}</h3>
-                <h1 className={styles.title}>{slide.title}</h1>
-                <div className={styles.price}>{slide.priceText}</div>
-                <Link href={slide.button.link}>
+                <h3 className={styles.subtitle}>{subtitle}</h3>
+                <h1 className={styles.title}>{title}</h1>
+                <div className={styles.price}>{priceText}</div>
+                <Link href={button.link}>
                     <Button colorType="btnOutlinePrimary2">
-                        <span>{slide.button.title}</span>
+                        <span>{button.title}</span>
                         <i className="icon-long-arrow-right"></i>
                     </Button>
                 </Link>

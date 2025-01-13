@@ -17,7 +17,7 @@ export const Slider = () => {
                 speed={400}
             >
                 {slides.map((slide, index) => (
-                    <SLide slide={slide} key={index} />
+                    <SLide {...slide} key={index} />
                 ))}
             </SlickSlider>
         </div>
