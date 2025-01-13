@@ -3,4 +3,4 @@
 4. code review responses & interfaces
 6. on remove product update cart header
 7. quick view popup
-8. add product to liked
+9. search (header) integration & /products search input
