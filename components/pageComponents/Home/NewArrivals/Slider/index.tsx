@@ -5,10 +5,16 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import styles from "./styles.module.scss";
 import { Product } from "./Product";
 import { SliderProps } from "./slider.props";
+import { CSSProperties, useEffect, useRef } from "react";
+import type { Settings as SliderSettings } from "react-slick";
 
-const SampleNextArrow = (props: any) => {
-    const { className, style, onClick } = props;
+interface ArrowProps {
+    className?: string;
+    style?: CSSProperties;
+    onClick?: () => void;
+}
 
+const SampleNextArrow = ({ className, style, onClick }: ArrowProps) => {
     return (
         <div
             className={`${className} ${styles.arrowNext}`}
@@ -20,9 +26,7 @@ const SampleNextArrow = (props: any) => {
     );
 };
 
-const SamplePrevArrow = (props: any) => {
-    const { className, style, onClick } = props;
-
+const SamplePrevArrow = ({ className, style, onClick }: ArrowProps) => {
     return (
         <div
             className={`${className} ${styles.arrowPrev}`}
@@ -34,7 +38,7 @@ const SamplePrevArrow = (props: any) => {
     );
 };
 
-const sliderSettings = {
+const sliderSettings: SliderSettings = {
     arrows: true,
     dots: true,
     infinite: false,
@@ -71,8 +75,16 @@ const sliderSettings = {
 };
 
 export const Slider = ({ activeTabSlug, products, currency }: SliderProps) => {
+    const sliderRef = useRef<SlickSlider>(null);
+
+    useEffect(() => {
+        sliderRef.current?.slickGoTo(0);
+    }, [products]);
+
     return (
         <SlickSlider
+            ref={sliderRef}
+            key={products.length}
             className={`${styles.slider} new-arrivals-slider`}
             aria-labelledby={`new-${activeTabSlug}-link`}
             {...sliderSettings}

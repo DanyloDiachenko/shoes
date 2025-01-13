@@ -3,6 +3,7 @@ import { getProduct } from "@/app/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/pageComponents/Product";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
+import { notFound } from "next/navigation";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -22,7 +23,10 @@ const breadcrumbs: Breadcrumb[] = [
 const ProductDetails = async ({ params }: PageProps) => {
     const productId = (await params).id;
 
-    const [product] = await Promise.all([getProduct(productId)]);
+    const product = await getProduct(productId);
+    if (!product) {
+        notFound();
+    }
 
     /* const [
         mayLikedProductsByCategories,

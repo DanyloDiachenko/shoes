@@ -3,9 +3,12 @@
 import SlickSlider from "react-slick";
 import styles from "./styles.module.scss";
 import { SLide } from "./Slide";
-import { slides } from "./slides";
+import { SliderProps } from "./slider.props";
+import { getSlides } from "./getSlides";
 
-export const Slider = () => {
+export const Slider = ({ currency }: SliderProps) => {
+    const slides = getSlides(currency);
+
     return (
         <div className="container">
             <SlickSlider
@@ -17,7 +20,7 @@ export const Slider = () => {
                 speed={400}
             >
                 {slides.map((slide, index) => (
-                    <SLide slide={slide} key={index} />
+                    <SLide {...slide} key={index} />
                 ))}
             </SlickSlider>
         </div>

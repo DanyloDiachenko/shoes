@@ -11,6 +11,7 @@ import { Socials } from "./Socials";
 import { getNavigation } from "@/helpers/getNavigation";
 import Link from "next/link";
 import { NavigationItem } from "@/interfaces/navigationItem";
+import { Search } from "./Search";
 
 export const MobileMenu = () => {
     const dispatch = useDispatch();
@@ -57,6 +58,7 @@ export const MobileMenu = () => {
                     >
                         <IoMdClose />
                     </button>
+                    <Search />
                     <nav className={styles.mobileNav}>
                         <ul className={styles.mobileMenu}>
                             {navigation.map((navigationItem, index) => (
@@ -69,12 +71,18 @@ export const MobileMenu = () => {
                                     key={index}
                                 >
                                     <div className={styles.mainLinkWrapper}>
-                                        <Link
-                                            href={navigationItem.link}
-                                            className={styles.mainLink}
-                                        >
-                                            {navigationItem.title}
-                                        </Link>
+                                        {navigationItem.link ? (
+                                            <Link
+                                                href={navigationItem.link}
+                                                className={styles.mainLink}
+                                            >
+                                                {navigationItem.title}
+                                            </Link>
+                                        ) : (
+                                            <div className={styles.mainLink}>
+                                                {navigationItem.title}
+                                            </div>
+                                        )}
                                         <button
                                             className={styles.menuBtn}
                                             onClick={() => onTabClick(index)}

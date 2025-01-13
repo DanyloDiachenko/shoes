@@ -44,6 +44,65 @@
         min-width: 270px;
         overflow: visible;
 
+        .searchResults {
+            position: absolute;
+            background: #fff;
+            width: 400px;
+            top: 45px;
+            right: 0;
+            z-index: 1;
+            border: 0.1rem solid #ebebeb;
+            border-radius: 0.4rem;
+
+            li {
+                display: flex;
+                align-items: center;
+                padding: 0.5rem 1rem;
+                border-bottom: 0.1rem solid #ebebeb;
+
+                &:last-child {
+                    border: none;
+                }
+
+                .leftColumn {
+                    position: relative;
+
+                    img {
+                        width: 80px;
+                    }
+                }
+
+                .rightColumn {
+                    margin-left: 1.5rem;
+
+                    .title {
+                        font-weight: 400;
+                        font-size: 1.5rem;
+                        line-height: 1.3;
+                        color: #666;
+                        letter-spacing: -0.01em;
+                        margin-bottom: 0;
+
+                        &:hover {
+                            color: #c96;
+                        }
+                    }
+
+                    .price {
+                        font-size: 1.5rem;
+                        margin-top: 0.5rem;
+                    }
+                }
+
+                &.noResults {
+                    font-size: 1.5rem;
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    color: #666;
+                }
+            }
+        }
+
         &.show {
             display: flex;
         }

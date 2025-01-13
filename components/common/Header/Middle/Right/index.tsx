@@ -15,6 +15,9 @@ export const Right = async () => {
     if (cookieProducts?.length) {
         for (let i = 0; i < cookieProducts.length; i++) {
             const productToCart = await getProduct(cookieProducts[i].id);
+            if (!productToCart) {
+                continue;
+            }
 
             cartProducts = [...cartProducts, productToCart];
         }
@@ -22,7 +25,7 @@ export const Right = async () => {
 
     return (
         <div className={styles.headerRight}>
-            <Search />
+            <Search currency={currency} />
             <CartDropdown
                 currency={currency}
                 cartProducts={cartProducts}

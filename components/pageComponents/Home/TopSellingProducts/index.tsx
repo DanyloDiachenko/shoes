@@ -16,10 +16,11 @@ export const TopSellingProducts = ({
     const [activeTabSlug, setActiveTabSlug] = useState<TabSlug>("all");
     const [productsToShow, setProductsToShow] = useState<Product[]>(products);
 
-    const filterProducts = (tabSlug: TabSlug) => {
+    const filterProductsByGender = (tabSlug: TabSlug) => {
         switch (tabSlug) {
             case "all": {
                 setProductsToShow(products);
+
                 break;
             }
             case "men": {
@@ -29,6 +30,7 @@ export const TopSellingProducts = ({
                     )
                 );
                 setProductsToShow(menProducts);
+
                 break;
             }
             case "women": {
@@ -38,10 +40,12 @@ export const TopSellingProducts = ({
                     )
                 );
                 setProductsToShow(womenProducts);
+
                 break;
             }
             default: {
                 setProductsToShow(products);
+
                 break;
             }
         }
@@ -49,7 +53,7 @@ export const TopSellingProducts = ({
 
     const onSetActiveTabClick = (slug: TabSlug) => {
         setActiveTabSlug(slug);
-        filterProducts(slug);
+        filterProductsByGender(slug);
     };
 
     return (

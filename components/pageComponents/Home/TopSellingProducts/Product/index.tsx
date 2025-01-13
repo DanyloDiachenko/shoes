@@ -5,6 +5,11 @@ import { getProductRating } from "@/helpers/getProductRating";
 import { LiaBinocularsSolid, LiaCartPlusSolid } from "react-icons/lia";
 import { ProductProps } from "./product.props";
 import { getProductPrice } from "@/helpers/getProductPrice";
+import Image from "next/image";
+import { getProductDiscount } from "@/helpers/getProductDiscount";
+import { useDispatch } from "react-redux";
+import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
+import { addProductToWishlist } from "@/helpers/addProductToWishlist";
 
 export const Product = ({
     id,
@@ -21,6 +26,17 @@ export const Product = ({
     rating,
     currency,
 }: ProductProps) => {
+    const dispatch = useDispatch();
+
+    const toogleLocalStorageHandler = () => {
+        dispatch(toogleLocalStorage());
+    };
+
+    const onAddProductToWishlistHandler = () => {
+        addProductToWishlist(id);
+        toogleLocalStorageHandler();
+    };
+
     return (
         <div className={styles.product}>
             <figure className={styles.productMedia}>
@@ -29,35 +45,32 @@ export const Product = ({
                 </span>
                 {priceWithDiscountEur && priceWithDiscountUah ? (
                     <span className={`${styles.label} ${styles.labelSale}`}>
-                        {currency === "uah"
-                            ? `${
-                                  100 -
-                                  Math.round(
-                                      (priceWithDiscountUah * 100) / priceUah
-                                  )
-                              }% off`
-                            : `${
-                                  100 -
-                                  Math.round(
-                                      (priceWithDiscountEur * 100) / priceEur
-                                  )
-                              }% off`}
+                        {getProductDiscount(
+                            currency,
+                            priceWithDiscountUah,
+                            priceUah,
+                            priceWithDiscountEur,
+                            priceEur
+                        )}
                     </span>
                 ) : (
                     ""
                 )}
                 <Link href={`/products/${id}`}>
-                    <img
+                    <Image
                         src={mainImage}
                         alt="Product image"
                         className={styles.productImage}
+                        sizes={"100vw"}
+                        width={0}
+                        height={0}
                     />
                 </Link>
                 <div className={styles.actionVertical}>
-                    <Link href={`/products/${id}`}>
+                    <button onClick={onAddProductToWishlistHandler}>
                         <FaRegHeart />
                         <span className="sr-only">add to wishlist</span>
-                    </Link>
+                    </button>
                 </div>
             </figure>
             <div className={styles.productBody}>
@@ -70,7 +83,7 @@ export const Product = ({
                             >
                                 {category.title}
                             </Link>
-                            {categories.length > 1 && ", "}
+                            {index < categories.length - 1 && ", "}
                         </span>
                     ))}
                 </div>
@@ -98,7 +111,7 @@ export const Product = ({
                 </div>
                 <div className={styles.productNav}>
                     <Link
-                        href="#"
+                        href={`/products?color=${color.slug}`}
                         style={{
                             background: color.hexCode,
                         }}
