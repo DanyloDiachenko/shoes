@@ -10,7 +10,7 @@ export const slides: Slide[] = [
         priceText: `from ${currency === "uah" ? "₴399.99" : "€9.99"}`,
         button: {
             title: "SHOP NOW",
-            link: "/products",
+            link: "/products?categories=sport",
         },
         imageSrcs: {
             main: "/images/banners/slider-1.png",
@@ -23,7 +23,7 @@ export const slides: Slide[] = [
         priceText: `from ${currency === "uah" ? "₴1999.99" : "€49.99"}`,
         button: {
             title: "SHOP NOW",
-            link: "/products",
+            link: "/products?categories=bestsellers",
         },
         imageSrcs: {
             main: "/images/banners/slider-2.png",
@@ -36,7 +36,7 @@ export const slides: Slide[] = [
         priceText: "starting at 60% off",
         button: {
             title: "SHOP NOW",
-            link: "/products",
+            link: "/products?categories=discount",
         },
         imageSrcs: {
             main: "/images/banners/slider-3.png",
