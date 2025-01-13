@@ -75,7 +75,7 @@
             transition: all 0.35s ease;
             transform: translateX(-15px);
 
-            a {
+            button {
                 color: #c96;
                 position: relative;
                 font-size: 1.6rem;
@@ -89,6 +89,7 @@
                 padding: 0;
                 border-radius: 50%;
                 background-color: #fff;
+                border: none;
             }
 
             svg {
@@ -96,7 +97,7 @@
             }
 
             &:hover {
-                a {
+                button {
                     background: #c96;
 
                     svg {

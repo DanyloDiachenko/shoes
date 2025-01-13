@@ -7,6 +7,9 @@ import { ProductProps } from "./product.props";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import Image from "next/image";
 import { getProductDiscount } from "@/helpers/getProductDiscount";
+import { useDispatch } from "react-redux";
+import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
+import { addProductToWishlist } from "@/helpers/addProductToWishlist";
 
 export const Product = ({
     id,
@@ -23,6 +26,17 @@ export const Product = ({
     rating,
     currency,
 }: ProductProps) => {
+    const dispatch = useDispatch();
+
+    const toogleLocalStorageHandler = () => {
+        dispatch(toogleLocalStorage());
+    };
+
+    const onAddProductToWishlistHandler = () => {
+        addProductToWishlist(id);
+        toogleLocalStorageHandler();
+    };
+
     return (
         <div className={styles.product}>
             <figure className={styles.productMedia}>
@@ -53,10 +67,10 @@ export const Product = ({
                     />
                 </Link>
                 <div className={styles.actionVertical}>
-                    <Link href={`/products/${id}`}>
+                    <button onClick={onAddProductToWishlistHandler}>
                         <FaRegHeart />
                         <span className="sr-only">add to wishlist</span>
-                    </Link>
+                    </button>
                 </div>
             </figure>
             <div className={styles.productBody}>
@@ -69,7 +83,7 @@ export const Product = ({
                             >
                                 {category.title}
                             </Link>
-                            {categories.length > 1 && ", "}
+                            {index < categories.length - 1 && ", "}
                         </span>
                     ))}
                 </div>
