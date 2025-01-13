@@ -5,6 +5,7 @@ import { getProductRating } from "@/helpers/getProductRating";
 import { FaRegHeart } from "react-icons/fa";
 import { ProductProps } from "./product.props";
 import { getProductPrice } from "@/helpers/getProductPrice";
+import Image from "next/image";
 
 export const Product = ({
     id,
@@ -47,10 +48,12 @@ export const Product = ({
                     ""
                 )}
                 <Link href="product.html" className={styles.productLink}>
-                    <img
+                    <Image
                         src={mainImage}
                         alt="Product image"
-                        className="product-image"
+                        sizes="100vw"
+                        width={0}
+                        height={0}
                     />
                 </Link>
                 <div className={styles.actionVertical}>
