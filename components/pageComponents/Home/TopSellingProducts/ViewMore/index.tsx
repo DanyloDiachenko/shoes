@@ -6,7 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 export const ViewMore = () => {
     return (
         <div className={styles.moreContainer}>
-            <Link href="/products">
+            <Link href="/products?categories=bestsellers">
                 <Button colorType="btnOutlinePrimary2">
                     <span>View more products</span>
                     <FaArrowRightLong />
