@@ -1,10 +1,3 @@
-import {
-    Product,
-    ProductCategory,
-    ProductBrand,
-    ProductSize,
-    ProductColor,
-} from "@/interfaces/product.interface";
 import { getProducts } from "@/app/api/products";
 import { getCategories } from "@/app/api/categories";
 import { getBrands } from "@/app/api/brands";
@@ -26,7 +19,7 @@ export const getNavigation = async (): Promise<NavigationItem[]> => {
     return [
         {
             title: "Bestsellers",
-            link: "/products",
+            link: "/products?categories=bestsellers",
             sublinks: bestsellers.map((product) => ({
                 title: product.title,
                 link: `/products/${product.id}`,
@@ -34,7 +27,6 @@ export const getNavigation = async (): Promise<NavigationItem[]> => {
         },
         {
             title: "Categories",
-            link: "/products",
             sublinks: categories.map((category) => ({
                 title: category.title,
                 link: `/products?categories=${category.slug}`,
@@ -42,7 +34,6 @@ export const getNavigation = async (): Promise<NavigationItem[]> => {
         },
         {
             title: "Brands",
-            link: "/products",
             sublinks: brands.map((brand) => ({
                 title: brand.title,
                 link: `/products?brands=${brand.slug}`,
@@ -50,7 +41,6 @@ export const getNavigation = async (): Promise<NavigationItem[]> => {
         },
         {
             title: "Sizes",
-            link: "/products",
             sublinks: sizes.map((size) => ({
                 title: String(size.title),
                 link: `/products?brands=${size.slug}`,
@@ -58,7 +48,6 @@ export const getNavigation = async (): Promise<NavigationItem[]> => {
         },
         {
             title: "Colors",
-            link: "/products",
             sublinks: colors.map((color) => ({
                 title: color.title,
                 link: `/products?color=${color.slug}`,

@@ -69,12 +69,18 @@ export const MobileMenu = () => {
                                     key={index}
                                 >
                                     <div className={styles.mainLinkWrapper}>
-                                        <Link
-                                            href={navigationItem.link}
-                                            className={styles.mainLink}
-                                        >
-                                            {navigationItem.title}
-                                        </Link>
+                                        {navigationItem.link ? (
+                                            <Link
+                                                href={navigationItem.link}
+                                                className={styles.mainLink}
+                                            >
+                                                {navigationItem.title}
+                                            </Link>
+                                        ) : (
+                                            <div className={styles.mainLink}>
+                                                {navigationItem.title}
+                                            </div>
+                                        )}
                                         <button
                                             className={styles.menuBtn}
                                             onClick={() => onTabClick(index)}
