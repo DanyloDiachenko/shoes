@@ -65,14 +65,13 @@ export const Advertisement = () => {
                             <h4 className="banner-subtitle text-white">
                                 On Sale
                             </h4>
-                            <h3>
-                                Amazing <br />
-                                Lace Up Boots
-                            </h3>
-                            <div className={styles.bannerText}>from $39.00</div>
+                            <h3>Slip-On Loafers</h3>
+                            <div className={styles.bannerText}>
+                                up to 30% off
+                            </div>
                             <Link href="#">
                                 <Button colorType="btnWhite">
-                                    Discover Now
+                                    Shop Now
                                 </Button>
                             </Link>
                         </div>
