@@ -1,7 +1,6 @@
 import { getCurrency } from "@/helpers/getCurrency";
 import { Product } from "@/interfaces/product.interface";
 import { GetProductsResponse } from "@/interfaces/responses/products.interface";
-import { Currency } from "@/types/currency.type";
 import { SortProductsBy } from "@/types/sortProductsBy.type";
 import { notFound } from "next/navigation";
 
@@ -60,7 +59,7 @@ export const getProduct = async (productId: string): Promise<Product> => {
     );
 
     if (!res.ok) {
-        return notFound();
+        notFound();
     }
 
     const data = await res.json();
