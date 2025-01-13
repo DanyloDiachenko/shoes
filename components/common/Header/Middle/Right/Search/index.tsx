@@ -46,6 +46,7 @@ export const Search = ({ currency }: SearchProps) => {
             setSearchedProducts(searchedProducts.data);
         } else {
             setIsSearchListOpened(false);
+            setSearchedProducts([]);
         }
     };
 
@@ -93,23 +94,31 @@ export const Search = ({ currency }: SearchProps) => {
                             {searchedProducts.length ? (
                                 searchedProducts.map((product, index) => (
                                     <li key={index}>
-                                        <Image
-                                            src={product.mainImage}
-                                            alt="Product image"
-                                            width={60}
-                                            height={60}
-                                        />
+                                        <figure className={styles.leftColumn}>
+                                            <Image
+                                                src={product.mainImage}
+                                                alt="Product image"
+                                                sizes="100vw"
+                                                height={0}
+                                                width={0}
+                                            />
+                                        </figure>
                                         <div className={styles.rightColumn}>
-                                            <h4 className={styles.title}>
+                                            <Link
+                                                href={`/products/${product.id}`}
+                                                className={styles.title}
+                                            >
                                                 {product.title}
-                                            </h4>
-                                            {getProductPrice(
-                                                product.priceUah,
-                                                product.priceEur,
-                                                product.priceWithDiscountUah,
-                                                product.priceWithDiscountEur,
-                                                currency
-                                            )}
+                                            </Link>
+                                            <div className={styles.price}>
+                                                {getProductPrice(
+                                                    product.priceUah,
+                                                    product.priceEur,
+                                                    product.priceWithDiscountUah,
+                                                    product.priceWithDiscountEur,
+                                                    currency
+                                                )}
+                                            </div>
                                         </div>
                                     </li>
                                 ))
