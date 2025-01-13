@@ -12,10 +12,11 @@ export const NewArrivals = ({ products, currency }: NewArrivalsProps) => {
     const [activeTabSlug, setActiveTabSlug] = useState<TabSlug>("all");
     const [productsToShow, setProductsToShow] = useState<Product[]>(products);
 
-    const filterProducts = (tabSlug: TabSlug) => {
+    const filterProductsByGender = (tabSlug: TabSlug) => {
         switch (tabSlug) {
             case "all": {
                 setProductsToShow(products);
+
                 break;
             }
             case "men": {
@@ -25,6 +26,7 @@ export const NewArrivals = ({ products, currency }: NewArrivalsProps) => {
                     )
                 );
                 setProductsToShow(menProducts);
+
                 break;
             }
             case "women": {
@@ -34,10 +36,12 @@ export const NewArrivals = ({ products, currency }: NewArrivalsProps) => {
                     )
                 );
                 setProductsToShow(womenProducts);
+
                 break;
             }
             default: {
                 setProductsToShow(products);
+
                 break;
             }
         }
@@ -45,7 +49,7 @@ export const NewArrivals = ({ products, currency }: NewArrivalsProps) => {
 
     const onSetActiveTabClick = (slug: TabSlug) => {
         setActiveTabSlug(slug);
-        filterProducts(slug);
+        filterProductsByGender(slug);
     };
 
     return (

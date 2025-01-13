@@ -38,7 +38,10 @@ const Cart = async () => {
 
     for (let i = 0; i < cookieProducts.length; i++) {
         const productToCart = await getProduct(cookieProducts[i].id);
-
+        if (!productToCart) {
+            return;
+        }
+        
         cartProducts = [...cartProducts, productToCart];
     }
 

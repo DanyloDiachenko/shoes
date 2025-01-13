@@ -29,18 +29,21 @@ export const CartDropdown = ({
         (state: RootState) => state.toogleLocalStorage.value
     );
 
-    const toogleLocalStorageHandler = () => {
-        dispatch(toogleLocalStorage());
-    };
-
     const [cartProductsClient, setCartProductsClient] =
         useState<Product[]>(cartProducts);
     const [cookieProductsClient, setCookieProductsClient] =
         useState<CookieProduct[]>(cookieProducts);
 
+    const toogleLocalStorageHandler = () => {
+        dispatch(toogleLocalStorage());
+    };
+
     const getProductHandler = async (productId: string) => {
         try {
             const productToCart = await getProduct(productId);
+            if (!productToCart) {
+                return;
+            }
 
             const productExists = cartProductsClient.some(
                 (product) => product.id === productToCart.id
@@ -50,7 +53,7 @@ export const CartDropdown = ({
                 setCartProductsClient([...cartProductsClient, productToCart]);
             }
         } catch (error) {
-            toast.error("Failed to fetch product");
+            console.log(error);
         }
     };
 
@@ -138,60 +141,70 @@ export const CartDropdown = ({
             </Link>
             <div className={styles.dropdownMenu}>
                 <div className={styles.dropdownCartProducts}>
-                    {cartProductsClient.map((product) => (
-                        <div className={styles.product} key={product.id}>
-                            <div className={styles.productCartDetails}>
-                                <h4 className={styles.productTitle}>
-                                    <Link href={`/products/${product.id}`}>
-                                        {product.title}
-                                    </Link>
-                                </h4>
-                                <div className={styles.cartProductInfo}>
-                                    <span className={styles.cartProductQty}>
-                                        {
-                                            cookieProductsClient.find(
-                                                (cookieProduct) =>
-                                                    cookieProduct.id ===
-                                                    product.id
-                                            )?.quantity
-                                        }
-                                    </span>{" "}
-                                    x{" "}
-                                    {getProductPrice(
-                                        product.priceUah,
-                                        product.priceEur,
-                                        product.priceWithDiscountUah,
-                                        product.priceWithDiscountEur,
-                                        currency
-                                    )}
+                    {cartProductsClient.length ? (
+                        cartProductsClient.map((product) => (
+                            <div className={styles.product} key={product.id}>
+                                <div className={styles.productCartDetails}>
+                                    <h4 className={styles.productTitle}>
+                                        <Link href={`/products/${product.id}`}>
+                                            {product.title}
+                                        </Link>
+                                    </h4>
+                                    <div className={styles.cartProductInfo}>
+                                        <span className={styles.cartProductQty}>
+                                            {
+                                                cookieProductsClient.find(
+                                                    (cookieProduct) =>
+                                                        cookieProduct.id ===
+                                                        product.id
+                                                )?.quantity
+                                            }
+                                        </span>{" "}
+                                        x{" "}
+                                        {getProductPrice(
+                                            product.priceUah,
+                                            product.priceEur,
+                                            product.priceWithDiscountUah,
+                                            product.priceWithDiscountEur,
+                                            currency
+                                        )}
+                                    </div>
+                                    <div className={styles.cartProductInfo}>
+                                        <span className={styles.cartProductQty}>
+                                            Size:
+                                        </span>{" "}
+                                        {getProductSize(product)}
+                                    </div>
                                 </div>
-                                <div className={styles.cartProductInfo}>
-                                    <span className={styles.cartProductQty}>
-                                        Size:
-                                    </span>{" "}
-                                    {getProductSize(product)}
-                                </div>
-                            </div>
-                            <figure className={styles.productImageContainer}>
-                                <Link
-                                    href={`/products/${product.id}`}
-                                    className={styles.productImage}
+                                <figure
+                                    className={styles.productImageContainer}
                                 >
-                                    <img
-                                        src={product.mainImage}
-                                        alt="product"
-                                    />
-                                </Link>
-                            </figure>
-                            <button
-                                className={styles.btnRemove}
-                                title="Remove Product"
-                                onClick={() => onRemoveProductClick(product.id)}
-                            >
-                                <IoMdClose />
-                            </button>
+                                    <Link
+                                        href={`/products/${product.id}`}
+                                        className={styles.productImage}
+                                    >
+                                        <img
+                                            src={product.mainImage}
+                                            alt="product"
+                                        />
+                                    </Link>
+                                </figure>
+                                <button
+                                    className={styles.btnRemove}
+                                    title="Remove Product"
+                                    onClick={() =>
+                                        onRemoveProductClick(product.id)
+                                    }
+                                >
+                                    <IoMdClose />
+                                </button>
+                            </div>
+                        ))
+                    ) : (
+                        <div className={styles.noProducts}>
+                            No product added yet...
                         </div>
-                    ))}
+                    )}
                 </div>
                 <div className={styles.dropdownCartTotal}>
                     <span>Total</span>

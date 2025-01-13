@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import { MobileMenuButton } from "./MobileMenuButton";
 import { getNavigation } from "@/helpers/getNavigation";
+import Image from "next/image";
 
 export const Left = async () => {
     const navigation = await getNavigation();
@@ -11,20 +12,29 @@ export const Left = async () => {
         <div className={styles.headerLeft}>
             <MobileMenuButton />
             <Link href="/" className={styles.logo}>
-                <img
+                <Image
                     src="/images/icons/logo.png"
                     alt="Molla Logo"
                     width="105"
-                    height="25"
+                    height="24"
                 />
             </Link>
             <nav className={styles.mainNav}>
                 <ul className={styles.menu}>
                     {navigation.map((item, index) => (
                         <li key={index} className={styles.linksWrapper}>
-                            <Link href={item.link} className={styles.mainLink}>
-                                {item.title} <IoIosArrowDown />
-                            </Link>
+                            {item.link ? (
+                                <Link
+                                    href={item.link}
+                                    className={styles.mainLink}
+                                >
+                                    {item.title} <IoIosArrowDown />
+                                </Link>
+                            ) : (
+                                <div className={styles.mainLink}>
+                                    {item.title} <IoIosArrowDown />
+                                </div>
+                            )}
                             <ul className={styles.sublinks}>
                                 {item.sublinks.map((sublink, index) => (
                                     <li key={index}>

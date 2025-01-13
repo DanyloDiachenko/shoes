@@ -1,15 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import styles from "./styles.module.scss";
-import { Button } from "@/components/UI/Button";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { Product as ProductCard } from "./Product";
 import { Tabs } from "../Tabs";
 import { useState } from "react";
 import { TabSlug } from "../Tabs/tabSlug.type";
 import { Product } from "@/interfaces/product.interface";
 import { TopSellingProductsProps } from "./topSellingProducts.props";
+import { ViewMore } from "./ViewMore";
 
 export const TopSellingProducts = ({
     products,
@@ -18,10 +16,11 @@ export const TopSellingProducts = ({
     const [activeTabSlug, setActiveTabSlug] = useState<TabSlug>("all");
     const [productsToShow, setProductsToShow] = useState<Product[]>(products);
 
-    const filterProducts = (tabSlug: TabSlug) => {
+    const filterProductsByGender = (tabSlug: TabSlug) => {
         switch (tabSlug) {
             case "all": {
                 setProductsToShow(products);
+
                 break;
             }
             case "men": {
@@ -31,6 +30,7 @@ export const TopSellingProducts = ({
                     )
                 );
                 setProductsToShow(menProducts);
+
                 break;
             }
             case "women": {
@@ -40,10 +40,12 @@ export const TopSellingProducts = ({
                     )
                 );
                 setProductsToShow(womenProducts);
+
                 break;
             }
             default: {
                 setProductsToShow(products);
+
                 break;
             }
         }
@@ -51,7 +53,7 @@ export const TopSellingProducts = ({
 
     const onSetActiveTabClick = (slug: TabSlug) => {
         setActiveTabSlug(slug);
-        filterProducts(slug);
+        filterProductsByGender(slug);
     };
 
     return (
@@ -66,9 +68,9 @@ export const TopSellingProducts = ({
             <div className={styles.tabContent}>
                 <div
                     className={styles.tabPane}
-                    id="top-all-tab"
+                    id={`top-${activeTabSlug}-tab`}
                     role="tabpanel"
-                    aria-labelledby="top-all-link"
+                    aria-labelledby={`top-${activeTabSlug}-link`}
                 >
                     <div className={`${styles.row} row`}>
                         {productsToShow.map((product, index) => (
@@ -79,14 +81,7 @@ export const TopSellingProducts = ({
                     </div>
                 </div>
             </div>
-            <div className={styles.moreContainer}>
-                <Link href="/products">
-                    <Button colorType="btnOutlinePrimary2">
-                        <span>View more products</span>
-                        <FaArrowRightLong />
-                    </Button>
-                </Link>
-            </div>
+            <ViewMore />
         </div>
     );
 };

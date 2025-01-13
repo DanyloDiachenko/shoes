@@ -5,6 +5,6 @@ export interface NavigationItemSublink {
 
 export interface NavigationItem {
     title: string;
-    link: string;
+    link?: string;
     sublinks: NavigationItemSublink[];
 }

@@ -1,46 +1,22 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
-import { CustomCategory } from "./customCategory.interface";
-import { getCategories } from "@/app/api/categories";
+import { customCategories } from "./customCategories";
+import Image from "next/image";
 
-export const Categories = async () => {
-    const categories = await getCategories();
-
-    const customCategories: CustomCategory[] = [
-        {
-            title: "Women's",
-            link: "/products?categories=women",
-            productsQuantity:
-                categories.find((category) => category.title === "Women")
-                    ?.productsQuantity || 0,
-            image: "/images/banners/category-women.png",
-        },
-        {
-            title: "Men's",
-            link: "/products?categories=men",
-            productsQuantity:
-                categories.find((category) => category.title === "Men")
-                    ?.productsQuantity || 0,
-            image: "/images/banners/category-men.png",
-        },
-        {
-            title: "Kid's",
-            link: "/products?categories=kids",
-            productsQuantity:
-                categories.find((category) => category.title === "Kids")
-                    ?.productsQuantity || 0,
-            image: "/images/banners/category-kids.png",
-        },
-    ];
-
+export const Categories = () => {
     return (
         <div className={`${styles.categories} container`}>
             <div className={`${styles.row} row`}>
                 {customCategories.map((category, index) => (
                     <div className={styles.column} key={index}>
                         <div className={styles.banner}>
-                            <Link href="#">
-                                <img src={category.image} alt="Banner" />
+                            <Link href={category.link}>
+                                <Image
+                                    src={category.image}
+                                    alt="Banner"
+                                    width={376}
+                                    height={280}
+                                />
                             </Link>
                             <div className={styles.bannerContent}>
                                 <h3 className={styles.bannerTitle}>

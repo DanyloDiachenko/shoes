@@ -19,7 +19,7 @@ export const HomePageComponent = async () => {
 
     return (
         <>
-            <Slider />
+            <Slider currency={currency} />
             <Advertisement />
             <Services />
             <NewArrivals products={newArrivalProducts} currency={currency} />
