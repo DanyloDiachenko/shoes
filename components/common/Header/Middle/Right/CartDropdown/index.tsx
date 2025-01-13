@@ -41,6 +41,9 @@ export const CartDropdown = ({
     const getProductHandler = async (productId: string) => {
         try {
             const productToCart = await getProduct(productId);
+            if (!productToCart) {
+                return;
+            }
 
             const productExists = cartProductsClient.some(
                 (product) => product.id === productToCart.id
@@ -198,7 +201,9 @@ export const CartDropdown = ({
                             </div>
                         ))
                     ) : (
-                        <div className={styles.noProducts}>No product added yet...</div>
+                        <div className={styles.noProducts}>
+                            No product added yet...
+                        </div>
                     )}
                 </div>
                 <div className={styles.dropdownCartTotal}>

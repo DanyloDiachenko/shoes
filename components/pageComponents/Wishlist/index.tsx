@@ -17,6 +17,9 @@ export const WishlistPageComponent = async () => {
 
     for (let i = 0; i < wishlistIds.length; i++) {
         const product = await getProduct(wishlistIds[i]);
+        if (!product) {
+            return;
+        }
 
         wishlistProducts.push(product);
     }

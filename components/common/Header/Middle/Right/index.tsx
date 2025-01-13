@@ -15,6 +15,9 @@ export const Right = async () => {
     if (cookieProducts?.length) {
         for (let i = 0; i < cookieProducts.length; i++) {
             const productToCart = await getProduct(cookieProducts[i].id);
+            if (!productToCart) {
+                continue;
+            }
 
             cartProducts = [...cartProducts, productToCart];
         }

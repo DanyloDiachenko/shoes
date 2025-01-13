@@ -53,6 +53,9 @@ const Checkout = async () => {
 
     for (let i = 0; i < cookieProducts.length; i++) {
         const productToCart = await getProduct(cookieProducts[i].id);
+        if (!productToCart) {
+            return;
+        }
 
         products = [...products, productToCart];
     }

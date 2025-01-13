@@ -53,13 +53,15 @@ export const getProducts = async ({
     return data;
 };
 
-export const getProduct = async (productId: string): Promise<Product> => {
+export const getProduct = async (
+    productId: string
+): Promise<Product | null> => {
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`
     );
 
     if (!res.ok) {
-        notFound();
+        return null;
     }
 
     const data = await res.json();
