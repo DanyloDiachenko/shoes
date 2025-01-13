@@ -6,6 +6,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { ProductProps } from "./product.props";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import Image from "next/image";
+import { getProductDiscount } from "@/helpers/getProductDiscount";
 
 export const Product = ({
     id,
@@ -30,19 +31,13 @@ export const Product = ({
                 </span>
                 {priceWithDiscountEur && priceWithDiscountUah ? (
                     <span className={`${styles.label} ${styles.labelSale}`}>
-                        {currency === "uah"
-                            ? `${
-                                  100 -
-                                  Math.round(
-                                      (priceWithDiscountUah * 100) / priceUah
-                                  )
-                              }% off`
-                            : `${
-                                  100 -
-                                  Math.round(
-                                      (priceWithDiscountEur * 100) / priceEur
-                                  )
-                              }% off`}
+                        {getProductDiscount(
+                            currency,
+                            priceWithDiscountUah,
+                            priceUah,
+                            priceWithDiscountEur,
+                            priceEur
+                        )}
                     </span>
                 ) : (
                     ""
