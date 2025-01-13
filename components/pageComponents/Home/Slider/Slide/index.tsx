@@ -19,7 +19,15 @@ export const SLide = ({
                         media="(max-width: 480px)"
                         srcSet={imageSrcs.adaptive}
                     />
-                    <Image src={imageSrcs.main} alt={title} />
+                    <Image
+                        src={imageSrcs.main}
+                        alt={title}
+                        loading="eager"
+                        priority={true}
+                        width={1170}
+                        height={500}
+                        sizes="(max-width: 480px) 480px, 400px"
+                    />
                 </picture>
             </figure>
             <div className={styles.content}>
