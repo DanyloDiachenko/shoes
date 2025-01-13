@@ -4,11 +4,10 @@ import { BsTelephone } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import { LoginOrHello } from "./LoginOrHello";
 import { Wishlist } from "./Wishlist";
-import { getCookie } from "@/helpers/getCookie";
+import { getWishlistIds } from "@/helpers/getWishlistIds";
 
 export const Links = async () => {
-    const wishlistIdsString = await getCookie("wishlistIds");
-    const wishlistIds: string[] = wishlistIdsString ? JSON.parse(wishlistIdsString) : [];
+    const wishlistIds = await getWishlistIds();
 
     return (
         <div className={styles.headerRight}>
