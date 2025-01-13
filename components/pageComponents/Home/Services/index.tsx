@@ -1,7 +1,9 @@
-import { services } from "./services";
+import { getServices } from "./getServices";
 import styles from "./styles.module.scss";
 
-export const Services = () => {
+export const Services = async () => {
+    const services = await getServices();
+
     return (
         <div className={`container ${styles.services}`}>
             <div className="row">
