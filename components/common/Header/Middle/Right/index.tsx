@@ -25,7 +25,7 @@ export const Right = async () => {
 
     return (
         <div className={styles.headerRight}>
-            <Search />
+            <Search currency={currency} />
             <CartDropdown
                 currency={currency}
                 cartProducts={cartProducts}

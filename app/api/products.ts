@@ -2,7 +2,6 @@ import { getCurrency } from "@/helpers/getCurrency";
 import { Product } from "@/interfaces/product.interface";
 import { GetProductsResponse } from "@/interfaces/responses/products.interface";
 import { SortProductsBy } from "@/types/sortProductsBy.type";
-import { notFound } from "next/navigation";
 
 interface GetProductsParams {
     pageNumber?: number;
@@ -14,6 +13,7 @@ interface GetProductsParams {
     brandSlugs?: string[];
     priceFrom?: number;
     priceTo?: number;
+    search?: string;
 }
 
 export const getProducts = async ({
@@ -26,6 +26,7 @@ export const getProducts = async ({
     brandSlugs = [],
     priceFrom = 0,
     priceTo = 100000,
+    search = "",
 }: GetProductsParams): Promise<GetProductsResponse> => {
     const currency = await getCurrency();
     const categoriesQuery = categorySlugs.join(",");
@@ -39,7 +40,7 @@ export const getProducts = async ({
             categoriesQuery || ""
         }&sizes=${sizesQuery || ""}&color=${colorSlug}&brands=${
             brandsQuery || ""
-        }&currency=${currency}&priceFrom=${priceFrom}&priceTo=${priceTo}`
+        }&currency=${currency}&priceFrom=${priceFrom}&priceTo=${priceTo}&search=${search}`
     );
 
     if (!res.ok) {
