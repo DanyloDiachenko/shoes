@@ -1,10 +1,13 @@
+import { getCurrency } from "@/helpers/getCurrency";
 import { Slide } from "./slide.interface";
+
+const currency = await getCurrency();
 
 export const slides: Slide[] = [
     {
         subtitle: "Deals and Promotions",
         title: "Sneakers & Athletic Shoes",
-        priceText: "from $9.99",
+        priceText: `from ${currency === "uah" ? "₴399.99" : "€9.99"}`,
         button: {
             title: "SHOP NOW",
             link: "/products",
@@ -17,7 +20,7 @@ export const slides: Slide[] = [
     {
         subtitle: "Trending Now",
         title: "This Week's Most Wanted",
-        priceText: "from $49.99",
+        priceText: `from ${currency === "uah" ? "₴1999.99" : "€49.99"}`,
         button: {
             title: "SHOP NOW",
             link: "/products",
