@@ -3,6 +3,7 @@
 import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
+import Image from "next/image";
 
 export const QuickView = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,12 @@ export const QuickView = () => {
         <div className={styles.contentWrapper}>
             <div className={styles.content}>
                 <span className={styles.tag}>Sale!</span>
-                <div className={styles.leftColumn}></div>
+                <div className={styles.leftColumn}>
+                    <div className={styles.mainImage}>
+                        <Image src={product.mainImage} alt="Product image" width={0} height={0} sizes="100vw" />
+                    </div>
+                    <div className={styles.nav}></div>
+                </div>
                 <div className={styles.rightColumn}></div>
             </div>
         </div>
