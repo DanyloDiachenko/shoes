@@ -43,7 +43,7 @@
 
             .mainImage {
                 img {
-                    height: 100%;
+                    max-height: 475px;
                     object-fit: cover;
                     width: 100%;
                 }
@@ -55,11 +55,20 @@
                 gap: 10px;
 
                 img {
-                    border: 1px solid #e5e5e5;
+                    opacity: 0.7;
                     cursor: pointer;
                     height: 100px;
                     object-fit: cover;
                     width: 100%;
+                    transition: opacity 0.3s ease;
+
+                    &:hover {
+                        opacity: 0.75;
+                    }
+
+                    &.active {
+                        opacity: 1;
+                    }
                 }
             }
         }
