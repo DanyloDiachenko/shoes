@@ -37,7 +37,14 @@ export const Popups = () => {
                 <div
                     className={`${styles.modalDialog} ${
                         openedPopup ? styles.active : ""
-                    }`}
+                    }
+                        ${
+                            openedPopup.toLocaleLowerCase().includes("address")
+                                ? styles.address
+                                : ""
+                        }
+                        ${openedPopup === "quickView" ? styles.quickView : ""}
+                    `}
                     ref={popupRef}
                 >
                     <div className={styles.modalContent}>

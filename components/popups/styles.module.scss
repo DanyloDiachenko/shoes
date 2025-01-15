@@ -50,12 +50,24 @@
         transform: translateY(-5%);
 
         @media (min-width: 576px) {
-            max-width: 500px;
             margin: 1.75rem auto;
             min-height: calc(100% - 3.5rem);
         }
-        @media screen and (min-width: 768px) {
-            max-width: 575px;
+
+        &.address {
+            @media (min-width: 576px) {
+                max-width: 500px;
+            }
+            @media screen and (min-width: 768px) {
+                max-width: 575px;
+            }
+        }
+        &.quickView {
+            max-width: 1030px;
+
+            @media(max-width: 1030px) {
+                margin: 0.5rem;
+            }
         }
 
         &.active {
