@@ -17,9 +17,27 @@ export const QuickView = () => {
                 <span className={styles.tag}>Sale!</span>
                 <div className={styles.leftColumn}>
                     <div className={styles.mainImage}>
-                        <Image src={product.mainImage} alt="Product image" width={0} height={0} sizes="100vw" />
+                        <Image
+                            src={product.mainImage}
+                            alt="Product image"
+                            width={0}
+                            height={0}
+                            sizes="100vw"
+                        />
                     </div>
-                    <div className={styles.nav}></div>
+                    <div className={styles.nav}>
+                        {product.images.map((image, i) => (
+                            <div key={i} className={styles.navImage}>
+                                <Image
+                                    src={image}
+                                    alt="Product image"
+                                    width={0}
+                                    height={0}
+                                    sizes="100vw"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
                 <div className={styles.rightColumn}></div>
             </div>
