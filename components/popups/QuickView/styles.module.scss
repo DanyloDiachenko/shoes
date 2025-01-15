@@ -12,5 +12,23 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         position: relative;
+
+        .tag {
+            align-items: center;
+            background-color: #c96;
+            border-radius: 4px;
+            bottom: auto;
+            color: #fff;
+            display: inline-flex;
+            flex-wrap: wrap;
+            left: 20px;
+            line-height: 1;
+            padding: 5px 15px;
+            position: absolute;
+            right: auto;
+            top: 20px;
+            width: auto;
+            z-index: 1;
+        }
     }
 }
