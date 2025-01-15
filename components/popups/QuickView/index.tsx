@@ -6,11 +6,13 @@ import { RootState } from "@/store";
 
 export const QuickView = () => {
     const dispatch = useDispatch();
-    const product = useSelector(
-        (state: RootState) => state.product.product
-    );
+    const product = useSelector((state: RootState) => state.product.product);
 
     if (!product) return null;
 
-    return <div className={styles.formBox}></div>;
+    return (
+        <div className={styles.contentWrapper}>
+            <div></div>
+        </div>
+    );
 };
