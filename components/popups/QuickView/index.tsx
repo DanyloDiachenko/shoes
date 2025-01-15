@@ -6,11 +6,11 @@ import { RootState } from "@/store";
 
 export const QuickView = () => {
     const dispatch = useDispatch();
-    const openedPopup = useSelector(
-        (state: RootState) => state.openedPopup.openedPopup
+    const product = useSelector(
+        (state: RootState) => state.product.product
     );
 
-    if (!fields) return null;
+    if (!product) return null;
 
     return <div className={styles.formBox}></div>;
 };
