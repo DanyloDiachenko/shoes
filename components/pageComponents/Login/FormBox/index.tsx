@@ -12,7 +12,7 @@ export const FormBox = () => {
     const [tab, setTab] = useState<LoginTab>("signIn");
 
     const onGoogleLoginClick = () => {
-        signIn("google", { callbackUrl: "/login" });
+        signIn("google", { callbackUrl: "/dashboard" });
     };
 
     return (
