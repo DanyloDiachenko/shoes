@@ -10,6 +10,9 @@ import { getProductDiscount } from "@/helpers/getProductDiscount";
 import { addProductToWishlist } from "@/helpers/addProductToWishlist";
 import { useDispatch } from "react-redux";
 import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
+import { setProduct } from "@/store/slices/product";
+import { Popup } from "@/types/popup.type";
+import { setOpenedPopup } from "@/store/slices/openedPopup";
 
 export const Product = ({
     id,
@@ -25,6 +28,14 @@ export const Product = ({
     rating,
     color,
     currency,
+    description,
+    quantityInStock,
+    productInformation,
+    additionalInformation,
+    purchasedNumber,
+    images,
+    brand,
+    sizes,
 }: ProductProps) => {
     const dispatch = useDispatch();
 
@@ -35,6 +46,42 @@ export const Product = ({
     const onAddProductToWishlistHandler = () => {
         addProductToWishlist(id);
         toogleLocalStorageHandler();
+    };
+
+    const setProductHandler = () => {
+        dispatch(
+            setProduct({
+                id,
+                title,
+                priceEur,
+                priceUah,
+                priceWithDiscountEur,
+                priceWithDiscountUah,
+                mainImage,
+                mainCategory,
+                categories,
+                reviews,
+                rating,
+                color,
+                description,
+                quantityInStock,
+                productInformation,
+                additionalInformation,
+                purchasedNumber,
+                images,
+                brand,
+                sizes,
+            })
+        );
+    };
+
+    const setOpenedPopupHandler = (popup: Popup) => {
+        dispatch(setOpenedPopup(popup));
+    };
+
+    const onQuickViewClick = () => {
+        setProductHandler();
+        setOpenedPopupHandler("quickView");
     };
 
     return (
@@ -123,8 +170,10 @@ export const Product = ({
                         <span>add to cart</span>
                     </Link>
                     <Link
-                        href="popup/quickView.html"
+                        href="#"
+                        scroll={false}
                         className={styles.product}
+                        onClick={onQuickViewClick}
                     >
                         <LiaBinocularsSolid />
                         <span>quick view</span>
