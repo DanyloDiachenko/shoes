@@ -50,12 +50,12 @@ export const Popups = () => {
                             >
                                 <IoMdClose />
                             </button>
-                            {openedPopup === "createBillingAddress" ||
+                            {(openedPopup === "createBillingAddress" ||
                                 openedPopup === "createShippingAddress" ||
                                 openedPopup === "updateBillingAddress" ||
-                                (openedPopup === "updateShippingAddress" && (
-                                    <ChangeAddress />
-                                ))}
+                                openedPopup === "updateShippingAddress") && (
+                                <ChangeAddress />
+                            )}
                             {openedPopup === "quickView" && <QuickView />}
                         </div>
                     </div>
