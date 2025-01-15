@@ -14,6 +14,8 @@ export const QuickView = () => {
         <div className={styles.contentWrapper}>
             <div className={styles.content}>
                 <span className={styles.tag}>Sale!</span>
+                <div className={styles.leftColumn}></div>
+                <div className={styles.rightColumn}></div>
             </div>
         </div>
     );
