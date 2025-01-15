@@ -5,4 +5,12 @@
     background-color: #fff;
     padding: 2.2rem 2rem 4.4rem;
     box-shadow: 0 3px 16px rgba(51, 51, 51, 0.1);
+
+    .content {
+        align-items: start;
+        column-gap: 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        position: relative;
+    }
 }

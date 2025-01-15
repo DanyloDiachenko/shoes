@@ -12,7 +12,7 @@ export const QuickView = () => {
 
     return (
         <div className={styles.contentWrapper}>
-            <div></div>
+            <div className={styles.content}></div>
         </div>
     );
 };
