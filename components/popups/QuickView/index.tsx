@@ -26,8 +26,8 @@ export const QuickView = () => {
                         />
                     </div>
                     <div className={styles.nav}>
-                        {product.images.map((image, i) => (
-                            <div key={i} className={styles.navImage}>
+                        {product.images.slice(0, 4).map((image, index) => (
+                            <div key={index} className={styles.navImage}>
                                 <Image
                                     src={image}
                                     alt="Product image"
