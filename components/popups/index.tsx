@@ -8,6 +8,7 @@ import { RootState } from "@/store";
 import { closePopup as closePopupFunc } from "@/store/slices/openedPopup";
 import { useRef } from "react";
 import { onOutsideClick } from "@/helpers/onOutsideClick";
+import { QuickView } from "./QuickView";
 
 export const Popups = () => {
     const dispatch = useDispatch();
@@ -49,7 +50,13 @@ export const Popups = () => {
                             >
                                 <IoMdClose />
                             </button>
-                            <ChangeAddress />
+                            {openedPopup === "createBillingAddress" ||
+                                openedPopup === "createShippingAddress" ||
+                                openedPopup === "updateBillingAddress" ||
+                                (openedPopup === "updateShippingAddress" && (
+                                    <ChangeAddress />
+                                ))}
+                            {openedPopup === "quickView" && <QuickView />}
                         </div>
                     </div>
                 </div>
