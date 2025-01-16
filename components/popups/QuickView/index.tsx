@@ -4,17 +4,25 @@ import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getProductRating } from "@/helpers/getProductRating";
 import { getProductPrice } from "@/helpers/getProductPrice";
+import { Currency } from "@/types/currency.type";
+import { getCurrency } from "@/helpers/getCurrency";
 
 export const QuickView = () => {
     const dispatch = useDispatch();
     const product = useSelector((state: RootState) => state.product.product);
 
+    const [currency, setCurrency] = useState<Currency>("uah");
+
     if (!product) return null;
 
     const [activeImage, setActiveImage] = useState<string>(product.mainImage);
+
+    useEffect(() => {
+        getCurrency().then((currency) => setCurrency(currency));
+    });
 
     return (
         <div className={styles.contentWrapper}>
@@ -65,7 +73,8 @@ export const QuickView = () => {
                             product.priceUah,
                             product.priceEur,
                             product.priceWithDiscountUah,
-                            product.priceWithDiscountEur
+                            product.priceWithDiscountEur,
+                            currency
                         )}
                     </div>
                 </div>
