@@ -77,6 +77,13 @@ export const QuickView = () => {
                             currency
                         )}
                     </div>
+                    <p className={styles.description}>{product.description}</p>
+                    <div className={styles.color}>
+                        Color{" "}
+                        <span
+                            style={{ background: product.color.hexCode }}
+                        ></span>
+                    </div>
                 </div>
             </div>
         </div>
