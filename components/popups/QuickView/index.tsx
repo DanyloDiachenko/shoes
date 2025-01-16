@@ -87,12 +87,13 @@ export const QuickView = () => {
                     <div className={styles.sizes}>
                         Sizes:{" "}
                         {product.sizes.map((size, index) => (
-                            <span>
+                            <span key={index}>
                                 <span>{size.title}</span>
                                 {index < product.sizes.length - 1 && ", "}
                             </span>
                         ))}
                     </div>
+                    <div className={styles.inStock}>{product.quantityInStock} in stock</div>
                 </div>
             </div>
         </div>
