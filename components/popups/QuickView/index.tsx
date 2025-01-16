@@ -9,6 +9,7 @@ import { getProductRating } from "@/helpers/getProductRating";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import { Currency } from "@/types/currency.type";
 import { getCurrency } from "@/helpers/getCurrency";
+import Link from "next/link";
 
 export const QuickView = () => {
     const dispatch = useDispatch();
@@ -93,7 +94,15 @@ export const QuickView = () => {
                             </span>
                         ))}
                     </div>
-                    <div className={styles.inStock}>{product.quantityInStock} in stock</div>
+                    <div className={styles.inStock}>
+                        {product.quantityInStock} in stock
+                    </div>
+                    <div className={styles.brand}>
+                        Brand:{" "}
+                        <Link href={`/products/${product.brand.slug}`}>
+                            {product.brand.title}
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
