@@ -79,10 +79,19 @@ export const QuickView = () => {
                     </div>
                     <p className={styles.description}>{product.description}</p>
                     <div className={styles.color}>
-                        Color{" "}
+                        Color:{" "}
                         <span
                             style={{ background: product.color.hexCode }}
                         ></span>
+                    </div>
+                    <div className={styles.sizes}>
+                        Sizes:{" "}
+                        {product.sizes.map((size, index) => (
+                            <span>
+                                <span>{size.title}</span>
+                                {index < product.sizes.length - 1 && ", "}
+                            </span>
+                        ))}
                     </div>
                 </div>
             </div>
