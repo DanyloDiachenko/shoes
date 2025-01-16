@@ -6,6 +6,7 @@ import { RootState } from "@/store";
 import Image from "next/image";
 import { useState } from "react";
 import { getProductRating } from "@/helpers/getProductRating";
+import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const QuickView = () => {
     const dispatch = useDispatch();
@@ -58,6 +59,14 @@ export const QuickView = () => {
                         <span className={styles.ratingsText}>
                             ( {product.reviews.length} Reviews )
                         </span>
+                    </div>
+                    <div className={styles.price}>
+                        {getProductPrice(
+                            product.priceUah,
+                            product.priceEur,
+                            product.priceWithDiscountUah,
+                            product.priceWithDiscountEur
+                        )}
                     </div>
                 </div>
             </div>
