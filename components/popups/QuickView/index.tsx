@@ -10,6 +10,7 @@ import { getProductPrice } from "@/helpers/getProductPrice";
 import { Currency } from "@/types/currency.type";
 import { getCurrency } from "@/helpers/getCurrency";
 import Link from "next/link";
+import { Button } from "@/components/UI/Button";
 
 export const QuickView = () => {
     const dispatch = useDispatch();
@@ -113,6 +114,9 @@ export const QuickView = () => {
                                 {index < product.categories.length - 1 && ", "}
                             </span>
                         ))}
+                    </div>
+                    <div className={styles.buttonWrapper}>
+                        <Button colorType="btnPrimary">View Details</Button>
                     </div>
                 </div>
             </div>
