@@ -77,6 +77,32 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+
+            .title {
+                font-size: 2.4rem;
+                text-transform: capitalize;
+                font-weight: 400;
+                letter-spacing: -0.025em;
+                line-height: 1.5;
+                text-align: center;
+                color: #333;
+            }
+
+            .ratingsContainer {
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                font-size: 1.3rem;
+                margin-bottom: 1.7rem;
+                line-height: 1;
+                white-space: nowrap;
+
+                .ratingsText {
+                    color: #cccccc;
+                    letter-spacing: -0.01em;
+                    margin-left: 0.8rem;
+                }
+            }
         }
     }
 }

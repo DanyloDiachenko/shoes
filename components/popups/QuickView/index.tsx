@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import Image from "next/image";
 import { useState } from "react";
+import { getProductRating } from "@/helpers/getProductRating";
 
 export const QuickView = () => {
     const dispatch = useDispatch();
@@ -48,7 +49,17 @@ export const QuickView = () => {
                         ))}
                     </div>
                 </div>
-                <div className={styles.rightColumn}></div>
+                <div className={styles.rightColumn}>
+                    <div className={styles.title}>{product.title}</div>
+                    <div className={styles.ratingsContainer}>
+                        <div className={styles.ratings}>
+                            {getProductRating(product.rating)}
+                        </div>
+                        <span className={styles.ratingsText}>
+                            ( {product.reviews.length} Reviews )
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     );
