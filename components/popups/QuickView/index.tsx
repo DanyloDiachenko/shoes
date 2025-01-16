@@ -103,6 +103,17 @@ export const QuickView = () => {
                             {product.brand.title}
                         </Link>
                     </div>
+                    <div className={styles.categories}>
+                        Categoreis:{" "}
+                        {product.categories.map((category, index) => (
+                            <span key={index}>
+                                <Link href={`/products/${category.slug}`}>
+                                    {category.title}
+                                </Link>
+                                {index < product.categories.length - 1 && ", "}
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
