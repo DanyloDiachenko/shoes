@@ -12,7 +12,7 @@ export const Tabs = ({ activeTabSlug, onSetActiveTabClick }: TabsProps) => {
                         className={`${styles.navLink} ${
                             activeTabSlug === tab.slug ? styles.active : ""
                         }`}
-                        id={`"new-${activeTabSlug}-link"`}
+                        id={`new-${activeTabSlug}-link`}
                         href={`#new-${activeTabSlug}-tab`}
                         role="tab"
                         aria-controls={`new-${activeTabSlug}-tab`}
