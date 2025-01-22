@@ -29,7 +29,7 @@ export const QuickView = () => {
     return (
         <div className={styles.contentWrapper}>
             <div className={styles.content}>
-                <span className={styles.tag}>Sale!</span>
+                <span className={styles.tag}>{product.mainCategory.title}</span>
                 <div className={styles.leftColumn}>
                     <div className={styles.mainImage}>
                         <Image
@@ -80,11 +80,16 @@ export const QuickView = () => {
                         )}
                     </div>
                     <p className={styles.description}>{product.description}</p>
+                    <div className={styles.inStock}>
+                        <div className={styles.dot}></div>
+                        {product.quantityInStock} in stock
+                    </div>
                     <div className={styles.color}>
-                        Color:{" "}
-                        <span
+                        <div>Color: </div>
+                        <div
+                            className={styles.dot}
                             style={{ background: product.color.hexCode }}
-                        ></span>
+                        ></div>
                     </div>
                     <div className={styles.sizes}>
                         Sizes:{" "}
@@ -94,9 +99,6 @@ export const QuickView = () => {
                                 {index < product.sizes.length - 1 && ", "}
                             </span>
                         ))}
-                    </div>
-                    <div className={styles.inStock}>
-                        {product.quantityInStock} in stock
                     </div>
                     <div className={styles.brand}>
                         Brand:{" "}

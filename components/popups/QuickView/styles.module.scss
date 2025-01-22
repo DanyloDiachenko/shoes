@@ -13,10 +13,15 @@
         grid-template-columns: repeat(2, 1fr);
         position: relative;
 
+        @media (max-width: 992px) {
+            column-gap: 0;
+            grid-template-columns: repeat(1, 1fr);
+            row-gap: 30px;
+        }
+
         .tag {
             align-items: center;
             background-color: #c96;
-            border-radius: 4px;
             bottom: auto;
             color: #fff;
             display: inline-flex;
@@ -46,6 +51,10 @@
                     max-height: 475px;
                     object-fit: cover;
                     width: 100%;
+
+                    @media (max-width: 991px) {
+                        max-height: none;
+                    }
                 }
             }
 
@@ -110,24 +119,44 @@
 
             .description {
                 margin-top: 20px;
+                line-height: 2.2rem;
             }
 
             .color {
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                .dot {
+                    width: 17px;
+                    height: 17px;
+                    border-radius: 50%;
+                    border: 1px solid #ebebeb;
+                }
             }
 
             .sizes {
+                color: #666;
             }
 
             .inStock {
-            }
+                margin-top: 10px;
+                color: green;
+                display: flex;
+                align-items: center;
+                gap: 6px;
 
-            .brand {
-            }
-
-            .categories {
+                .dot {
+                    width: 9px;
+                    height: 9px;
+                    border-radius: 50%;
+                    background: green;
+                }
             }
 
             .buttonWrapper {
+                margin-top: 30px;
             }
         }
     }
