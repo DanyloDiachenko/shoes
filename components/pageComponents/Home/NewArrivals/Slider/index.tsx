@@ -86,7 +86,7 @@ export const Slider = ({ activeTabSlug, products, currency }: SliderProps) => {
             ref={sliderRef}
             key={products.length}
             className={`${styles.slider} new-arrivals-slider`}
-            aria-labelledby={`new-${activeTabSlug}-tab`}
+            aria-labelledby={`new-${activeTabSlug}-link`}
             {...sliderSettings}
         >
             {products.map((product, index) => (

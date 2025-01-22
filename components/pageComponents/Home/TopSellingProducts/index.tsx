@@ -68,9 +68,8 @@ export const TopSellingProducts = ({
             <div className={styles.tabContent}>
                 <div
                     className={styles.tabPane}
-                    id={`top-${activeTabSlug}-tab`}
                     role="tabpanel"
-                    aria-labelledby={`top-${activeTabSlug}-tab`}
+                    aria-labelledby={`top-${activeTabSlug}-link`}
                 >
                     <div className={`${styles.row} row`}>
                         {productsToShow.map((product, index) => (
