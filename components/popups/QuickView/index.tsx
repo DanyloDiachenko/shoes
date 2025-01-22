@@ -11,19 +11,27 @@ import { Currency } from "@/types/currency.type";
 import { getCurrency } from "@/helpers/getCurrency";
 import Link from "next/link";
 import { Button } from "@/components/UI/Button";
+import { closePopup } from "@/store/slices/openedPopup";
 
 export const QuickView = () => {
+    const dispatch = useDispatch();
     const product = useSelector((state: RootState) => state.product.product);
 
-    const [currency, setCurrency] = useState<Currency>("uah");
+    const [currency, setCurrency] = useState<Currency | null>(null);
 
     if (!product) return <></>;
 
     const [activeImage, setActiveImage] = useState<string>(product.mainImage);
 
+    const closePopupHandler = () => {
+        dispatch(closePopup());
+    };
+
     useEffect(() => {
-        getCurrency().then((currency) => setCurrency(currency));
-    });
+        if (!currency) {
+            getCurrency().then((currency) => setCurrency(currency));
+        }
+    }, []);
 
     return (
         <div className={styles.contentWrapper}>
@@ -75,7 +83,7 @@ export const QuickView = () => {
                             product.priceEur,
                             product.priceWithDiscountUah,
                             product.priceWithDiscountEur,
-                            currency
+                            currency || "uah"
                         )}
                     </div>
                     <p className={styles.description}>{product.description}</p>
@@ -85,23 +93,32 @@ export const QuickView = () => {
                     </div>
                     <div className={styles.color}>
                         <div>Color: </div>
-                        <div
+                        <Link
+                            href={`/products?color=${product.color.slug}`}
                             className={styles.dot}
                             style={{ background: product.color.hexCode }}
-                        ></div>
+                            onClick={closePopupHandler}
+                        ></Link>
                     </div>
                     <div className={styles.sizes}>
                         Sizes:{" "}
                         {product.sizes.map((size, index) => (
-                            <span key={index}>
+                            <Link
+                                key={index}
+                                href={`/products?sizes=${size.slug}`}
+                                onClick={closePopupHandler}
+                            >
                                 <span>{size.title}</span>
                                 {index < product.sizes.length - 1 && ", "}
-                            </span>
+                            </Link>
                         ))}
                     </div>
                     <div className={styles.brand}>
                         Brand:{" "}
-                        <Link href={`/products/${product.brand.slug}`}>
+                        <Link
+                            href={`/products?brands=${product.brand.slug}`}
+                            onClick={closePopupHandler}
+                        >
                             {product.brand.title}
                         </Link>
                     </div>
@@ -109,7 +126,10 @@ export const QuickView = () => {
                         Categoreis:{" "}
                         {product.categories.map((category, index) => (
                             <span key={index}>
-                                <Link href={`/products/${category.slug}`}>
+                                <Link
+                                    href={`/products?categories=${category.slug}`}
+                                    onClick={closePopupHandler}
+                                >
                                     {category.title}
                                 </Link>
                                 {index < product.categories.length - 1 && ", "}
@@ -117,7 +137,14 @@ export const QuickView = () => {
                         ))}
                     </div>
                     <div className={styles.buttonWrapper}>
-                        <Button colorType="btnPrimary">View Details</Button>
+                        <Link href={`/products/${product.id}`}>
+                            <Button
+                                colorType="btnPrimary"
+                                onClick={closePopupHandler}
+                            >
+                                View Details
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </div>

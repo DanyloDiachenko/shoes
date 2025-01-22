@@ -10,6 +10,8 @@ import { getProductDiscount } from "@/helpers/getProductDiscount";
 import { useDispatch } from "react-redux";
 import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
 import { addProductToWishlist } from "@/helpers/addProductToWishlist";
+import { Popup } from "@/types/popup.type";
+import { setOpenedPopup } from "@/store/slices/openedPopup";
 
 export const Product = ({
     id,
@@ -35,6 +37,14 @@ export const Product = ({
     const onAddProductToWishlistHandler = () => {
         addProductToWishlist(id);
         toogleLocalStorageHandler();
+    };
+
+    const setOpenedPopupHandler = (popup: Popup) => {
+        dispatch(setOpenedPopup(popup));
+    };
+
+    const onQuickViewClick = () => {
+        setOpenedPopupHandler("quickView");
     };
 
     return (
@@ -132,6 +142,8 @@ export const Product = ({
                         href="#"
                         className={styles.quickView}
                         title="Quick view"
+                        onClick={onQuickViewClick}
+                        scroll={false}
                     >
                         <LiaBinocularsSolid />
                         <span className="sr-only"></span>
