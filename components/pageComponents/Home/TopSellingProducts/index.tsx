@@ -18,36 +18,30 @@ export const TopSellingProducts = ({
 
     const filterProductsByGender = (tabSlug: TabSlug) => {
         switch (tabSlug) {
-            case "all": {
+            case "all":
                 setProductsToShow(products);
-
                 break;
-            }
-            case "men": {
-                const menProducts = products.filter((product) =>
-                    product.categories.find(
-                        (category) => category.slug === "men"
+            case "men":
+                setProductsToShow(
+                    products.filter((product) =>
+                        product.categories.some(
+                            (category) => category.slug === "men"
+                        )
                     )
                 );
-                setProductsToShow(menProducts);
-
                 break;
-            }
-            case "women": {
-                const womenProducts = products.filter((product) =>
-                    product.categories.find(
-                        (category) => category.slug === "women"
+            case "women":
+                setProductsToShow(
+                    products.filter((product) =>
+                        product.categories.some(
+                            (category) => category.slug === "women"
+                        )
                     )
                 );
-                setProductsToShow(womenProducts);
-
                 break;
-            }
-            default: {
+            default:
                 setProductsToShow(products);
-
                 break;
-            }
         }
     };
 
@@ -69,7 +63,7 @@ export const TopSellingProducts = ({
                 <div
                     className={styles.tabPane}
                     role="tabpanel"
-                    aria-labelledby={`top-${activeTabSlug}-link`}
+                    aria-labelledby={`tab-${activeTabSlug}`}
                 >
                     <div className={`${styles.row} row`}>
                         {productsToShow.map((product, index) => (

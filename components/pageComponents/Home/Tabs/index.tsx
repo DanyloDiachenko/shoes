@@ -7,18 +7,23 @@ export const Tabs = ({ activeTabSlug, onSetActiveTabClick }: TabsProps) => {
     return (
         <ul className={styles.nav} role="tablist">
             {tabs.map((tab, index) => (
-                <li key={index} className={styles.navItem}>
+                <li key={index} className={styles.navItem} role="presentation">
                     <Link
                         className={`${styles.navLink} ${
                             activeTabSlug === tab.slug ? styles.active : ""
                         }`}
-                        id={`new-${activeTabSlug}-link`}
-                        href={`#new-${activeTabSlug}-tab`}
+                        id={`tab-${tab.slug}`}
+                        href={`#tab-panel-${tab.slug}`}
                         role="tab"
-                        aria-controls={`new-${activeTabSlug}-tab`}
-                        aria-selected={activeTabSlug === tab.slug}
+                        aria-controls={`tab-panel-${tab.slug}`}
+                        aria-selected={
+                            activeTabSlug === tab.slug ? "true" : "false"
+                        }
                         scroll={false}
-                        onClick={() => onSetActiveTabClick(tab.slug)}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            onSetActiveTabClick(tab.slug);
+                        }}
                     >
                         {tab.title}
                     </Link>
