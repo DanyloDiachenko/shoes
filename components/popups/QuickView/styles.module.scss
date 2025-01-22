@@ -76,7 +76,6 @@
         .rightColumn {
             display: flex;
             flex-direction: column;
-            gap: 20px;
 
             .title {
                 font-size: 2.4rem;
@@ -89,11 +88,10 @@
             }
 
             .ratingsContainer {
-                justify-content: center;
+                margin-top: 10px;
                 display: flex;
                 align-items: center;
                 font-size: 1.3rem;
-                margin-bottom: 1.7rem;
                 line-height: 1;
                 white-space: nowrap;
 
@@ -104,32 +102,32 @@
                 }
             }
 
-            .description {
+            .price {
+                margin-top: 20px;
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
 
+            .description {
+                margin-top: 20px;
             }
 
             .color {
-
             }
 
             .sizes {
-
             }
 
             .inStock {
-
             }
 
             .brand {
-
             }
 
             .categories {
-
             }
 
             .buttonWrapper {
-                
             }
         }
     }
