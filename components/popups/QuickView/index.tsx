@@ -13,12 +13,11 @@ import Link from "next/link";
 import { Button } from "@/components/UI/Button";
 
 export const QuickView = () => {
-    const dispatch = useDispatch();
     const product = useSelector((state: RootState) => state.product.product);
 
     const [currency, setCurrency] = useState<Currency>("uah");
 
-    if (!product) return null;
+    if (!product) return <></>;
 
     const [activeImage, setActiveImage] = useState<string>(product.mainImage);
 
