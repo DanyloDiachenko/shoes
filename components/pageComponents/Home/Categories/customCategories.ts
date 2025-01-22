@@ -22,7 +22,7 @@ export const customCategories: CustomCategory[] = [
     },
     {
         title: "Kid's",
-        link: "/products?categories=kids",
+        link: "/products?categories=kid",
         productsQuantity:
             categories.find((category) => category.title === "Kids")
                 ?.productsQuantity || 0,
