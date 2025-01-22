@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Links } from "./Links";
 import { Socials } from "./Socials";
 import styles from "./styles.module.scss";
@@ -12,7 +13,7 @@ export const Footer = () => {
                     <div className={styles.row}>
                         <div className={styles.column}>
                             <div className={styles.widget}>
-                                <img
+                                <Image
                                     src="/images/icons/logo.png"
                                     className={styles.footerLogo}
                                     alt="Footer Logo"
@@ -38,7 +39,7 @@ export const Footer = () => {
                         Reserved.
                     </p>
                     <figure className={styles.footerPayments}>
-                        <img
+                        <Image
                             src="/images/icons/payments.png"
                             alt="Payment methods"
                             width="272"

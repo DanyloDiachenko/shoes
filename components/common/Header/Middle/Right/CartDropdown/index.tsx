@@ -18,6 +18,7 @@ import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
 import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
+import Image from "next/image";
 
 export const CartDropdown = ({
     currency,
@@ -183,9 +184,12 @@ export const CartDropdown = ({
                                         href={`/products/${product.id}`}
                                         className={styles.productImage}
                                     >
-                                        <img
+                                        <Image
                                             src={product.mainImage}
                                             alt="product"
+                                            width={0}
+                                            height={0}
+                                            sizes="100vw"
                                         />
                                     </Link>
                                 </figure>

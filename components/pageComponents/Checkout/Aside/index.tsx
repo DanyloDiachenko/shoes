@@ -8,6 +8,7 @@ import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
 import { Product } from "@/interfaces/product.interface";
 import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 import { shippings } from "@/data/shippings";
+import Image from "next/image";
 
 export const Aside = ({
     paymentMethod,
@@ -174,7 +175,7 @@ export const Aside = ({
                         </div>
                     ))}
                 </div>
-                <img
+                <Image
                     src="/images/icons/payments.png"
                     alt="Payment methods"
                     width="272"
