@@ -135,7 +135,7 @@ export const ChangeAddress = () => {
         getUserProfile();
     }, []);
 
-    if (!fields) return null;
+    if (!fields) return <></>;
 
     return (
         <div className={styles.formBox}>
