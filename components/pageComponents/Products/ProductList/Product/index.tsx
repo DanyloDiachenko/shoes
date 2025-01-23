@@ -50,15 +50,13 @@ export const Product = ({
                 <div className={styles.columnImage}>
                     <figure className={styles.media}>
                         {quantityInStock > 0 ? (
-                            <span
-                                className={`${styles.category} ${
-                                    styles[mainCategory.slug]
-                                }`}
-                            >
+                            <span className={styles.category}>
                                 {mainCategory.title}
                             </span>
                         ) : (
-                            <span className={styles.outOfStock}>
+                            <span
+                                className={`${styles.category} ${styles.outOfStock}`}
+                            >
                                 Out of Stock
                             </span>
                         )}

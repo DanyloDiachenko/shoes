@@ -44,38 +44,11 @@
                 line-height: 1.6rem;
                 letter-spacing: -0.01em;
                 text-align: center;
+                background: #c96;
+                color: #fff;
 
-                &.bestsellers {
-                    background-color: #a6c76c;
-                    color: #fff;
-                }
                 &.outOfStock {
-                    color: #fff;
-                    background-color: #ccc;
-                }
-                &.men {
-                    background-color: #1e90ff;
-                    color: #fff;
-                }
-
-                &.women {
-                    background-color: #ff69b4;
-                    color: #fff;
-                }
-
-                &.classic {
-                    background-color: #d4a017;
-                    color: #fff;
-                }
-
-                &.sport {
-                    background-color: #32cd32;
-                    color: #fff;
-                }
-
-                &.luxury {
-                    background-color: #000;
-                    color: #fff;
+                    background: rgb(255, 148, 148);
                 }
             }
 
