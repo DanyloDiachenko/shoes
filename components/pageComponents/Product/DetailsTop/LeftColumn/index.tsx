@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import { FaExpandArrowsAlt } from "react-icons/fa";
 import { useState } from "react";
 import { LeftColumnProps } from "./leftColumn.props";
+import Image from "next/image";
 
 export const LeftColumn = ({ product }: LeftColumnProps) => {
     const [activeImage, setActiveImage] = useState<string>(product.mainImage);
@@ -13,14 +14,13 @@ export const LeftColumn = ({ product }: LeftColumnProps) => {
             <div className={styles.gallery}>
                 <div className={`row ${styles.row}`}>
                     <figure className={styles.mainImage}>
-                        <img
-                            id="product-zoom"
+                        <Image
                             src={activeImage}
                             alt="product image"
+                            width={0}
+                            height={0}
+                            sizes="100vw"
                         />
-                        <div className={styles.productGalleryLink}>
-                            <FaExpandArrowsAlt />
-                        </div>
                     </figure>
                     <div className={styles.galleryItems}>
                         {product.images.map((image) => (

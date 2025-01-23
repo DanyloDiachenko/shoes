@@ -111,16 +111,15 @@ export const Product = ({
                         </Button>
                         <div className={styles.categories}>
                             {categories.map((category, index) => (
-                                <>
+                                <span key={index}>
                                     <Link
                                         href={`/products?categories=${category.slug}`}
-                                        key={category.id}
                                         className={styles.category}
                                     >
                                         {category.title}
                                         {index < categories.length - 1 && ", "}
                                     </Link>
-                                </>
+                                </span>
                             ))}
                         </div>
                         <h3 className={styles.title}>

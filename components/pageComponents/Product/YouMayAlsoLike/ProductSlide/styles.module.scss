@@ -29,7 +29,7 @@
 
         .productImage {
             max-width: 100%;
-            max-height: 250px;
+            height: 250px;
             width: auto;
             margin-left: auto;
             margin-right: auto;
@@ -40,103 +40,15 @@
             top: 2rem;
             left: 2rem;
             z-index: 1;
-            background-color: #fff;
+            background-color: #c96;
+            color: #fff;
             padding: 0.5rem 0.9rem;
             min-width: 45px;
-            color: #333333;
             font-weight: 400;
             font-size: 1.3rem;
             line-height: 1.6rem;
             letter-spacing: -0.01em;
             text-align: center;
-
-            &.new {
-                background-color: #a6c76c;
-                color: #fff;
-            }
-            &.classic {
-                background-color: #d4a017;
-                color: #fff;
-            }
-            &.men {
-                background-color: #007bff;
-                color: #fff;
-            }
-
-            &.women {
-                background-color: #ff69b4;
-                color: #fff;
-            }
-
-            &.sport {
-                background-color: #28a745;
-                color: #fff;
-            }
-
-            &.kids {
-                background-color: #ffcc00;
-                color: #fff;
-            }
-
-            &.sale {
-                background-color: #dc3545;
-                color: #fff;
-            }
-
-            &.sneakers {
-                background-color: #6f42c1;
-                color: #fff;
-            }
-
-            &.boots {
-                background-color: #8b4513;
-                color: #fff;
-            }
-
-            &.sandals {
-                background-color: #ff7f50;
-                color: #fff;
-            }
-
-            &.formal {
-                background-color: #2f4f4f;
-                color: #fff;
-            }
-
-            &.casual {
-                background-color: #4682b4;
-                color: #fff;
-            }
-
-            &.accessories {
-                background-color: #20c997;
-                color: #fff;
-            }
-
-            &.running {
-                background-color: #e83e8c;
-                color: #fff;
-            }
-
-            &.walking {
-                background-color: #17a2b8;
-                color: #fff;
-            }
-
-            &.work {
-                background-color: #6c757d;
-                color: #fff;
-            }
-
-            &.outdoor {
-                background-color: #28a745;
-                color: #fff;
-            }
-
-            &.luxury {
-                background-color: #ffc107;
-                color: #fff;
-            }
         }
 
         img {
@@ -247,16 +159,19 @@
         padding: 1.6rem 2rem;
 
         .category {
-            transition: 0.35s ease;
             margin-bottom: 0.3rem;
-            color: #777;
             font-weight: 300;
             font-size: 1.3rem;
             line-height: 1.2;
             letter-spacing: -0.01em;
 
             a {
-                color: inherit;
+                transition: 0.35s ease;
+                color: #333333;
+
+                &:hover {
+                    color: #c96;
+                }
             }
         }
 

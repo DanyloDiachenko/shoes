@@ -9,6 +9,7 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import { ProductSlideProps } from "./productSlide.props";
 import { useState } from "react";
 import { getProductPrice } from "@/helpers/getProductPrice";
+import Image from "next/image";
 
 export const ProductSlide = ({
     mainCategory,
@@ -23,22 +24,22 @@ export const ProductSlide = ({
     currency,
     priceWithDiscountEur,
     priceWithDiscountUah,
+    categories,
 }: ProductSlideProps) => {
     const [activeImage, setActiveImage] = useState<string>(mainImage);
 
     return (
         <div className={styles.productSlide}>
             <figure className={styles.media}>
-                <span
-                    className={`${styles.label} ${styles[mainCategory.slug]}`}
-                >
-                    {mainCategory.title}
-                </span>
+                <span className={`${styles.label}`}>{mainCategory.title}</span>
                 <Link href={`/products/${id}`}>
-                    <img
+                    <Image
                         src={activeImage}
                         alt="Product image"
                         className={styles.productImage}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
                     />
                 </Link>
                 <div className={styles.actions}>
@@ -58,9 +59,16 @@ export const ProductSlide = ({
             </figure>
             <div className={styles.productBody}>
                 <div className={styles.category}>
-                    <Link href={`/products?category=${mainCategory.slug}`}>
-                        {mainCategory.title}
-                    </Link>
+                    {categories.map((category, index) => (
+                        <span key={index}>
+                            <Link
+                                href={`/products?categories=${category.slug}`}
+                            >
+                                {category.title}
+                            </Link>
+                            {index !== categories.length - 1 && ", "}
+                        </span>
+                    ))}
                 </div>
                 <h3 className={styles.title}>
                     <Link href={`/products/${id}`}>{title}</Link>

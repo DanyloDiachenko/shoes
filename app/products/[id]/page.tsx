@@ -28,40 +28,6 @@ const ProductDetails = async ({ params }: PageProps) => {
         notFound();
     }
 
-    /* const [
-        mayLikedProductsByCategories,
-        mayLikedProductsBySizes,
-        mayLikedProductsByColor,
-        mayLikedProductsByBrand,
-    ] = await Promise.all([
-        getProducts({
-            limit: 3,
-            categorySlugs: product.categories.map((category) => category.slug),
-            currency: currency,
-        }),
-        getProducts({
-            limit: 3,
-            sizeSlugs: product.sizes.map((size) => String(size.slug)),
-            currency: currency,
-        }),
-        getProducts({
-            limit: 3,
-            colorSlug: product.color.slug,
-            currency: currency,
-        }),
-        getProducts({
-            limit: 3,
-            brandSlugs: [product.brand.slug],
-            currency: currency,
-        }),
-    ]); */
-    /* const mayLikedProducts = [
-        ...mayLikedProductsByCategories.data,
-        ...mayLikedProductsBySizes.data,
-        ...mayLikedProductsByColor.data,
-        ...mayLikedProductsByBrand.data,
-    ]; */
-
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
