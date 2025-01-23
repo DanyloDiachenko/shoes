@@ -10,6 +10,9 @@ import { ProductSlideProps } from "./productSlide.props";
 import { useState } from "react";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
+import { addProductToWishlist } from "@/helpers/addProductToWishlist";
 
 export const ProductSlide = ({
     mainCategory,
@@ -26,7 +29,18 @@ export const ProductSlide = ({
     priceWithDiscountUah,
     categories,
 }: ProductSlideProps) => {
+    const dispatch = useDispatch();
+
     const [activeImage, setActiveImage] = useState<string>(mainImage);
+
+    const toogleLocalStorageHandler = () => {
+        dispatch(toogleLocalStorage());
+    };
+
+    const onAddToWislistClick = () => {
+        addProductToWishlist(id);
+        toogleLocalStorageHandler();
+    };
 
     return (
         <div className={styles.productSlide}>
@@ -46,12 +60,16 @@ export const ProductSlide = ({
                     <Button
                         colorType="btnOutlinePrimary2"
                         className={styles.addToWishlist}
+                        onClick={onAddToWislistClick}
                     >
                         <FaRegHeart />
                     </Button>
                 </div>
                 <div className={styles.productAction}>
-                    <Link href={`/products/${id}`}>
+                    <Link
+                        href={`/products/${id}`}
+                        scroll={false}
+                    >
                         <LiaCartPlusSolid />
                         <span>add to cart</span>
                     </Link>
