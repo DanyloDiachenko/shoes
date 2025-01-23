@@ -1,0 +1,40 @@
+.addToWishlist {
+    white-space: nowrap;
+    align-self: stretch;
+    line-height: 1.4;
+    font-size: 1.6rem;
+    color: #666666;
+    letter-spacing: -0.01em;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+        padding-left: 0;
+        justify-content: start;
+    }
+
+    @media (max-width: 580px) {
+        padding-left: 0;
+        justify-content: start;
+    }
+
+    svg {
+        margin-top: -0.1rem;
+        color: #c96;
+        margin-right: 1rem;
+    }
+
+    span {
+        transition: 0.3s;
+        letter-spacing: 0.01rem;
+    }
+
+    &:hover {
+        span {
+            color: #c96;
+            box-shadow: 0 1px 0 0 #c96;
+        }
+    }
+}

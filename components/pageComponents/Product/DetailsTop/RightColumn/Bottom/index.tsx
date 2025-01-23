@@ -39,9 +39,7 @@ export const Bottom = ({ product }: BottomProps) => {
                 <span>Category:</span>
                 {product.categories.map((category, index) => (
                     <span key={category.id}>
-                        <Link
-                            href={`/products?categories=${category.slug}`}
-                        >
+                        <Link href={`/products?categories=${category.slug}`}>
                             {category.title}
                         </Link>
                         {product.categories.length - 1 === index ? "" : ", "}
@@ -51,7 +49,7 @@ export const Bottom = ({ product }: BottomProps) => {
             <div className={styles.socialIcons}>
                 <span className={styles.label}>Share:</span>
                 {socials.map((social, index) => (
-                    <a
+                    <Link
                         key={index}
                         href={social.link}
                         className={styles.icon}
@@ -60,7 +58,7 @@ export const Bottom = ({ product }: BottomProps) => {
                         rel="noopener noreferrer"
                     >
                         {social.icon}
-                    </a>
+                    </Link>
                 ))}
             </div>
         </div>
