@@ -9,6 +9,7 @@ import { RootState } from "@/store";
 import { useSelector } from "react-redux";
 import { getProducts } from "@/app/api/products";
 import styles from "./styles.module.scss";
+import { useRouter } from "next/navigation";
 
 export const ProductsPageContent = ({
     getProductsResponseServer,
@@ -18,6 +19,8 @@ export const ProductsPageContent = ({
     getBrandsResponseServer,
     currency,
 }: ProductsPageContentProps) => {
+    const router = useRouter();
+
     const [getProductsResponseClient, setGetProductsResponseClient] =
         useState<GetProductsResponse>(getProductsResponseServer);
     const [isFirstRender, setIsFirstRender] = useState(true);
@@ -68,6 +71,19 @@ export const ProductsPageContent = ({
         } else {
             setIsFirstRender(false);
         }
+
+        /* router.push(
+            `/products?${new URLSearchParams({
+                page: String(currentPage),
+                sortBy,
+                categories: selectedCategories.map((category) => category.slug),
+                sizes: selectedSizes.map((size) => size.slug),
+                color: selectedColor?.slug,
+                brands: selectedBrands.map((brand) => brand.slug),
+                priceFrom: String(priceRange.min),
+                priceTo: String(priceRange.max),
+            })}`
+        ); */
     }, [
         currentPage,
         selectedCategories,

@@ -10,12 +10,13 @@ import { ProductColor } from "@/interfaces/product.interface";
 import { setColor } from "@/store/slices/productsSettings";
 
 export const Colors = ({ colors }: ColorsProps) => {
-    const [isOpened, setIsOpened] = useState(true);
-
     const dispatch = useDispatch();
+
     const selectedColor = useSelector(
         (state: RootState) => state.productsSettings.filters.color
     );
+
+    const [isOpened, setIsOpened] = useState(true);
 
     const setSelectedColorHandler = (color: ProductColor | null) => {
         dispatch(setColor(color));
