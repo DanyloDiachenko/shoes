@@ -4,6 +4,7 @@ import { Quantity } from "./Quantity";
 import styles from "./styles.module.scss";
 import { RemoveButton } from "./RemoveButton";
 import { getProductPrice } from "@/helpers/getProductPrice";
+import Image from "next/image";
 
 export const ProductRow = ({ cartProduct, currency }: ProductRowProps) => {
     return (
@@ -12,9 +13,12 @@ export const ProductRow = ({ cartProduct, currency }: ProductRowProps) => {
                 <div className={styles.product}>
                     <figure className={styles.productMedia}>
                         <Link href={`/products/${cartProduct.id}`}>
-                            <img
+                            <Image
                                 src={cartProduct.mainImage}
                                 alt="Product image"
+                                width={0}
+                                height={0}
+                                sizes="100vw"
                             />
                         </Link>
                     </figure>

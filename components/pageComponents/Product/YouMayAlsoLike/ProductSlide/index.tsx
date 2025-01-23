@@ -66,10 +66,7 @@ export const ProductSlide = ({
                     </Button>
                 </div>
                 <div className={styles.productAction}>
-                    <Link
-                        href={`/products/${id}`}
-                        scroll={false}
-                    >
+                    <Link href={`/products/${id}`} scroll={false}>
                         <LiaCartPlusSolid />
                         <span>add to cart</span>
                     </Link>
@@ -116,7 +113,13 @@ export const ProductSlide = ({
                             }
                             onMouseLeave={() => setActiveImage(mainImage)}
                         >
-                            <img src={image} alt="product desc" />
+                            <Image
+                                src={image}
+                                alt="product desc"
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                            />
                         </div>
                     ))}
                 </div>

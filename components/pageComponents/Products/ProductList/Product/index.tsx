@@ -12,6 +12,7 @@ import { getProductPrice } from "@/helpers/getProductPrice";
 import { addProductToWishlist } from "@/helpers/addProductToWishlist";
 import { useDispatch } from "react-redux";
 import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
+import Image from "next/image";
 
 export const Product = ({
     mainCategory,
@@ -61,10 +62,13 @@ export const Product = ({
                             </span>
                         )}
                         <Link href={`/products/${id}`}>
-                            <img
+                            <Image
                                 src={activeImageSrc}
                                 alt="Product image"
                                 className={styles.image}
+                                width={0}
+                                height={0}
+                                sizes="100vw"
                             />
                         </Link>
                     </figure>
@@ -144,7 +148,13 @@ export const Product = ({
                                         setActiveImageSrc(mainImage)
                                     }
                                 >
-                                    <img src={image} alt="product desc" />
+                                    <Image
+                                        src={image}
+                                        alt="product desc"
+                                        width={0}
+                                        height={0}
+                                        sizes="100vw"
+                                    />
                                 </div>
                             ))}
                         </div>

@@ -7,6 +7,7 @@ import { Quantity } from "./Quantity";
 import { AddProductToCart } from "@/components/additional/AddProductToCart";
 import { getCurrency } from "@/helpers/getCurrency";
 import { Price } from "./Price";
+import Image from "next/image";
 
 export const StickyProduct = async ({
     product,
@@ -21,9 +22,12 @@ export const StickyProduct = async ({
                     <div className={styles.columnLeft}>
                         <figure className={styles.media}>
                             <Link href={`/products/${product.id}`}>
-                                <img
+                                <Image
                                     src={product.mainImage}
                                     alt="Product image"
+                                    width={0}
+                                    height={0}
+                                    sizes="100vw"
                                 />
                             </Link>
                         </figure>

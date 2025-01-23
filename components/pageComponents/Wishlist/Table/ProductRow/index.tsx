@@ -5,6 +5,7 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import { IoMdClose } from "react-icons/io";
 import { ProductRowProps } from "./productRow.props";
 import { getProductPrice } from "@/helpers/getProductPrice";
+import Image from "next/image";
 
 export const ProductRow = ({
     product,
@@ -17,7 +18,13 @@ export const ProductRow = ({
                 <div className={styles.product}>
                     <figure className={styles.productMedia}>
                         <Link href="#">
-                            <img src={product.mainImage} alt="Product image" />
+                            <Image
+                                src={product.mainImage}
+                                alt="Product image"
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                            />
                         </Link>
                     </figure>
                     <h3 className={styles.productTitle}>
