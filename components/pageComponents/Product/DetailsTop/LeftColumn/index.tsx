@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./styles.module.scss";
-import { FaExpandArrowsAlt } from "react-icons/fa";
 import { useState } from "react";
 import { LeftColumnProps } from "./leftColumn.props";
 import Image from "next/image";
@@ -31,7 +30,7 @@ export const LeftColumn = ({ product }: LeftColumnProps) => {
                                 onClick={() => setActiveImage(image)}
                                 key={image}
                             >
-                                <img src={image} alt="product side" />
+                                <Image src={image} alt="product side" width={0} height={0} sizes="100vw" />
                             </div>
                         ))}
                     </div>

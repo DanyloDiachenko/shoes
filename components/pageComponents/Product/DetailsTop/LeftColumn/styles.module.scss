@@ -118,49 +118,15 @@
                         margin-bottom: 1rem;
                     }
 
-                    &::before,
-                    &::after {
-                        content: "";
-                        display: block;
-                        position: absolute;
-                        left: 0.5rem;
-                        right: 0.5rem;
-                        top: 0;
-                        bottom: 0;
-                        transition: all 0.35s ease;
-
-                        @media (min-width: 992px) {
-                            left: 0;
-                            right: 0;
-                        }
-                    }
-
-                    &::before {
-                        opacity: 0;
-                        visibility: hidden;
-                        border: 0.1rem solid #c96;
-                    }
-                    &::after {
-                        visibility: visible;
-                        opacity: 1;
-                        background-color: rgba(255, 255, 255, 0.4);
-                    }
-
                     img {
                         max-width: none;
                         width: 100%;
-                    }
-
-                    &:hover::after,
-                    &.active::after {
-                        opacity: 0;
-                        visibility: hidden;
+                        border: 1px solid #00000000;
                     }
 
                     &.active {
-                        &::before {
-                            visibility: visible;
-                            opacity: 1;
+                        img {
+                            border: 1px solid #c96;
                         }
                     }
                 }
