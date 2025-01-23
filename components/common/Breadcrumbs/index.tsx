@@ -9,9 +9,9 @@ export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
             <div className={`container ${styles.container}`}>
                 <ol className={styles.breadcrumb}>
                     {breadcrumbs.map((link, index) => (
-                        <span key={index}>
-                            <li
-                                className={`${styles.item} ${
+                        <li key={index} className={styles.item}>
+                            <span
+                                className={`${
                                     breadcrumbs.length === index + 1
                                         ? styles.active
                                         : ""
@@ -19,11 +19,11 @@ export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
                                 aria-current="page"
                             >
                                 <Link href={link.link}>{link.title}</Link>
-                            </li>
+                            </span>
                             {breadcrumbs.length - 1 !== index && (
                                 <IoIosArrowForward />
                             )}
-                        </span>
+                        </li>
                     ))}
                 </ol>
             </div>

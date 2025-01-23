@@ -11,48 +11,45 @@
             flex-wrap: wrap;
             align-items: center;
 
-            span {
+            .item {
+                font-weight: 300;
+                font-size: 1.4rem;
+                line-height: 1.5;
+                letter-spacing: 0;
+                text-transform: capitalize;
                 display: flex;
                 gap: 1rem;
 
-                .item {
-                    font-weight: 300;
-                    font-size: 1.4rem;
-                    line-height: 1.5;
-                    letter-spacing: 0;
-                    text-transform: capitalize;
-
-                    &:first-child {
-                        margin-left: 0;
-                    }
-
-                    a {
-                        color: #777;
-                        transition: color 0.3s ease;
-
-                        &:hover,
-                        &:focus {
-                            color: #bf8040;
-                            text-decoration: none;
-                        }
-                    }
-
-                    &.active {
-                        a {
-                            color: #333333;
-                            cursor: auto;
-                        }
-                    }
+                &:first-child {
+                    margin-left: 0;
                 }
 
-                svg {
-                    width: 14px;
-                    height: auto;
+                a {
                     color: #777;
-                    margin-top: 3px;
-                    opacity: 0.6;
-                    margin-right: 1rem;
+                    transition: color 0.3s ease;
+
+                    &:hover,
+                    &:focus {
+                        color: #bf8040;
+                        text-decoration: none;
+                    }
                 }
+
+                &.active {
+                    a {
+                        color: #333333;
+                        cursor: auto;
+                    }
+                }
+            }
+
+            svg {
+                width: 14px;
+                height: auto;
+                color: #777;
+                margin-top: 3px;
+                opacity: 0.6;
+                margin-right: 1rem;
             }
         }
     }
