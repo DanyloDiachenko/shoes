@@ -7,8 +7,12 @@ import { TableProps } from "./table.props";
 import { useState } from "react";
 import { setCookie } from "@/helpers/setCookie";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
 
 export const Table = ({ wishlistProductsServer, currency }: TableProps) => {
+    const dispatch = useDispatch();
+
     const [wishlistProducts, setWishlistProducts] = useState<Product[]>(
         wishlistProductsServer
     );
@@ -25,6 +29,8 @@ export const Table = ({ wishlistProductsServer, currency }: TableProps) => {
         );
 
         toast.success("Product removed from wishlist");
+
+        dispatch(toogleLocalStorage());
     };
 
     const renderTableOrNothing = () => {
