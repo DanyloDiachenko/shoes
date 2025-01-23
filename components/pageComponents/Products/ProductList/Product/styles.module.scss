@@ -191,13 +191,8 @@
                     letter-spacing: -0.01em;
                     margin-bottom: 0.3rem;
 
-                    a {
-                        color: inherit;
-                        transition: 0.3s;
-
-                        &:hover {
-                            color: #c96;
-                        }
+                    &:hover {
+                        color: #c96;
                     }
                 }
             }
