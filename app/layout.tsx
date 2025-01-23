@@ -10,6 +10,40 @@ import { LayoutProps } from "./layout.props";
 import { MobileMenu } from "@/components/common/MobileMenu";
 import { SessionProvider } from "@/components/additional/SessionProvider";
 import { Popups } from "@/components/popups";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Molla - eCommerce Shoes Shop",
+    description: "Molla - eCommerce Shoes Shop",
+    keywords: ["Molla", "eCommerce", "Shoes", "Shop"],
+    authors: {
+        url: "https://github.com/DanyloDiachenko",
+        name: "Danil Diachenko",
+    },
+    icons: {
+        icon: [
+            {
+                url: "/images/icons/favicon-32x32.png",
+                type: "image/png",
+                sizes: "32x32",
+            },
+            {
+                url: "/images/icons/favicon-16x16.png",
+                type: "image/png",
+                sizes: "16x16",
+            },
+        ],
+        apple: "/images/icons/apple-touch-icon.png",
+        shortcut: "/images/icons/favicon.ico",
+    },
+    // manifest: "",
+    other: {
+        "msapplication-TileColor": "#cc9966",
+        "msapplication-config": "/seo/browserconfig.xml",
+        "application-name": "Molla",
+        "apple-mobile-web-app-title": "Molla",
+    },
+};
 
 const notoSans = Noto_Sans({
     weight: ["200", "300", "400", "500", "600", "700", "800"],

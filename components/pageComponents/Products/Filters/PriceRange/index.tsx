@@ -72,6 +72,8 @@ export const PriceRange = ({ currency }: PriceRangeProps) => {
                             formatLabel={(price) =>
                                 `${getCurrencyIcon(currency)}${price}`
                             }
+                            name="price-range"
+                            ariaLabelledby="Price Range"
                             classNames={{
                                 track: styles.inputRangeTrack,
                                 activeTrack: styles.inputRangeTrackActive,
