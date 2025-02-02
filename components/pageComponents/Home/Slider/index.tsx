@@ -2,7 +2,7 @@
 
 import SlickSlider from "react-slick";
 import styles from "./styles.module.scss";
-import { SLide } from "./Slide";
+import { Slide } from "./Slide";
 import { SliderProps } from "./slider.props";
 import { getSlides } from "./getSlides";
 
@@ -18,9 +18,11 @@ export const Slider = ({ currency }: SliderProps) => {
                 dotsClass={styles.dots}
                 infinite={true}
                 speed={400}
+                autoplay
+                autoplaySpeed={5000}
             >
                 {slides.map((slide, index) => (
-                    <SLide {...slide} key={index} />
+                    <Slide {...slide} key={index} />
                 ))}
             </SlickSlider>
         </div>

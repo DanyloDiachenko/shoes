@@ -59,7 +59,7 @@ export const Form = ({ tab }: FormProps) => {
                 getAndFormatResponseErrorMessage(response);
             } else {
                 toast.success("Register successfully! Loginning now...");
-
+                
                 signInHandler();
             }
         } catch (error) {
@@ -73,7 +73,6 @@ export const Form = ({ tab }: FormProps) => {
 
         if (email.length === 0 || password.length === 0) {
             toast.error("Please fill all fields!");
-
             return;
         }
 
@@ -87,22 +86,22 @@ export const Form = ({ tab }: FormProps) => {
     return (
         <form action="#" className={styles.form}>
             <div className={styles.formGroup}>
-                <label htmlFor="singin-email-2">Your email address *</label>
+                <label htmlFor="auth-email">Your email address *</label>
                 <Input
                     type="text"
-                    id="singin-email-2"
-                    name="singin-email"
+                    id="auth-email"
+                    name="auth-email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
             <div className={styles.formGroup}>
-                <label htmlFor="singin-password-2">Password *</label>
+                <label htmlFor="auth-password">Password *</label>
                 <Input
                     type="password"
-                    id="singin-password-2"
-                    name="singin-password"
+                    id="auth-password"
+                    name="auth-password"
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -121,14 +120,14 @@ export const Form = ({ tab }: FormProps) => {
                 {tab === "signIn" ? (
                     <Checkbox
                         title="Remember Me"
-                        id="signin-remember-2"
+                        id="signin-remember"
                         value={String(rememberMe)}
                         onChange={() => setRememberMe(!rememberMe)}
                     />
                 ) : (
                     <Checkbox
                         title="I agree to the privacy policy *"
-                        id="register-policy-2"
+                        id="register-policy"
                         value={String(agreeToPolicy)}
                         onChange={() => setAgreeToPolicy(!agreeToPolicy)}
                     />

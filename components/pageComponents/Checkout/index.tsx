@@ -75,7 +75,7 @@ export const CheckoutPageComponent = ({
             shippingType,
         };
 
-        const res = await createOrder(body);
+        /* const res = await createOrder(body); */
     };
 
     return (

@@ -3,8 +3,9 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { SlideProps } from "./slide.props";
 import Image from "next/image";
+import { FaArrowRightLong } from "react-icons/fa6";
 
-export const SLide = ({
+export const Slide = ({
     imageSrcs,
     button,
     subtitle,
@@ -37,7 +38,7 @@ export const SLide = ({
                 <Link href={button.link}>
                     <Button colorType="btnOutlinePrimary2">
                         <span>{button.title}</span>
-                        <i className="icon-long-arrow-right"></i>
+                        <FaArrowRightLong size={15} />
                     </Button>
                 </Link>
             </div>

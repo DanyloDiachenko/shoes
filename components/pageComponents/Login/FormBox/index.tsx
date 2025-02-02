@@ -47,7 +47,6 @@ export const FormBox = () => {
                 <div className={styles.tabContent}>
                     <div
                         className={styles.tabPane}
-                        id="signin-2"
                         role="tabpanel"
                         aria-labelledby="signin-tab-2"
                     >

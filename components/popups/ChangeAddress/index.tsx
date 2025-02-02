@@ -18,7 +18,6 @@ import { Inputes } from "./Inputes";
 import { AddressFormFields } from "./addressFormFields.interface";
 
 const titles: { [key: string]: string } = {
-    "": "",
     createShippingAddress: "Create Shipping Address",
     createBillingAddress: "Create Billing Address",
     updateBillingAddress: "Change Billing Address",
@@ -49,7 +48,7 @@ export const ChangeAddress = () => {
         if (!isUserProfile(profile)) return;
 
         const address =
-            profile.billingAddress || profile.shippingAddress || null;
+            profile.billingAddress ??= profile.shippingAddress || null;
         setFields({
             firstName: profile.firstName,
             lastName: profile.lastName,
@@ -67,7 +66,7 @@ export const ChangeAddress = () => {
         setFields((prev) => (prev ? { ...prev, [field]: value } : prev));
     };
 
-    const handleSubmit = async (
+    const onFormSubmit = async (
         type: "billing" | "shipping",
         action: "create" | "update"
     ) => {
@@ -79,7 +78,7 @@ export const ChangeAddress = () => {
             !fields.postIndex?.length ||
             !fields.homeNumber?.length
         ) {
-            toast.error("Please fill all possible fields");
+            toast.error("Please fill all fields");
 
             return;
         }
@@ -118,7 +117,7 @@ export const ChangeAddress = () => {
         const type = openedPopup.includes("Billing") ? "billing" : "shipping";
         const action = openedPopup.includes("create") ? "create" : "update";
 
-        handleSubmit(type, action);
+        onFormSubmit(type, action);
     };
 
     const onDiscardClick = (e: FormEvent) => {
