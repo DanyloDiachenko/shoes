@@ -31,6 +31,18 @@ export const login = async (
     });
 };
 
+export const googleAuth = async (
+    token: string
+): Promise<LoginResponseSuccess | ResponseError> => {
+    return await fetchApi({
+        endpoint: "/auth/google-login",
+        method: "POST",
+        body: {
+            token,
+        },
+    });
+};
+
 export const getProfile = async (): Promise<User | UnathorizedResponse> => {
     return await fetchApi({
         endpoint: "/auth/profile",

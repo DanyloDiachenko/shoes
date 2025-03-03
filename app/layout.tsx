@@ -10,6 +10,7 @@ import { LayoutProps } from "./layout.props";
 import { MobileMenu } from "@/components/common/MobileMenu";
 import { Popups } from "@/components/popups";
 import { Metadata } from "next";
+import { GoogleAuthProvider } from "@/components/providers/Google";
 
 export const metadata: Metadata = {
     title: "Molla - eCommerce Shoes Shop",
@@ -52,24 +53,26 @@ const notoSans = Noto_Sans({
 
 const RootLayout = async ({ children }: LayoutProps) => {
     return (
-        <html lang="en">
-            <body className={notoSans.className}>
-                <StoreProvider>
-                    <div className="page-wrapper">
-                        <Header />
-                        <main className="main">{children}</main>
-                        <Footer />
-                    </div>
-                    {/* 
+        <GoogleAuthProvider>
+            <html lang="en">
+                <body className={notoSans.className}>
+                    <StoreProvider>
+                        <div className="page-wrapper">
+                            <Header />
+                            <main className="main">{children}</main>
+                            <Footer />
+                        </div>
+                        {/* 
                     <button id="scroll-top" title="Back to Top">
                         <i className="icon-arrow-up"></i>
                     </button>
                  */}
-                    <Popups />
-                    <MobileMenu />
-                </StoreProvider>
-            </body>
-        </html>
+                        <Popups />
+                        <MobileMenu />
+                    </StoreProvider>
+                </body>
+            </html>
+        </GoogleAuthProvider>
     );
 };
 

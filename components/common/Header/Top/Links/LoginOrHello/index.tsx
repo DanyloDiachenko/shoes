@@ -7,17 +7,12 @@ export const LoginOrHello = async () => {
     const profile = await getProfile();
 
     return (
-        <>
-            Login or hello
-            <Link
-                href={"id" in profile ? "/dashboard" : "/login"}
-                className={styles.iconLink}
-            >
-                <AiOutlineUser />
-                <span>
-                    {"id" in profile ? `Hello, ${profile.email}` : "LOGIN"}
-                </span>
-            </Link>
-        </>
+        <Link
+            href={"id" in profile ? "/dashboard" : "/login"}
+            className={styles.iconLink}
+        >
+            <AiOutlineUser />
+            <span>{"id" in profile ? `Hello, ${profile.email}` : "LOGIN"}</span>
+        </Link>
     );
 };

@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 import { Provider } from "react-redux";
 import { store } from ".";
-import { ToastContainer } from "@/components/additional/ToastContainer";
+import { ToastContainer } from "@/components/providers/Toast";
 
 export const StoreProvider = ({ children }: { children: ReactNode }) => {
     return (

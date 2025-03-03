@@ -1,16 +1,41 @@
 "use client";
 
-import { Button } from "@/components/UI/Button";
 import styles from "./styles.module.scss";
-import { FaGoogle } from "react-icons/fa";
 import { useState } from "react";
 import { LoginTab } from "@/types/loginTab.type";
 import { Form } from "./Form";
+import { CredentialResponse, GoogleLogin } from "@react-oauth/google";
+import { googleAuth } from "@/api/auth";
+import { setCookie } from "@/helpers/setCookie";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { getAndFormatResponseErrorMessage } from "@/helpers/getAndFormatResponseErrorMessage";
 
 export const FormBox = () => {
+    const router = useRouter();
+
     const [tab, setTab] = useState<LoginTab>("signIn");
 
-    const onGoogleLoginClick = () => {};
+    const onGoogleLogin = async (response: CredentialResponse) => {
+        try {
+            const res = await googleAuth(response.credential || "");
+            console.log(res);
+
+            if ("token" in res) {
+                setCookie("token", res.token);
+                toast.success("Login successful");
+                router.refresh();
+
+                setTimeout(() => {
+                    router.push("/dashboard/account");
+                }, 500);
+            } else {
+                getAndFormatResponseErrorMessage(res);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <div className={styles.formBox}>
@@ -50,15 +75,13 @@ export const FormBox = () => {
                         <Form tab={tab} />
                         <div className={styles.formChoice}>
                             <p>or sign in with</p>
-                            <div className="row">
-                                <Button
-                                    colorType="btnGray"
-                                    className={styles.buttonGoogle}
-                                    onClick={onGoogleLoginClick}
-                                >
-                                    <FaGoogle />
-                                    <span>Login With Google</span>
-                                </Button>
+                            <div className={styles.googleLogin}>
+                                <GoogleLogin
+                                    onSuccess={onGoogleLogin}
+                                    onError={() => {
+                                        toast.error("Login failed, try again");
+                                    }}
+                                />
                             </div>
                         </div>
                     </div>

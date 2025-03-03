@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { login, register } from "@/api/auth";
 import { getAndFormatResponseErrorMessage } from "@/helpers/getAndFormatResponseErrorMessage";
 import { useRouter } from "next/navigation";
+import { setCookie } from "@/helpers/setCookie";
 
 export const Form = ({ tab }: FormProps) => {
     const router = useRouter();
@@ -29,14 +30,12 @@ export const Form = ({ tab }: FormProps) => {
         });
 
         if ("error" in response) {
-            getAndFormatResponseErrorMessage(response);
+            toast.error(getAndFormatResponseErrorMessage(response));
         } else {
             toast.success("Logged in successfully!");
+            setCookie("token", response.token);
+            router.refresh();
             router.push("/dashboard/account");
-
-            setTimeout(() => {
-                location.reload();
-            }, 2000);
         }
     };
 
@@ -54,14 +53,12 @@ export const Form = ({ tab }: FormProps) => {
             });
 
             if ("error" in response) {
-                getAndFormatResponseErrorMessage(response);
+                toast.error(getAndFormatResponseErrorMessage(response));
             } else {
                 toast.success("Register successfully! Loginning now...");
+                setCookie("token", response.token);
+                router.refresh();
                 router.push("/dashboard/account");
-
-                setTimeout(() => {
-                    location.reload();
-                }, 2000);
             }
         } catch (error) {
             console.error("Register error:", error);

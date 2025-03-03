@@ -4,7 +4,7 @@ import { Button } from "@/components/UI/Button";
 import { FaRegHeart } from "react-icons/fa";
 import { StickyProductProps } from "./stickyProduct.props";
 import { Quantity } from "./Quantity";
-import { AddProductToCart } from "@/components/additional/AddProductToCart";
+import { AddProductToCart } from "@/components/common/AddProductToCart";
 import { getCurrency } from "@/helpers/getCurrency";
 import { Price } from "./Price";
 import Image from "next/image";

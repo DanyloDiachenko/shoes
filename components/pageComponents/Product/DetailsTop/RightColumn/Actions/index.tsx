@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import { ActionsProps } from "./actions.props";
-import { AddProductToCart } from "@/components/additional/AddProductToCart";
+import { AddProductToCart } from "@/components/common/AddProductToCart";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { AddToWishlist } from "./AddToWislist";
 

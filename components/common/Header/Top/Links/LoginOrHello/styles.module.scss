@@ -1,8 +1,10 @@
 .iconLink {
     text-transform: none;
-    
+    display: flex;
+
     svg {
-        margin-right: 6px;
-        width: 12px;
+        margin-right: 4px;
+        width: 14px;
+        height: auto;
     }
 }
