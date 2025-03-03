@@ -9,15 +9,15 @@ export const LoginOrHello = async () => {
     return (
         <>
             Login or hello
-            {/* <Link
-                href={session ? "/dashboard" : "/login"}
+            <Link
+                href={"id" in profile ? "/dashboard" : "/login"}
                 className={styles.iconLink}
             >
                 <AiOutlineUser />
                 <span>
-                    {session ? `Hello, ${session.user.email}` : "LOGIN"}
+                    {"id" in profile ? `Hello, ${profile.email}` : "LOGIN"}
                 </span>
-            </Link> */}
+            </Link>
         </>
     );
 };
