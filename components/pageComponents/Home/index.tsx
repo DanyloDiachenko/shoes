@@ -7,15 +7,26 @@ import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
 import { TopSellingProducts } from "./TopSellingProducts";
 import { getCurrency } from "@/helpers/getCurrency";
+import { Product } from "@/interfaces/product.interface";
 
 export const HomePageComponent = async () => {
     const currency = await getCurrency();
 
-    const newArrivalProducts = (await getProducts({ categorySlugs: ["new"] }))
-        .data;
-    const topSellingProducts = (
-        await getProducts({ categorySlugs: ["bestsellers"] })
-    ).data;
+    let newArrivalProducts: Product[] = [];
+    let topSellingProducts: Product[] = [];
+    const newArrivalProductsResponse = await getProducts({
+        categorySlugs: ["new"],
+    });
+    if ("data" in newArrivalProductsResponse) {
+        newArrivalProducts = newArrivalProductsResponse.data;
+    }
+    
+    const topSellingProductsResponse = await getProducts({
+        categorySlugs: ["bestsellers"],
+    });
+    if ("data" in topSellingProductsResponse) {
+        topSellingProducts = topSellingProductsResponse.data;
+    }
 
     return (
         <>

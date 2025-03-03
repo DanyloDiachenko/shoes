@@ -62,7 +62,9 @@ export const ProductsPageContent = ({
             priceTo: priceRange.max,
         });
 
-        setGetProductsResponseClient(getProductsResponse);
+        if ("data" in getProductsResponse) {
+            setGetProductsResponseClient(getProductsResponse);
+        }
     };
 
     useEffect(() => {

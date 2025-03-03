@@ -6,10 +6,10 @@ import { Button } from "@/components/UI/Button";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { AccountProps } from "./account.props";
 import { FormEvent, useState } from "react";
-import { updateProfile } from "@/api/auth/user";
 import { toast } from "react-toastify";
 import { getAndFormatResponseErrorMessage } from "@/helpers/getAndFormatResponseErrorMessage";
 import { getCookie } from "@/helpers/getCookie";
+import { updateProfile } from "@/api/auth";
 
 interface FormValues {
     firstName: string | null;
@@ -42,7 +42,7 @@ export const AccountPageContent = ({ user }: AccountProps) => {
             }
         }
 
-        const response = await updateProfile(token, {
+        const response = await updateProfile({
             firstName: fields.firstName || undefined,
             lastName: fields.lastName || undefined,
             displayName: fields.displayName || undefined,

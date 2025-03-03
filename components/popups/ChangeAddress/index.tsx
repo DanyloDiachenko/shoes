@@ -41,10 +41,7 @@ export const ChangeAddress = () => {
     };
 
     const getUserProfile = async () => {
-        const token = await getCookie("token");
-        if (!token || fields) return;
-
-        const profile = await getProfile(token);
+        const profile = await getProfile();
         if (!isUserProfile(profile)) return;
 
         const address = (profile.billingAddress ??=

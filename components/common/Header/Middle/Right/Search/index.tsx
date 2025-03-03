@@ -41,9 +41,11 @@ export const Search = ({ currency }: SearchProps) => {
     const searchProducts = async () => {
         if (search.length >= 3) {
             setIsSearchListOpened(true);
-            const searchedProducts = await getProducts({ search });
 
-            setSearchedProducts(searchedProducts.data);
+            const searchedProductsResponse = await getProducts({ search });
+            if ("data" in searchedProductsResponse) {
+                setSearchedProducts(searchedProductsResponse.data);
+            }
         } else {
             setIsSearchListOpened(false);
             setSearchedProducts([]);

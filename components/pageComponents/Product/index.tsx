@@ -6,13 +6,19 @@ import { StickyProduct } from "./StickyProduct";
 import { YouMayAlsoLike } from "./YouMayAlsoLike";
 import { getCurrency } from "@/helpers/getCurrency";
 import { getProducts } from "@/api/products";
+import { Product } from "@/interfaces/product.interface";
 
 export const ProductPageContent = async ({
     product,
 }: ProductPageContentProps) => {
     const currency = await getCurrency();
     const cookieProducts = (await getCookieProductsServer()) || [];
-    const mayLikedProducts = (await getProducts({ limit: 12 })).data;
+
+    let mayLikedProducts: Product[] = [];
+    const mayLikedProductsResponse = await getProducts({ limit: 12 });
+    if ("data" in mayLikedProductsResponse) {
+        mayLikedProducts = mayLikedProductsResponse.data;
+    }
 
     return (
         <>

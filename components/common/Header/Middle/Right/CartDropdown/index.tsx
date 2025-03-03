@@ -42,7 +42,7 @@ export const CartDropdown = ({
     const getProductHandler = async (productId: string) => {
         try {
             const productToCart = await getProduct(productId);
-            if (!productToCart) {
+            if (!("id" in productToCart)) {
                 return;
             }
 
@@ -51,7 +51,12 @@ export const CartDropdown = ({
             );
 
             if (!productExists) {
-                setCartProductsClient([...cartProductsClient, productToCart]);
+                if (productToCart) {
+                    setCartProductsClient([
+                        ...cartProductsClient,
+                        productToCart,
+                    ]);
+                }
             }
         } catch (error) {
             console.log(error);

@@ -1,8 +1,9 @@
-import { PageProps } from "@/.next/types/app/products/[id]/page";
+import { PageProps } from "@/.next/types/app/page";
 import { getProduct } from "@/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/pageComponents/Product";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
+import { Product } from "@/interfaces/product.interface";
 import { notFound } from "next/navigation";
 
 const breadcrumbs: Breadcrumb[] = [
@@ -31,7 +32,7 @@ const ProductDetails = async ({ params }: PageProps) => {
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
-            <ProductPageContent product={product} />
+            <ProductPageContent product={product as Product} />
         </>
     );
 };

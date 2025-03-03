@@ -28,9 +28,11 @@ export const Search = () => {
     const searchProducts = async () => {
         if (search.length >= 3) {
             setIsSearchListOpened(true);
-            const searchedProducts = await getProducts({ search });
+            const searchedProductsResponse = await getProducts({ search });
 
-            setSearchedProducts(searchedProducts.data);
+            if ("data" in searchedProductsResponse) {
+                setSearchedProducts(searchedProductsResponse.data);
+            }
         } else {
             setIsSearchListOpened(false);
             setSearchedProducts([]);

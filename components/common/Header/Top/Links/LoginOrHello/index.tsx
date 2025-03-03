@@ -1,4 +1,3 @@
-import { authOptions } from "@/lib/auth";
 import styles from "./styles.module.scss";
 import Link from "next/link";
 import { AiOutlineUser } from "react-icons/ai";
@@ -9,7 +8,8 @@ export const LoginOrHello = async () => {
 
     return (
         <>
-            <Link
+            Login or hello
+            {/* <Link
                 href={session ? "/dashboard" : "/login"}
                 className={styles.iconLink}
             >
@@ -17,7 +17,7 @@ export const LoginOrHello = async () => {
                 <span>
                     {session ? `Hello, ${session.user.email}` : "LOGIN"}
                 </span>
-            </Link>
+            </Link> */}
         </>
     );
 };

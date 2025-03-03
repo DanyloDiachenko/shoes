@@ -6,9 +6,9 @@ import { getCategories } from "../../api/categories";
 import { getSizes } from "../../api/sizes";
 import { getColors } from "../../api/colors";
 import { getBrands } from "../../api/brands";
-import { PageProps } from "@/.next/types/app/page";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 import { getCurrency } from "@/helpers/getCurrency";
+import { PageProps } from "@/.next/types/app/page";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -74,7 +74,18 @@ const Products = async ({ searchParams }: PageProps) => {
             <PageHeader title="List" subtitle="Shop" />
             <Breadcrumbs breadcrumbs={breadcrumbs} />
             <ProductsPageContent
-                getProductsResponseServer={getProductsResponseServer}
+                getProductsResponseServer={
+                    "error" in getProductsResponseServer
+                        ? {
+                              data: [],
+                              total: 0,
+                              totalPages: 0,
+                              count: 0,
+                              page: 0,
+                              limit: 0,
+                          }
+                        : getProductsResponseServer
+                }
                 getCategoriesResponseServer={getCategoriesResponseServer}
                 getSizesResponseServer={getSizesResponseServer}
                 getColorsResponseServer={getColorsResponseServer}

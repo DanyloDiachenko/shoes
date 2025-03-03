@@ -3,12 +3,14 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { setCookie } from "@/helpers/setCookie";
-import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export const Logout = () => {
+    const router = useRouter();
+
     const onLogoutClick = async () => {
         setCookie("token", "");
-        signOut();
+        router.push("/login");
     };
 
     return (

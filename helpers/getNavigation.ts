@@ -4,13 +4,16 @@ import { getBrands } from "@/api/brands";
 import { getSizes } from "@/api/sizes";
 import { getColors } from "@/api/colors";
 import { NavigationItem } from "@/interfaces/navigationItem";
+import { Product } from "@/interfaces/product.interface";
 
 export const getNavigation = async (): Promise<NavigationItem[]> => {
-    let bestsellers = (
-        await getProducts({
-            categorySlugs: ["bestsellers"],
-        })
-    ).data;
+    const bestsellersResponse = await getProducts({
+        categorySlugs: ["bestsellers"],
+    });
+    let bestsellers: Product[] = [];
+    if ("data" in bestsellersResponse) {
+        bestsellers = bestsellersResponse.data;
+    }
     let categories = await getCategories();
     let brands = await getBrands();
     let sizes = await getSizes();
