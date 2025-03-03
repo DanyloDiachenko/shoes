@@ -6,7 +6,7 @@ import { MouseEvent, useEffect, useRef, useState } from "react";
 import { LiaSearchSolid } from "react-icons/lia";
 import styles from "./search.module.scss";
 import Image from "next/image";
-import { getProducts } from "@/app/api/products";
+import { getProducts } from "@/api/products";
 import { Product } from "@/interfaces/product.interface";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import { SearchProps } from "./search.props";

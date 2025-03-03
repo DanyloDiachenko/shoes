@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./styles.module.scss";
-import { getProducts } from "@/app/api/products";
+import { getProducts } from "@/api/products";
 import { Button } from "@/components/UI/Button";
 import { getCurrency } from "@/helpers/getCurrency";
 import { getProductPrice } from "@/helpers/getProductPrice";

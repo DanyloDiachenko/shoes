@@ -1,5 +1,5 @@
 import { PageProps } from "@/.next/types/app/products/[id]/page";
-import { getProduct } from "@/app/api/products";
+import { getProduct } from "@/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/pageComponents/Product";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";

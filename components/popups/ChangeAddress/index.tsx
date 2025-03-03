@@ -4,18 +4,18 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { IoIosArrowRoundForward, IoMdClose } from "react-icons/io";
 import { FormEvent, useEffect, useState } from "react";
-import { getProfile } from "@/app/api/auth/user";
 import { getCookie } from "@/helpers/getCookie";
 import { User } from "@/interfaces/user.inteface";
 import { UnathorizedResponse } from "@/interfaces/responses/unathorized.interface";
 import { closePopup as closePopupFunc } from "@/store/slices/openedPopup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { createOrUpdateAddress } from "@/app/api/addresses";
+import { createOrUpdateAddress } from "@/api/addresses";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { Inputes } from "./Inputes";
 import { AddressFormFields } from "./addressFormFields.interface";
+import { getProfile } from "@/api/auth";
 
 const titles: { [key: string]: string } = {
     createShippingAddress: "Create Shipping Address",
@@ -47,8 +47,8 @@ export const ChangeAddress = () => {
         const profile = await getProfile(token);
         if (!isUserProfile(profile)) return;
 
-        const address =
-            profile.billingAddress ??= profile.shippingAddress || null;
+        const address = (profile.billingAddress ??=
+            profile.shippingAddress || null);
         setFields({
             firstName: profile.firstName,
             lastName: profile.lastName,

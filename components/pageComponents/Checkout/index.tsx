@@ -6,7 +6,7 @@ import { CheckoutProps } from "./checkout.props";
 import { Form } from "./Form";
 import { Payment } from "@/types/payment.type";
 import { toast } from "react-toastify";
-import { createOrder } from "@/app/api/orders";
+import { createOrder } from "@/api/orders";
 
 export const CheckoutPageComponent = ({
     user,

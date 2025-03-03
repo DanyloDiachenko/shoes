@@ -3,3 +3,5 @@ export interface RegisterResponseSuccess {
     email: string;
     token: string;
 }
+
+export interface LoginResponseSuccess extends RegisterResponseSuccess {}

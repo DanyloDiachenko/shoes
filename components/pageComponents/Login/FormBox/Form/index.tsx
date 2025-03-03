@@ -8,9 +8,8 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { Checkbox } from "@/components/UI/Checkbox";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
-import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
-import { register } from "@/app/api/auth/user";
+import { login, register } from "@/api/auth";
 import { getAndFormatResponseErrorMessage } from "@/helpers/getAndFormatResponseErrorMessage";
 import { useRouter } from "next/navigation";
 
@@ -22,16 +21,15 @@ export const Form = ({ tab }: FormProps) => {
     const [rememberMe, setRememberMe] = useState(false);
     const [agreeToPolicy, setAgreeToPolicy] = useState(false);
 
-    const signInHandler = async () => {
-        const response = await signIn("credentials", {
+    const loginHandler = async () => {
+        const response = await login({
             email,
             password,
             rememberMe,
-            redirect: false,
         });
 
-        if (response?.error) {
-            toast.error(response.error);
+        if ("error" in response) {
+            getAndFormatResponseErrorMessage(response);
         } else {
             toast.success("Logged in successfully!");
             router.push("/dashboard/account");
@@ -59,8 +57,11 @@ export const Form = ({ tab }: FormProps) => {
                 getAndFormatResponseErrorMessage(response);
             } else {
                 toast.success("Register successfully! Loginning now...");
-                
-                signInHandler();
+                router.push("/dashboard/account");
+
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
             }
         } catch (error) {
             console.error("Register error:", error);
@@ -77,7 +78,7 @@ export const Form = ({ tab }: FormProps) => {
         }
 
         if (tab === "signIn") {
-            signInHandler();
+            loginHandler();
         } else {
             registerHandler();
         }

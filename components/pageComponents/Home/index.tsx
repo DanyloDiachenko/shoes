@@ -1,4 +1,4 @@
-import { getProducts } from "@/app/api/products";
+import { getProducts } from "@/api/products";
 import { Advertisement } from "./Advertisement";
 import { Categories } from "./Categories";
 import { NewArrivals } from "./NewArrivals";

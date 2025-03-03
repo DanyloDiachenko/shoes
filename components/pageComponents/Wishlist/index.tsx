@@ -2,7 +2,7 @@ import { getCookie } from "@/helpers/getCookie";
 import { Table } from "./Table";
 import { WishlistShare } from "./WishlistShare";
 import { Product } from "@/interfaces/product.interface";
-import { getProduct } from "@/app/api/products";
+import { getProduct } from "@/api/products";
 import { getCurrency } from "@/helpers/getCurrency";
 
 export const WishlistPageComponent = async () => {

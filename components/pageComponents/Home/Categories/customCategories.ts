@@ -1,4 +1,4 @@
-import { getCategories } from "@/app/api/categories";
+import { getCategories } from "@/api/categories";
 import { CustomCategory } from "./customCategory.interface";
 
 const categories = await getCategories();

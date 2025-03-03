@@ -4,11 +4,11 @@ import { PageHeader } from "@/components/common/PageHeader";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import styles from "./styles.module.scss";
 import { ProfileAside } from "@/components/pageComponents/Profile/Aside";
-import { getProfile } from "../api/auth/user";
 import { redirect } from "next/navigation";
-import { signOut } from "next-auth/react";
 import { getCookie } from "@/helpers/getCookie";
 import { getServerPathname } from "@/helpers/getServerPathname";
+import { setCookie } from "@/helpers/setCookie";
+import { getProfile } from "@/api/auth";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -30,14 +30,14 @@ const ProfileLayout = async ({ children }: ProfileLayoutProps) => {
     const pathname = (await getServerPathname()) as string;
 
     if (!token) {
-        signOut();
+        setCookie("token", "");
         redirect("/login");
     }
 
-    const profileResponse = await getProfile(token);
+    const profileResponse = await getProfile();
 
     if ("statusCode" in profileResponse && profileResponse.statusCode === 401) {
-        signOut();
+        setCookie("token", "");
         redirect("/login");
     }
 

@@ -7,7 +7,11 @@ export interface UpdateProfileBody {
     newPassword?: string;
 }
 
-export interface SignUpBody {
+export interface RegisterBody {
     email: string;
     password: string;
+}
+
+export interface LoginBody extends RegisterBody {
+    rememberMe: boolean;
 }

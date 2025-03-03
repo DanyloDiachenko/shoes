@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { getCurrency } from "@/helpers/getCurrency";
 import { Product } from "@/interfaces/product.interface";
-import { getProduct } from "@/app/api/products";
+import { getProduct } from "@/api/products";
 
 export const Right = async () => {
     const currency = await getCurrency();

@@ -1,11 +1,11 @@
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { PageHeader } from "@/components/common/PageHeader";
 import { ProductsPageContent } from "@/components/pageComponents/Products";
-import { getProducts } from "../api/products";
-import { getCategories } from "../api/categories";
-import { getSizes } from "../api/sizes";
-import { getColors } from "../api/colors";
-import { getBrands } from "../api/brands";
+import { getProducts } from "../../api/products";
+import { getCategories } from "../../api/categories";
+import { getSizes } from "../../api/sizes";
+import { getColors } from "../../api/colors";
+import { getBrands } from "../../api/brands";
 import { PageProps } from "@/.next/types/app/page";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 import { getCurrency } from "@/helpers/getCurrency";

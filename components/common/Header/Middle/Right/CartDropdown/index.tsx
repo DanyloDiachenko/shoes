@@ -11,7 +11,7 @@ import { Product } from "@/interfaces/product.interface";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { CookieProduct } from "@/interfaces/cookieProduct.interface";
-import { getProduct } from "@/app/api/products";
+import { getProduct } from "@/api/products";
 import { toast } from "react-toastify";
 import { setCookie } from "@/helpers/setCookie";
 import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";

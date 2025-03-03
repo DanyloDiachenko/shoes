@@ -4,12 +4,12 @@ import { CartPageContent } from "@/components/pageComponents/Cart";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { Product } from "@/interfaces/product.interface";
 import { CookieProduct } from "@/interfaces/cookieProduct.interface";
-import { getProduct } from "../api/products";
+import { getProduct } from "../../api/products";
 import { getCurrency } from "@/helpers/getCurrency";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 import { getCookie } from "@/helpers/getCookie";
-import { getProfile } from "../api/auth/user";
 import { User } from "@/interfaces/user.inteface";
+import { getProfile } from "@/api/auth";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -28,7 +28,7 @@ const breadcrumbs: Breadcrumb[] = [
 
 const Cart = async () => {
     const token = await getCookie("token");
-    const user = token ? ((await getProfile(token)) as User) : null;
+    const user = token ? ((await getProfile()) as User) : null;
 
     const cookieProducts: CookieProduct[] =
         (await getCookieProductsServer()) || [];
@@ -41,8 +41,10 @@ const Cart = async () => {
         if (!productToCart) {
             return;
         }
-        
-        cartProducts = [...cartProducts, productToCart];
+
+        if ("id" in productToCart) {
+            cartProducts = [...cartProducts, productToCart as Product];
+        }
     }
 
     return (

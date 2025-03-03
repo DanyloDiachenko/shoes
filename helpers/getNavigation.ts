@@ -1,8 +1,8 @@
-import { getProducts } from "@/app/api/products";
-import { getCategories } from "@/app/api/categories";
-import { getBrands } from "@/app/api/brands";
-import { getSizes } from "@/app/api/sizes";
-import { getColors } from "@/app/api/colors";
+import { getProducts } from "@/api/products";
+import { getCategories } from "@/api/categories";
+import { getBrands } from "@/api/brands";
+import { getSizes } from "@/api/sizes";
+import { getColors } from "@/api/colors";
 import { NavigationItem } from "@/interfaces/navigationItem";
 
 export const getNavigation = async (): Promise<NavigationItem[]> => {

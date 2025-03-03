@@ -7,7 +7,7 @@ import { ProductsPageContentProps } from "./productsPageContent.props";
 import { GetProductsResponse } from "@/interfaces/responses/products.interface";
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
-import { getProducts } from "@/app/api/products";
+import { getProducts } from "@/api/products";
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
 

@@ -5,7 +5,7 @@ import { ProductPageContentProps } from "./product.props";
 import { StickyProduct } from "./StickyProduct";
 import { YouMayAlsoLike } from "./YouMayAlsoLike";
 import { getCurrency } from "@/helpers/getCurrency";
-import { getProducts } from "@/app/api/products";
+import { getProducts } from "@/api/products";
 
 export const ProductPageContent = async ({
     product,
