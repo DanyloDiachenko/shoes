@@ -9,6 +9,7 @@ import { Product } from "@/interfaces/entities/product.interface";
 import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 import { shippings } from "@/data/shippings";
 import Image from "next/image";
+import { MakePayment } from "./MakePayment";
 
 export const Aside = ({
     paymentMethod,
@@ -188,14 +189,7 @@ export const Aside = ({
                     height="20"
                     className={styles.payments}
                 />
-                <Button
-                    type="submit"
-                    colorType="btnOutlinePrimary2"
-                    className={styles.buttonSubmit}
-                    onClick={onPlaceOrderClick}
-                >
-                    <span>Place Order</span>
-                </Button>
+                <MakePayment onPaymentClick={onPlaceOrderClick} />
             </div>
         </aside>
     );

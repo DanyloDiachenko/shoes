@@ -69,6 +69,7 @@ export const CheckoutPageComponent = ({
             cart: cookieProducts.map((product) => ({
                 productId: product.id,
                 quantity: product.quantity,
+                size: product.size
             })),
             deliveryAddressId: user.shippingAddress.id,
             orderNotes,
