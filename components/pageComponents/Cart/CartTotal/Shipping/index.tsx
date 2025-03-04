@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ShippingProps } from "./shipping.props";
 import styles from "./styles.module.scss";
 
@@ -6,7 +7,23 @@ export const Shipping = ({
     onShippingTypeChange,
     shippings,
     currency,
+    subtotal,
 }: ShippingProps) => {
+    const isFreeShippingAvailable =
+        currency === "uah" ? subtotal >= 5000 : subtotal >= 100;
+
+    useEffect(() => {
+        if (currency === "uah") {
+            if (subtotal < 5000 && shippingType === "free") {
+                onShippingTypeChange("standart");
+            }
+        } else {
+            if (subtotal < 100 && shippingType === "free") {
+                onShippingTypeChange("standart");
+            }
+        }
+    }, [subtotal]);
+
     return (
         <>
             <tr className={styles.summaryShipping}>
@@ -14,7 +31,14 @@ export const Shipping = ({
                 <td className={styles.td}>&nbsp;</td>
             </tr>
             {shippings.map((shipping, index) => (
-                <tr className={styles.summaryShippingRow} key={index}>
+                <tr
+                    className={`${styles.summaryShippingRow} ${
+                        shipping.value === "free" && !isFreeShippingAvailable
+                            ? styles.freeShippingDisabled
+                            : ""
+                    }`}
+                    key={index}
+                >
                     <td className={styles.td}>
                         <div className={styles.customControl}>
                             <input
@@ -25,6 +49,10 @@ export const Shipping = ({
                                 checked={shippingType === shipping.value}
                                 onChange={() =>
                                     onShippingTypeChange(shipping.value)
+                                }
+                                disabled={
+                                    shipping.value === "free" &&
+                                    !isFreeShippingAvailable
                                 }
                             />
                             <label

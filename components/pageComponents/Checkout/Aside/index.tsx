@@ -113,12 +113,18 @@ export const Aside = ({
                                 {getSubtotalPrice().toFixed(2)}
                             </td>
                         </tr>
-                        <tr>
+                        <tr className={styles.shippingMethod}>
                             <td>Shipping:</td>
                             <td>
-                                {getShippingTitle()},{" "}
-                                {getCurrencyIcon(currency)}
-                                {getShippingPrice().toFixed(2)}
+                                {shippingType ? (
+                                    <>
+                                        {getShippingTitle()},{" "}
+                                        {getCurrencyIcon(currency)}
+                                        {getShippingPrice().toFixed(2)}
+                                    </>
+                                ) : (
+                                    <Link href="/cart">Select method</Link>
+                                )}
                             </td>
                         </tr>
                         <tr className={styles.total}>

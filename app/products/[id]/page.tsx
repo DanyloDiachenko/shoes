@@ -1,4 +1,4 @@
-import { PageProps } from "@/.next/types/app/page";
+import { PageProps } from "@/.next/types/app/products/page";
 import { getProduct } from "@/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/pageComponents/Product";

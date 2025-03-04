@@ -99,10 +99,6 @@ export const CartDropdown = ({
         }
     };
 
-    useEffect(() => {
-        setCartProductsClientHandler();
-    }, [localStorageToogler]);
-
     const getProductSize = (product: Product) => {
         const cookieProduct = cookieProductsClient.find(
             (cookieProduct) => cookieProduct.id === product.id
@@ -136,6 +132,17 @@ export const CartDropdown = ({
             }
         }
     }
+
+    const onCheckoutClick = () => {
+        if (cartProductsClient.length === 0) {
+            toast.error("Cart is empty");
+            return;
+        }
+    };
+
+    useEffect(() => {
+        setCartProductsClientHandler();
+    }, [localStorageToogler]);
 
     return (
         <div className={styles.dropdown}>
@@ -231,7 +238,10 @@ export const CartDropdown = ({
                             View Cart
                         </Button>
                     </Link>
-                    <Link href={`/checkout`}>
+                    <Link
+                        href={cartProductsClient.length ? "/checkout" : "#"}
+                        onClick={onCheckoutClick}
+                    >
                         <Button
                             colorType="btnOutlinePrimary2"
                             className={styles.buttonCheckout}

@@ -14,6 +14,14 @@
 .summaryShippingRow {
     color: #333;
 
+    &.freeShippingDisabled {
+        opacity: 0.5;
+
+        input {
+            cursor: not-allowed;
+        }
+    }
+
     .td {
         height: auto !important;
         padding-top: 0.5rem !important;

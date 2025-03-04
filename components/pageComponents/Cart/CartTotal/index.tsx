@@ -45,7 +45,6 @@ export const CartTotal = ({
                         ? cartProducts[j].priceWithDiscountEur
                         : cartProducts[j].priceEur;
 
-
                 const pricePerProduct =
                     currency === "uah"
                         ? pricePerProductUah
@@ -103,6 +102,7 @@ export const CartTotal = ({
                             </td>
                         </tr>
                         <Shipping
+                            subtotal={subtotal}
                             shippingType={shippingType}
                             onShippingTypeChange={onShippingTypeChange}
                             shippings={shippings}

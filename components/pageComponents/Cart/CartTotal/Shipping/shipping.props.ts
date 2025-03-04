@@ -7,4 +7,5 @@ export interface ShippingProps {
     shippingType: ShippingType;
     onShippingTypeChange: (shipping: ShippingType) => void;
     currency: Currency;
+    subtotal: number;
 }
