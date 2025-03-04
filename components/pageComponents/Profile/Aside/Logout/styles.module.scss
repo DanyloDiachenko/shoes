@@ -13,14 +13,19 @@
         margin-top: 2px;
     }
 
-    a {
+    .navLink {
         overflow: hidden;
         position: relative;
         font-weight: 300;
         font-size: 1.4rem;
         line-height: 1.5;
-        color: #333;
         display: block;
+        color: #333;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: inherit;
 
         &:hover {
             color: #c96;

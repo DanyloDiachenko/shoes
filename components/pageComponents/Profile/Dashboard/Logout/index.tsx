@@ -3,18 +3,23 @@
 import Link from "next/link";
 import { setCookie } from "@/helpers/setCookie";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import styles from "./styles.module.scss";
 
 export const Logout = () => {
     const router = useRouter();
 
     const onLogoutClick = async () => {
         setCookie("token", "");
-        router.push("/login");
+        toast.success("Logged out successfully");
+        router.refresh();
+
+        const timeout = setTimeout(() => {
+            router.push("/login");
+        }, 1000);
+
+        return () => clearTimeout(timeout);
     };
 
-    return (
-        <Link href="#" onClick={onLogoutClick}>
-            Log out
-        </Link>
-    );
+    return <button className={styles.logout} onClick={onLogoutClick}>Log out</button>;
 };

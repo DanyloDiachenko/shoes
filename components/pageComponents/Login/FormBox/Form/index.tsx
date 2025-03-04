@@ -32,10 +32,15 @@ export const Form = ({ tab }: FormProps) => {
         if ("error" in response) {
             toast.error(getAndFormatResponseErrorMessage(response));
         } else {
-            toast.success("Logged in successfully!");
             setCookie("token", response.token);
+            toast.success("Logged in successfully!");
             router.refresh();
-            router.push("/dashboard/account");
+
+            const timeout = setTimeout(() => {
+                router.push("/dashboard/account");
+            }, 1000);
+
+            return () => clearTimeout(timeout);
         }
     };
 

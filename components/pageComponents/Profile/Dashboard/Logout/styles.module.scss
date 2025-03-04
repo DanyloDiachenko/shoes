@@ -1,0 +1,16 @@
+.logout {
+    border: none;
+    background: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #c96;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &:focus {
+        color: #bf8040;
+        text-decoration: none;
+    }
+}

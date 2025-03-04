@@ -28,7 +28,7 @@ export const FormBox = () => {
 
                 setTimeout(() => {
                     router.push("/dashboard/account");
-                }, 500);
+                }, 1000);
             } else {
                 getAndFormatResponseErrorMessage(res);
             }
