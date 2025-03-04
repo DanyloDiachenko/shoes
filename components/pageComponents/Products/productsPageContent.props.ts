@@ -2,8 +2,8 @@ import { ProductCategoryWithProductsQuantity } from "@/interfaces/entities/produ
 import { Size } from "@/interfaces/entities/size.interface";
 import { Color } from "@/interfaces/entities/color.interface";
 import { Brand } from "@/interfaces/entities/brand.interface";
-import { GetProductsResponse } from "@/interfaces/responses/products.interface";
 import { Currency } from "@/types/currency.type";
+import { GetProductsResponse } from "@/api/products";
 
 export interface ProductsPageContentProps {
     getProductsResponseServer: GetProductsResponse;

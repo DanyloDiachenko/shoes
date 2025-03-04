@@ -1,4 +1,4 @@
-import { GetProductsResponse } from "@/interfaces/responses/products.interface";
+import { GetProductsResponse } from "@/api/products";
 import { Currency } from "@/types/currency.type";
 
 export interface ProductListProps {

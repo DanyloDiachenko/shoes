@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { Filters } from "./Filters";
 import { ProductList } from "./ProductList";
 import { ProductsPageContentProps } from "./productsPageContent.props";
-import { GetProductsResponse } from "@/interfaces/responses/products.interface";
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
-import { getProducts } from "@/api/products";
+import { getProducts, GetProductsResponse } from "@/api/products";
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
+import { Product } from "@/interfaces/entities/product.interface";
 
 export const ProductsPageContent = ({
     getProductsResponseServer,

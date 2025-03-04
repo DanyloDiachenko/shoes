@@ -17,7 +17,7 @@ interface GetProductsParams {
     search?: string;
 }
 
-interface GetProductsResponse {
+export interface GetProductsResponse {
     data: Product[];
     total: number;
     totalPages: number;
