@@ -7,7 +7,7 @@ import { Slider } from "./Slider";
 import styles from "./styles.module.scss";
 import { TopSellingProducts } from "./TopSellingProducts";
 import { getCurrency } from "@/helpers/getCurrency";
-import { Product } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/entities/product.interface";
 
 export const HomePageComponent = async () => {
     const currency = await getCurrency();

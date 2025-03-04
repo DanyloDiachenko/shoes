@@ -1,7 +1,7 @@
 import { fetchApi } from "@/helpers/fetchApi";
 import { getCurrency } from "@/helpers/getCurrency";
-import { Product } from "@/interfaces/product.interface";
-import { GetProductsResponse } from "@/interfaces/responses/products.interface";
+import { Product } from "@/interfaces/entities/product.interface";
+import { ResponseError } from "@/interfaces/responseError.interface";
 import { SortProductsBy } from "@/types/sortProductsBy.type";
 
 interface GetProductsParams {
@@ -15,6 +15,15 @@ interface GetProductsParams {
     priceFrom?: number;
     priceTo?: number;
     search?: string;
+}
+
+interface GetProductsResponse {
+    data: Product[];
+    total: number;
+    totalPages: number;
+    count: number;
+    page: number;
+    limit: number;
 }
 
 export const getProducts = async ({

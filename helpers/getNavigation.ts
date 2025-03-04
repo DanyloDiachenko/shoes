@@ -3,8 +3,8 @@ import { getCategories } from "@/api/categories";
 import { getBrands } from "@/api/brands";
 import { getSizes } from "@/api/sizes";
 import { getColors } from "@/api/colors";
-import { NavigationItem } from "@/interfaces/navigationItem";
-import { Product } from "@/interfaces/product.interface";
+import { NavigationItem } from "@/interfaces/navigationItem.interface";
+import { Product } from "@/interfaces/entities/product.interface";
 
 export const getNavigation = async (): Promise<NavigationItem[]> => {
     const bestsellersResponse = await getProducts({

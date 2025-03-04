@@ -10,7 +10,7 @@ import { setMobileMenuState } from "@/store/slices/mobileMenu";
 import { Socials } from "./Socials";
 import { getNavigation } from "@/helpers/getNavigation";
 import Link from "next/link";
-import { NavigationItem } from "@/interfaces/navigationItem";
+import { NavigationItem } from "@/interfaces/navigationItem.interface";
 import { Search } from "./Search";
 
 export const MobileMenu = () => {

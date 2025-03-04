@@ -7,7 +7,6 @@ import { IoMdClose, IoIosArrowRoundForward } from "react-icons/io";
 import { Button } from "@/components/UI/Button";
 import { CartDropdownProps } from "./cartDropdown.props";
 import { useEffect, useState } from "react";
-import { Product } from "@/interfaces/product.interface";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { CookieProduct } from "@/interfaces/cookieProduct.interface";
@@ -19,6 +18,7 @@ import { getCookieProductsClient } from "@/helpers/getCookieProductsClient";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
 import Image from "next/image";
+import { Product } from "@/interfaces/entities/product.interface";
 
 export const CartDropdown = ({
     currency,

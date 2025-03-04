@@ -1,5 +1,5 @@
-import { ProductColor } from "@/interfaces/product.interface";
+import { Color } from "@/interfaces/entities/color.interface";
 
 export interface ColorsProps {
-    colors: ProductColor[];
+    colors: Color[];
 }

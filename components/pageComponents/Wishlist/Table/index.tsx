@@ -2,7 +2,7 @@
 
 import styles from "./styles.module.scss";
 import { ProductRow } from "./ProductRow";
-import { Product } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/entities/product.interface";
 import { TableProps } from "./table.props";
 import { useState } from "react";
 import { setCookie } from "@/helpers/setCookie";

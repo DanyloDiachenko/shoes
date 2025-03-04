@@ -6,8 +6,8 @@ import { useState } from "react";
 import { ColorsProps } from "./colors.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { ProductColor } from "@/interfaces/product.interface";
 import { setColor } from "@/store/slices/productsSettings";
+import { Color } from "@/interfaces/entities/color.interface";
 
 export const Colors = ({ colors }: ColorsProps) => {
     const dispatch = useDispatch();
@@ -18,11 +18,11 @@ export const Colors = ({ colors }: ColorsProps) => {
 
     const [isOpened, setIsOpened] = useState(true);
 
-    const setSelectedColorHandler = (color: ProductColor | null) => {
+    const setSelectedColorHandler = (color: Color | null) => {
         dispatch(setColor(color));
     };
 
-    const onColorClick = (color: ProductColor) => {
+    const onColorClick = (color: Color) => {
         if (selectedColor?.id === color.id) {
             setSelectedColorHandler(null);
         } else {

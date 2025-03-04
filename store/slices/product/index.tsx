@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductState } from "./productState.interface";
-import { Product } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/entities/product.interface";
 
 const initialState: ProductState = {
     product: null,

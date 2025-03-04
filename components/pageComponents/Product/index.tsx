@@ -6,7 +6,7 @@ import { StickyProduct } from "./StickyProduct";
 import { YouMayAlsoLike } from "./YouMayAlsoLike";
 import { getCurrency } from "@/helpers/getCurrency";
 import { getProducts } from "@/api/products";
-import { Product } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/entities/product.interface";
 
 export const ProductPageContent = async ({
     product,

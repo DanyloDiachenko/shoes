@@ -1,15 +1,30 @@
 import { fetchApi } from "@/helpers/fetchApi";
-import {
-    LoginBody,
-    RegisterBody,
-    UpdateProfileBody,
-} from "@/interfaces/requestBody/auth.interface";
-import {
-    LoginResponseSuccess,
-    RegisterResponseSuccess,
-} from "@/interfaces/responses/auth.interface";
-import { UnathorizedResponse } from "@/interfaces/responses/unathorized.interface";
-import { User } from "@/interfaces/user.inteface";
+import { User } from "@/interfaces/entities/user.inteface";
+import { ResponseError } from "@/interfaces/responseError.interface";
+
+interface UpdateProfileBody {
+    firstName?: string;
+    lastName?: string;
+    displayName?: string;
+    phone?: string;
+    currentPassword?: string;
+    newPassword?: string;
+}
+
+interface RegisterBody {
+    email: string;
+    password: string;
+}
+
+interface LoginBody extends RegisterBody {
+    rememberMe: boolean;
+}
+
+interface LoginResponseSuccess {
+    token: string;
+}
+
+interface RegisterResponseSuccess extends LoginResponseSuccess {}
 
 export const register = async (
     registerBody: RegisterBody
@@ -43,7 +58,7 @@ export const googleAuth = async (
     });
 };
 
-export const getProfile = async (): Promise<User | UnathorizedResponse> => {
+export const getProfile = async (): Promise<User | ResponseError> => {
     return await fetchApi({
         endpoint: "/auth/profile",
         method: "GET",

@@ -3,7 +3,7 @@ import { getProduct } from "@/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/pageComponents/Product";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
-import { Product } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/entities/product.interface";
 import { notFound } from "next/navigation";
 
 const breadcrumbs: Breadcrumb[] = [

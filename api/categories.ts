@@ -1,5 +1,5 @@
 import { fetchApi } from "@/helpers/fetchApi";
-import { ProductCategoryWithProductsQuantity } from "@/interfaces/product.interface";
+import { ProductCategoryWithProductsQuantity } from "@/interfaces/entities/product.interface";
 
 export const getCategories = async (): Promise<
     ProductCategoryWithProductsQuantity[]

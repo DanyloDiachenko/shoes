@@ -7,8 +7,8 @@ import { Checkbox } from "@/components/UI/Checkbox";
 import { SizeProps } from "./sizes.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { ProductSize } from "@/interfaces/product.interface";
 import { setSizes } from "@/store/slices/productsSettings";
+import { Size as ISize } from "@/interfaces/entities/size.interface";
 
 export const Size = ({ sizes }: SizeProps) => {
     const [isOpened, setIsOpened] = useState(true);
@@ -18,11 +18,11 @@ export const Size = ({ sizes }: SizeProps) => {
         (state: RootState) => state.productsSettings.filters.sizes
     );
 
-    const setSizesHandler = (sizes: ProductSize[]) => {
+    const setSizesHandler = (sizes: ISize[]) => {
         dispatch(setSizes(sizes));
     };
 
-    const onSizeClick = (size: ProductSize) => {
+    const onSizeClick = (size: ISize) => {
         const existingSize = selectedSizes.find(
             (selectedSize) => selectedSize.id === size.id
         );

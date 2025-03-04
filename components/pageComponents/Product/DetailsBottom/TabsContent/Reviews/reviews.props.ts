@@ -1,5 +1,7 @@
-import { Product, ProductReview } from "@/interfaces/product.interface";
+import {
+} from "@/interfaces/entities/product.interface";
+import { Review } from "@/interfaces/entities/review.interface";
 
 export interface ReviewsProps {
-    reviews: ProductReview[];
+    reviews: Review[];
 }

@@ -1,5 +1,5 @@
-import { ProductSize } from "@/interfaces/product.interface";
+import { Size } from "@/interfaces/entities/size.interface";
 
 export interface SizeProps {
-    sizes: ProductSize[];
+    sizes: Size[];
 }

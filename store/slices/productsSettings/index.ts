@@ -1,13 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductsSettingsState } from "./productsSettingsState.interface";
-import {
-    ProductBrand,
-    ProductCategoryWithProductsQuantity,
-    ProductColor,
-    ProductSize,
-} from "@/interfaces/product.interface";
+import { ProductCategoryWithProductsQuantity } from "@/interfaces/entities/product.interface";
 import { SortProductsBy } from "@/types/sortProductsBy.type";
 import { Range } from "react-input-range";
+import { Size } from "@/interfaces/entities/size.interface";
+import { Color } from "@/interfaces/entities/color.interface";
+import { Brand } from "@/interfaces/entities/brand.interface";
 
 const initialState: ProductsSettingsState = {
     pagination: {
@@ -47,13 +45,13 @@ export const productsSettingsSlice = createSlice({
         ) => {
             state.filters.categories = action.payload;
         },
-        setSizes: (state, action: PayloadAction<ProductSize[]>) => {
+        setSizes: (state, action: PayloadAction<Size[]>) => {
             state.filters.sizes = action.payload;
         },
-        setColor: (state, action: PayloadAction<ProductColor | null>) => {
+        setColor: (state, action: PayloadAction<Color | null>) => {
             state.filters.color = action.payload;
         },
-        setBrands: (state, action: PayloadAction<ProductBrand[]>) => {
+        setBrands: (state, action: PayloadAction<Brand[]>) => {
             state.filters.brands = action.payload;
         },
         setPriceUah: (state, action: PayloadAction<Range>) => {

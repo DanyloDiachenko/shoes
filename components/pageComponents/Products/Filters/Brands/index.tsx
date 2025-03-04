@@ -7,8 +7,8 @@ import { Checkbox } from "@/components/UI/Checkbox";
 import { BrandsProps } from "./brands.props";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { ProductBrand } from "@/interfaces/product.interface";
 import { setBrands } from "@/store/slices/productsSettings";
+import { Brand } from "@/interfaces/entities/brand.interface";
 
 export const Brands = ({ brands }: BrandsProps) => {
     const [isOpened, setIsOpened] = useState(true);
@@ -18,11 +18,11 @@ export const Brands = ({ brands }: BrandsProps) => {
         (state: RootState) => state.productsSettings.filters.brands
     );
 
-    const setBrandsHandler = (brands: ProductBrand[]) => {
+    const setBrandsHandler = (brands: Brand[]) => {
         dispatch(setBrands(brands));
     };
 
-    const onBrandClick = (brand: ProductBrand) => {
+    const onBrandClick = (brand: Brand) => {
         const exitstingBrand = selectedBrands.find(
             (selBrand) => selBrand.id === brand.id
         );

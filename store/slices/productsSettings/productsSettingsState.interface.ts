@@ -1,9 +1,9 @@
+import { Brand } from "@/interfaces/entities/brand.interface";
+import { Color } from "@/interfaces/entities/color.interface";
 import {
-    ProductBrand,
     ProductCategoryWithProductsQuantity,
-    ProductColor,
-    ProductSize,
-} from "@/interfaces/product.interface";
+} from "@/interfaces/entities/product.interface";
+import { Size } from "@/interfaces/entities/size.interface";
 import { SortProductsBy } from "@/types/sortProductsBy.type";
 import { Range } from "react-input-range";
 
@@ -14,9 +14,9 @@ export interface ProductsSettingsState {
     };
     filters: {
         categories: ProductCategoryWithProductsQuantity[];
-        sizes: ProductSize[];
-        color: ProductColor | null;
-        brands: ProductBrand[];
+        sizes: Size[];
+        color: Color | null;
+        brands: Brand[];
         priceUah: Range;
         priceEur: Range;
         sortBy: SortProductsBy;

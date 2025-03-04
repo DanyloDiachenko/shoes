@@ -4,9 +4,6 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { IoIosArrowRoundForward, IoMdClose } from "react-icons/io";
 import { FormEvent, useEffect, useState } from "react";
-import { getCookie } from "@/helpers/getCookie";
-import { User } from "@/interfaces/user.inteface";
-import { UnathorizedResponse } from "@/interfaces/responses/unathorized.interface";
 import { closePopup as closePopupFunc } from "@/store/slices/openedPopup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
@@ -16,6 +13,8 @@ import { useRouter } from "next/navigation";
 import { Inputes } from "./Inputes";
 import { AddressFormFields } from "./addressFormFields.interface";
 import { getProfile } from "@/api/auth";
+import { User } from "@/interfaces/entities/user.inteface";
+import { ResponseError } from "@/interfaces/responseError.interface";
 
 const titles: { [key: string]: string } = {
     createShippingAddress: "Create Shipping Address",
@@ -34,9 +33,7 @@ export const ChangeAddress = () => {
     const [popupTitle, setPopupTitle] = useState<string>("");
     const [fields, setFields] = useState<AddressFormFields | null>(null);
 
-    const isUserProfile = (
-        profile: User | UnathorizedResponse
-    ): profile is User => {
+    const isUserProfile = (profile: User | ResponseError): profile is User => {
         return (profile as User).id !== undefined;
     };
 

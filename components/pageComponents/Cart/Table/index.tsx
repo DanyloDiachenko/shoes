@@ -1,12 +1,11 @@
 import styles from "./styles.module.scss";
 import { TableProps } from "./table.props";
-import { Product } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/entities/product.interface";
 import { ProductRow } from "./ProductRow";
 import { CartDiscount } from "./CartDiscount";
 import { ClearCartButton } from "./ClearCartButton";
 import { Button } from "@/components/UI/Button";
 import Link from "next/link";
-import { getProductPrice } from "@/helpers/getProductPrice";
 
 export const Table = ({
     cartProducts,

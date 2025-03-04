@@ -1,5 +1,5 @@
-import { ProductBrand } from "@/interfaces/product.interface";
+import { Brand } from "@/interfaces/entities/brand.interface";
 
 export interface BrandsProps {
-    brands: ProductBrand[];
+    brands: Brand[];
 }

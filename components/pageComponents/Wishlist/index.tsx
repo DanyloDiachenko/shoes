@@ -1,9 +1,9 @@
 import { getCookie } from "@/helpers/getCookie";
 import { Table } from "./Table";
 import { WishlistShare } from "./WishlistShare";
-import { Product } from "@/interfaces/product.interface";
 import { getProduct } from "@/api/products";
 import { getCurrency } from "@/helpers/getCurrency";
+import { Product } from "@/interfaces/entities/product.interface";
 
 export const WishlistPageComponent = async () => {
     const currency = await getCurrency();

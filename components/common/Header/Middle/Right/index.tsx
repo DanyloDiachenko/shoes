@@ -3,8 +3,8 @@ import { CartDropdown } from "./CartDropdown";
 import styles from "./styles.module.scss";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { getCurrency } from "@/helpers/getCurrency";
-import { Product } from "@/interfaces/product.interface";
 import { getProduct } from "@/api/products";
+import { Product } from "@/interfaces/entities/product.interface";
 
 export const Right = async () => {
     const currency = await getCurrency();

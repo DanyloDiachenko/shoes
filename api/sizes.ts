@@ -1,10 +1,9 @@
 import { fetchApi } from "@/helpers/fetchApi";
-import { ProductSize } from "@/interfaces/product.interface";
+import { Size } from "@/interfaces/entities/size.interface";
 
-export const getSizes = async (): Promise<ProductSize[]> => {
+export const getSizes = async (): Promise<Size[]> => {
     return await fetchApi({
         endpoint: "/sizes",
         method: "GET",
     });
 };
-

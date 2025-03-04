@@ -4,14 +4,14 @@ import { CheckoutPageComponent } from "@/components/pageComponents/Checkout";
 import { getCookie } from "@/helpers/getCookie";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 import { redirect } from "next/navigation";
-import { User } from "@/interfaces/user.inteface";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { getProduct } from "../../api/products";
-import { Product } from "@/interfaces/product.interface";
 import { getCurrency } from "@/helpers/getCurrency";
 import { ShippingType } from "@/types/shipping.type";
 import { setCookie } from "@/helpers/setCookie";
 import { getProfile } from "@/api/auth";
+import { Product } from "@/interfaces/entities/product.interface";
+import { User } from "@/interfaces/entities/user.inteface";
 
 const breadcrumbs: Breadcrumb[] = [
     {
@@ -38,7 +38,7 @@ const Checkout = async () => {
     const profileResponse = await getProfile();
 
     if ("statusCode" in profileResponse && profileResponse.statusCode === 401) {
-        setCookie("token", "")
+        setCookie("token", "");
         redirect("/login");
     }
 

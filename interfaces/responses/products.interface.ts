@@ -1,7 +1,7 @@
-import { Product } from "../product.interface";
+import { Product } from "../entities/product.interface";
 
 export interface GetProductsResponse {
-    data: Product[];
+    data: Product[]
     total: number;
     totalPages: number;
     count: number;

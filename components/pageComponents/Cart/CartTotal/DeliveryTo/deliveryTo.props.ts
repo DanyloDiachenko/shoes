@@ -1,4 +1,4 @@
-import { User } from "@/interfaces/user.inteface";
+import { User } from "@/interfaces/entities/user.inteface";
 
 export interface DeliveryToProps {
     user: User | null;

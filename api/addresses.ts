@@ -1,9 +1,15 @@
 import { fetchApi } from "@/helpers/fetchApi";
-import { Address } from "@/interfaces/address.interface";
-import {
-    CreateAddressBody,
-    UpdateAddressBody,
-} from "@/interfaces/requestBody/addresses.interface";
+import { Address } from "@/interfaces/entities/address.interface";
+
+interface CreateAddressBody {
+    street: string;
+    city: string;
+    country: string;
+    postIndex: string;
+    homeNumber: string;
+}
+
+interface UpdateAddressBody extends Partial<CreateAddressBody> {}
 
 export const createOrUpdateAddress = async (
     urlType:

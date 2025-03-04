@@ -5,7 +5,7 @@ import { payments } from "./payments";
 import { AsideProps } from "./aside.props";
 import { Payment } from "@/types/payment.type";
 import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
-import { Product } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/entities/product.interface";
 import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 import { shippings } from "@/data/shippings";
 import Image from "next/image";

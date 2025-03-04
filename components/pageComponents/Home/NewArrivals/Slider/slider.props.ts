@@ -1,4 +1,4 @@
-import { Product } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/entities/product.interface";
 import { TabSlug } from "../../Tabs/tabSlug.type";
 import { Currency } from "@/types/currency.type";
 

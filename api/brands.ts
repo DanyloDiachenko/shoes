@@ -1,7 +1,7 @@
 import { fetchApi } from "@/helpers/fetchApi";
-import { ProductBrand } from "@/interfaces/product.interface";
+import { Brand } from "@/interfaces/entities/brand.interface";
 
-export const getBrands = async (): Promise<ProductBrand[]> => {
+export const getBrands = async (): Promise<Brand[]> => {
     return await fetchApi({
         endpoint: "/brands",
         method: "GET",

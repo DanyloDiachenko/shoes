@@ -7,9 +7,9 @@ import { LiaSearchSolid } from "react-icons/lia";
 import styles from "./search.module.scss";
 import Image from "next/image";
 import { getProducts } from "@/api/products";
-import { Product } from "@/interfaces/product.interface";
 import { getProductPrice } from "@/helpers/getProductPrice";
 import { SearchProps } from "./search.props";
+import { Product } from "@/interfaces/entities/product.interface";
 
 export const Search = ({ currency }: SearchProps) => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);

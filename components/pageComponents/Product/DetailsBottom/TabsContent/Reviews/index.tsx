@@ -3,10 +3,10 @@ import styles from "./styles.module.scss";
 import { getProductRating } from "@/helpers/getProductRating";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { ReviewsProps } from "./reviews.props";
-import { ProductReview } from "@/interfaces/product.interface";
+import { Review } from "@/interfaces/entities/review.interface";
 
 export const Reviews = ({ reviews }: ReviewsProps) => {
-    const getReviewDaysAgo = (review: ProductReview) => {
+    const getReviewDaysAgo = (review: Review) => {
         const currentDate = new Date();
         const reviewDate = new Date(review.createdAt);
 

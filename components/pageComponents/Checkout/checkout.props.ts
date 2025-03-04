@@ -1,6 +1,6 @@
-import { Product } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/entities/product.interface";
 import { CookieProduct } from "@/interfaces/cookieProduct.interface";
-import { User } from "@/interfaces/user.inteface";
+import { User } from "@/interfaces/entities/user.inteface";
 import { Currency } from "@/types/currency.type";
 import { ShippingType } from "@/types/shipping.type";
 

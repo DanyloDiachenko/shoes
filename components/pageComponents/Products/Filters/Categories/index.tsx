@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Checkbox } from "@/components/UI/Checkbox";
 import { CategoriesProps } from "./categories.props";
-import { ProductCategoryWithProductsQuantity } from "@/interfaces/product.interface";
+import { ProductCategoryWithProductsQuantity } from "@/interfaces/entities/product.interface";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { setCategories } from "@/store/slices/productsSettings";

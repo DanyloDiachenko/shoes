@@ -1,3 +1,5 @@
+import { ResponseError } from "@/interfaces/responseError.interface";
+
 export const getAndFormatResponseErrorMessage = (responseError: ResponseError) => {
     const errorMessage =
         typeof responseError.message === "string"

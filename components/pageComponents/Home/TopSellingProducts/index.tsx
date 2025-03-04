@@ -5,7 +5,7 @@ import { Product as ProductCard } from "./Product";
 import { Tabs } from "../Tabs";
 import { useState } from "react";
 import { TabSlug } from "../Tabs/tabSlug.type";
-import { Product } from "@/interfaces/product.interface";
+import { Product } from "@/interfaces/entities/product.interface";
 import { TopSellingProductsProps } from "./topSellingProducts.props";
 import { ViewMore } from "./ViewMore";
 

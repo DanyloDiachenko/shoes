@@ -2,14 +2,14 @@ import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { PageHeader } from "@/components/common/PageHeader";
 import { CartPageContent } from "@/components/pageComponents/Cart";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
-import { Product } from "@/interfaces/product.interface";
 import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 import { getProduct } from "../../api/products";
 import { getCurrency } from "@/helpers/getCurrency";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 import { getCookie } from "@/helpers/getCookie";
-import { User } from "@/interfaces/user.inteface";
 import { getProfile } from "@/api/auth";
+import { Product } from "@/interfaces/entities/product.interface";
+import { User } from "@/interfaces/entities/user.inteface";
 
 const breadcrumbs: Breadcrumb[] = [
     {
