@@ -2,18 +2,24 @@ import { fetchApi } from "@/helpers/fetchApi";
 import { Currency } from "@/types/currency.type";
 import { ShippingType } from "@/types/shipping.type";
 
-export interface CreateOrderBody {
+interface CreatePaymentBody {
     amount: number;
     currency: Currency;
     cart: { productId: string; quantity: number; size: string }[];
     orderNotes?: string;
     shippingType: ShippingType;
 }
+interface CreatePaymentResponse {
+    id: string;
+}
 
-export const createOrder = async (body: CreateOrderBody): Promise<any> => {
+export const createPayment = async (
+    body: CreatePaymentBody
+): Promise<CreatePaymentResponse> => {
     return await fetchApi({
-        endpoint: "/orders",
+        endpoint: "/payments/create-checkout-session",
         method: "POST",
-        body: JSON.stringify(body),
+        body: body,
+        isAuthRequired: true
     });
 };

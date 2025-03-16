@@ -12,5 +12,5 @@ export interface AsideProps {
     cookieProducts: CookieProduct[];
     currency: Currency;
     shippingType: ShippingType;
-    onPlaceOrderClick: (e: FormEvent) => void;
+    onPaymentClick: (e: FormEvent) => void;
 }

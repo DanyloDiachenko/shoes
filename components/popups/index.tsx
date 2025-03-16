@@ -9,6 +9,7 @@ import { closePopup as closePopupFunc } from "@/store/slices/openedPopup";
 import { useRef } from "react";
 import { onOutsideClick } from "@/helpers/onOutsideClick";
 import { QuickView } from "./QuickView";
+import { Payment } from "./Payment";
 
 export const Popups = () => {
     const dispatch = useDispatch();
@@ -64,6 +65,7 @@ export const Popups = () => {
                                 <ChangeAddress />
                             )}
                             {openedPopup === "quickView" && <QuickView />}
+                            {openedPopup === "payment" && <Payment />}
                         </div>
                     </div>
                 </div>

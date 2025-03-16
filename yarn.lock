@@ -182,6 +182,13 @@
     redux-thunk "^3.1.0"
     reselect "^5.1.0"
 
+"@stripe/react-stripe-js@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-3.3.0.tgz#eea7c3db2fb4dd403a64c29fd03c9c470438f34d"
+  integrity sha512-Qg4rUxhHNm8OPFuUPnzsU5eLYWhpKKMMs378f67BD7vG0RKttmeeaUDjObs83imRlSxv5L6WdDKiv3RXi/RfSw==
+  dependencies:
+    prop-types "^15.7.2"
+
 "@stripe/stripe-js@^5.8.0":
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-5.8.0.tgz#4149b4b0235bcfd68933660de21e0156320e1774"
@@ -487,7 +494,7 @@ postcss@8.4.31:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-prop-types@^15.5.8:
+prop-types@^15.5.8, prop-types@^15.7.2:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==

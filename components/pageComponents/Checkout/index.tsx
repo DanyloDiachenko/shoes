@@ -7,6 +7,11 @@ import { Form } from "./Form";
 import { Payment } from "@/types/payment.type";
 import { toast } from "react-toastify";
 import { createOrder } from "@/api/orders";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { setPayment } from "@/store/slices/payment";
+import { Popup } from "@/types/popup.type";
+import { setOpenedPopup } from "@/store/slices/openedPopup";
 
 export const CheckoutPageComponent = ({
     user,
@@ -15,10 +20,21 @@ export const CheckoutPageComponent = ({
     currency,
     shippingType,
 }: CheckoutProps) => {
+    const dispatch = useDispatch();
+    const payment = useSelector((state: RootState) => state.payment.payment);
+
+    const setPaymentHandler = (paymentData: any) => {
+        dispatch(setPayment(paymentData));
+    };
+
+    const setOpenedPopupHandler = (popup: Popup) => {
+        dispatch(setOpenedPopup(popup));
+    };
+
     const [orderNotes, setOrderNotes] = useState("");
     const [paymentMethod, setPaymentMethod] = useState<Payment | null>(null);
 
-    const onPlaceOrderClick = async (e: FormEvent) => {
+    const onPaymentClick = async (e: FormEvent) => {
         e.preventDefault();
 
         if (!user.firstName) {
@@ -65,16 +81,22 @@ export const CheckoutPageComponent = ({
             return;
         }
 
-        const body = {
+        const paymentData = {
             cart: cookieProducts.map((product) => ({
                 productId: product.id,
                 quantity: product.quantity,
-                size: product.size
+                size: product.size,
             })),
-            deliveryAddressId: user.shippingAddress.id,
             orderNotes,
             shippingType,
+            currency,
         };
+        console.log(payment);
+        setPaymentHandler({
+            ...payment,
+            ...paymentData,
+        });
+        setOpenedPopupHandler("payment");
 
         /* const res = await createOrder(body); */
     };
@@ -90,7 +112,7 @@ export const CheckoutPageComponent = ({
                             setOrerNotes={setOrderNotes}
                         />
                         <Aside
-                            onPlaceOrderClick={onPlaceOrderClick}
+                            onPaymentClick={onPaymentClick}
                             paymentMethod={paymentMethod}
                             setPaymentMethod={setPaymentMethod}
                             products={products}

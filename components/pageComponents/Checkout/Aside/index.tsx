@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
-import { Button } from "@/components/UI/Button";
 import { payments } from "./payments";
 import { AsideProps } from "./aside.props";
 import { Payment } from "@/types/payment.type";
@@ -10,6 +9,10 @@ import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 import { shippings } from "@/data/shippings";
 import Image from "next/image";
 import { MakePayment } from "./MakePayment";
+import { useDispatch, useSelector } from "react-redux";
+import { setPayment } from "@/store/slices/payment";
+import { FormEvent } from "react";
+import { RootState } from "@/store";
 
 export const Aside = ({
     paymentMethod,
@@ -18,8 +21,15 @@ export const Aside = ({
     cookieProducts,
     currency,
     shippingType,
-    onPlaceOrderClick,
+    onPaymentClick,
 }: AsideProps) => {
+    const dispatch = useDispatch();
+    const payment = useSelector((state: RootState) => state.payment.payment);
+
+    const setPaymentHandler = (paymentData: any) => {
+        dispatch(setPayment(paymentData));
+    };
+
     const onAccordionClick = (paymentMethodValue: Payment) => {
         if (paymentMethod === paymentMethodValue) {
             setPaymentMethod(null);
@@ -79,6 +89,14 @@ export const Aside = ({
         );
 
         return currentShippingType?.title;
+    };
+
+    const onPaymentClickHandler = (e: FormEvent) => {
+        console.log(getTotalPrice());
+        setPaymentHandler({ ...payment, amount: getTotalPrice() });
+        console.log(payment);
+
+        onPaymentClick(e);
     };
 
     return (
@@ -189,7 +207,7 @@ export const Aside = ({
                     height="20"
                     className={styles.payments}
                 />
-                <MakePayment onPaymentClick={onPlaceOrderClick} />
+                <MakePayment onPaymentClick={onPaymentClickHandler} />
             </div>
         </aside>
     );
