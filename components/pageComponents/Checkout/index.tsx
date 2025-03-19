@@ -4,14 +4,11 @@ import { FormEvent, useState } from "react";
 import { Aside } from "./Aside";
 import { CheckoutProps } from "./checkout.props";
 import { Form } from "./Form";
-import { Payment } from "@/types/payment.type";
 import { toast } from "react-toastify";
+import { Product } from "@/interfaces/entities/product.interface";
+import { CookieProduct } from "@/interfaces/cookieProduct.interface";
+import { shippings } from "@/data/shippings";
 import { createOrder } from "@/api/orders";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/store";
-import { setPayment } from "@/store/slices/payment";
-import { Popup } from "@/types/popup.type";
-import { setOpenedPopup } from "@/store/slices/openedPopup";
 
 export const CheckoutPageComponent = ({
     user,
@@ -20,23 +17,54 @@ export const CheckoutPageComponent = ({
     currency,
     shippingType,
 }: CheckoutProps) => {
-    const dispatch = useDispatch();
-    const payment = useSelector((state: RootState) => state.payment.payment);
-
-    const setPaymentHandler = (paymentData: any) => {
-        dispatch(setPayment(paymentData));
-    };
-
-    const setOpenedPopupHandler = (popup: Popup) => {
-        dispatch(setOpenedPopup(popup));
-    };
-
     const [orderNotes, setOrderNotes] = useState("");
-    const [paymentMethod, setPaymentMethod] = useState<Payment | null>(null);
 
-    const onPaymentClick = async (e: FormEvent) => {
-        e.preventDefault();
+    const getProductPrice = (product: Product) => {
+        const cookieProduct = cookieProducts.find(
+            (cookieProduct) => cookieProduct.id === product.id
+        ) as CookieProduct;
 
+        const productPriceUah =
+            product.priceWithDiscountUah !== 0
+                ? product.priceWithDiscountUah
+                : product.priceUah;
+        const productPriceEur =
+            product.priceWithDiscountEur !== 0
+                ? product.priceWithDiscountEur
+                : product.priceEur;
+
+        return currency === "uah"
+            ? productPriceUah * cookieProduct.quantity
+            : productPriceEur * cookieProduct.quantity;
+    };
+
+    const getSubtotalPrice = () => {
+        return products.reduce((acc, product) => {
+            return acc + getProductPrice(product);
+        }, 0);
+    };
+
+    const getShippingPrice = () => {
+        if (shippingType === "free") {
+            return 0;
+        }
+
+        const currentShippingType = shippings.find(
+            (shipping) => shipping.value === shippingType
+        );
+
+        if (currency == "uah") {
+            return currentShippingType?.priceUah || 0;
+        }
+
+        return currentShippingType?.priceEur || 0;
+    };
+
+    const getTotalPrice = () => {
+        return getSubtotalPrice() + getShippingPrice();
+    };
+
+    const onPaymentClick = async () => {
         if (!user.firstName) {
             toast.error("Please fill your name");
             return;
@@ -75,12 +103,11 @@ export const CheckoutPageComponent = ({
             shippingType !== "standart"
         ) {
             toast.error("Please choose correct shipping type");
-        }
-        if (!paymentMethod) {
-            toast.error("Please choose payment method");
             return;
         }
+    };
 
+    const onPaymentSuccess = async () => {
         const paymentData = {
             cart: cookieProducts.map((product) => ({
                 productId: product.id,
@@ -89,16 +116,12 @@ export const CheckoutPageComponent = ({
             })),
             orderNotes,
             shippingType,
-            currency,
+            amount: getTotalPrice(),
         };
-        console.log(payment);
-        setPaymentHandler({
-            ...payment,
-            ...paymentData,
-        });
-        setOpenedPopupHandler("payment");
+        console.log(paymentData);
 
-        /* const res = await createOrder(body); */
+        const res = await createOrder(paymentData);
+        console.log(res);
     };
 
     return (
@@ -112,13 +135,15 @@ export const CheckoutPageComponent = ({
                             setOrerNotes={setOrderNotes}
                         />
                         <Aside
+                            onPaymentSuccess={() => onPaymentSuccess()}
                             onPaymentClick={onPaymentClick}
-                            paymentMethod={paymentMethod}
-                            setPaymentMethod={setPaymentMethod}
                             products={products}
-                            cookieProducts={cookieProducts}
                             currency={currency}
                             shippingType={shippingType}
+                            subtotal={getSubtotalPrice()}
+                            getProductPrice={getProductPrice}
+                            shippingPrice={getShippingPrice()}
+                            total={getTotalPrice()}
                         />
                     </div>
                 </form>

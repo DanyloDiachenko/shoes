@@ -9,10 +9,9 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@paypal/react-paypal-js": "^8.8.2",
         "@react-oauth/google": "^0.12.1",
         "@reduxjs/toolkit": "^2.2.7",
-        "@stripe/react-stripe-js": "^3.3.0",
-        "@stripe/stripe-js": "^5.8.0",
         "@types/react-slick": "^0.23.13",
         "next": "^15.0.1",
         "react": "^19.0.0-rc-02c0e824-20241028",

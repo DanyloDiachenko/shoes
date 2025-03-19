@@ -1,11 +1,9 @@
 import { fetchApi } from "@/helpers/fetchApi";
-import { Currency } from "@/types/currency.type";
 import { ShippingType } from "@/types/shipping.type";
 
 export interface CreateOrderBody {
     amount: number;
-    currency: Currency;
-    cart: { productId: string; quantity: number; size: string }[];
+    cart: { productId: string; quantity: number; size: number }[];
     orderNotes?: string;
     shippingType: ShippingType;
 }

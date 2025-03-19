@@ -5,7 +5,6 @@ import { toogleLocalStorageSlice } from "./slices/toogleLocalStorage";
 import { productToCartSlice } from "./slices/productToCart";
 import { mobileMenuSlice } from "./slices/mobileMenu";
 import { productSlice } from "./slices/product";
-import { paymentSlice } from "./slices/payment";
 
 export const store = configureStore({
     reducer: {
@@ -15,7 +14,6 @@ export const store = configureStore({
         productToCart: productToCartSlice.reducer,
         mobileMenu: mobileMenuSlice.reducer,
         product: productSlice.reducer,
-        payment: paymentSlice.reducer,
     },
 });
 

@@ -4,5 +4,4 @@ export type Popup =
     | "createBillingAddress"
     | "updateBillingAddress"
     | "updateShippingAddress"
-    | "quickView"
-    | "payment";
+    | "quickView";

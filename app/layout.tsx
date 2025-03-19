@@ -11,6 +11,8 @@ import { MobileMenu } from "@/components/common/MobileMenu";
 import { Popups } from "@/components/popups";
 import { Metadata } from "next";
 import { GoogleAuthProvider } from "@/components/providers/Google";
+import { PayPalProvider } from "@/components/providers/PayPal";
+/* import { PayPalProvider } from "@/components/providers/PayPal"; */
 
 export const metadata: Metadata = {
     title: "Molla - eCommerce Shoes Shop",
@@ -56,20 +58,22 @@ const RootLayout = async ({ children }: LayoutProps) => {
         <GoogleAuthProvider>
             <html lang="en">
                 <body className={notoSans.className}>
-                    <StoreProvider>
-                        <div className="page-wrapper">
-                            <Header />
-                            <main className="main">{children}</main>
-                            <Footer />
-                        </div>
-                        {/* 
+                    <PayPalProvider>
+                        <StoreProvider>
+                            <div className="page-wrapper">
+                                <Header />
+                                <main className="main">{children}</main>
+                                <Footer />
+                            </div>
+                            {/* 
                     <button id="scroll-top" title="Back to Top">
                         <i className="icon-arrow-up"></i>
                     </button>
                  */}
-                        <Popups />
-                        <MobileMenu />
-                    </StoreProvider>
+                            <Popups />
+                            <MobileMenu />
+                        </StoreProvider>
+                    </PayPalProvider>
                 </body>
             </html>
         </GoogleAuthProvider>
