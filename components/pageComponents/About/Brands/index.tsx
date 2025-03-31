@@ -5,7 +5,7 @@ export const Brands = () => {
     return (
         <div className={`${styles.brands} container`}>
             <div className="row">
-                <div className={styles.mainColumn}>
+                <div className={styles.wrapper}>
                     <div className={styles.brandsText}>
                         <h2 className={styles.title}>
                             The world's premium design brands in one

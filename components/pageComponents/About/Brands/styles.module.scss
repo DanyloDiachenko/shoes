@@ -1,0 +1,14 @@
+.brands {
+    .wrapper {
+        padding-right: 10px;
+        padding-left: 10px;
+        width: 100%;
+
+        @media (min-width: 992px) {
+            margin-left: 8.333333%;
+            -ms-flex: 0 0 83.333333%;
+            flex: 0 0 83.333333%;
+            max-width: 83.333333%;
+        }
+    }
+}
