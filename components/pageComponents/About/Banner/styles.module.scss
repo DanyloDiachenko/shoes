@@ -1,0 +1,39 @@
+.pageHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+    margin-bottom: 5rem;
+    padding: 4.6rem 0 5rem;
+    background-color: #ebebeb;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url("/images/banners/about.jpg");
+
+    @media screen and (min-width: 768px) {
+        min-height: 350px;
+    }
+    @media screen and (min-width: 992px) {
+        min-height: 450px;
+    }
+
+    .title {
+        color: #fff;
+
+        span {
+            font-size: 1.6rem;
+            margin-top: 0.4rem;
+            letter-spacing: 0;
+            display: block;
+
+            @media screen and (min-width: 768px) {
+                font-size: 1.8rem;
+            }
+            @media screen and (min-width: 992px) {
+                font-size: 2rem;
+            }
+        }
+    }
+}
