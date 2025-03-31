@@ -1,41 +1,46 @@
+import Link from "next/link";
 import styles from "./styles.module.scss";
+import { Button } from "@/components/UI/Button";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 export const WhoWeAre = () => {
     return (
-        <div className="bg-light-2 pt-6 pb-5 mb-6 mb-lg-8">
+        <div className={styles.whoWeAre}>
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-5 mb-3 mb-lg-0">
-                        <h2 className="title">Who We Are</h2>
-                        <p className="lead text-primary mb-3">
+                    <div className={styles.columnLeft}>
+                        <h2 className={styles.title}>Who We Are</h2>
+                        <p className={styles.descriptionFirst}>
                             Pellentesque odio nisi, euismod pharetra a ultricies{" "}
                             <br />
                             in diam. Sed arcu. Cras consequat
                         </p>
-                        <p className="mb-2">
+                        <p className={styles.descriptionSecond}>
                             Sed pretium, ligula sollicitudin laoreet viverra,
                             tortor libero sodales leo, eget blandit nunc tortor
                             eu nibh. Suspendisse potenti. Sed egestas, ante et
                             vulputate volutpat, uctus metus libero eu augue.{" "}
                         </p>
-                        <a
-                            href="blog.html"
-                            className="btn btn-sm btn-minwidth btn-outline-primary-2"
-                        >
-                            <span>VIEW OUR NEWS</span>
-                            <i className="icon-long-arrow-right"></i>
-                        </a>
+                        <Link href="#">
+                            <Button
+                                colorType="btnOutlinePrimary2"
+                                className={styles.button}
+                            >
+                                <span>VIEW OUR NEWS</span>
+                                <IoIosArrowRoundForward />
+                            </Button>
+                        </Link>
                     </div>
-                    <div className="col-lg-6 offset-lg-1">
-                        <div className="about-images">
+                    <div className={styles.column}>
+                        <div className={styles.aboutImages}>
                             <img
-                                src="assets/images/about/img-1.jpg"
-                                alt=""
+                                src="/images/banners/about-1.jpg"
+                                alt="about us"
                                 className="about-img-front"
                             />
                             <img
-                                src="assets/images/about/img-2.jpg"
-                                alt=""
+                                src="/images/banners/about-2.jpg"
+                                alt="about us"
                                 className="about-img-back"
                             />
                         </div>
