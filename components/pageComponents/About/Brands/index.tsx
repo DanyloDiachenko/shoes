@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
+import { brands } from "@/data/brands";
 
 export const Brands = () => {
     return (
@@ -19,70 +20,16 @@ export const Brands = () => {
                     </div>
                     <div className={styles.brandsDisplay}>
                         <div className={`${styles.content} row`}>
-                            <div className={styles.column}>
-                                <Link href="#" className={styles.brand}>
-                                    <img
-                                        src="assets/images/brands/1.png"
-                                        alt="Brand Name"
-                                    />
-                                </Link>
-                            </div>
-                            {/* <div className="col-6 col-sm-4 col-md-3">
-                                <a href="#" className="brand">
-                                    <img
-                                        src="assets/images/brands/2.png"
-                                        alt="Brand Name"
-                                    />
-                                </a>
-                            </div> */}
-                            {/* <div className="col-6 col-sm-4 col-md-3">
-                                <a href="#" className="brand">
-                                    <img
-                                        src="assets/images/brands/3.png"
-                                        alt="Brand Name"
-                                    />
-                                </a>
-                            </div>
-                            <div className="col-6 col-sm-4 col-md-3">
-                                <a href="#" className="brand">
-                                    <img
-                                        src="assets/images/brands/7.png"
-                                        alt="Brand Name"
-                                    />
-                                </a>
-                            </div>
-                            <div className="col-6 col-sm-4 col-md-3">
-                                <a href="#" className="brand">
-                                    <img
-                                        src="assets/images/brands/4.png"
-                                        alt="Brand Name"
-                                    />
-                                </a>
-                            </div>
-                            <div className="col-6 col-sm-4 col-md-3">
-                                <a href="#" className="brand">
-                                    <img
-                                        src="assets/images/brands/5.png"
-                                        alt="Brand Name"
-                                    />
-                                </a>
-                            </div>
-                            <div className="col-6 col-sm-4 col-md-3">
-                                <a href="#" className="brand">
-                                    <img
-                                        src="assets/images/brands/6.png"
-                                        alt="Brand Name"
-                                    />
-                                </a>
-                            </div>
-                            <div className="col-6 col-sm-4 col-md-3">
-                                <a href="#" className="brand">
-                                    <img
-                                        src="assets/images/brands/9.png"
-                                        alt="Brand Name"
-                                    />
-                                </a>
-                            </div> */}
+                            {brands.map((brand, index) => (
+                                <div className={styles.column} key={index}>
+                                    <Link href="#" className={styles.brand}>
+                                        <img
+                                            src={brand.image}
+                                            alt={brand.title}
+                                        />
+                                    </Link>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
