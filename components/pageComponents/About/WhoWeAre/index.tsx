@@ -8,7 +8,7 @@ export const WhoWeAre = () => {
         <div className={styles.whoWeAre}>
             <div className="container">
                 <div className="row">
-                    <div className={styles.columnLeft}>
+                    <div className={styles.leftColumn}>
                         <h2 className={styles.title}>Who We Are</h2>
                         <p className={styles.descriptionFirst}>
                             Pellentesque odio nisi, euismod pharetra a ultricies{" "}
@@ -31,17 +31,17 @@ export const WhoWeAre = () => {
                             </Button>
                         </Link>
                     </div>
-                    <div className={styles.column}>
-                        <div className={styles.aboutImages}>
+                    <div className={styles.rightColumn}>
+                        <div className={styles.images}>
                             <img
                                 src="/images/banners/about-1.jpg"
                                 alt="about us"
-                                className="about-img-front"
+                                className={styles.imgFront}
                             />
                             <img
                                 src="/images/banners/about-2.jpg"
                                 alt="about us"
-                                className="about-img-back"
+                                className={styles.imgBack}
                             />
                         </div>
                     </div>

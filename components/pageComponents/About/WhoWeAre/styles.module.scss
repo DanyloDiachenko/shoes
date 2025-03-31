@@ -4,7 +4,7 @@
     padding-bottom: 5rem;
     background-color: #f9f9f9;
 
-    .columnLeft {
+    .leftColumn {
         margin-bottom: 3rem;
         padding-right: 10px;
         padding-left: 10px;
@@ -41,6 +41,40 @@
 
             svg {
                 margin-left: 1rem;
+            }
+        }
+    }
+
+    .rightColumn {
+        width: 100%;
+        padding-right: 10px;
+        padding-left: 10px;
+
+        @media (min-width: 992px) {
+            margin-left: 8.333333%;
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .images {
+            position: relative;
+            text-align: right;
+            padding-top: 4rem;
+
+            .imgFront {
+                position: relative;
+                z-index: 2;
+                border: 2rem solid #f9f9f9;
+                display: block;
+            }
+
+            .imgBack {
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: 1;
+                display: block;
             }
         }
     }
