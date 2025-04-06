@@ -21,7 +21,6 @@ export const Team = () => {
                                         Samanta Grey
                                         <span>Founder &amp; CEO</span>
                                     </h3>
-                                    /{" "}
                                     <p>
                                         Sed pretium, ligula sollicitudin
                                         viverra, tortor libero sodales leo, eget
