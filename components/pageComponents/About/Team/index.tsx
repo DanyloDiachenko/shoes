@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./styles.module.scss";
 
 export const Team = () => {
@@ -8,9 +9,15 @@ export const Team = () => {
                 <div className={styles.column}>
                     <div className={styles.member}>
                         <figure className={styles.media}>
-                            <img
+                            {/* <img
                                 src="assets/images/team/member-1.jpg"
                                 alt="member photo"
+                            /> */}
+                            <Image
+                                src="/images/banners/member.png"
+                                alt="member photo"
+                                width={376}
+                                height={500}
                             />
                             <figcaption className={styles.overlay}>
                                 <div className={styles.overlayContent}>
