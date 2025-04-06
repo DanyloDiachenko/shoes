@@ -1,68 +1,58 @@
 import Image from "next/image";
 import styles from "./styles.module.scss";
+import { team } from "./team";
+import Link from "next/link";
 
 export const Team = () => {
     return (
         <div className={`${styles.team} container`}>
             <h2 className={styles.title}>Meet Our Team</h2>
             <div className="row">
-                <div className={styles.column}>
-                    <div className={styles.member}>
-                        <figure className={styles.media}>
-                            <Image
-                                src="/images/banners/member.png"
-                                alt="member photo"
-                                width={376}
-                                height={500}
-                            />
-                            <figcaption className={styles.overlay}>
-                                <div className={styles.overlayContent}>
-                                    <h3 className={styles.memberTitle}>
-                                        Samanta Grey
-                                        <span>Founder &amp; CEO</span>
-                                    </h3>
-                                    <p>
-                                        Sed pretium, ligula sollicitudin
-                                        viverra, tortor libero sodales leo, eget
-                                        blandit nunc.
-                                    </p>
-                                    <div className={styles.socialIcons}>
-                                        <a
-                                            href="#"
-                                            className={styles.socialIcon}
-                                            title="Facebook"
-                                            target="_blank"
-                                        >
-                                            <i className="icon-facebook-f"></i>
-                                        </a>
-                                        <a
-                                            href="#"
-                                            className={styles.socialIcon}
-                                            title="Twitter"
-                                            target="_blank"
-                                        >
-                                            <i className="icon-twitter"></i>
-                                        </a>
-                                        <a
-                                            href="#"
-                                            className={styles.socialIcon}
-                                            title="Instagram"
-                                            target="_blank"
-                                        >
-                                            <i className="icon-instagram"></i>
-                                        </a>
+                {team.map((teamMember, index) => (
+                    <div className={styles.column} key={index}>
+                        <div className={styles.member}>
+                            <figure className={styles.media}>
+                                <Image
+                                    src={teamMember.image}
+                                    alt="member photo"
+                                    width={768}
+                                    height={1024}
+                                />
+                                <figcaption className={styles.overlay}>
+                                    <div className={styles.overlayContent}>
+                                        <h3 className={styles.memberTitle}>
+                                            {teamMember.name}
+                                            <span>{teamMember.position}</span>
+                                        </h3>
+                                        <p>{teamMember.description}</p>
+                                        <div className={styles.socialIcons}>
+                                            {teamMember.socialLinks.map(
+                                                (socialLink, index) => (
+                                                    <Link
+                                                        href={socialLink.link}
+                                                        className={
+                                                            styles.socialIcon
+                                                        }
+                                                        title={socialLink.title}
+                                                        target="_blank"
+                                                    >
+                                                        {socialLink.icon}
+                                                    </Link>
+                                                )
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            </figcaption>
-                        </figure>
-                        <div className={styles.memberContent}>
-                            <h3 className={styles.memberTitle}>
-                                Samanta Grey
-                                <span>Founder &amp; CEO</span>
-                            </h3>
+                                </figcaption>
+                            </figure>
+                            <div className={styles.memberContent}>
+                                <h3 className={styles.memberTitle}>
+                                    {teamMember.name}
+                                    <span>{teamMember.position}</span>
+                                </h3>
+                            </div>
                         </div>
                     </div>
-                </div>
+                ))}
             </div>
         </div>
     );
