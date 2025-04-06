@@ -9,10 +9,6 @@ export const Team = () => {
                 <div className={styles.column}>
                     <div className={styles.member}>
                         <figure className={styles.media}>
-                            {/* <img
-                                src="assets/images/team/member-1.jpg"
-                                alt="member photo"
-                            /> */}
                             <Image
                                 src="/images/banners/member.png"
                                 alt="member photo"
