@@ -3,30 +3,31 @@ import styles from "./styles.module.scss";
 export const Team = () => {
     return (
         <div className={`${styles.team} container`}>
-            <h2 className="title text-center mb-4">Meet Our Team</h2>
+            <h2 className={styles.title}>Meet Our Team</h2>
             <div className="row">
-                <div className="col-md-4">
-                    <div className="member member-anim text-center">
-                        <figure className="member-media">
+                <div className={styles.column}>
+                    <div className={styles.member}>
+                        <figure className={styles.media}>
                             <img
                                 src="assets/images/team/member-1.jpg"
                                 alt="member photo"
                             />
-                            <figcaption className="member-overlay">
-                                <div className="member-overlay-content">
-                                    <h3 className="member-title">
+                            <figcaption className={styles.overlay}>
+                                <div className={styles.overlayContent}>
+                                    <h3 className={styles.memberTitle}>
                                         Samanta Grey
                                         <span>Founder &amp; CEO</span>
                                     </h3>
+                                    /{" "}
                                     <p>
                                         Sed pretium, ligula sollicitudin
                                         viverra, tortor libero sodales leo, eget
                                         blandit nunc.
                                     </p>
-                                    <div className="social-icons social-icons-simple">
+                                    <div className={styles.socialIcons}>
                                         <a
                                             href="#"
-                                            className="social-icon"
+                                            className={styles.socialIcon}
                                             title="Facebook"
                                             target="_blank"
                                         >
@@ -34,7 +35,7 @@ export const Team = () => {
                                         </a>
                                         <a
                                             href="#"
-                                            className="social-icon"
+                                            className={styles.socialIcon}
                                             title="Twitter"
                                             target="_blank"
                                         >
@@ -42,7 +43,7 @@ export const Team = () => {
                                         </a>
                                         <a
                                             href="#"
-                                            className="social-icon"
+                                            className={styles.socialIcon}
                                             title="Instagram"
                                             target="_blank"
                                         >
@@ -52,9 +53,10 @@ export const Team = () => {
                                 </div>
                             </figcaption>
                         </figure>
-                        <div className="member-content">
-                            <h3 className="member-title">
-                                Samanta Grey<span>Founder &amp; CEO</span>
+                        <div className={styles.memberContent}>
+                            <h3 className={styles.memberTitle}>
+                                Samanta Grey
+                                <span>Founder &amp; CEO</span>
                             </h3>
                         </div>
                     </div>

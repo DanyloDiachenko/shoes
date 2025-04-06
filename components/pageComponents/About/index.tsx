@@ -12,6 +12,7 @@ export const AboutPageComponent = () => {
                 <OurDescription />
                 <WhoWeAre />
                 <Brands />
+                <hr className="mt-4 mb-6" />
                 <Team />
             </div>
         </>
