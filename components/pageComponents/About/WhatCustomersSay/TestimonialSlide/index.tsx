@@ -9,7 +9,7 @@ export const TestimonialSlide = ({
     comment,
 }: TestimonialSlideProps) => {
     return (
-        <blockquote className="testimonial text-center">
+        <blockquote className={styles.testimonial}>
             <img src={authorImage} alt="user" />
             <p>
                 “ {title} <br />
