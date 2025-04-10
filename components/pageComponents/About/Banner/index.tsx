@@ -14,6 +14,8 @@ export const Banner = () => {
                     className={styles.backgroundImage}
                     width={1170}
                     height={450}
+                    loading="eager"
+                    priority={true}
                 />
             </div>
         </div>

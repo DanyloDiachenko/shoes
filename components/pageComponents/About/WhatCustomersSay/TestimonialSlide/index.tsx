@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./styles.module.scss";
 import { TestimonialSlideProps } from "./testimonialSlide.props";
 
@@ -10,7 +11,12 @@ export const TestimonialSlide = ({
 }: TestimonialSlideProps) => {
     return (
         <blockquote className={styles.testimonial}>
-            <img src={authorImage} alt="user" />
+            <Image
+                src={authorImage}
+                alt="user"
+                width={50}
+                height={50}
+            />
             <p>
                 “ {title} <br />
                 {comment} ”
