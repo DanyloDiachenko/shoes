@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./styles.module.scss";
 
 export const Banner = () => {
@@ -7,6 +8,13 @@ export const Banner = () => {
                 <h1 className={styles.title}>
                     About us<span>Who we are</span>
                 </h1>
+                <Image
+                    src="/images/banners/about.jpg"
+                    alt="About us"
+                    className={styles.backgroundImage}
+                    width={1170}
+                    height={450}
+                />
             </div>
         </div>
     );

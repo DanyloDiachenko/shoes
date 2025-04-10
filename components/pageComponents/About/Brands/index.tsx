@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { brands } from "@/data/brands";
+import Image from "next/image";
 
 export const Brands = () => {
     return (
@@ -23,9 +24,12 @@ export const Brands = () => {
                             {brands.map((brand, index) => (
                                 <div className={styles.column} key={index}>
                                     <Link href="#" className={styles.brand}>
-                                        <img
+                                        <Image
                                             src={brand.image}
                                             alt={brand.title}
+                                            width={0}
+                                            height={0}
+                                            sizes="100vw"
                                         />
                                     </Link>
                                 </div>

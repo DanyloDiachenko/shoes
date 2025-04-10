@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/UI/Button";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import Image from "next/image";
 
 export const WhoWeAre = () => {
     return (
@@ -33,15 +34,19 @@ export const WhoWeAre = () => {
                     </div>
                     <div className={styles.rightColumn}>
                         <div className={styles.images}>
-                            <img
+                            <Image
                                 src="/images/banners/about-1.jpg"
                                 alt="about us"
                                 className={styles.imgFront}
+                                width={436}
+                                height={330}
                             />
-                            <img
+                            <Image
                                 src="/images/banners/about-2.jpg"
                                 alt="about us"
                                 className={styles.imgBack}
+                                width={276}
+                                height={320}
                             />
                         </div>
                     </div>
