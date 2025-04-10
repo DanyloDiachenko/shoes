@@ -29,6 +29,7 @@ export const Team = () => {
                                             {teamMember.socialLinks.map(
                                                 (socialLink, index) => (
                                                     <Link
+                                                        key={index}
                                                         href={socialLink.link}
                                                         className={
                                                             styles.socialIcon
