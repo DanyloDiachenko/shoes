@@ -1,0 +1,48 @@
+.banner {
+    .pageHeader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 250px;
+        margin-bottom: 5rem;
+        padding: 4.6rem 0 5rem;
+        background-color: #ebebeb;
+        text-align: center;
+        position: relative;
+
+        @media screen and (min-width: 768px) {
+            min-height: 350px;
+        }
+        @media screen and (min-width: 992px) {
+            min-height: 450px;
+        }
+
+        .title {
+            color: #fff;
+            z-index: 1;
+
+            @media screen and (min-width: 768px) {
+                font-size: 3.6rem;
+            }
+            @media screen and (min-width: 992px) {
+                font-size: 4rem;
+            }
+
+            .subtitle {
+                font-size: 1.6rem;
+                margin-top: 0.4rem;
+                letter-spacing: 0;
+                display: block;
+            }
+        }
+
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

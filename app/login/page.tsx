@@ -17,7 +17,7 @@ const breadcrumbs: Breadcrumb[] = [
     },
 ];
 
-const Login = async () => {
+const Login = () => {
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
