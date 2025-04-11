@@ -1,0 +1,85 @@
+.contactInformation {
+    margin-bottom: 0rem;
+    padding-right: 10px;
+    padding-left: 10px;
+    position: relative;
+    width: 100%;
+
+    @media (min-width: 992px) {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .title {
+        margin-bottom: 1rem;
+        font-size: 2.2rem;
+
+        @media screen and (min-width: 768px) {
+            font-size: 2.4rem;
+        }
+    }
+
+    .description {
+        margin-bottom: 3rem;
+    }
+
+    .largeColumn {
+        padding-right: 10px;
+        padding-left: 10px;
+        position: relative;
+        width: 100%;
+
+        @media (min-width: 576px) {
+            -ms-flex: 0 0 58.333333%;
+            flex: 0 0 58.333333%;
+            max-width: 58.333333%;
+        }
+    }
+
+    .contactInfo {
+        margin-bottom: 3rem;
+
+        h3 {
+            margin-top: 0.5rem;
+            font-weight: 400;
+            font-size: 1.8rem;
+            letter-spacing: -0.025em;
+            margin-bottom: 1.5rem;
+        }
+
+        .contactList {
+            max-width: 270px;
+            list-style: none;
+            padding-left: 0;
+
+            li {
+                position: relative;
+                padding-left: 3rem;
+                margin-bottom: 1.4rem;
+
+                svg {
+                    display: inline-block;
+                    position: absolute;
+                    left: 0;
+                    top: 0.3rem;
+                    font-size: 2rem;
+                    line-height: 1;
+                    color: #c96;
+                }
+
+                .textDark {
+                    color: #333;
+                }
+
+                a {
+                    color: inherit;
+
+                    &:hover {
+                        color: #c96;
+                    }
+                }
+            }
+        }
+    }
+}
