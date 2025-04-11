@@ -17,13 +17,6 @@ export const Questions = () => {
                         <label htmlFor="cname" className="sr-only">
                             Name
                         </label>
-                        {/* <input
-                            type="text"
-                            className="form-control"
-                            id="cname"
-                            placeholder="Name *"
-                            required={true}
-                        /> */}
                         <Input
                             type="text"
                             placeholder="Name *"
@@ -64,14 +57,6 @@ export const Questions = () => {
                 <label htmlFor="cmessage" className="sr-only">
                     Message
                 </label>
-                {/* <textarea
-                    className="form-control"
-                    cols={30}
-                    rows={4}
-                    id="cmessage"
-                    required={true}
-                    placeholder="Message *"
-                ></textarea> */}
                 <Textarea
                     placeholder="Message *"
                     id="cmessage"
@@ -79,13 +64,6 @@ export const Questions = () => {
                     cols={30}
                     rows={4}
                 />
-                {/*  <button
-                    type="submit"
-                    className="btn btn-outline-primary-2 btn-minwidth-sm"
-                >
-                    <span>SUBMIT</span>
-                    <i className="icon-long-arrow-right"></i>
-                </button> */}
                 <Button type="submit" colorType="btnOutlinePrimary2">
                     <span>SUBMIT</span>
                     <IoIosArrowRoundForward size={20} />

@@ -1,0 +1,129 @@
+.stores {
+    margin-bottom: 4rem;
+
+    @media screen and (min-width: 992px) {
+        margin-bottom: 5rem;
+    }
+
+    .title {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.2rem;
+
+        @media screen and (min-width: 768px) {
+            font-size: 2.4rem;
+        }
+    }
+
+    .column {
+        padding-right: 10px;
+        padding-left: 10px;
+        position: relative;
+        width: 100%;
+
+        @media (min-width: 992px) {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .store {
+            margin-bottom: 3rem;
+            color: #777;
+            font-weight: 300;
+
+            .mediaColumn {
+                padding-right: 10px;
+                padding-left: 10px;
+
+                @media (min-width: 576px) {
+                    -ms-flex: 0 0 41.666667%;
+                    flex: 0 0 41.666667%;
+                    max-width: 41.666667%;
+                }
+                @media (min-width: 1200px) {
+                    -ms-flex: 0 0 50%;
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                }
+
+                .storeMedia {
+                    margin-bottom: 2rem;
+                    margin: 0 0 1rem;
+
+                    @media screen and (min-width: 992px) {
+                        margin-bottom: 0rem;
+                    }
+                }
+            }
+
+            .textColumn {
+                padding-right: 10px;
+                padding-left: 10px;
+                position: relative;
+                width: 100%;
+
+                @media (min-width: 576px) {
+                    -ms-flex: 0 0 58.333333%;
+                    flex: 0 0 58.333333%;
+                    max-width: 58.333333%;
+                }
+                @media (min-width: 1200px) {
+                    -ms-flex: 0 0 50%;
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                }
+
+                .storeContent {
+                    .storeTitle {
+                        font-weight: 400;
+                        font-size: 1.6rem;
+                        letter-spacing: 0;
+                        margin-bottom: 0.8rem;
+                        margin-top: -0.2rem;
+                    }
+
+                    address {
+                        font-style: normal;
+                    }
+
+                    a {
+                        color: inherit;
+
+                        &:hover {
+                            color: #c96;
+                        }
+                    }
+
+                    .storeSubtitle {
+                        font-weight: 400;
+                        font-size: 1.4rem;
+                        letter-spacing: 0;
+                        margin-bottom: 0.4rem;
+                        margin-top: 3.2rem;
+                    }
+
+                    .buttonLink {
+                        margin-top: 2.1rem;
+                        padding: 0.4rem 0;
+                        min-width: 0;
+                        color: #c96;
+                        text-decoration: none;
+                        border: none;
+                        border-bottom: 0.1rem solid transparent;
+                        letter-spacing: 0;
+                        font-size: 1.4rem;
+                        gap: 0.7rem;
+                        background: none;
+
+                        &:hover {
+                            color: #c96;
+                            text-decoration: none;
+                            border-color: #c96;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
