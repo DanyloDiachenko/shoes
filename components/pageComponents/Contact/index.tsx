@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 import { Banner } from "./Banner";
 import { ContactInfoAndQuestions } from "./ContactInfoAndQuestions";
 import { OurStores } from "./OurStores";
+import { GoogleMap } from "./OurStores/GoogleMap";
 
 export const ContactPageComponent = () => {
     return (
@@ -14,6 +15,7 @@ export const ContactPageComponent = () => {
                     <OurStores />
                 </div>
             </div>
+            <GoogleMap />
         </>
     );
 };
