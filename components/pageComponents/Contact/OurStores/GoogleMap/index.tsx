@@ -3,12 +3,13 @@
 import { memo, useCallback, useState } from "react";
 import {
     GoogleMap as ApiGoogleMap,
+    Marker,
     useJsApiLoader,
 } from "@react-google-maps/api";
 
 const center = {
-    lat: -3.745,
-    lng: -38.523,
+    lat: 40.70580442314958,
+    lng: -74.00610985216971,
 };
 
 const GoogleMapComponent = () => {
@@ -33,11 +34,17 @@ const GoogleMapComponent = () => {
     return isLoaded ? (
         <ApiGoogleMap
             center={center}
-            zoom={10}
+            zoom={13}
             onLoad={onLoad}
             onUnmount={onUnmount}
+            options={{
+                minZoom: 13,
+                maxZoom: 18,
+            }}
             id="google-map"
-        />
+        >
+            <Marker position={center} />
+        </ApiGoogleMap>
     ) : (
         <div className="google-map"></div>
     );
