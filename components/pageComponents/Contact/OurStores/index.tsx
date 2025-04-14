@@ -39,7 +39,7 @@ export const OurStores = () => {
                                         {store.wordDaysAndHours.map(
                                             (day, index) => (
                                                 <div key={index}>
-                                                    {day.day} {day.hours}
+                                                    {day.day} - {day.hours}
                                                 </div>
                                             )
                                         )}
