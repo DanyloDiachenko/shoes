@@ -53,8 +53,12 @@ export const WhatCustomersSay = () => {
                     infinite={false}
                     speed={400}
                     arrows={true}
-                    nextArrow={<NextArrow slider={slider} />}
-                    prevArrow={<PrevArrow slider={slider} />}
+                    nextArrow={
+                        <NextArrow slider={slider as RefObject<SlickSlider>} />
+                    }
+                    prevArrow={
+                        <PrevArrow slider={slider as RefObject<SlickSlider>} />
+                    }
                 >
                     {testimonials.map((testimonial, index) => (
                         <TestimonialSlide key={index} {...testimonial} />

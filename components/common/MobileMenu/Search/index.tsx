@@ -10,12 +10,12 @@ import { Product } from "@/interfaces/entities/product.interface";
 import { Currency } from "@/types/currency.type";
 import Image from "next/image";
 import Link from "next/link";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, RefObject, useEffect, useRef, useState } from "react";
 import { LiaSearchSolid } from "react-icons/lia";
 
 export const Search = () => {
     const formRef = useRef<HTMLFormElement>(null);
-    onOutsideClick(formRef, () => {
+    onOutsideClick(formRef as RefObject<HTMLFormElement>, () => {
         setIsSearchListOpened(false);
     });
 

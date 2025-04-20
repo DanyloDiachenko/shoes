@@ -2,7 +2,7 @@
 
 import { onOutsideClick } from "@/helpers/onOutsideClick";
 import Link from "next/link";
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { MouseEvent, RefObject, useEffect, useRef, useState } from "react";
 import { LiaSearchSolid } from "react-icons/lia";
 import styles from "./search.module.scss";
 import Image from "next/image";
@@ -36,7 +36,7 @@ export const Search = ({ currency }: SearchProps) => {
         }
     }, [isSearchOpen]);
 
-    onOutsideClick(searchWrapperRef, closeSearch);
+    onOutsideClick(searchWrapperRef as RefObject<HTMLDivElement>, closeSearch);
 
     const searchProducts = async () => {
         if (search.length >= 3) {
