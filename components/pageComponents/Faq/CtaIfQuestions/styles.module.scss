@@ -1,0 +1,100 @@
+.cta {
+    background-color: #f5f5f5;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+    position: relative;
+
+    .ctaBackground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .row {
+        justify-content: center;
+
+        .mainColumn {
+            padding-right: 10px;
+            padding-left: 10px;
+            position: relative;
+            width: 100%;
+
+            @media (min-width: 768px) {
+                -ms-flex: 0 0 83.333333%;
+                flex: 0 0 83.333333%;
+                max-width: 83.333333%;
+            }
+            @media (min-width: 992px) {
+                -ms-flex: 0 0 75%;
+                flex: 0 0 75%;
+                max-width: 75%;
+            }
+            @media (min-width: 1200px) {
+                -ms-flex: 0 0 58.333333%;
+                flex: 0 0 58.333333%;
+                max-width: 58.333333%;
+            }
+
+            .content {
+                margin-left: 0;
+                margin-right: 0;
+                -ms-flex-direction: column;
+                flex-direction: column;
+
+                @media (min-width: 576px) {
+                    -ms-flex-align: center;
+                    align-items: center;
+                    -ms-flex-direction: row;
+                    flex-direction: row;
+                }
+
+                .leftColumn {
+                    -ms-flex-preferred-size: 0;
+                    flex-basis: 0;
+                    -ms-flex-positive: 1;
+                    flex-grow: 1;
+
+                    .ctaTitle {
+                        font-weight: 600;
+                        line-height: 1.2;
+                        color: #fff;
+                        margin-bottom: 0;
+
+                        @media screen and (min-width: 992px) {
+                            font-size: 3rem;
+                        }
+                    }
+
+                    .ctaDesc {
+                        font-size: 1.6rem;
+                        color: #fff;
+
+                        @media screen and (max-width: 575px) {
+                            margin-bottom: 2rem;
+                        }
+                    }
+                }
+
+                .rightColumn {
+                    -ms-flex: 0 0 auto;
+                    flex: 0 0 auto;
+                    width: auto;
+                    max-width: 100%;
+
+                    .btn {
+                        min-width: 170px;
+                        padding-top: 1.15rem;
+                        padding-bottom: 1.15rem;
+
+                        svg {
+                            margin-left: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
