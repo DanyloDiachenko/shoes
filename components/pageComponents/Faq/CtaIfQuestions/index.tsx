@@ -1,19 +1,11 @@
 import { Button } from "@/components/UI/Button";
 import styles from "./styles.module.scss";
 import Link from "next/link";
-import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 export const CtaIfQuestions = () => {
     return (
         <div className={styles.cta}>
-            <Image
-                src="/images/banners/cta-background.png"
-                alt="Call to action"
-                width={1920}
-                height={150}
-                className={styles.ctaBackground}
-            />
             <div className="container">
                 <div className={`row ${styles.row}`}>
                     <div className={styles.mainColumn}>
@@ -26,10 +18,10 @@ export const CtaIfQuestions = () => {
                                     Quisque volutpat mattis eros
                                 </p>
                             </div>
-
                             <div className={styles.rightColumn}>
-                                <Link href="/contact">
+                                <Link href="/contact" >
                                     <Button
+                                        tabIndex={-1}
                                         className={styles.btn}
                                         colorType="btnWhite"
                                     >
