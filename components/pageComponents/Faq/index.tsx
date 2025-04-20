@@ -1,6 +1,10 @@
 import { Accordion } from "@/components/UI/Accordion";
 import styles from "./styles.module.scss";
-import { faqShippingInformation } from "@/data/faq";
+import {
+    faqShippingInformation,
+    faqOrdersAndReturns,
+    faqPayments,
+} from "@/data/faq";
 
 export const FaqPageComponent = () => {
     return (
@@ -11,6 +15,10 @@ export const FaqPageComponent = () => {
                     items={faqShippingInformation}
                     isFirstItemOpened={true}
                 />
+                <h2 className={styles.title}>Orders and Returns</h2>
+                <Accordion items={faqOrdersAndReturns} />
+                <h2 className={styles.title}>Payments</h2>
+                <Accordion items={faqPayments} />
             </div>
         </div>
     );

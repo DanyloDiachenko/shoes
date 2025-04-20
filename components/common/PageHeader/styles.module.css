@@ -1,36 +1,36 @@
 .pageHeader {
-  padding: 4.6rem 0 5rem;
-  background-color: #ebebeb;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  text-align: center;
-  background-image: url(/images/banners/page-header-bg.png);
+    padding: 4.6rem 0 5rem;
+    background-color: #ebebeb;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url(/images/banners/page-header-bg.png);
 }
 .pageHeader h1 {
-  color: #333;
-  letter-spacing: 0.025em;
-  font: normal 400 3.2rem/1.1 "Poppins", sans-serif;
-  margin-bottom: 0;
+    color: #333;
+    letter-spacing: 0.025em;
+    font: normal 400 3.2rem/1.1;
+    margin-bottom: 0;
 }
 @media screen and (min-width: 768px) {
-  .pageHeader h1 {
-    font-size: 3.6rem;
-  }
+    .pageHeader h1 {
+        font-size: 3.6rem;
+    }
 }
 @media screen and (min-width: 992px) {
-  .pageHeader h1 {
-    font-size: 4rem;
-  }
+    .pageHeader h1 {
+        font-size: 4rem;
+    }
 }
 .pageHeader h1 span {
-  display: block;
-  color: #c96;
-  margin-top: 0.8rem;
-  font-size: 2rem;
+    display: block;
+    color: #c96;
+    margin-top: 0.8rem;
+    font-size: 2rem;
 }
 @media (max-width: 768px) {
-  .pageHeader h1 span {
-    font-size: 1.8rem;
-  }
-}/*# sourceMappingURL=styles.module.css.map */
+    .pageHeader h1 span {
+        font-size: 1.8rem;
+    }
+} /*# sourceMappingURL=styles.module.css.map */

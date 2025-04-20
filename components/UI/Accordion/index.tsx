@@ -4,8 +4,12 @@ import { useState } from "react";
 import { AccordionProps } from "./accordion.props";
 import { Button } from "../Button";
 import styles from "./styles.module.scss";
+import { IoIosArrowDown } from "react-icons/io";
 
-export const Accordion = ({ isFirstItemOpened, items }: AccordionProps) => {
+export const Accordion = ({
+    isFirstItemOpened = false,
+    items,
+}: AccordionProps) => {
     const [openedAccordionItemIndex, setOpenedAccordionItemIndex] =
         useState<number>(isFirstItemOpened ? 0 : -1);
 
@@ -35,6 +39,7 @@ export const Accordion = ({ isFirstItemOpened, items }: AccordionProps) => {
                             aria-controls={`collapse-${index + 1}`}
                         >
                             <h2 className={styles.cardTitle}>{item.title}</h2>
+                            <IoIosArrowDown size={20} />
                         </Button>
                     </div>
                     <div
