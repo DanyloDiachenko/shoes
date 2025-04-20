@@ -4,8 +4,9 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { Button } from "@/components/UI/Button";
 import Image from "next/image";
 import { stores } from "@/data/stores";
+import { OurStoresProps } from "./OurStores.props";
 
-export const OurStores = () => {
+export const OurStores = ({ onViewStoreOnMapClick }: OurStoresProps) => {
     return (
         <div className={styles.stores}>
             <h2 className={styles.title}>Our Stores</h2>
@@ -46,6 +47,12 @@ export const OurStores = () => {
                                         <Button
                                             className={styles.buttonLink}
                                             colorType="btnOutlinePrimary2"
+                                            onClick={() =>
+                                                onViewStoreOnMapClick(
+                                                    store.lng,
+                                                    store.lat
+                                                )
+                                            }
                                         >
                                             <span>View Map</span>
                                             <IoIosArrowRoundForward size={20} />

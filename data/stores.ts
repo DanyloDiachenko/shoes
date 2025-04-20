@@ -7,7 +7,8 @@ interface Store {
         day: string;
         hours: string;
     }[];
-    mapUrl: string;
+    lat: number;
+    lng: number;
 }
 
 export const stores: Store[] = [
@@ -26,7 +27,8 @@ export const stores: Store[] = [
                 hours: "11am to 6pm",
             },
         ],
-        mapUrl: "#",
+        lat: 40.705669,
+        lng: -74.006073,
     },
     {
         image: "/images/banners/store-2.png",
@@ -47,6 +49,7 @@ export const stores: Store[] = [
                 hours: "Closed",
             },
         ],
-        mapUrl: "#",
+        lat: 40.705461,
+        lng: -74.006432,
     },
 ];
