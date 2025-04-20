@@ -46,7 +46,7 @@ export const getNavigation = async (): Promise<NavigationItem[]> => {
             title: "Sizes",
             sublinks: sizes.map((size) => ({
                 title: String(size.title),
-                link: `/products?brands=${size.slug}`,
+                link: `/products?sizes=${size.slug}`,
             })),
         },
         {
