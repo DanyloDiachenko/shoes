@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { Aside } from "./Aside";
 import { CheckoutProps } from "./checkout.props";
 import { Form } from "./Form";
