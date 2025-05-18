@@ -18,7 +18,7 @@ export interface Product {
     mainImage: string;
     productInformation: string;
     additionalInformation: string;
-    purchasedNumber: 10;
+    purchasedNumber: number;
     images: string[];
     priceWithDiscountUah: number;
     priceWithDiscountEur: number;
@@ -29,4 +29,9 @@ export interface Product {
     sizes: Size[];
     categories: Category[];
     rating: number;
+}
+
+export interface CartProduct extends Product {
+    quantity: number;
+    size: number;
 }

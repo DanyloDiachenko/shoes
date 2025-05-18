@@ -9,6 +9,10 @@ import { Product } from "@/interfaces/entities/product.interface";
 import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 import { shippings } from "@/data/shippings";
 import { createOrder } from "@/api/orders";
+import { setCookie } from "@/helpers/setCookie";
+import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
 
 export const CheckoutPageComponent = ({
     user,
@@ -17,6 +21,13 @@ export const CheckoutPageComponent = ({
     currency,
     shippingType,
 }: CheckoutProps) => {
+    const dispatch = useDispatch();
+    const router = useRouter();
+
+    const toogleLocalStorageHandler = () => {
+        dispatch(toogleLocalStorage());
+    };
+
     const [orderNotes, setOrderNotes] = useState("");
 
     const getProductPrice = (product: Product) => {
@@ -121,7 +132,13 @@ export const CheckoutPageComponent = ({
         console.log(paymentData);
 
         const res = await createOrder(paymentData);
-        console.log(res);
+
+        if (res.id) {
+            setCookie("cart", "");
+            toogleLocalStorageHandler();
+            toast.success("Order created successfuly!");
+            router.push("/payment-success");
+        }
     };
 
     return (

@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import { AsideProps } from "./aside.props";
 import { getCurrencyIcon } from "@/helpers/getCurrencyIcon";
 import { shippings } from "@/data/shippings";
-import { PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalButtons } from "./PayPalButtons";
 
 export const Aside = ({
     products,
@@ -81,25 +81,10 @@ export const Aside = ({
                     </tbody>
                 </table>
                 <PayPalButtons
-                    onApprove={onPaymentSuccess}
-                    onClick={onPaymentClick}
-                    createOrder={(_, actions) => {
-                        return actions.order.create({
-                            intent: "CAPTURE",
-                            purchase_units: [
-                                {
-                                    amount: {
-                                        currency_code: currency.toUpperCase(),
-                                        value: total.toFixed(2),
-                                    },
-                                },
-                            ],
-                            application_context: {
-                                shipping_preference: "NO_SHIPPING",
-                                user_action: "PAY_NOW",
-                            },
-                        });
-                    }}
+                    onPaymentClick={onPaymentClick}
+                    onPaymentSuccess={onPaymentSuccess}
+                    total={total}
+                    currency={currency}
                 />
             </div>
         </aside>

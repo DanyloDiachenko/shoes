@@ -1,0 +1,61 @@
+.table {
+    margin-bottom: 3rem;
+    width: 100%;
+    color: #212529;
+    border-collapse: collapse;
+
+    @media screen and (max-width: 991px) {
+        border: 0.1rem solid #ebebeb;
+        width: 100%;
+        display: block;
+    }
+
+    thead {
+        @media screen and (max-width: 991px) {
+            display: none;
+        }
+    }
+
+    th {
+        border-top: none;
+        border-bottom: 0.1rem solid #ebebeb;
+        vertical-align: bottom;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 1.4rem;
+        padding-bottom: 1.4rem;
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        color: #999;
+        text-align: inherit;
+    }
+
+    @media screen and (max-width: 991px) {
+        tbody,
+        tr,
+        td {
+            width: 100% !important;
+            display: block !important;
+        }
+
+        tr {
+            border-bottom: 0.1rem solid #ebebeb;
+            position: relative;
+            padding-top: 4.2rem;
+            padding-bottom: 4rem;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        tr td {
+            text-align: center;
+            padding: 0.1rem 3rem;
+            border-bottom: none;
+        }
+    }
+}

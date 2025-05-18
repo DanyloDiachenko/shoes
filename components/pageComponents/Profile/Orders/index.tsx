@@ -2,8 +2,15 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Button } from "@/components/UI/Button";
+import { OrdersPageComponentProps } from "./orders.props";
+import { Table } from "./Table";
+import { getCurrency } from "@/helpers/getCurrency";
 
-export const OrdersPageContent = () => {
+export const OrdersPageContent = async ({
+    orders,
+}: OrdersPageComponentProps) => {
+    const currency = await getCurrency();
+
     return (
         <div
             className={styles.content}
@@ -11,13 +18,19 @@ export const OrdersPageContent = () => {
             role="tabpanel"
             aria-labelledby="tab-orders-link"
         >
-            <p>No order has been made yet.</p>
-            <Link href="/products">
-                <Button colorType="btnOutlinePrimary2">
-                    <span>Go Shop</span>
-                    <IoIosArrowRoundForward />
-                </Button>
-            </Link>
+            {orders.length ? (
+                <Table currency={currency} orders={orders} />
+            ) : (
+                <>
+                    <p>No order has been made yet.</p>
+                    <Link href="/products">
+                        <Button colorType="btnOutlinePrimary2">
+                            <span>Go Shop</span>
+                            <IoIosArrowRoundForward />
+                        </Button>
+                    </Link>
+                </>
+            )}
         </div>
     );
 };
