@@ -3,7 +3,7 @@ import { ProfileLayoutProps } from "./layout.props";
 import { PageHeader } from "@/components/common/PageHeader";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import styles from "./styles.module.scss";
-import { ProfileAside } from "@/components/pageComponents/Profile/Aside";
+import { ProfileAside } from "@/components/page-components/Profile/Aside";
 import { redirect } from "next/navigation";
 import { getCookie } from "@/helpers/getCookie";
 import { getServerPathname } from "@/helpers/getServerPathname";

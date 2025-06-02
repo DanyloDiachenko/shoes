@@ -1,5 +1,5 @@
 import { getProfile } from "@/api/auth";
-import { AccountPageContent } from "@/components/pageComponents/Profile/Account";
+import { AccountPageContent } from "@/components/page-components/Profile/Account";
 import { User } from "@/interfaces/entities/user.inteface";
 
 const Account = async () => {

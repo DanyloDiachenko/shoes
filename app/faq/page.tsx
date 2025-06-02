@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { PageHeader } from "@/components/common/PageHeader";
-import { FaqPageComponent } from "@/components/pageComponents/Faq";
+import { FaqPageComponent } from "@/components/page-components/Faq";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 
 const breadcrumbs: Breadcrumb[] = [

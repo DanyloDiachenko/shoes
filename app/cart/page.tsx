@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { PageHeader } from "@/components/common/PageHeader";
-import { CartPageContent } from "@/components/pageComponents/Cart";
+import { CartPageContent } from "@/components/page-components/Cart";
 import { getCookieProductsServer } from "@/helpers/getCookieProductsServer";
 import { CookieProduct } from "@/interfaces/cookieProduct.interface";
 import { getProduct } from "../../api/products";

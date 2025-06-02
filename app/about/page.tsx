@@ -1,5 +1,5 @@
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
-import { AboutPageComponent } from "@/components/pageComponents/About";
+import { AboutPageComponent } from "@/components/page-components/About";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 
 const breadcrumbs: Breadcrumb[] = [

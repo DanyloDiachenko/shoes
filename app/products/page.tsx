@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { PageHeader } from "@/components/common/PageHeader";
-import { ProductsPageContent } from "@/components/pageComponents/Products";
+import { ProductsPageContent } from "@/components/page-components/Products";
 import { getProducts } from "../../api/products";
 import { getCategories } from "../../api/categories";
 import { getSizes } from "../../api/sizes";

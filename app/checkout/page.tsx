@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { PageHeader } from "@/components/common/PageHeader";
-import { CheckoutPageComponent } from "@/components/pageComponents/Checkout";
+import { CheckoutPageComponent } from "@/components/page-components/Checkout";
 import { getCookie } from "@/helpers/getCookie";
 import { Breadcrumb } from "@/interfaces/breadcrumb.interface";
 import { redirect } from "next/navigation";
