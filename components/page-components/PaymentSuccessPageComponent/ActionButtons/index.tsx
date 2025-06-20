@@ -1,13 +1,13 @@
-import { LuTruck } from "react-icons/lu";
+import { Button } from "@/components/UI/Button";
 import styles from "./styles.module.scss";
 
 export const ActionButtons = () => {
     return (
         <div className={styles.actionButtons}>
-            <button className={styles.primaryButton}>Continue Shopping</button>
-            <button className={`${styles.outlineButton} ${styles.gray}`}>
+            <Button colorType="btnPrimary">Continue Shopping</Button>
+            <Button colorType="btnOutlineDark2">
                 Track Order
-            </button>
+            </Button>
         </div>
     );
 };

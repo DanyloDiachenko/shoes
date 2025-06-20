@@ -1,4 +1,3 @@
-import { LuMail } from "react-icons/lu";
 import styles from "./styles.module.scss";
 
 export const SupportSection = () => {

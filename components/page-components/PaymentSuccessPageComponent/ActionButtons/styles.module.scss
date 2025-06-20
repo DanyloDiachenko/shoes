@@ -1,11 +1,11 @@
 .actionButtons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 16px;
     justify-content: center;
     margin-top: 48px;
 
-    @media (min-width: 640px) {
-        flex-direction: row;
+    @media (max-width: 640px) {
+        flex-direction: column;
     }
 }
