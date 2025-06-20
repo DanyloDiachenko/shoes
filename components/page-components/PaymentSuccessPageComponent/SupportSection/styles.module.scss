@@ -1,0 +1,56 @@
+@mixin card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.supportSection {
+    text-align: center;
+    margin-top: 48px;
+    padding: 24px;
+    @include card;
+
+    .supportTitle {
+        font-weight: 500;
+        color: #111827;
+        margin-bottom: 8px;
+    }
+
+    .supportText {
+        font-size: 14px;
+        color: #4b5563;
+        margin-bottom: 16px;
+    }
+
+    .supportLinks {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        justify-content: center;
+        font-size: 14px;
+
+        @media (min-width: 640px) {
+            flex-direction: row;
+        }
+
+        a {
+            color: #d97706;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: #b45309;
+            }
+        }
+
+        .separator {
+            color: #d1d5db;
+
+            @media (max-width: 639px) {
+                display: none;
+            }
+        }
+    }
+}

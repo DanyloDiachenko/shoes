@@ -1,0 +1,62 @@
+@mixin card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.card {
+    @include card;
+
+    .cardHeader {
+        padding: 24px;
+        border-bottom: 1px solid #e5e7eb;
+
+        .cardTitle {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+
+    .cardContent {
+        padding: 24px;
+    }
+}
+
+.shippingInfo {
+    .address {
+        margin-bottom: 16px;
+
+        .name {
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .addressLine {
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 2px;
+        }
+    }
+
+    .deliveryInfo {
+        padding-top: 16px;
+        border-top: 1px solid #e5e7eb;
+
+        .deliveryText {
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 4px;
+
+            .highlight {
+                font-weight: 500;
+                color: #111827;
+            }
+        }
+    }
+}
