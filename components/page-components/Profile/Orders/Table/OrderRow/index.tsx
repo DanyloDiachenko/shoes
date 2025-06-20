@@ -68,12 +68,11 @@ export const OrderRow = ({ order, currency, number }: OrderRowProps) => {
                                         cartProduct.priceUah,
                                         cartProduct.priceEur,
                                         cartProduct.priceWithDiscountUah,
-                                        cartProduct.priceEur,
+                                        cartProduct.priceWithDiscountEur,
                                         currency
                                     )}
                                     <br />
-                                    {/* NO || */}
-                                    Size: {cartProduct.size || "42"}
+                                    Size: {cartProduct.size}
                                 </div>
                             </div>
                         </li>
