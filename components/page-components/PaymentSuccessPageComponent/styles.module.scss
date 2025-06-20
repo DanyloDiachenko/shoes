@@ -1,0 +1,315 @@
+// Variables
+$primary-color: #d97706;
+$primary-hover: #b45309;
+$success-color: #059669;
+$success-light: #d1fae5;
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-900: #111827;
+$white: #ffffff;
+
+// Mixins
+@mixin card {
+    background-color: $white;
+    border-radius: 8px;
+    border: 1px solid $gray-200;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+@mixin button-base {
+    font-weight: 500;
+    padding: 12px 32px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+@mixin button-primary {
+    @include button-base;
+    background-color: $primary-color;
+    color: $white;
+
+    &:hover:not(:disabled) {
+        background-color: $primary-hover;
+    }
+}
+
+@mixin button-outline {
+    @include button-base;
+    background-color: transparent;
+    border: 1px solid;
+
+    &.outline-primary {
+        border-color: $primary-color;
+        color: $primary-color;
+
+        &:hover {
+            background-color: #fef3e2;
+        }
+    }
+
+    &.outline-gray {
+        border-color: $gray-300;
+        color: $gray-700;
+
+        &:hover {
+            background-color: $gray-50;
+        }
+    }
+}
+
+.container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+
+    .contentGrid {
+        display: grid;
+        gap: 32px;
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .card {
+        @include card;
+
+        .cardHeader {
+            padding: 24px;
+            border-bottom: 1px solid $gray-200;
+
+            .cardTitle {
+                font-size: 18px;
+                font-weight: 600;
+                color: $gray-900;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+        }
+
+        .cardContent {
+            padding: 24px;
+        }
+    }
+
+    .orderSummary {
+        .productItem {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+
+            .productImage {
+                border-radius: 8px;
+                border: 1px solid $gray-200;
+            }
+
+            .productInfo {
+                flex: 1;
+
+                .productName {
+                    font-weight: 500;
+                    color: $gray-900;
+                    margin-bottom: 4px;
+                }
+
+                .productDetails {
+                    font-size: 14px;
+                    color: $gray-500;
+                    margin-bottom: 2px;
+                }
+            }
+
+            .productPrice {
+                text-align: right;
+                font-weight: 500;
+                color: $gray-900;
+            }
+        }
+
+        .separator {
+            border-top: 1px solid $gray-200;
+            margin: 16px 0;
+        }
+
+        .summaryRow {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 8px;
+
+            .label {
+                color: $gray-600;
+            }
+
+            .value {
+                color: $gray-900;
+            }
+
+            &.total {
+                font-weight: 500;
+                font-size: 18px;
+                padding-top: 8px;
+                border-top: 1px solid $gray-200;
+                margin-top: 8px;
+            }
+        }
+    }
+
+    .shippingInfo {
+        .address {
+            margin-bottom: 16px;
+
+            .name {
+                font-weight: 500;
+                color: $gray-900;
+                margin-bottom: 4px;
+            }
+
+            .addressLine {
+                font-size: 14px;
+                color: $gray-600;
+                margin-bottom: 2px;
+            }
+        }
+
+        .deliveryInfo {
+            padding-top: 16px;
+            border-top: 1px solid $gray-200;
+
+            .deliveryText {
+                font-size: 14px;
+                color: $gray-600;
+                margin-bottom: 4px;
+
+                .highlight {
+                    font-weight: 500;
+                    color: $gray-900;
+                }
+            }
+        }
+    }
+
+    .nextSteps {
+        .stepsList {
+            .step {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                margin-bottom: 12px;
+                font-size: 14px;
+                color: $gray-600;
+
+                .stepDot {
+                    width: 8px;
+                    height: 8px;
+                    background-color: $primary-color;
+                    border-radius: 50%;
+                    margin-top: 8px;
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
+
+    .actionButtons {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        justify-content: center;
+        margin-top: 48px;
+
+        @media (min-width: 640px) {
+            flex-direction: row;
+        }
+
+        .primaryButton {
+            @include button-primary;
+        }
+
+        .outlineButton {
+            @include button-outline;
+
+            &.primary {
+                @extend .outline-primary;
+            }
+
+            &.gray {
+                @extend .outline-gray;
+            }
+        }
+    }
+
+    .supportSection {
+        text-align: center;
+        margin-top: 48px;
+        padding: 24px;
+        @include card;
+
+        .supportTitle {
+            font-weight: 500;
+            color: $gray-900;
+            margin-bottom: 8px;
+        }
+
+        .supportText {
+            font-size: 14px;
+            color: $gray-600;
+            margin-bottom: 16px;
+        }
+
+        .supportLinks {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
+            font-size: 14px;
+
+            @media (min-width: 640px) {
+                flex-direction: row;
+            }
+
+            a {
+                color: $primary-color;
+                font-weight: 500;
+                text-decoration: none;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: $primary-hover;
+                }
+            }
+
+            .separator {
+                color: $gray-300;
+
+                @media (max-width: 639px) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .rightColumn {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+}
