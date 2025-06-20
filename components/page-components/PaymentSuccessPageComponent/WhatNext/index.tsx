@@ -6,7 +6,7 @@ export const WhatNext = () => {
         <div className={styles.card}>
             <div className={styles.cardHeader}>
                 <h2 className={styles.cardTitle}>
-                    <LuMail className="w-5 h-5 text-amber-600" />
+                    <LuMail size={22} />
                     What's Next?
                 </h2>
             </div>

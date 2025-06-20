@@ -7,7 +7,7 @@ export const OrderSummary = () => {
         <div className={styles.card}>
             <div className={styles.cardHeader}>
                 <h2 className={styles.cardTitle}>
-                    <LuPackage className="w-5 h-5 text-amber-600" />
+                    <LuPackage size={22} />
                     Order Summary
                 </h2>
             </div>

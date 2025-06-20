@@ -1,74 +1,14 @@
-// Mixins
-@mixin card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-@mixin button-base {
-    font-weight: 500;
-    padding: 12px 32px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    border: none;
-    font-size: 14px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    &:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-}
-
-@mixin button-primary {
-    @include button-base;
-    background-color: #d97706;
-    color: #ffffff;
-
-    &:hover:not(:disabled) {
-        background-color: #b45309;
-    }
-}
-
-@mixin button-outline {
-    @include button-base;
-    background-color: transparent;
-    border: 1px solid;
-
-    &.outline-primary {
-        border-color: #d97706;
-        color: #d97706;
-
-        &:hover {
-            background-color: #fef3e2;
-        }
-    }
-
-    &.outline-gray {
-        border-color: #d1d5db;
-        color: #374151;
-
-        &:hover {
-            background-color: #f9fafb;
-        }
-    }
-}
-
 .container {
     padding-top: 48px;
     padding-bottom: 48px;
 
     .contentGrid {
         display: grid;
-        gap: 32px;
+        gap: 24px;
+        grid-template-columns: 1fr 1fr;
 
-        @media (min-width: 768px) {
-            grid-template-columns: 1fr 1fr;
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
         }
     }
 

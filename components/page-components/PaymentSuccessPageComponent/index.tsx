@@ -1,5 +1,3 @@
-import { LuCheck, LuMail, LuPackage, LuTruck } from "react-icons/lu";
-import Image from "next/image";
 import styles from "./styles.module.scss";
 import { SuccessHeader } from "./SuccessHeader";
 import { OrderSummary } from "./OrderSummary";

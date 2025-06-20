@@ -6,7 +6,7 @@ export const ShippingInformation = () => {
         <div className={styles.card}>
             <div className={styles.cardHeader}>
                 <h2 className={styles.cardTitle}>
-                    <LuTruck className="w-5 h-5 text-amber-600" />
+                    <LuTruck size={22} />
                     Shipping Information
                 </h2>
             </div>

@@ -9,12 +9,14 @@
         border-bottom: 1px solid #e5e7eb;
 
         .cardTitle {
-            font-size: 18px;
-            font-weight: 600;
-            color: #111827;
+            font-size: 22px;
             display: flex;
             align-items: center;
             gap: 8px;
+
+            svg {
+                color: #c96;
+            }
         }
     }
 
@@ -37,15 +39,14 @@
                     flex: 1;
 
                     .productName {
+                        font-size: 20px;
                         font-weight: 500;
                         color: #111827;
-                        margin-bottom: 4px;
                     }
 
                     .productDetails {
                         font-size: 14px;
                         color: #6b7280;
-                        margin-bottom: 2px;
                     }
                 }
 
@@ -53,12 +54,14 @@
                     text-align: right;
                     font-weight: 500;
                     color: #111827;
+                    font-size: 16px;
                 }
             }
 
             .separator {
                 border-top: 1px solid #e5e7eb;
-                margin: 16px 0;
+                margin-top: 16px;
+                margin-bottom: 8px;
             }
 
             .summaryRow {
@@ -73,6 +76,7 @@
 
                 .value {
                     color: #111827;
+                    font-weight: 500;
                 }
 
                 &.total {
@@ -80,7 +84,6 @@
                     font-size: 18px;
                     padding-top: 8px;
                     border-top: 1px solid #e5e7eb;
-                    margin-top: 8px;
                 }
             }
         }
