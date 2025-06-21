@@ -32,28 +32,37 @@
 
                 .productImage {
                     border-radius: 8px;
-                    border: 1px solid #e5e7eb;
                 }
 
                 .productInfo {
                     flex: 1;
 
                     .productName {
-                        font-size: 20px;
-                        font-weight: 500;
-                        color: #111827;
+                        h3 {
+                            font-size: 20px;
+                            font-weight: 500;
+                            color: #111827;
+                            transition: 0.3s;
+                        }
+
+                        &:hover {
+                            h3 {
+                                color: #c96;
+                            }
+                        }
                     }
 
                     .productDetails {
                         font-size: 14px;
                         color: #6b7280;
+                        margin-top: 8px;
                     }
                 }
 
                 .productPrice {
                     text-align: right;
                     font-weight: 500;
-                    color: #111827;
+                    color: #c96;
                     font-size: 16px;
                 }
             }

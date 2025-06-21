@@ -129,7 +129,6 @@ export const CheckoutPageComponent = ({
             shippingType,
             amount: getTotalPrice(),
         };
-        console.log(paymentData);
 
         const res = await createOrder(paymentData);
 
@@ -142,7 +141,8 @@ export const CheckoutPageComponent = ({
             const successfulPaymentData = {
                 orderNotes,
                 shippingType,
-                orderId: res.id
+                orderId: res.id,
+                boughtProducts: paymentData.cart
             };
             const successfulPaymentDataEncoded = encodeURIComponent(
                 JSON.stringify(successfulPaymentData)
