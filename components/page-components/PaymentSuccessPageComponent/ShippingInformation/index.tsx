@@ -1,13 +1,20 @@
 import { LuTruck } from "react-icons/lu";
 import styles from "./styles.module.scss";
 import { ShippingInformationProps } from "./shippingInformation.props";
+import { shippings } from "@/data/shippings";
 
 export const ShippingInformation = ({
     shippingAddress,
     userFirstName,
     userLastName,
     shippingType,
+    orderNotes,
 }: ShippingInformationProps) => {
+    const shipping = shippings.find(
+        (shipping) => shipping.value === shippingType
+    );
+    console.log(shippingType)
+
     return (
         <div className={styles.card}>
             <div className={styles.cardHeader}>
@@ -19,21 +26,32 @@ export const ShippingInformation = ({
             <div className={styles.cardContent}>
                 <div className={styles.shippingInfo}>
                     <div className={styles.address}>
-                        <p className={styles.name}>{userFirstName} {userLastName}</p>
-                        <p className={styles.addressLine}>123 Main Street</p>
-                        <p className={styles.addressLine}>New York, NY 10001</p>
-                        <p className={styles.addressLine}>United States</p>
+                        <p className={styles.name}>
+                            {userFirstName} {userLastName}
+                        </p>
+                        <p className={styles.addressLine}>
+                            {shippingAddress.homeNumber}{" "}
+                            {shippingAddress.street} str.
+                        </p>
+                        <p className={styles.addressLine}>
+                            {shippingAddress.city}, {shippingAddress.postIndex}
+                        </p>
+                        <p className={styles.addressLine}>
+                            {shippingAddress.country}
+                        </p>
                     </div>
                     <div className={styles.deliveryInfo}>
                         <p className={styles.deliveryText}>
-                            Estimated delivery:{" "}
+                            Delivery:{" "}
                             <span className={styles.highlight}>
-                                3-5 business days
+                                {shipping?.title}
                             </span>
                         </p>
-                        <p className={styles.deliveryText}>
-                            Tracking number will be sent via email
-                        </p>
+                        {orderNotes && (
+                            <p className={styles.deliveryText}>
+                                Notes: {orderNotes}
+                            </p>
+                        )}
                     </div>
                 </div>
             </div>

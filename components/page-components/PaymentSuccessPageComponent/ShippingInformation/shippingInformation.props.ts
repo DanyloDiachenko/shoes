@@ -6,4 +6,5 @@ export interface ShippingInformationProps {
     userFirstName: string;
     userLastName: string;
     shippingType: ShippingType;
+    orderNotes: string | undefined;
 }

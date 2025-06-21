@@ -138,6 +138,18 @@ export const CheckoutPageComponent = ({
             toogleLocalStorageHandler();
             toast.success("Order created successfuly!");
             router.push("/payment-success");
+
+            const successfulPaymentData = {
+                orderNotes,
+                shippingType,
+                orderId: res.id
+            };
+            const successfulPaymentDataEncoded = encodeURIComponent(
+                JSON.stringify(successfulPaymentData)
+            );
+            router.push(
+                `/payment-success?data=${successfulPaymentDataEncoded}&`
+            );
         }
     };
 

@@ -10,8 +10,10 @@ import { getProfile } from "@/api/auth";
 import { redirect } from "next/navigation";
 import { User } from "@/interfaces/entities/user.inteface";
 import { Address } from "@/interfaces/entities/address.interface";
+import { PaymentSuccessPageComponentProps } from "./PaymentSuccess.props";
 
-export const PaymentSuccessPageComponent = async () => {
+
+export const PaymentSuccessPageComponent = async ({ orderNotes, shippingType, boughtProducts, orderId }: PaymentSuccessPageComponentProps) => {
     const currency = await getCurrency();
 
     const userProfile = await getProfile();
@@ -23,15 +25,18 @@ export const PaymentSuccessPageComponent = async () => {
     return (
         <div className={`container ${styles.container}`}>
             <main className={`page-content`}>
-                <SuccessHeader />
+                <SuccessHeader orderId={orderId} />
                 <div className={styles.contentGrid}>
                     <OrderSummary />
                     <div className={styles.rightColumn}>
                         <ShippingInformation
-                            shippingType=""
+                            shippingType={shippingType}
                             shippingAddress={
                                 (userProfile as User).shippingAddress as Address
                             }
+                            userFirstName={(userProfile as User).firstName as string}
+                            userLastName={(userProfile as User).lastName as string}
+                            orderNotes={orderNotes}
                         />
                         <WhatNext />
                     </div>
