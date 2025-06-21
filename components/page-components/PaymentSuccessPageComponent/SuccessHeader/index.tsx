@@ -12,7 +12,7 @@ export const SuccessHeader = ({ orderId }: SuccessHeaderProps) => {
             <h1 className={styles.title}>Payment Successful!</h1>
             <p className={styles.subtitle}>Thank you for your purchase</p>
             <p className={styles.orderNumber}>
-                Order #<Link href="/dashboard/orders">{orderId}</Link>
+                Order <Link href="/dashboard/orders">#{orderId}</Link>
             </p>
         </div>
     );

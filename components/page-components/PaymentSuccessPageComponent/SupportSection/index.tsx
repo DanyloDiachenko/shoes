@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./styles.module.scss";
 
 export const SupportSection = () => {
@@ -9,11 +10,7 @@ export const SupportSection = () => {
                 hesitate to contact us.
             </p>
             <div className={styles.supportLinks}>
-                <a href="#">Contact Support</a>
-                <span className={styles.separator}>|</span>
-                <a href="#">Return Policy</a>
-                <span className={styles.separator}>|</span>
-                <a href="#">FAQ</a>
+                <Link href="/faq">FAQ</Link>
             </div>
         </div>
     );
