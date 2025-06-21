@@ -27,7 +27,6 @@ const PaymentSuccess = async ({ searchParams }: PaymentSuccessPageProps) => {
 
     let boughtProductsDetailed: CartProduct[] = [];
 
-    console.log(boughtProducts)
     for (let i = 0; i < boughtProducts.length; i++) {
         const productToCart = await getProduct(boughtProducts[i].productId);
         if (!productToCart) {
@@ -42,7 +41,6 @@ const PaymentSuccess = async ({ searchParams }: PaymentSuccessPageProps) => {
             }];
         }
     }
-    console.log(boughtProductsDetailed);
 
     return (
         <PaymentSuccessPageComponent

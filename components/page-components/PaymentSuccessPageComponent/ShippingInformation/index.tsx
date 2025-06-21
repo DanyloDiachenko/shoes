@@ -13,7 +13,6 @@ export const ShippingInformation = ({
     const shipping = shippings.find(
         (shipping) => shipping.value === shippingType
     );
-    console.log(shippingType)
 
     return (
         <div className={styles.card}>

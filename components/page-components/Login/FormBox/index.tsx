@@ -19,7 +19,6 @@ export const FormBox = () => {
     const onGoogleLogin = async (response: CredentialResponse) => {
         try {
             const res = await googleAuth(response.credential || "");
-            console.log(res);
 
             if ("token" in res) {
                 setCookie("token", res.token);
