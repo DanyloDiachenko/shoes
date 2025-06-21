@@ -29,16 +29,9 @@ const breadcrumbs: Breadcrumb[] = [
 ];
 
 const Checkout = async () => {
-    const token = await getCookie("token");
-
-    if (!token) {
-        redirect("/login");
-    }
-
     const profileResponse = await getProfile();
 
-    if ("statusCode" in profileResponse && profileResponse.statusCode === 401) {
-        setCookie("token", "");
+    if ("statusCode" in profileResponse && profileResponse.statusCode) {
         redirect("/login");
     }
 

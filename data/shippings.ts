@@ -2,7 +2,7 @@ import { Shipping } from "@/interfaces/shipping.interface";
 
 export const shippings: Shipping[] = [
     {
-        title: "Free (subtotal price greater than 5000₴ or 100€, 7-10 days)",
+        title: "Free (7-10 days)",
         value: "free",
         priceUah: 0,
         priceEur: 0,

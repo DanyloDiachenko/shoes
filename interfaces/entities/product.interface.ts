@@ -33,5 +33,6 @@ export interface Product {
 
 export interface CartProduct extends Product {
     quantity: number;
+    productId: string;
     size: number;
 }

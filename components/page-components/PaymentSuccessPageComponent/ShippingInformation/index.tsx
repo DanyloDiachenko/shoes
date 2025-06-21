@@ -1,7 +1,13 @@
 import { LuTruck } from "react-icons/lu";
 import styles from "./styles.module.scss";
+import { ShippingInformationProps } from "./shippingInformation.props";
 
-export const ShippingInformation = () => {
+export const ShippingInformation = ({
+    shippingAddress,
+    userFirstName,
+    userLastName,
+    shippingType,
+}: ShippingInformationProps) => {
     return (
         <div className={styles.card}>
             <div className={styles.cardHeader}>
@@ -13,7 +19,7 @@ export const ShippingInformation = () => {
             <div className={styles.cardContent}>
                 <div className={styles.shippingInfo}>
                     <div className={styles.address}>
-                        <p className={styles.name}>John Doe</p>
+                        <p className={styles.name}>{userFirstName} {userLastName}</p>
                         <p className={styles.addressLine}>123 Main Street</p>
                         <p className={styles.addressLine}>New York, NY 10001</p>
                         <p className={styles.addressLine}>United States</p>

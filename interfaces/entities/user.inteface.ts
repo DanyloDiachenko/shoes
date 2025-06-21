@@ -1,4 +1,5 @@
 import { Address } from "./address.interface";
+import { Order } from "./order.interface";
 
 export interface User {
     id: string;
@@ -9,7 +10,7 @@ export interface User {
     phone: string | null;
     shippingAddress: Address | null;
     billingAddress: Address | null;
+    orders: Order[];
     /* favorites: [];
-    orders: [];
     reviews: []; */
 }
