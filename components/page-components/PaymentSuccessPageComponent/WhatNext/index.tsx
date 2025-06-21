@@ -16,19 +16,24 @@ export const WhatNext = () => {
                         <div className={styles.step}>
                             <div className={styles.stepDot}></div>
                             <p>
-                                Order confirmation has been sent to your email
+                                Your order is confirmed and we're getting
+                                everything ready for you!
                             </p>
                         </div>
                         <div className={styles.step}>
                             <div className={styles.stepDot}></div>
                             <p>
-                                You'll receive shipping updates via email and
-                                SMS
+                                Sit back and relax! We'll keep you updated on
+                                your package's journey with post service.
                             </p>
                         </div>
                         <div className={styles.step}>
                             <div className={styles.stepDot}></div>
-                            <p>Track your order in your account dashboard</p>
+                            <p>
+                                Want to see where your order is? Just hop into
+                                your post service provider to track its progress
+                                in real-time.
+                            </p>
                         </div>
                     </div>
                 </div>
