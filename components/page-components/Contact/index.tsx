@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { Banner } from "./Banner";
 import { ContactInfoAndQuestions } from "./ContactInfoAndQuestions";
 import { OurStores } from "./OurStores";
-import { GoogleMap } from "./OurStores/GoogleMap";
+import { GoogleMap } from "./GoogleMap";
 import { useState } from "react";
 import { stores } from "@/data/stores";
 
