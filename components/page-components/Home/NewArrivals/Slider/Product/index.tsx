@@ -124,7 +124,7 @@ export const Product = ({
                 <TruncatedText className={styles.category} lines={2}>
                     {categories.map((category, index) => (
                         <span key={index}>
-                            <Link href={`/products/${category.slug}`}>
+                            <Link href={`/products?categories=${category.slug}`}>
                                 {category.title}
                             </Link>
                             {index < categories.length - 1 && ", "}
