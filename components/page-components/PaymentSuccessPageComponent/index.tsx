@@ -24,9 +24,14 @@ export const PaymentSuccessPageComponent = async ({
         redirect("/products");
     }
 
-    const checkoutData = JSON.parse(
-        decodeURIComponent(checkoutDataStringified as string)
-    );
+    let checkoutData: any = {};
+    try {
+        checkoutData = JSON.parse(
+            decodeURIComponent(checkoutDataStringified as string)
+        );
+    } catch(error) {
+        redirect("/not-found");
+    }
 
     const shippingType = checkoutData.shippingType;
     const orderNotes = checkoutData.orderNotes;
