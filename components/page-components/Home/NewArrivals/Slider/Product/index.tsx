@@ -13,6 +13,7 @@ import { toogleLocalStorage } from "@/store/slices/toogleLocalStorage";
 import { setProduct } from "@/store/slices/product";
 import { Popup } from "@/types/popup.type";
 import { setOpenedPopup } from "@/store/slices/openedPopup";
+import { TruncatedText } from "@/helpers/TruncatedText";
 
 export const Product = ({
     id,
@@ -120,7 +121,7 @@ export const Product = ({
                 </div>
             </figure>
             <div className={styles.body}>
-                <div className={styles.category}>
+                <TruncatedText className={styles.category} lines={2}>
                     {categories.map((category, index) => (
                         <span key={index}>
                             <Link href={`/products/${category.slug}`}>
@@ -129,14 +130,16 @@ export const Product = ({
                             {index < categories.length - 1 && ", "}
                         </span>
                     ))}
-                </div>
+                </TruncatedText>
                 <h3 className={styles.title}>
-                    <Link
-                        href={`/products/${id}`}
-                        className={styles.productLink}
-                    >
-                        {title}
-                    </Link>
+                    <TruncatedText lines={2}>
+                        <Link
+                            href={`/products/${id}`}
+                            className={styles.productLink}
+                        >
+                            {title}
+                        </Link>
+                    </TruncatedText>
                 </h3>
                 <div className={styles.price}>
                     {getProductPrice(
