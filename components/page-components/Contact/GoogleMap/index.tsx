@@ -6,6 +6,7 @@ import {
 } from "@react-google-maps/api";
 import { GoogleMapProps } from "./GoogleMap.props";
 
+
 const GoogleMapComponent = ({ center }: GoogleMapProps) => {
     const { isLoaded } = useJsApiLoader({
         id: "google-map-script",
