@@ -35,3 +35,11 @@ export interface CartProduct extends Product {
     quantity: number;
     size: number;
 }
+
+export interface CalculatablePricePerProduct {
+    priceWithDiscountUah: number;
+    priceUah: number;
+    priceWithDiscountEur: number;
+    priceEur: number;
+    quantity: number;
+}

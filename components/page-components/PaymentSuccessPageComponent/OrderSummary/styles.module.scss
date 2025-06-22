@@ -24,49 +24,6 @@
         padding: 24px;
 
         .orderSummary {
-            .productItem {
-                display: flex;
-                align-items: center;
-                gap: 16px;
-                margin-bottom: 16px;
-
-                .productImage {
-                    border-radius: 8px;
-                }
-
-                .productInfo {
-                    flex: 1;
-
-                    .productName {
-                        h3 {
-                            font-size: 20px;
-                            font-weight: 500;
-                            color: #111827;
-                            transition: 0.3s;
-                        }
-
-                        &:hover {
-                            h3 {
-                                color: #c96;
-                            }
-                        }
-                    }
-
-                    .productDetails {
-                        font-size: 14px;
-                        color: #6b7280;
-                        margin-top: 8px;
-                    }
-                }
-
-                .productPrice {
-                    text-align: right;
-                    font-weight: 500;
-                    color: #c96;
-                    font-size: 16px;
-                }
-            }
-
             .separator {
                 border-top: 1px solid #e5e7eb;
                 margin-top: 16px;
