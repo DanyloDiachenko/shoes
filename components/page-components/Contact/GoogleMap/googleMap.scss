@@ -1,0 +1,14 @@
+#google-map,
+.google-map {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+
+    @media screen and (min-width: 768px) {
+        height: 380px;
+    }
+    @media screen and (min-width: 992px) {
+        height: 492px;
+    }
+}
