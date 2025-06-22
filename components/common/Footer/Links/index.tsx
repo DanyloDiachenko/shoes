@@ -1,36 +1,37 @@
-import { ILink } from "./link.interface";
+import Link from "next/link";
+import { Link as ILink } from "./link.interface";
 import styles from "./styles.module.scss";
 
 const links: ILink[] = [
     {
         title: "Useful Links",
         links: [
-            { title: "About Molla", link: "about.html" },
-            { title: "How to shop on Molla", link: "#" },
-            { title: "FAQ", link: "#" },
-            { title: "Contact us", link: "contact.html" },
-            { title: "Log in", link: "login.html" },
+            { title: "About Molla", link: "/about" },
+            { title: "How to shop on Molla", link: "/about" },
+            { title: "FAQ", link: "/faq" },
+            { title: "Contact us", link: "/contact" },
+            { title: "Log in", link: "/login" },
         ],
     },
     {
         title: "Customer Service",
         links: [
-            { title: "Payment Methods", link: "#" },
-            { title: "Money-back guarantee!", link: "#" },
-            { title: "Returns", link: "#" },
-            { title: "Shipping", link: "#" },
-            { title: "Terms and conditions", link: "#" },
-            { title: "Privacy Policy", link: "#" },
+            { title: "Payment Methods", link: "/faq" },
+            { title: "Money-back guarantee!", link: "/faq" },
+            { title: "Returns", link: "/faq" },
+            { title: "Shipping", link: "/faq" },
+            { title: "Terms and conditions", link: "/faq" },
+            { title: "Privacy Policy", link: "/faq" },
         ],
     },
     {
         title: "My Account",
         links: [
-            { title: "Sign In", link: "#" },
-            { title: "View Cart", link: "#" },
-            { title: "My Wishlist", link: "#" },
-            { title: "Track My Order", link: "#" },
-            { title: "Help", link: "#" },
+            { title: "Sign In", link: "/login" },
+            { title: "View Cart", link: "/cart" },
+            { title: "My Wishlist", link: "/wishlist" },
+            { title: "Dashboard", link: "/dashboard" },
+            { title: "Help", link: "/contact" },
         ],
     },
 ];
@@ -45,7 +46,7 @@ export const Links = () => {
                         <ul className={styles.widgetList}>
                             {link.links.map((sublink, index) => (
                                 <li key={index}>
-                                    <a href={sublink.link}>{sublink.title}</a>
+                                    <Link href={sublink.link}>{sublink.title}</Link>
                                 </li>
                             ))}
                         </ul>

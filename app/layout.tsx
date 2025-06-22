@@ -3,6 +3,7 @@ import "./globals.scss";
 import "react-toastify/dist/ReactToastify.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-loading-skeleton/dist/skeleton.css";
 import { Noto_Sans } from "next/font/google";
 import { StoreProvider } from "@/store/StoreProvider";
 import { Footer } from "@/components/common/Footer";
@@ -12,7 +13,6 @@ import { Popups } from "@/components/popups";
 import { Metadata } from "next";
 import { GoogleAuthProvider } from "@/components/providers/Google";
 import { PayPalProvider } from "@/components/providers/PayPal";
-/* import { PayPalProvider } from "@/components/providers/PayPal"; */
 
 export const metadata: Metadata = {
     title: "Molla - eCommerce Shoes Shop",

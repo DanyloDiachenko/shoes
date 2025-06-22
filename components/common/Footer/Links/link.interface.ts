@@ -1,9 +1,9 @@
-interface ISublink {
+interface Sublink {
     title: string;
     link: string;
 }
 
-export interface ILink {
+export interface Link {
     title: string;
-    links: ISublink[];
+    links: Sublink[];
 }

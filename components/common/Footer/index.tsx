@@ -21,9 +21,11 @@ export const Footer = () => {
                                     height="25"
                                 />
                                 <p>
-                                    Praesent dapibus, neque id cursus ucibus,
-                                    tortor neque egestas augue, eu vulputate
-                                    magna eros eu erat.
+                                    Discover premium footwear for every occasion
+                                    at Molla. From elegant dress shoes to
+                                    comfortable sneakers, we offer quality
+                                    brands and styles to keep you stepping
+                                    confidently.
                                 </p>
                                 <Socials />
                             </div>
