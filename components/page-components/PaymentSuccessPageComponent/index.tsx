@@ -11,12 +11,11 @@ import { redirect } from "next/navigation";
 import { User } from "@/interfaces/entities/user.inteface";
 import { Address } from "@/interfaces/entities/address.interface";
 import { PaymentSuccessPageComponentProps } from "./PaymentSuccess.props";
+import { CartProduct } from "@/interfaces/entities/product.interface";
+import { getProduct } from "@/api/products";
 
 export const PaymentSuccessPageComponent = async ({
-    orderNotes,
-    shippingType,
-    boughtProducts,
-    orderId,
+    checkoutDataStringified,
 }: PaymentSuccessPageComponentProps) => {
     const currency = await getCurrency();
 
@@ -24,7 +23,38 @@ export const PaymentSuccessPageComponent = async ({
     if ("statusCode" in userProfile && userProfile.statusCode) {
         redirect("/products");
     }
-    userProfile as User;
+
+    const checkoutData = JSON.parse(
+        decodeURIComponent(checkoutDataStringified as string)
+    );
+
+    const shippingType = checkoutData.shippingType;
+    const orderNotes = checkoutData.orderNotes;
+    const boughtProducts = checkoutData.boughtProducts;
+    const orderId = checkoutData.orderId;
+    if (!shippingType || !boughtProducts || !orderId) {
+        redirect("/not-found");
+    }
+
+    let boughtProductsDetailed: CartProduct[] = [];
+
+    for (let i = 0; i < boughtProducts.length; i++) {
+        const productToCart = await getProduct(boughtProducts[i].productId);
+        if (!productToCart) {
+            return;
+        }
+
+        if ("id" in productToCart) {
+            boughtProductsDetailed = [
+                ...boughtProductsDetailed,
+                {
+                    ...productToCart,
+                    quantity: boughtProducts[i].quantity,
+                    size: boughtProducts[i].size,
+                },
+            ];
+        }
+    }
 
     return (
         <div className={`container ${styles.container}`}>
@@ -34,7 +64,7 @@ export const PaymentSuccessPageComponent = async ({
                     <OrderSummary
                         currency={currency}
                         shippingType={shippingType}
-                        boughtProducts={boughtProducts}
+                        boughtProducts={boughtProductsDetailed}
                     />
                     <div className={styles.rightColumn}>
                         <ShippingInformation
