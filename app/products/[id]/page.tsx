@@ -1,4 +1,5 @@
 import { PageProps } from "@/.next/types/app/products/page";
+import { getProfile } from "@/api/auth";
 import { getProduct } from "@/api/products";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ProductPageContent } from "@/components/page-components/Product";
@@ -29,10 +30,13 @@ const ProductDetails = async ({ params }: PageProps) => {
         notFound();
     }
 
+    const userProfile = await getProfile();
+    const userFullName = "firstName" in userProfile ? `${userProfile.firstName} ${userProfile.lastName}` : null;
+
     return (
         <>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
-            <ProductPageContent product={product as Product} />
+            <ProductPageContent product={product as Product} userFullName={userFullName} />
         </>
     );
 };

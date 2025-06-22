@@ -9,7 +9,7 @@ import { ProductDetailsTabContent } from "@/interfaces/productDetailsTabContent.
 import { DetailsBottomProps } from "./detailsBottom.props";
 import { ShippingReturns } from "./TabsContent/ShippingReturns";
 
-export const DetailsBottom = ({ product }: DetailsBottomProps) => {
+export const DetailsBottom = ({ product, userFullName }: DetailsBottomProps) => {
     const tabContent: ProductDetailsTabContent[] = [
         {
             key: "description",
@@ -41,7 +41,7 @@ export const DetailsBottom = ({ product }: DetailsBottomProps) => {
         {
             key: "reviews",
             title: `Reviews (${product.reviews.length})`,
-            content: <Reviews reviews={product.reviews} />,
+            content: <Reviews reviews={product.reviews} userFullName={userFullName} productId={product.id} />,
         },
     ];
 

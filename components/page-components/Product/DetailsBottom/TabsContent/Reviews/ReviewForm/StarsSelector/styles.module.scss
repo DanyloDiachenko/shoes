@@ -1,0 +1,24 @@
+.stars {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.starButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &:hover .starIcon {
+        transform: scale(1.1);
+    }
+}
+
+.starIcon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s;
+}

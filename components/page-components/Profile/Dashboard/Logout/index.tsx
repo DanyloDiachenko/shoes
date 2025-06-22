@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { setCookie } from "@/helpers/setCookie";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";

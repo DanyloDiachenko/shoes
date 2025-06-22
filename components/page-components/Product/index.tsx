@@ -10,6 +10,7 @@ import { Product } from "@/interfaces/entities/product.interface";
 
 export const ProductPageContent = async ({
     product,
+    userFullName
 }: ProductPageContentProps) => {
     const currency = await getCurrency();
     const cookieProducts = (await getCookieProductsServer()) || [];
@@ -25,7 +26,7 @@ export const ProductPageContent = async ({
             <div className="page-content">
                 <div className="container">
                     <DetailsTop product={product} />
-                    <DetailsBottom product={product} />
+                    <DetailsBottom product={product} userFullName={userFullName} />
                     <YouMayAlsoLike
                         products={mayLikedProducts}
                         currency={currency}
